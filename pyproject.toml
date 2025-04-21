@@ -1,0 +1,7 @@
+[project]
+name = "stem-volumes"
+version = "0.1.0"
+description = "Implementation of several formulas for calculating the stem volume of trees"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
