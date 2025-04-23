@@ -622,8 +622,22 @@ def stem_volume_formula_78():
 def stem_volume_formula_79():
     pass
 
-def stem_volume_formula_80():
-    pass
+def stem_volume_formula_80(D,H):
+    
+    # Larix spp. - Netherlands
+    # D = mm | H = m  | V = dm³
+
+    # coefficients
+    a = 0.00035217
+    b = 2.12841828
+    c = -0.0026067	
+    d = 0.76283925
+
+    # equation  
+    V = a * D**(b + c) * H**d
+
+    # volume
+    return V
 
 def stem_volume_formula_81(D, H, a=2.822*10**(-5), b=2.2060, c=-0.1136, d=1.115, e=0.0129):
     # Larix spp. (lehtikuusi, lork, larice) in Romania
