@@ -573,8 +573,10 @@ def stem_volume_formula_159():
 def stem_volume_formula_160():
     pass
 
-def stem_volume_formula_161():
-    pass
+def stem_volume_formula_161(D, H, a=0.1424, b=2.0786, c=1.9028, d=-1.0259, e=-0.2640):
+    V = a * H**b * D**c * (H-1.3)**d * (D+100)**e
+    return V
+
 
 def stem_volume_formula_162():
     pass
