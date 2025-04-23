@@ -698,8 +698,20 @@ def stem_volume_formula_99():
 def stem_volume_formula_100():
     pass
 
-def stem_volume_formula_101():
-    pass
+def stem_volume_formula_101(D, H):
+    # Reference: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+    # for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from the Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in cm³
+
+    # define parameters
+    a = 0.04143
+    b = 1.6704
+    c = 1.3337
+
+    # implement formula
+    V =  a * D**b * H**c
+    return V
 
 def stem_volume_formula_102():
     pass
