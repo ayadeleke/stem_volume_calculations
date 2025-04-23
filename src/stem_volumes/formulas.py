@@ -28,8 +28,27 @@ def stem_volume_formula_4(D):
     V = a*D**b 
     return V
 
-def stem_volume_formula_5():
-    pass
+def stem_volume_formula_5(D, H):
+
+    # Reference: Pollanschütz, J. 1974. Formzahlfunktionen der Hauptbaumarten Österreichs. Allgemeine Forstzeitung 85: 341–343.
+    # for Abies spp. (Fir, Brad), from Austria
+    # input: diameter D in dm, height H in dm
+    # output: volume in dm³
+    
+    import math
+
+    # define parameters
+    a = 0.580223
+    b = -0.0307373
+    c = -17.1507
+    d = 0.089869
+    e = -0.080557
+    f = 19.661
+    g = -2.4584
+
+    # implement formula
+    V = (math.pi/4)*(a*D**2*H+b*D**2*H*math.log(D)**2+c*D**2+d*D*H+e*H+f*D+g)
+    return V
 
 def stem_volume_formula_6(D, H):
     
