@@ -61,10 +61,10 @@ def stem_volume_formula_16(D, H):
     d = 0.004341
     
     # equation / D=cm, H=m, 
-    volume = a + b * D**2 + c * D**2 * H + d + H**2 * D
+    V = a + b * D**2 + c * D**2 * H + d + H**2 * D
 
-    # result=dm³
-    return volume
+    # V=dm³
+    return V
 pass
 
 def stem_volume_formula_17():
