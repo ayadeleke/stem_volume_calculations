@@ -1228,8 +1228,21 @@ def stem_volume_formula_158():
 def stem_volume_formula_159():
     pass
 
-def stem_volume_formula_160():
-    pass
+def stem_volume_formula_160(D,H):
+    
+    # Fagus spp. - UK
+    # D = cm | H = m  | V = dm³
+
+    # coefficients
+    a = 1.82075
+    b = 1.07427
+    c = -2.8885
+
+    # equation  
+    V = D ** a * H ** b * math.exp(c)
+
+    # volume
+    return V
 
 def stem_volume_formula_161(D, H, a=0.1424, b=2.0786, c=1.9028, d=-1.0259, e=-0.2640):
     # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway
