@@ -276,7 +276,6 @@ def stem_volume_formula_32(D, H):
     
     # Betula spp. - Romania
     # D = cm | H = m  | V = m³
-    # D = 30 | H = 25 | V = 0.71
 
     # coefficients
     a = 8.141e-5
