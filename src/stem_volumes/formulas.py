@@ -18,8 +18,15 @@ def stem_volume_formula_2():
 def stem_volume_formula_3():
     pass
 
-def stem_volume_formula_4():
-    pass
+# Theos equation
+def stem_volume_formula_4(D):
+    # Coefficients
+    a = 0.0001316
+    b = 2.52
+    
+    # Formula - Abies sibirica (Germany)
+    V = a*D**b 
+    return V
 
 def stem_volume_formula_5():
     pass
