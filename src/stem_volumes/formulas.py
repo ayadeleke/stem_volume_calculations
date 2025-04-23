@@ -671,8 +671,6 @@ def stem_volume_formula_105(D, H):
     
     return V
 
-print(stem_volume_formula_105(10,39.49))
-
 def stem_volume_formula_106():
     pass
 
