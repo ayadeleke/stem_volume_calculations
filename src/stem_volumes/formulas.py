@@ -37,8 +37,17 @@ def stem_volume_formula_9():
 def stem_volume_formula_10():
     pass
 
-def stem_volume_formula_11():
-    pass
+def stem_volume_formula_11(diameter, height):
+    import math
+    a = 0.00035375
+    b = 1.02
+    c = 0.3997
+    d = 0.666
+    e = 0.021
+
+    volume = a * 10**(b * math.log10(diameter) + c * math.log10(diameter)**2 + d * math.log10(height) + e * math.log10(height)**2)
+
+    return volume
 
 def stem_volume_formula_12():
     pass
