@@ -590,8 +590,19 @@ def stem_volume_formula_83():
 def stem_volume_formula_84():
     pass
 
-def stem_volume_formula_85():
-    pass
+def stem_volume_formula_85(D):
+    # Reference: Cerný, M. 1990. Biomass of Picea abies (l.) Karst. in midwestern Bohemia. Scandinavian Journal of Forest Research 5: 83–95.
+    # for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from Czech Republic
+    # input: diameter D in cm
+    # output: volume in m³
+
+    # define parameters
+    a = 0.00059707
+    b = 2.1286
+
+    # implement formula
+    V =  a * D**b
+    return V
 
 def stem_volume_formula_86():
     pass
