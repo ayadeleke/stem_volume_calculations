@@ -272,8 +272,24 @@ def stem_volume_formula_30():
 def stem_volume_formula_31():
     pass
 
-def stem_volume_formula_32():
-    pass
+def stem_volume_formula_32(D, H):
+    
+    # Betula spp. - Romania
+    # D = cm | H = m  | V = m³
+    # D = 30 | H = 25 | V = 0.71
+
+    # coefficients
+    a = 8.141e-5
+    b = 2.248
+    c = -0.2062
+    d = 0.1946
+    e = 0.4147
+
+    # equation  
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+
+    # volume
+    return V
 
 def stem_volume_formula_33(D, H, a=0.1305, b=0.01338, c=0.01757, d=-0.05606): # D should be between 5cm-34.9cm and H between 5m-26.9m
     # Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan) in Sweden
