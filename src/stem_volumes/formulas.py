@@ -849,8 +849,21 @@ def stem_volume_formula_136(D, H):
     V = D**a*H**b*math.exp(c)
     return V
 
-def stem_volume_formula_137():
-    pass
+def stem_volume_formula_137(D, H):
+    # reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
+    # Pinus nigra var nigra (Black pine, Pin negru), from Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
+
+    # coefficients
+    a = 1.95645
+    b = 0.88671
+    c = -2.7675
+ 
+    # equation
+    V = (D ** a) * (H ** b) * math.exp(c)
+   
+    return V
 
 def stem_volume_formula_138():
     pass
