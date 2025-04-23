@@ -173,6 +173,8 @@ def stem_volume_formula_21(D, H):
     # input: diameter D in cm, height H in m
     # output: volume in m³
 
+    import math
+
     # define parameters
     a = 0.00008666
     b = 1.7148
@@ -283,8 +285,22 @@ def stem_volume_formula_35():
 def stem_volume_formula_36():
     pass
 
-def stem_volume_formula_37():
-    pass
+def stem_volume_formula_37(D, H):
+    # Reference: Brandel, G. 1990. Volumfunktioner för enskilda träd. Sveriges lantbruksuniversitet, Institutionen för skogsproduktion, Rapport 6: 1–181.
+    # for  Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan), from Sweden
+    # input: diameter D in cm (range 4.5 -), height H in m (range 6 -)
+    # output: volume in dm³
+
+    # define parameters
+    a = -0.35394
+    b = 2.52141
+    c = -1.54257
+    d = 4.88165
+    e = -3.47422
+
+    # implement formula
+    V = 10**a * D**b * (D+20)**c * H**d * (H-1.3)**e
+    return V
 
 def stem_volume_formula_38():
     pass
