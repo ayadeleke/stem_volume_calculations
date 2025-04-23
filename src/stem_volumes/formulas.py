@@ -1348,8 +1348,21 @@ def stem_volume_formula_174():
 def stem_volume_formula_175():
     pass
 
-def stem_volume_formula_176():
-    pass
+def stem_volume_formula_176(D,H):
+    
+    # Pinus sylvestric - Sweden
+    # D = cm | H = m  | V = dm³
+
+    # coefficients
+    a = 0.1072		
+    b = 0.02427
+    c = 0.007315
+
+    # equation  
+    V = a * D**2 + b * D**2 * H + c * D * H**2
+
+    # volume
+    return V
 
 def stem_volume_formula_177(D, H, a=-1.2605, b=1.9322, c=-0.0897, d=2.1795, e=-1.1676): # D should be >2cm and H should be >2m
     # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden
