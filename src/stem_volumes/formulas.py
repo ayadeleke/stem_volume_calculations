@@ -7,6 +7,8 @@ Appendix C (starting page 52) of the monograph. It can be downloaded at
 https://doi.org/10.14214/sf.sfm4.
 """
 
+import math
+
 def stem_volume_formula_1():
     pass
 
@@ -22,8 +24,18 @@ def stem_volume_formula_4():
 def stem_volume_formula_5():
     pass
 
-def stem_volume_formula_6():
-    pass
+def stem_volume_formula_6(D, H):
+    
+    # Coefficients
+    a = 0.560673
+    b = 0.15468
+    c = -0.65583
+    d = 0.033210
+    
+    # Equation / D[dm], H[dm], V[dm3]
+    V = (math.pi/4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H)
+    
+    return V
 
 def stem_volume_formula_7():
     pass
