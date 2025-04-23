@@ -653,8 +653,25 @@ def stem_volume_formula_104(D, H):
     V = a*H**b*D**c*(H-1.3)**d*(D+40)**e
     return V
 
-def stem_volume_formula_105():
-    pass
+def stem_volume_formula_105(D, H):
+    # reference:  Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
+    # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from Norway
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
+
+    # coefficients 
+    a = 0.52
+    b = 0.02403
+    c = 0.01463 
+    d = -0.10983
+    e = 0.15195
+
+    # equation 
+    V = a + b * (D**2) * H + c * D * (H**2) + d * (H**2) + e * D * H
+    
+    return V
+
+print(stem_volume_formula_105(10,39.49))
 
 def stem_volume_formula_106():
     pass
