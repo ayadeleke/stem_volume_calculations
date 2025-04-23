@@ -65,7 +65,6 @@ def stem_volume_formula_16(D, H):
 
     # V=dm³
     return V
-pass
 
 def stem_volume_formula_17():
     pass
