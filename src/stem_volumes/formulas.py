@@ -181,9 +181,13 @@ def stem_volume_formula_27(D):
     # Import the natural logarithm function from the math package
     from math import log 
 
-    # Raise ValueError if the diameter or height is out of range
+    # Raise ValueError if the diameter is out of range
     if D < 1.2 or D > 49.7: 
         raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
+    
+    # Raise ValueError if the height is out of range
+    if H < 2.4 or H > 29.5:
+        raise ValueError("Height must be between 2.4 and 29.5 m.")
 
     # Define the coefficients
     a = -5.41948
@@ -376,8 +380,18 @@ def stem_volume_formula_73():
 def stem_volume_formula_74():
     pass
 
+# Linus - Larix sibirica, Norway
 def stem_volume_formula_75():
-    pass
+
+    # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
+    # Units: V(dm^3), D(cm), H(m)
+
+
+    if D < 5:
+        raise ValueError("Diameter must be greater than 5 cm.")
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_76():
     pass
