@@ -230,8 +230,18 @@ def stem_volume_formula_41():
 def stem_volume_formula_42():
     pass
 
-def stem_volume_formula_43():
-    pass
+# Chamaecyparis lawsoniana - Netherlands
+def stem_volume_formula_43(D, H):
+    # Import the exponential function from the math package
+    from math import exp
+    # Define the coefficients
+    a = 1.85298
+    b = 0.86717
+    c = -2.33706
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = D**a * H**b * exp(c)
+    # Return the calculated volume
+    return V 
 
 def stem_volume_formula_44():
     pass
