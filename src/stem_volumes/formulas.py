@@ -1022,8 +1022,23 @@ def stem_volume_formula_168(D, H):
     V = a+b*D**2*H
     return V
 
-def stem_volume_formula_169():
-    pass
+def stem_volume_formula_169(D, H):
+    # reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173–178
+    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), Romania
+    # input: diameter D in cm, height H in m
+    # output: volume in m3
+    
+    # coefficients 
+    a = 0.00014808
+    b = 1.8341
+    c = -0.0448
+    d = 0.3115
+    e = 0.3525
+
+    # equation 
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+
+    return V
 
 def stem_volume_formula_170():
     pass
