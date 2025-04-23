@@ -1462,8 +1462,24 @@ def stem_volume_formula_190():
 def stem_volume_formula_191():
     pass
 
-def stem_volume_formula_192():
-    pass
+def stem_volume_formula_192(D,H):
+    
+    # Prunus avium - Belgium
+    # D = cm | H = m | V = m³
+
+    # coefficients
+    a = -0.002311
+    b = -0.00117728
+    c = 0.000149061
+    d = -7.8058e-6
+    e = 3.3282e-4
+    f = 3.1526e-5
+
+    # equation  
+    V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H 
+
+    # volume
+    return V
 
 def stem_volume_formula_193(D, H, a=-0.019911, b=0.001871101, c=0.000127328, d=-5.7631*10**(-6), e=0.00071591, f=3.9371*10**(-5)):
     # Pseudotsuga menziesii (Douglas fir, Duglas) in Belgium
