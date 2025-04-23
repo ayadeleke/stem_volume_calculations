@@ -995,8 +995,22 @@ def stem_volume_formula_126():
 def stem_volume_formula_127():
     pass
 
-def stem_volume_formula_128():
-    pass
+def stem_volume_formula_128(D,H):
+    
+    # Picea sitchensis - Norway
+    # D = cm | H = m  | V = dm³
+
+    # coefficients
+    a = 0.2101			
+    b = 1.892
+    c = 1.1095
+    d = -0.3895
+
+    # equation  
+    V = a * D**b * (H - 1.3)**c * (D + 40)**d
+
+    # volume
+    return V
 
 def stem_volume_formula_129(D, H, a=0.00009464, b=1.9341, c=-0.0722, d=0.6365, e=0.172):
     # Picea spp. (Molid) in Romania
