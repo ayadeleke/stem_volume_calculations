@@ -31,7 +31,8 @@ def stem_volume_formula_7():
 def stem_volume_formula_8():
     pass
 
-def stem_volume_formula_9():
+def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
+    0.010343+–0.00450536·D+0.0003407·D**2+–.0000040472·D**3+0.00077115·H+0.000029836·D**2·H
     pass
 
 def stem_volume_formula_10():
