@@ -932,8 +932,21 @@ def stem_volume_formula_152(D, H):
     V = a*D**b*H**c
     return V
 
-def stem_volume_formula_153():
-    pass
+def stem_volume_formula_153(D, H):
+    # reference: Vuokila, Y. 1965. Functions for variable density yield tables of pine based on temporary sample plots. Communicationes Instituti Forestalis Fenniae 60(4): 1–86.
+    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), from Finland
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
+
+    # coefficients 
+    a = 0.05782
+    b = 0.11632
+    c = -0.01092
+    d = -0.01317
+
+    # equation 
+    V = a * H * D**2 + b * D * H + c * D**3 + d * D * H**2
+    return V
 
 def stem_volume_formula_154():
     pass
