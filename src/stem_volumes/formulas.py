@@ -524,8 +524,9 @@ def stem_volume_formula_143():
 def stem_volume_formula_144():
     pass
 
-def stem_volume_formula_145():
-    pass
+def stem_volume_formula_145(D, a=0.000244, b=2.32716):
+    V = a * D**b
+    return V
 
 def stem_volume_formula_146():
     pass
