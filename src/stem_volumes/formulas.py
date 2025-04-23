@@ -381,14 +381,24 @@ def stem_volume_formula_74():
     pass
 
 # Linus - Larix sibirica, Norway
-def stem_volume_formula_75():
+def stem_volume_formula_75(D, H):
 
     # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
     # Units: V(dm^3), D(cm), H(m)
 
-
+    # Raise ValueError if the diameter is out of range
     if D < 5:
-        raise ValueError("Diameter must be greater than 5 cm.")
+        raise ValueError("Diameter must be at least 5 cm.")
+
+    # Define the coefficients
+    a = 0.7761
+    b = 3.6461
+    c = 1.9166
+    d = -2.3179
+    e = -0.8236
+    
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
 
     # Return the calculated volume
     return V
