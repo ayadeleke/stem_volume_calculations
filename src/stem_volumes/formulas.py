@@ -1582,8 +1582,24 @@ def stem_volume_formula_206():
 def stem_volume_formula_207():
     pass
 
-def stem_volume_formula_208():
-    pass
+def stem_volume_formula_208(D,H):
+    
+    # Quercus rubra - Belgium
+    # D = cm | H = m | V = m³
+
+    # coefficients
+    a = -0.02149
+    b = 0.002986681
+    c = -4.2506e-5
+    d = -2.1806e-6
+    e = -0.000743
+    f = 3.7473e-5
+
+    # equation  
+    V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
+
+    # volume
+    return V
 
 def stem_volume_formula_209(D, H, a=1.83932, b=0.9724, c=-2.71877):
     #  Quercus rubra (Red oak, chêne rouge) in Netherlands
