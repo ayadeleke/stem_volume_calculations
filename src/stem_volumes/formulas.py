@@ -141,16 +141,20 @@ def stem_volume_formula_15():
 
 def stem_volume_formula_16(D, H):
     
+    # Alnus glutinosa - Norway
+    # D = cm | H = m | V = dm³
+    # !attention! D range = 0-12cm 
+
     # coefficients
     a = 0.6716
     b = 0.75708
     c = 0.029679
     d = 0.004341
-    
-    # equation / D=cm, H=m, 
-    V = a + b * D**2 + c * D**2 * H + d + H**2 * D
 
-    # V=dm³
+    # equation  
+    V = a + b * D**2 + c * D**2 * H + d * H**2 * D
+
+    # volume
     return V
 
 def stem_volume_formula_17(D, H, a=0.0001, b=2.5, c=0.5, d=0.3, e=0.2):
