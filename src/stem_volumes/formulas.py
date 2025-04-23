@@ -1701,8 +1701,23 @@ def stem_volume_formula_222():
 def stem_volume_formula_223():
     pass
 
-def stem_volume_formula_224():
-    pass
+def stem_volume_formula_224(D,H):
+    
+    # Thuja pilicata - Norway
+    # D = cm | H = m | V = dm³
+
+    # coefficients
+    a = 1.3057
+    b = 3.9075
+    c = 1.9832
+    d = -2.3337
+    e = -1.3024
+
+    # equation  
+    V = a * H**b * D**c * (H - 1.3)**d * (D + 40)**e
+
+    # volume
+    return V
 
 def stem_volume_formula_225(D, H, a=0.00004124, b=1.9302, c=0.0209, d=0.129, e=-0.1903):
     # Tilia cordata (Tei) in Romania
