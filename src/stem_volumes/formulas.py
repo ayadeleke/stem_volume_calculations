@@ -327,8 +327,9 @@ def stem_volume_formula_79():
 def stem_volume_formula_80():
     pass
 
-def stem_volume_formula_81():
-    pass
+def stem_volume_formula_81(D, H, a=2.822*10**(-5), b=2.2060, c=-0.1136, d=1.115, e=0.0129):
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    return V
 
 def stem_volume_formula_82():
     pass
