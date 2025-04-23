@@ -390,8 +390,21 @@ def stem_volume_formula_46():
 def stem_volume_formula_47():
     pass
 
-def stem_volume_formula_48():
-    pass
+def stem_volume_formula_48(D,H):
+
+    # Fagus spp. - UK
+    # D = cm | H = m  | V = m³
+
+    # coefficients
+    a = -0.014306
+    b = 0.0000748
+    c = 0.75
+
+    # equation  
+    V = a + b * D**2 * H**c
+
+    # volume
+    return V
 
 def stem_volume_formula_49(D, H, a=-0.015572, b=0.00290013, c=-7.0476*10**(-6), d=2.3935*10**(-6), e=-0.0013528, f=3.9837*10**(-5)):
     # Fagus sylvatica (Beech, Rotbuche, Beuk) in Belgium
