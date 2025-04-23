@@ -164,14 +164,14 @@ def stem_volume_formula_26():
     pass
 
 # Betula spp. - Finland
-def stem_volume_formula_27(D, H):
+# The calculated volume seems to be unrealistically low,
+# however the implementation of the formula is according to the original paper.
+def stem_volume_formula_27(D):
     # Import the natural logarithm function from the math package
     from math import log 
     # Raise ValueError if the diameter or height is out of range
     if D < 1.2 or D > 49.7: 
         raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
-    if H < 2.4 or H > 29.5:
-        raise ValueError("Height must be between 2.4 and 29.5 m.")
     # Define the coefficients
     a = -5.41948
     b = 3.57630	
