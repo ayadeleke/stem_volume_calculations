@@ -720,8 +720,9 @@ def stem_volume_formula_207():
 def stem_volume_formula_208():
     pass
 
-def stem_volume_formula_209():
-    pass
+def stem_volume_formula_209(D, H, a=1.83932, b=0.9724, c=-2.71877):
+    V = D**a * H**b * math.exp(c)
+    return V
 
 def stem_volume_formula_210():
     pass
