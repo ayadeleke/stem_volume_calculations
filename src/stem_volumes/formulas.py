@@ -9,8 +9,10 @@ https://doi.org/10.14214/sf.sfm4.
 
 import math
 
-def stem_volume_formula_1():
-    pass
+def stem_volume_formula_1(D, H, a=1.6662, b=3.2394, c=1.9335, d=-1.8997, e=-0.9739):
+    # Volume calculation formula for Silver fir from Norway.
+        V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
+        return V
 
 def stem_volume_formula_2():
     pass
