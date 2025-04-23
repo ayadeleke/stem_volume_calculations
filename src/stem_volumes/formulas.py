@@ -522,8 +522,31 @@ def stem_volume_formula_105():
 def stem_volume_formula_106():
     pass
 
-def stem_volume_formula_107():
-    pass
+# Linus - Picea abies, Norway
+def stem_volume_formula_107(D, H):
+
+    # Reference: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 13 or D > 59.4:
+        raise ValueError("Diameter must be between 13 and 59.4 cm.")
+    # Raise ValueError if the height is out of range
+    if H > 39.49:
+        raise ValueError("Height may be 39.49 m at max.")
+
+    # Define the coefficients
+    a = 10.14
+    b = 0.0124
+    c = 0.03117
+    d = -0.36381
+    e = 0.28578
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_108():
     pass
