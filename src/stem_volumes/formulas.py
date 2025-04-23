@@ -450,8 +450,30 @@ def stem_volume_formula_89():
 def stem_volume_formula_90():
     pass
 
-def stem_volume_formula_91():
-    pass
+# Linus - Picea abies, Finland
+def stem_volume_formula_91(D, H):
+
+    # Reference: Kanninen, K., Uusvaara, O. & Valonen, P. 1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403: 1–53.
+    # Units: V(dm^1), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 2 or D > 18: 
+        raise ValueError("Diameter must be between 2 and 18 cm.")
+    
+    # Raise ValueError if the height is out of range
+    if H < 2 or H > 18:
+        raise ValueError("Height must be between 2 and 18 m.")
+
+    # Define the coefficients
+    a = 0.7877 
+    b = 1.9302
+    c = 0.79465
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * D**b * H**c
+    
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_92():
     pass
