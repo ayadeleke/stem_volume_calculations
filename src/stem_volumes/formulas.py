@@ -83,17 +83,24 @@ def stem_volume_formula_8(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
-def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
+def stem_volume_formula_9(D, H):
+    # reference: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des arbres et des peuplements forestiers. Les Presses Agronomiques de Gembloux, Gembloux. 126 p.
+    # for Acer pseudoplatanus (Maple, Erable sycomore, Paltin, Sycamore), from Belgium
+    # input: diameter D in cm, height H in m
+    # output: volume in m3
+
+    # coefficients 
     a = 0.010343
     b = -0.00450536
     c = 0.0003407
     d = -0.000004042
     e = 0.00077115
     f = 0.000029836
-    
-    V = a+b*D+c*D**2+d*D**3+e*H+f*D**2*H
 
-    return V # test successful
+    # equation
+    V = a+b*D+c*(D**2)+d*(D**3)+e*H+f*(D**2)*H
+
+    return V
 
 def stem_volume_formula_10():
     pass
@@ -179,8 +186,24 @@ def stem_volume_formula_24(D, H):
     V = D**a *H**b *math.exp(c)
     return V
 
-def stem_volume_formula_25():
-    pass
+def stem_volume_formula_25(D, H):
+    # reference: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des arbres et des peuplements forestiers. Les Presses Agronomiques de Gembloux, Gembloux. 126 p.
+    # Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan), from Belgium
+    # input: diameter D in cm, height H in m
+    # output: volume in m3
+
+    # coefficients 
+    a = -0.011392
+    b = -0.00031447
+    c = 0.000279211 
+    d = -0.0000057966
+    e = -0.00059573
+    f = 0.000030409
+
+    # equation 
+    V = a+b*D+c*(D**2)+d*(D**3)+e*H+f*(D**2)*H
+
+    return V
 
 def stem_volume_formula_26():
     pass
@@ -266,8 +289,22 @@ def stem_volume_formula_40(D, H):
     V = a*D**(b+c)*H**d
     return V
 
-def stem_volume_formula_41():
-    pass
+def stem_volume_formula_41(D, H):
+    # reference: 1 Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P.,Moors, E.J., Sabaté, S. & Daamen, W.P. 2002. Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
+    # Carpinus spp., from Netherlands
+    # input: diameter D in mm, height H in m
+    # output: volume in dm3
+
+    # coefficients 
+    a = 0.00021491
+    b = 2.258957614
+    c = -0.01120638
+    d = 0.60291075
+
+    # equation 
+    V = a*(D**(b+c))*(H**d)
+
+    return V
 
 def stem_volume_formula_42():
     pass
@@ -341,9 +378,22 @@ def stem_volume_formula_56(D, H):
     V = a*D**2*H+b*D**2+c*D*H
     return V
 
-def stem_volume_formula_57():
-    pass
+def stem_volume_formula_57(D, H):
+    # reference: Eriksson, H. 1973. Volymfunktioner för ståendeträd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1–26.
+    # Fraxinus exselsior (Ash, Frêne, Es), from Sweden
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
 
+    # coefficients 
+    a = 0.03593
+    b = 0.03310
+    c = 0.04127
+
+    # equation 
+    V = a * (D**2) * H + b * (D**2) + c * D * H
+
+    return V
+    
 def stem_volume_formula_58():
     pass
 
@@ -413,8 +463,21 @@ def stem_volume_formula_72(D, H):
     V = math.exp(a)*D**b*H**c
     return V
 
-def stem_volume_formula_73():
-    pass
+def stem_volume_formula_73(D, H):
+    # reference: Norrby, M. 1990. Volym- och formtalsfunktioner for Larix sukaczewii och Larix sibirica på Island.Institutionen för skogsskötsel. Series Volym- ochformtalsfunktioner for Larix sukaczewii och Larix sibirica på Island. Sveriges Lantbruksuniversitet, Umeå.
+    # Larix sibirica (Siberian larix), from Iceland
+    # input: diameter D in cm, height H in m
+    # output: volume in m3
+
+    # coefficients 
+    a = -2.9946
+    b = 1.8105
+    c = 0.9908 
+
+    # equation 
+    V = math.exp(a) * (D**b) * (H**c)
+
+    return V
 
 def stem_volume_formula_74():
     pass
