@@ -11,3 +11,15 @@ The project uses the [pytest](https://pytest.org/) for testing.
 You can run the available tests by
 
     $ uv run pytest
+
+# Code Formatting
+
+To check for code formatting issues, run
+
+    $ uv run ruff format --check
+
+# Code Linting
+
+To check for linting issues, run
+
+    $ uv run ruff check
