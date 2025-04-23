@@ -79,7 +79,7 @@ def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
     e = 0.00077115
     f = 0.000029836
     
-    V = a+b·D+c·D**2+d·D**3+e·H+f·D**2·H
+    V = a+b*D+c*D**2+d*D**3+e*H+f*D**2*H
 
     return V
 
