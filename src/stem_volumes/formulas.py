@@ -23,8 +23,8 @@ def stem_volume_formula_4(D):
     b = 2.52
     
     # Formula - Abies sibirica (Germany)
-    v = a*D**b 
-    return v
+    V = a*D**b 
+    return V
 
 def stem_volume_formula_5():
     pass
