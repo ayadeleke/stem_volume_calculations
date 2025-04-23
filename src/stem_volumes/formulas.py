@@ -1297,8 +1297,21 @@ def stem_volume_formula_216(D, H):
     V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
     return V
 
-def stem_volume_formula_217():
-    pass
+def stem_volume_formula_217(D, H):
+    # reference: Broadmeadow, M. & Matthews, R. 2004. Survey methods for Kyoto Protocol monitoring and verification of UK forest carbon stocks. UK Emissions by Sources and Removals by Sinks due to Land Use, Land Use Change and Forestry Activities, Report (June 2004). CEH, Edinburgh.
+    # Quercus spp. (Oak, Chênes, Stejar), UK
+    # input: diameter D in cm, height H in m
+    # output: volume in m3
+    
+    # coefficients
+    a = -0.011724
+    b = 0.0000765
+    c = 0.75
+
+    # equation 
+    V =  a + b * (D**2) * (H**c)
+
+    return V
 
 def stem_volume_formula_218():
     pass
