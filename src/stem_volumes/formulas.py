@@ -14,8 +14,12 @@ def stem_volume_formula_1(D, H, a=1.6662, b=3.2394, c=1.9335, d=-1.8997, e=-0.97
         V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
         return V
 
-def stem_volume_formula_2():
-    pass
+def stem_volume_formula_2(D, H):
+    a = 1.89756
+    b = 0.97717
+    c = -2.94252
+    V = (D ** a) * (H ** b) * math.exp(c)
+    return V
 
 def stem_volume_formula_3():
     pass
