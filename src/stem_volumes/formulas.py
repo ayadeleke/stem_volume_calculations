@@ -1230,7 +1230,7 @@ def stem_volume_formula_159():
 
 def stem_volume_formula_160(D,H):
     
-    # Fagus spp. - UK
+    # Pinus sylvestris - Netherlands
     # D = cm | H = m  | V = dm³
 
     # coefficients
