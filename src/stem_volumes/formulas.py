@@ -744,8 +744,22 @@ def stem_volume_formula_94():
 def stem_volume_formula_95():
     pass
 
-def stem_volume_formula_96():
-    pass
+def stem_volume_formula_96(D,H):
+
+    # RESULTS TOO HIGH | checked original source: eq, coeff and units correct
+    # Picea abies - Iceland
+    # D = cm | H = m  | V = m³
+
+    # coefficients
+    a = 0.1299		
+    b = 1.6834
+    c = 0.8598
+
+    # equation  
+    V = a * D**b * H**c
+
+    # volume
+    return V
 
 def stem_volume_formula_97(D, H, a=0.00053238, b=2.164126647, c=0.004108377, d=0.54879808):
     # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Netherlands
