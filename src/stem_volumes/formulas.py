@@ -500,8 +500,25 @@ def stem_volume_formula_62():
 def stem_volume_formula_63():
     pass
 
-def stem_volume_formula_64():
-    pass
+def stem_volume_formula_64(D,H):
+
+    # Larix decidua - Austria
+    # D = dm | H = dm  | V = dm³
+
+    # coefficients
+    a = 0.609443
+    b = -0.0455748
+    c = -18.6631
+    d = -0.248736
+    e = 0.126594
+    f = 36.9783
+    g = -14.204
+
+    # equation  
+    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H + e * H + f * D + g)
+
+    # volume
+    return V
 
 def stem_volume_formula_65(D, H, a=0.487270, b=-2.04291, c=5.9995): # D should be between 0.5cm to 1.04cm
     # Larix decidua (larch, Mélèzes) in Austria
