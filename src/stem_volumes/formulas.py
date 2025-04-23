@@ -90,18 +90,25 @@ def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
 def stem_volume_formula_10():
     pass
 
-# Acer pseudoplatanus - Romania
+# Linus - Acer pseudoplatanus, Romania
 def stem_volume_formula_11(D, H):
+
+    # Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
     # Import the log10 function from the math package
     from math import log10
+
+    # Define the coefficients
     a = 0.00035375
     b = 1.02
     c = 0.3997
     d = 0.666
     e = 0.021
-    math.exp(c)
+    
     # Calculate the volume according to the formula given by Zianis et al.
     V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
     # Return the calculated volume
     return V
 
@@ -163,23 +170,31 @@ def stem_volume_formula_25():
 def stem_volume_formula_26():
     pass
 
-# Betula spp. - Finland
+# Linus - Betula spp., Finland
 # The calculated volume seems to be unrealistically low,
 # however the implementation of the formula is according to the original paper.
 def stem_volume_formula_27(D):
+
+    # Reference: Laasasenaho, J. 1982. Taper curve and volume functions for pine, spruce and birch. Communicationes Instituti Forestalis Fenniae 108: 1–74.
+    # Units: V(dm^3), D(cm)
+
     # Import the natural logarithm function from the math package
     from math import log 
+
     # Raise ValueError if the diameter or height is out of range
     if D < 1.2 or D > 49.7: 
         raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
+
     # Define the coefficients
     a = -5.41948
     b = 3.57630	
     c = 2
     d = 1.25
     e = -0.0395855
+
     # Calculate the volume according to the formula given by Zianis et al.
     V = a + b * log(c + d * D) + e * D 
+    
     # Return the calculated volume
     return V
 
@@ -230,16 +245,23 @@ def stem_volume_formula_41():
 def stem_volume_formula_42():
     pass
 
-# Chamaecyparis lawsoniana - Netherlands
+# Linus - Chamaecyparis lawsoniana, Netherlands
 def stem_volume_formula_43(D, H):
+
+    # Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
+    # Units: V(dm^3), D(cm), H(m)
+
     # Import the exponential function from the math package
     from math import exp
+
     # Define the coefficients
     a = 1.85298
     b = 0.86717
     c = -2.33706
+
     # Calculate the volume according to the formula given by Zianis et al.
     V = D**a * H**b * exp(c)
+
     # Return the calculated volume
     return V 
 
@@ -290,8 +312,22 @@ def stem_volume_formula_57():
 def stem_volume_formula_58():
     pass
 
-def stem_volume_formula_59():
-    pass
+# Linus - Fraxinus Excelsior, Sweden
+def stem_volume_formula_59(D, H):
+    
+    # Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1–26.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Define the coefficients
+    a = 0.03249
+    b = 0.02941
+    c = 0.03892	
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * D**2 * H + b * D**2 + c * D * H
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_60():
     pass
