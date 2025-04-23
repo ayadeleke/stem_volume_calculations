@@ -29,3 +29,10 @@ To check for code formatting issues, run
 To check for linting issues, run
 
     $ uv run ruff check
+
+# Documentation
+
+For documentation generation [pdoc3](https://pdoc3.github.io/pdoc/) is used.
+To generate the documentation in the `docs/` folder, run
+
+    $ uv run pdoc --html -o docs/ src/stem_volumes
