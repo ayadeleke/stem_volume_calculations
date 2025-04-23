@@ -45,7 +45,7 @@ def stem_volume_formula_11(diameter, height):
     d = 0.666
     e = 0.021
 
-    volume = a * 10**(b * math.log(diameter) + c * math.log(diameter)**2 + d * math.log(height) + e * math.log(height)**2)
+    volume = a * 10**(b * math.log10(diameter) + c * math.log10(diameter)**2 + d * math.log10(height) + e * math.log10(height)**2)
 
     return volume
 
