@@ -38,7 +38,7 @@ def stem_volume_formula_5(D, H):
 
     # Reference: Pollanschütz, J. 1974. Formzahlfunktionen der Hauptbaumarten Österreichs. Allgemeine Forstzeitung 85: 341–343.
     # for Abies spp. (Fir, Brad), from Austria
-    # input: diameter D in dm, height H in dm
+    # input: diameter D in dm (range 1 -), height H in dm
     # output: volume in dm³
     
     import math
@@ -485,8 +485,22 @@ def stem_volume_formula_67():
 def stem_volume_formula_68():
     pass
 
-def stem_volume_formula_69():
-    pass
+def stem_volume_formula_69(D, H):
+    # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
+    # for  Larix hybrid (Hyprid larix), from Norway
+    # input: diameter D in cm (range 5 -), height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.7761
+    b = 3.6461
+    c = 1.9166
+    d = -2.3179
+    e = -0.8236
+
+    # implement formula
+    V =  a * H**b * D**c * (H-1.3)**d * (D+100)**e
+    return V
 
 def stem_volume_formula_70():
     pass
