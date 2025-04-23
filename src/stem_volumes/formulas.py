@@ -1109,8 +1109,22 @@ def stem_volume_formula_142():
 def stem_volume_formula_143():
     pass
 
-def stem_volume_formula_144():
-    pass
+def stem_volume_formula_144(D,H):
+    
+    # Pinus sylvestris - Austria
+    # D = dm | H = dm  | V = dm³
+
+    # coefficients
+    a = 0.435949	
+    b = -0.0149083
+    c = 5.21091
+    d = 0.028702
+
+    # equation  
+    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * H)
+
+    # volume
+    return V
 
 def stem_volume_formula_145(D, a=0.000244, b=2.32716):
     # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Belgium
