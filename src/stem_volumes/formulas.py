@@ -1117,8 +1117,20 @@ def stem_volume_formula_184(D, H):
     V = a+b*D**2*H**c
     return V
 
-def stem_volume_formula_185():
-    pass
+def stem_volume_formula_185(D, H):
+    # reference: 1 Børset, O. 1954. Kubering av osp på rot. Meddelelser fra det norske Skogforsøksvesen 12: 391–447
+    # Populus tremula (Aspen, Plop tremulator), Norway
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
+
+    # coefficients
+    a = 9.69
+    b = 0.0365
+
+    # equation
+    V = a + b * (D**2) * H
+
+    return V
 
 def stem_volume_formula_186():
     pass
