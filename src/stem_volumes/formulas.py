@@ -388,8 +388,20 @@ def stem_volume_formula_51():
 def stem_volume_formula_52():
     pass
 
-def stem_volume_formula_53():
-    pass
+def stem_volume_formula_53(D, H):
+    # Reference: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+    # for  Fagus sylvatica (Beech, Rotbuche, Beuk), from the Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.049
+    b = 1.78189
+    c = 1.08345
+
+    # implement formula
+    V = a * D**b * H**c
+    return V
 
 def stem_volume_formula_54():
     pass
