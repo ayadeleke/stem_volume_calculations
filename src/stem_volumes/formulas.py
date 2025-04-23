@@ -167,8 +167,22 @@ def stem_volume_formula_19():
 def stem_volume_formula_20():
     pass
 
-def stem_volume_formula_21():
-    pass
+def stem_volume_formula_21(D, H):
+    # Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majori-tatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173–178.
+    # for Alnus nigra (Anin negru), from Romania
+    # input: diameter D in cm, height H in m
+    # output: volume in m³
+
+    # define parameters
+    a = 0.00008666
+    b = 1.7148
+    c = 0.1014
+    d = 0.801
+    e = 0.0530
+
+    # implement formula
+    V =  a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
+    return V
 
 def stem_volume_formula_22():
     pass
