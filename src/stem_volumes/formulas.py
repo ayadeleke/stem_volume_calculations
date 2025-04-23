@@ -92,8 +92,8 @@ def stem_volume_formula_10():
 
 # Acer pseudoplatanus - Romania
 def stem_volume_formula_11(D, H):
-    # Import math functions for the logarithm
-    import math
+    # Import the log10 function from the math package
+    from math import log10
     a = 0.00035375
     b = 1.02
     c = 0.3997
@@ -101,7 +101,7 @@ def stem_volume_formula_11(D, H):
     e = 0.021
     math.exp(c)
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
     # Return the calculated volume
     return V
 
@@ -163,8 +163,25 @@ def stem_volume_formula_25():
 def stem_volume_formula_26():
     pass
 
-def stem_volume_formula_27():
-    pass
+# Betula spp. - Finland
+def stem_volume_formula_27(D, H):
+    # Import the natural logarithm function from the math package
+    from math import log 
+    # Raise ValueError if the diameter or height is out of range
+    if D < 1.2 or D > 49.7: 
+        raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
+    if H < 2.4 or H > 29.5:
+        raise ValueError("Height must be between 2.4 and 29.5 m.")
+    # Define the coefficients
+    a = -5.41948
+    b = 3.57630	
+    c = 2
+    d = 1.25
+    e = -0.0395855
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a + b * log(c + d * D) + e * D 
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_28():
     pass
