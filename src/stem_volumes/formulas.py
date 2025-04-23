@@ -1208,8 +1208,20 @@ def stem_volume_formula_200(D, H):
     V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
     return V
 
-def stem_volume_formula_201():
-    pass
+def stem_volume_formula_201(D, H):
+    # reference: Brandini, P. & Tabacchi, G. 1996. Biomass and volume equations for holm oak and straberry-tree in coppice stands of Southern Sardinia. ISAFA Communicazioni di Ricerca 96(1): 59–69.
+    # Quercus ilex (Holm oak), Italy
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
+
+    # coefficients
+    a = 1.1909
+    b = 0.038639
+
+    # equation 
+    V = a + b * (D**2) * H
+
+    return V
 
 def stem_volume_formula_202():
     pass
