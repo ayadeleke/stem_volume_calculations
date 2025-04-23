@@ -38,7 +38,7 @@ def stem_volume_formula_10():
     pass
 
 # Acer pseudoplatanus - Romania
-def stem_volume_formula_11(diameter, height):
+def stem_volume_formula_11(D, H):
     # Import math functions for the logarithm
     import math
     a = 0.00035375
@@ -46,10 +46,11 @@ def stem_volume_formula_11(diameter, height):
     c = 0.3997
     d = 0.666
     e = 0.021
+    math.exp(c)
     # Calculate the volume according to the formula given by Zianis et al.
-    volume = a * 10**(b * math.log10(diameter) + c * math.log10(diameter)**2 + d * math.log10(height) + e * math.log10(height)**2)
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     # Return the calculated volume
-    return volume
+    return V
 
 def stem_volume_formula_12():
     pass
