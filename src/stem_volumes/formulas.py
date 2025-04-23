@@ -556,8 +556,23 @@ def stem_volume_formula_88(D, H):
     V = a+b*math.log(c+d*D)+e*D
     return V
 
-def stem_volume_formula_89():
-    pass
+def stem_volume_formula_89(D, H):
+    # reference:  Laasasenaho, J. 1982. Taper curve and volume functions for pine, spruce and birch. Communicationes Instituti Forestalis Fenniae 108: 1–74.
+    # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from Finland
+    # input: diameter D in cm, height H in m
+    # output: volume in dm3
+
+    # coefficients 
+    a = 0.022927
+    b = 1.91505
+    c = 0.99146 
+    d = 2.82541
+    e = -1.53547
+
+    # equation 
+    V = a * (D**b) * (c**D) * (H**d) * ((H-1.3)**e)
+
+    return V
 
 def stem_volume_formula_90():
     pass
@@ -1249,3 +1264,4 @@ def stem_volume_formula_229():
 
 def stem_volume_formula_230():
     pass
+
