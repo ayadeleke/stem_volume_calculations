@@ -1232,8 +1232,21 @@ def stem_volume_formula_179():
 def stem_volume_formula_180():
     pass
 
-def stem_volume_formula_181():
-    pass
+def stem_volume_formula_181(D, H):
+    # Reference: 31 
+    # for Populus spp. (Poplar, Plop), from the Netherlands
+    # input: diameter D in mm, height H in m (seed trees)
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.0009507
+    b = 1.895629295
+    c = -0.00773694
+    d = 0.8392146
+
+    # implement formula
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_182():
     pass
