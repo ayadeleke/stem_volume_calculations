@@ -216,8 +216,32 @@ def stem_volume_formula_21(D, H):
     V =  a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
     return V
 
-def stem_volume_formula_22():
-    pass
+def stem_volume_formula_22(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Alnus spp. (Alder)  
+    Country: Austria
+
+    n = unknown, r² = 0.583. 
+    
+    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and Yield Research, University for Agricultural Sciences, Vienna.
+
+    Args:
+        D (float): diameter in dm (range 0.5-1.04 cm)
+        H (float): height in dm (range unknown)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = 0.387399
+    b = 7.17123
+    c = 0.04407
+    
+    # Calculate volume / D[dm], H[dm], V[dm³]
+    V = (math.pi/4) * (a * D**2 * H + b * D**2 + c * D)
+    
+    return V
 
 def stem_volume_formula_23():
     pass
