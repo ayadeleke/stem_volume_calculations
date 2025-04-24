@@ -402,8 +402,16 @@ def stem_volume_formula_70():
 def stem_volume_formula_71():
     pass
 
-def stem_volume_formula_72():
-    pass
+def stem_volume_formula_72(D, H):
+    #coefficients
+    a=-2.5079
+    b=1.7574
+    c=0.9808
+    
+    
+
+    V = math.exp(a)*D**b*H**c
+    return V
 
 def stem_volume_formula_73():
     pass
