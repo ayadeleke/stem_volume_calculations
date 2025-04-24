@@ -73,7 +73,7 @@ def stem_volume_formula_7():
     pass
 
 def stem_volume_formula_8(D, H):
-    #coefficients
+    
     a=0.00046903
     b=1.807
     c=0.0292
