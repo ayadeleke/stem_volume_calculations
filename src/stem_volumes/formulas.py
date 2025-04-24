@@ -1121,8 +1121,6 @@ def stem_volume_formula_216(D, H):
     d=0.8059
     e=-0.0045
 
-    
-
     V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
     return V
 
