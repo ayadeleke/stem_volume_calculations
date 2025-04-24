@@ -1125,8 +1125,21 @@ def stem_volume_formula_163():
 def stem_volume_formula_164():
     pass
 
-def stem_volume_formula_165():
-    pass
+def stem_volume_formula_165(D, H):
+    # Reference: Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. Meddelelser fra det Norske Skogforsøksvesen 84: 689–739. 
+    # for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), from Norway
+    # input: diameter D in cm (range - 12), height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.6716
+    b = 0.075708
+    c = 0.029679
+    d = 0.004341
+
+    # implement formula
+    V = a+b*D**2+c*D**2*H+d*D*H**2
+    return V
 
 def stem_volume_formula_166():
     pass
