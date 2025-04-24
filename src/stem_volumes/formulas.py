@@ -136,9 +136,14 @@ def stem_volume_formula_16(D, H):
 def stem_volume_formula_17():
     pass
 
-def stem_volume_formula_18():
-    
-
+     #rogy equation
+def stem_volume_formula_18(D,H):
+   
+    a=0.05437
+    b=1.94505
+    c=0.92947
+    v = a * (D**b) * (H**c)  #Alnus glutinosa (Black alder, Klibbal)(Sweden)
+    return v
 def stem_volume_formula_19():
     pass
 
