@@ -785,9 +785,25 @@ def stem_volume_formula_208():
 
 def stem_volume_formula_209():
     pass
+  #rogy equation
+def stem_volume_formula_210(D,H):
+    a=0.115631
+    b=65.9961
+    c=1.20321
+    d=-0.930406
+    e=-215.758
+    f=168.477
+    v= (math.pi / 4) * (
+    a * D**2 * H +
+    b * D**2 +
+    c * D * H +
+    d * H +
+    e * D +
+    f
+) #Quercus spp. (Oak, Chênes, Stejar)(Austria)
 
-def stem_volume_formula_210():
-    pass
+    return v
+
 
 def stem_volume_formula_211():
     pass
