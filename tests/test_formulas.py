@@ -398,7 +398,8 @@ def test_stem_volume_formula_101():
     assert 1==1
 
 def test_stem_volume_formula_102():
-    assert 1==1
+    assert stem_volume_formula_102(50, 35) > 0
+    assert stem_volume_formula_102(50, 35) < 10000 # dm³
 
 def test_stem_volume_formula_103():
     assert 1==1
