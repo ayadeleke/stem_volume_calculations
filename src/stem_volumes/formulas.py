@@ -1754,7 +1754,7 @@ def stem_volume_formula_182(D: float, H: float) -> float:
     e = 0.4099
 
     # Calculate volume
-    V = a * 10**(b * math.log(D, 10) + c * math.log(D, 10)**2 + d * math.log(H, 10) + e * math.log(H, 10)**2)
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
 
     return V
 
