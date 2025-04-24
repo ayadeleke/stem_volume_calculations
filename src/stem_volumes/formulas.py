@@ -682,10 +682,13 @@ def stem_volume_formula_176():
 
 def stem_volume_formula_177():
     pass
-
-def stem_volume_formula_178():
-    pass
-
+ #rogy equation
+def stem_volume_formula_178(D,H):
+    a=0.366419
+    b=1.13323
+    c=0.1306
+    v= (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D) #Populus spp. (Poplar, Plop)(Austria)
+    return v
 def stem_volume_formula_179():
     pass
 
