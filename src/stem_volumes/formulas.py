@@ -72,8 +72,16 @@ def stem_volume_formula_6(D, H):
 def stem_volume_formula_7():
     pass
 
-def stem_volume_formula_8():
-    pass
+def stem_volume_formula_8(D, H):
+    #coefficients
+    a=0.00046903
+    b=1.807
+    c=0.0292
+    d=-0.4155
+    e=0.5455
+
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    return V
 
 def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
     a = 0.010343
@@ -161,8 +169,15 @@ def stem_volume_formula_22():
 def stem_volume_formula_23():
     pass
 
-def stem_volume_formula_24():
-    pass
+def stem_volume_formula_24(D, H):
+     #coefficients
+    a=1.89060
+    b=0.26595
+    c=-1.07055
+    
+
+    V = D**a *H**b *math.exp(c)
+    return V
 
 def stem_volume_formula_25():
     pass
@@ -240,8 +255,16 @@ def stem_volume_formula_38():
 def stem_volume_formula_39():
     pass
 
-def stem_volume_formula_40():
-    pass
+def stem_volume_formula_40(D, H):
+    #coefficients
+    a=0.00021491
+    b=2.258957614
+    c=0.001411006
+    d=0.60291075
+    
+
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_41():
     pass
@@ -307,8 +330,16 @@ def stem_volume_formula_54():
 def stem_volume_formula_55():
     pass
 
-def stem_volume_formula_56():
-    pass
+def stem_volume_formula_56(D, H):
+    #coefficients
+    a=0.03246
+    b=0.03310
+    c=0.04127
+    
+    
+
+    V = a*D**2*H+b*D**2+c*D*H
+    return V
 
 def stem_volume_formula_57():
     pass
@@ -371,8 +402,16 @@ def stem_volume_formula_70():
 def stem_volume_formula_71():
     pass
 
-def stem_volume_formula_72():
-    pass
+def stem_volume_formula_72(D, H):
+    #coefficients
+    a=-2.5079
+    b=1.7574
+    c=0.9808
+    
+    
+
+    V = math.exp(a)*D**b*H**c
+    return V
 
 def stem_volume_formula_73():
     pass
@@ -441,8 +480,18 @@ def stem_volume_formula_86():
 def stem_volume_formula_87():
     pass
 
-def stem_volume_formula_88():
-    pass
+def stem_volume_formula_88(D, H):
+     #coefficients
+    a=-5.39934
+    b=3.46468
+    c=2
+    d=1.25
+    e=-0.073199
+    
+    
+
+    V = a+b*math.log(c+d*D)+e*D
+    return V
 
 def stem_volume_formula_89():
     pass
@@ -513,8 +562,18 @@ def stem_volume_formula_102():
 def stem_volume_formula_103():
     pass
 
-def stem_volume_formula_104():
-    pass
+def stem_volume_formula_104(D, H):
+      #coefficients
+    a=0.5824
+    b=1.1987
+    c=1.9339
+    d=-0.0594
+    e=-0.7442
+    
+    
+
+    V = a*H**b*D**c*(H-1.3)**d*(D+40)**e
+    return V
 
 def stem_volume_formula_105():
     pass
@@ -586,8 +645,18 @@ def stem_volume_formula_118():
 def stem_volume_formula_119():
     pass
 
-def stem_volume_formula_120():
-    pass
+def stem_volume_formula_120(D, H):
+       #coefficients
+    a=-0.82249
+    b=2.11094
+    c=-0.89626
+    d=3.51812
+    e=-2.05567
+    
+    
+
+    V = 10**a*D**b*(D+20)**c*H**d*(H-1.3)**e
+    return V
 
 def stem_volume_formula_121():
     pass
@@ -660,8 +729,17 @@ def stem_volume_formula_134():
 def stem_volume_formula_135():
     pass
 
-def stem_volume_formula_136():
-    pass
+def stem_volume_formula_136(D, H):
+        #coefficients
+    a=1.89192
+    b=0.95374
+    c=-2.72505
+
+    
+    
+
+    V = D**a*H**b*math.exp(c)
+    return V
 
 def stem_volume_formula_137():
     pass
@@ -723,8 +801,15 @@ def stem_volume_formula_150():
 def stem_volume_formula_151():
     pass
 
-def stem_volume_formula_152():
-    pass
+def stem_volume_formula_152(D, H):
+       #coefficients
+    a=0.095
+    b=1.9185
+    c=0.7381
+
+
+    V = a*D**b*H**c
+    return V
 
 def stem_volume_formula_153():
     pass
@@ -794,8 +879,14 @@ def stem_volume_formula_166():
 def stem_volume_formula_167():
     pass
 
-def stem_volume_formula_168():
-    pass
+def stem_volume_formula_168(D, H):
+       #coefficients
+    a=2.9361
+    b=0.038906
+    
+    
+    V = a+b*D**2*H
+    return V
 
 def stem_volume_formula_169():
     pass
@@ -867,8 +958,15 @@ def stem_volume_formula_182():
 def stem_volume_formula_183():
     pass
 
-def stem_volume_formula_184():
-    pass
+def stem_volume_formula_184(D, H):
+       #coefficients
+    a=-0.004298
+    b=0.0000435
+    c=0.89
+
+
+    V = a+b*D**2*H**c
+    return V
 
 def stem_volume_formula_185():
     pass
@@ -936,8 +1034,18 @@ def stem_volume_formula_198():
 def stem_volume_formula_199():
     pass
 
-def stem_volume_formula_200():
-    pass
+def stem_volume_formula_200(D, H):
+       #coefficients
+    a=0.00007188
+    b=1.4486
+    c=0.0204
+    d=1.4084
+    e=0.0409
+
+    
+
+    V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
+    return V
 
 def stem_volume_formula_201():
     pass
@@ -1005,8 +1113,16 @@ def stem_volume_formula_214():
 def stem_volume_formula_215():
     pass
 
-def stem_volume_formula_216():
-    pass
+def stem_volume_formula_216(D, H):
+       #coefficients
+    a=0.00008839
+    b=1.8905
+    c=0.0469
+    d=0.8059
+    e=-0.0045
+
+    V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
+    return V
 
 def stem_volume_formula_217():
     pass
