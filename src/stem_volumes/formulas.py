@@ -19,8 +19,8 @@ def stem_volume_formula_2(D, H):
     a = 1.77220
     b = 0.96736
     c = -2.45224
-     # Formula - Abies grandis (Grand fir)(Netherland)
-    V = (D ** a) * (H ** b) * math.exp(c)
+
+    V = (D ** a) * (H ** b) * math.exp(c) # Formula - Abies grandis (Grand fir)(Netherland)
     return V
 
 def stem_volume_formula_3():
