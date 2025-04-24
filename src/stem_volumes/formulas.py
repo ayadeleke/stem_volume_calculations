@@ -300,8 +300,16 @@ def stem_volume_formula_64():
 def stem_volume_formula_65():
     pass
 
-def stem_volume_formula_66():
-    pass
+#rogy equation
+def stem_volume_formula_66(D,H):
+    a=-0.03088
+    b=0.004676261
+    c=-4.8614e-5
+    d=-3.8178e-6
+    e=-0.0011638
+    f=4.0597e-5
+    v= a + b*D + c*(D**2) + d*(D**3) + e*H + f*(D**2)*H #Larix decidua (Larch, Mélèzes)(Belgium)
+    return v
 
 def stem_volume_formula_67():
     pass
