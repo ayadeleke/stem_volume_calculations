@@ -1540,8 +1540,22 @@ def stem_volume_formula_227():
 def stem_volume_formula_228():
     pass
 
-def stem_volume_formula_229():
-    pass
+def stem_volume_formula_229(D, H):
+    # Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114. 
+    # for Ulmus spp. (Elm, Orme, Ulm), from the Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 1.94295
+    b = 1.29229
+    c = -4.20064
+
+    import math
+
+    # implement formula
+    V = D**a*H**b*math.exp(c)
+    return V
 
 def stem_volume_formula_230():
     pass
