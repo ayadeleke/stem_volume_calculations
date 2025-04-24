@@ -188,9 +188,19 @@ def stem_volume_formula_32():
 
 def stem_volume_formula_33():
     pass
+    #rogy equation
+def stem_volume_formula_34(D,H):
+    a=-0.89359
+    b=2.27954
+    c=-1.18672
+    d=7.07362
+    e=-5.45175
+    v= (10**a)* (D**b)* ((D*20)**c) * (H**d) * ((H-1.3)**e)
+    #Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)(sweeden)
+    return v
 
-def stem_volume_formula_34():
-    pass
+
+
 
 def stem_volume_formula_35():
     pass
