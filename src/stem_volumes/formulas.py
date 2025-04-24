@@ -672,8 +672,32 @@ def stem_volume_formula_69(D, H):
     V =  a * H**b * D**c * (H-1.3)**d * (D+100)**e
     return V
 
-def stem_volume_formula_70():
-    pass
+def stem_volume_formula_70(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Larix kaempferi (Japanese larch)  
+    Country: Netherlands
+
+    n = 1023, r² = 0.996
+
+    Original source: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1-114
+
+    Args:
+        D (float): diameter in cm (range unknown)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = 1.87077
+    b = 1.00616
+    c = -2.8748
+
+    # Calculate volume
+    V = D**a * H**b * math.exp(c)
+
+    return V
 
 def stem_volume_formula_71():
     pass
