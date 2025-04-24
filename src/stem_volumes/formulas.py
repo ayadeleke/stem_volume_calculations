@@ -72,8 +72,16 @@ def stem_volume_formula_6(D, H):
 def stem_volume_formula_7():
     pass
 
-def stem_volume_formula_8():
-    pass
+def stem_volume_formula_8(D, H):
+    
+    a=0.00046903
+    b=1.807
+    c=0.0292
+    d=-0.4155
+    e=0.5455
+
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    return V
 
 def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
     a = 0.010343
