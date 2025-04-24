@@ -803,8 +803,31 @@ def stem_volume_formula_169():
 def stem_volume_formula_170():
     pass
 
-def stem_volume_formula_171():
-    pass
+# Linus - Pinus sylvestris, Germany
+def stem_volume_formula_171(D, H):
+
+    # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 2:
+        raise ValueError("Diameter must be at least 2 cm.")
+    # Raise ValueError if the height is out of range
+    if H < 2:
+        raise ValueError("Height must be at least 2 m.")
+
+    # Define the coefficients
+    a = -1.1226
+    b = 2.0180
+    c = -0.2135
+    d = 1.8271
+    e = -0.8297
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = 10**a * D**b * (D + 20)**c * H**d * (H - 1.3)**e
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_172():
     pass
