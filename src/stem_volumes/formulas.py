@@ -669,8 +669,21 @@ def stem_volume_formula_137():
 def stem_volume_formula_138():
     pass
 
-def stem_volume_formula_139():
-    pass
+# Linus - Pinus spp., Germany
+def stem_volume_formula_139(H):
+
+    # Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099–1115.
+    # Units: V(m^3), H(m)
+
+    # Define the coefficients
+    a = 0.000074
+    b = 3.1
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * H**b
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_140():
     pass
