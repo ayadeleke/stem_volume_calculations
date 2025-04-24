@@ -151,7 +151,7 @@ def stem_volume_formula_9(D, H):
 def stem_volume_formula_10():
     pass
 
-# Linus - Acer pseudoplatanus, Romania
+# Acer pseudoplatanus, Romania
 def stem_volume_formula_11(D, H):
 
     # Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
@@ -324,7 +324,7 @@ def stem_volume_formula_25(D, H):
 def stem_volume_formula_26():
     pass
 
-# Linus - Betula spp., Finland
+# Betula spp., Finland
 # The calculated volume seems to be unrealistically low,
 # however the implementation of the formula is according to the original paper.
 def stem_volume_formula_27(D):
@@ -338,10 +338,6 @@ def stem_volume_formula_27(D):
     # Raise ValueError if the diameter is out of range
     if D < 1.2 or D > 49.7: 
         raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
-    
-    # Raise ValueError if the height is out of range
-    if H < 2.4 or H > 29.5:
-        raise ValueError("Height must be between 2.4 and 29.5 m.")
 
     # Define the coefficients
     a = -5.41948
@@ -505,7 +501,7 @@ def stem_volume_formula_41(D, H):
 def stem_volume_formula_42():
     pass
 
-# Linus - Chamaecyparis lawsoniana, Netherlands
+# Chamaecyparis lawsoniana, Netherlands
 def stem_volume_formula_43(D, H):
 
     # Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
@@ -675,7 +671,7 @@ def stem_volume_formula_57(D, H):
 def stem_volume_formula_58():
     pass
 
-# Linus - Fraxinus Excelsior, Sweden
+# Fraxinus Excelsior, Sweden
 def stem_volume_formula_59(D, H):
     
     # Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1–26.
@@ -841,7 +837,7 @@ def stem_volume_formula_73(D, H):
 def stem_volume_formula_74():
     pass
 
-# Linus - Larix sibirica, Norway
+# Larix sibirica, Norway
 def stem_volume_formula_75(D, H):
 
     # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
@@ -1009,7 +1005,7 @@ def stem_volume_formula_89(D, H):
 def stem_volume_formula_90():
     pass
 
-# Linus - Picea abies, Finland
+# Picea abies, Finland
 def stem_volume_formula_91(D, H):
 
     # Reference: Kanninen, K., Uusvaara, O. & Valonen, P. 1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403: 1–53.
@@ -1184,7 +1180,7 @@ def stem_volume_formula_105(D, H):
 def stem_volume_formula_106():
     pass
 
-# Linus - Picea abies, Norway
+# Picea abies, Norway
 def stem_volume_formula_107(D, H):
 
     # Reference: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
@@ -1364,7 +1360,7 @@ def stem_volume_formula_121(D, H):
 def stem_volume_formula_122():
     pass
 
-# Linus - Picea abies, Sweden
+# Picea abies, Sweden
 def stem_volume_formula_123(D, H):
 
     # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
@@ -1538,7 +1534,7 @@ def stem_volume_formula_137(D, H):
 def stem_volume_formula_138():
     pass
 
-# Linus - Pinus spp., Germany
+# Pinus spp., Germany
 def stem_volume_formula_139(H):
 
     # Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099–1115.
@@ -1702,7 +1698,7 @@ def stem_volume_formula_153(D, H):
 def stem_volume_formula_154():
     pass
 
-# Linus - Pinus sylvestris, Germany
+# Pinus sylvestris, Germany
 def stem_volume_formula_155(D, H):
 
     # Reference: Lockow, K.-W. 1993. Modellbildung und Quantifizierung der Durchmesser- und Volumenstruktur des ausscheidenden Kieferjungbestandes – Holzmeßkundliche Entscheideungshilfen für die Erstdurchforstung. Beiträge für Forstwirtschaft und Landschaftsökologie 27(2): 77–82.
@@ -1874,7 +1870,7 @@ def stem_volume_formula_169(D, H):
 def stem_volume_formula_170():
     pass
 
-# Linus - Pinus sylvestris, Sweden 
+# Pinus sylvestris, Sweden 
 def stem_volume_formula_171(D, H):
 
     # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
@@ -2044,7 +2040,7 @@ def stem_volume_formula_185(D, H):
 def stem_volume_formula_186():
     pass
 
-# Linus - Populus tremulus, Romania
+# Populus tremulus, Romania
 def stem_volume_formula_187(D, H):
 
     # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
@@ -2215,7 +2211,7 @@ def stem_volume_formula_201(D, H):
 def stem_volume_formula_202():
     pass
 
-# Linus - Quercus laevis, Romania
+# Quercus laevis, Romania
 def stem_volume_formula_203(D, H):
 
     # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
@@ -2392,7 +2388,7 @@ def stem_volume_formula_217(D, H):
 def stem_volume_formula_218():
     pass
 
-# Linus - Salix caprea, Romania
+# Salix caprea, Romania
 def stem_volume_formula_219(D, H):
 
     # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
