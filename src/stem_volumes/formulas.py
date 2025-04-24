@@ -733,9 +733,13 @@ def stem_volume_formula_192():
 
 def stem_volume_formula_193():
     pass
-
-def stem_volume_formula_194():
-    pass
+ #rogy equation
+def stem_volume_formula_194(D,H):
+    a=1.90053
+    b=0.80726
+    c=-2.43151
+    v= (D**a) * (H**b) * math.exp(c) #Pseudotsuga menziesii (Douglas fir, Duglas)(Netherlands)
+    return v
 
 def stem_volume_formula_195():
     pass
