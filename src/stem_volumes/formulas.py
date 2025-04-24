@@ -1233,7 +1233,7 @@ def stem_volume_formula_180():
     pass
 
 def stem_volume_formula_181(D, H):
-    # Reference: 31 
+    # Reference: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
     # for Populus spp. (Poplar, Plop), from the Netherlands
     # input: diameter D in mm, height H in m (seed trees)
     # output: volume in dm³
@@ -1333,8 +1333,21 @@ def stem_volume_formula_195():
 def stem_volume_formula_196():
     pass
 
-def stem_volume_formula_197():
-    pass
+def stem_volume_formula_197(D, H):
+    # Reference: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
+    # for Pseudotsuga spp., from the Netherlands
+    # input: diameter D in mm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.00095916
+    b = 2.092560524
+    c = 0.000297255
+    d = 0.48824344
+
+    # implement formula
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_198():
     pass
