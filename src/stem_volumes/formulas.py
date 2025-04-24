@@ -1285,8 +1285,32 @@ def stem_volume_formula_133(D, H):
     V = a*D**2+b*D**2*H+c*D**2*H**2-d*D*H+e*D*H**2
     return V
 
-def stem_volume_formula_134():
-    pass
+def stem_volume_formula_134(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Pinus contorta (contorta tall)
+    Country: Sweden
+
+    n = 1301, r² = unknown
+    
+    Original source: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 26: 1-26
+    
+    Args:
+        D (float): diameter in cm (range unknown)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = 0.04514
+    b = 1.9005
+    c = 1.06964
+
+    # Calculate volume
+    V = a * D**b * H**c
+
+    return V
 
 def stem_volume_formula_135():
     pass
