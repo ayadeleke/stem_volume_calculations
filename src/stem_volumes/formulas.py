@@ -2183,6 +2183,31 @@ def stem_volume_formula_229(D, H):
     V = D**a*H**b*math.exp(c)
     return V
 
-def stem_volume_formula_230():
-    pass
+def stem_volume_formula_230(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
 
+    Species: Ulmus spp. (Elm, Orme, Ulm)
+    Country: Romania
+
+    n = unknown, r² = unknown
+    
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173-178
+
+    Args:
+        D (float): diameter in cm (range unknown)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in m³
+    """
+    # Define coefficients
+    a = 3.992 * 10**-5
+    b = 2.1569
+    c = -0.0933
+    d = 1.0728
+    e = -0.0708
+
+    # Calculate volume
+    V = a * 10**(b * math.log(D, 10) + c * math.log(D, 10)**2 + d * math.log(H, 10)+ e * math.log(H, 10)**2)
+
+    return V
