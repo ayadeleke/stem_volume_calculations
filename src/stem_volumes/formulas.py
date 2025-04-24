@@ -520,8 +520,35 @@ def stem_volume_formula_53(D, H):
     V = a * D**b * H**c
     return V
 
-def stem_volume_formula_54():
-    pass
+def stem_volume_formula_54(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Betula spp. Fraxinus exselsior (Ash, Frêne, Es)  
+    Country: Belgium
+
+    n = 534, r² = unknown
+
+    Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 126 p
+
+    Args:
+        D (float): diameter in cm (range unknown)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in m³
+    """
+    # Define coefficients
+    a = -0.039836
+    b = 0.006262765
+    c = -0.00015937
+    d = -1.9902 * 10**-7
+    e = -0.0009834
+    f = 3.7872 * 10**-5
+
+    # Calculate volume / D[cm], H[m], V[m³]
+    V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
+
+    return V
 
 def stem_volume_formula_55():
     pass
