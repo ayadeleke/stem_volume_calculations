@@ -921,8 +921,22 @@ def stem_volume_formula_131():
 def stem_volume_formula_132():
     pass
 
-def stem_volume_formula_133():
-    pass
+def stem_volume_formula_133(D, H):
+    # Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 6: 1– 6. 
+    # for Pinus contorta (contorta tall), from Sweden
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.1121
+    b = 0.02870
+    c = -0.000061
+    d = 0.09176
+    e = 0.01249
+
+    # implement formula
+    V = a*D**2+b*D**2*H+c*D**2*H**2-d*D*H+e*D*H**2
+    return V
 
 def stem_volume_formula_134():
     pass
