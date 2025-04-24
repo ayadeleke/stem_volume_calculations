@@ -1437,8 +1437,21 @@ def stem_volume_formula_211():
 def stem_volume_formula_212():
     pass
 
-def stem_volume_formula_213():
-    pass
+def stem_volume_formula_213(D, H):
+    # Reference: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
+    # for  Quercus spp. (Oak, chênes, Stejar), from the Netherlands
+    # input: diameter D in mm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.00095853
+    b = 2.040672356
+    c = 0.001965013
+    d = 0.56366437
+
+    # implement formula
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_214():
     pass
