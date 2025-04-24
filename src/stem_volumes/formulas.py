@@ -1014,8 +1014,27 @@ def stem_volume_formula_217():
 def stem_volume_formula_218():
     pass
 
-def stem_volume_formula_219():
-    pass
+# Linus - Salix caprea, Romania
+def stem_volume_formula_219(D, H):
+
+    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Import the log10 function from the math package
+    from math import log10
+
+    # Define the coefficients
+    a = 0.00011585
+    b = 1.6688
+    c = 0.1090
+    d = 0.7781
+    e = 0.0269
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_220():
     pass
