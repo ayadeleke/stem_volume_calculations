@@ -1877,8 +1877,33 @@ def stem_volume_formula_197(D, H):
     V = a*D**(b+c)*H**d
     return V
 
-def stem_volume_formula_198():
-    pass
+def stem_volume_formula_198(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Pseudotsuga spp.  
+    Country: Netherlands
+
+    n = unknown, r² = unknown
+    
+    Original source: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 2002. converging estimates of the forest carbon sink. Alterra-rapport 631: 1-44
+
+    Args:
+        D (float): diameter in mm (range unknown)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = 0.00095916
+    b = 2.092560524
+    c = -0.0449007
+    d = 0.48824344
+
+    # Calculate volume
+    V = a * D**(b + c) * H**d
+
+    return V
 
 def stem_volume_formula_199():
     pass
