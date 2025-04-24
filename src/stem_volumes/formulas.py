@@ -143,7 +143,7 @@ def stem_volume_formula_16(D, H):
     
     # Alnus glutinosa - Norway
     # D = cm | H = m | V = dm³
-    # !attention! D range = 0-12cm 
+    # D range = 0-12cm 
 
     # coefficients
     a = 0.6716
