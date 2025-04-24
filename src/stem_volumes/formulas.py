@@ -1576,8 +1576,32 @@ def stem_volume_formula_165(D, H):
     V = a+b*D**2+c*D**2*H+d*D*H**2
     return V
 
-def stem_volume_formula_166():
-    pass
+def stem_volume_formula_166(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)  
+    Country: Norway
+
+    n = 2622, r² = 0.999
+    
+    Original source: Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. Meddelelser fra det Norske Skogforsøksvesen 84: 689-739
+
+    Args:
+        D (float): diameter in cm (range 0-12)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = 2.0044
+    b = 0.029886
+    c = 0.036972
+
+    # Calculate volume
+    V = a + b * D**2 + c * D**2 * H
+
+    return V
 
 def stem_volume_formula_167():
     pass
