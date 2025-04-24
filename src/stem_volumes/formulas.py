@@ -90,18 +90,25 @@ def stem_volume_formula_9(D, H):  # V = m3, D = cm, H = m
 def stem_volume_formula_10():
     pass
 
-# Acer pseudoplatanus - Romania
+# Linus - Acer pseudoplatanus, Romania
 def stem_volume_formula_11(D, H):
-    # Import math functions for the logarithm
-    import math
+
+    # Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Import the log10 function from the math package
+    from math import log10
+
+    # Define the coefficients
     a = 0.00035375
     b = 1.02
     c = 0.3997
     d = 0.666
     e = 0.021
-    math.exp(c)
+    
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
     # Return the calculated volume
     return V
 
@@ -163,8 +170,37 @@ def stem_volume_formula_25():
 def stem_volume_formula_26():
     pass
 
-def stem_volume_formula_27():
-    pass
+# Linus - Betula spp., Finland
+# The calculated volume seems to be unrealistically low,
+# however the implementation of the formula is according to the original paper.
+def stem_volume_formula_27(D):
+
+    # Reference: Laasasenaho, J. 1982. Taper curve and volume functions for pine, spruce and birch. Communicationes Instituti Forestalis Fenniae 108: 1–74.
+    # Units: V(dm^3), D(cm)
+
+    # Import the natural logarithm function from the math package
+    from math import log 
+
+    # Raise ValueError if the diameter is out of range
+    if D < 1.2 or D > 49.7: 
+        raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
+    
+    # Raise ValueError if the height is out of range
+    if H < 2.4 or H > 29.5:
+        raise ValueError("Height must be between 2.4 and 29.5 m.")
+
+    # Define the coefficients
+    a = -5.41948
+    b = 3.57630	
+    c = 2
+    d = 1.25
+    e = -0.0395855
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a + b * log(c + d * D) + e * D 
+    
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_28():
     pass
@@ -213,8 +249,25 @@ def stem_volume_formula_41():
 def stem_volume_formula_42():
     pass
 
-def stem_volume_formula_43():
-    pass
+# Linus - Chamaecyparis lawsoniana, Netherlands
+def stem_volume_formula_43(D, H):
+
+    # Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Import the exponential function from the math package
+    from math import exp
+
+    # Define the coefficients
+    a = 1.85298
+    b = 0.86717
+    c = -2.33706
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = D**a * H**b * exp(c)
+
+    # Return the calculated volume
+    return V 
 
 def stem_volume_formula_44():
     pass
@@ -263,8 +316,22 @@ def stem_volume_formula_57():
 def stem_volume_formula_58():
     pass
 
-def stem_volume_formula_59():
-    pass
+# Linus - Fraxinus Excelsior, Sweden
+def stem_volume_formula_59(D, H):
+    
+    # Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1–26.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Define the coefficients
+    a = 0.03249
+    b = 0.02941
+    c = 0.03892	
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * D**2 * H + b * D**2 + c * D * H
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_60():
     pass
@@ -313,8 +380,28 @@ def stem_volume_formula_73():
 def stem_volume_formula_74():
     pass
 
-def stem_volume_formula_75():
-    pass
+# Linus - Larix sibirica, Norway
+def stem_volume_formula_75(D, H):
+
+    # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 5:
+        raise ValueError("Diameter must be at least 5 cm.")
+
+    # Define the coefficients
+    a = 0.7761
+    b = 3.6461
+    c = 1.9166
+    d = -2.3179
+    e = -0.8236
+    
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_76():
     pass
@@ -363,8 +450,30 @@ def stem_volume_formula_89():
 def stem_volume_formula_90():
     pass
 
-def stem_volume_formula_91():
-    pass
+# Linus - Picea abies, Finland
+def stem_volume_formula_91(D, H):
+
+    # Reference: Kanninen, K., Uusvaara, O. & Valonen, P. 1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403: 1–53.
+    # Units: V(dm^1), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 2 or D > 18: 
+        raise ValueError("Diameter must be between 2 and 18 cm.")
+    
+    # Raise ValueError if the height is out of range
+    if H < 2 or H > 18:
+        raise ValueError("Height must be between 2 and 18 m.")
+
+    # Define the coefficients
+    a = 0.7877 
+    b = 1.9302
+    c = 0.79465
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * D**b * H**c
+    
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_92():
     pass
@@ -413,8 +522,31 @@ def stem_volume_formula_105():
 def stem_volume_formula_106():
     pass
 
-def stem_volume_formula_107():
-    pass
+# Linus - Picea abies, Norway
+def stem_volume_formula_107(D, H):
+
+    # Reference: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 13 or D > 59.4:
+        raise ValueError("Diameter must be between 13 and 59.4 cm.")
+    # Raise ValueError if the height is out of range
+    if H > 39.49:
+        raise ValueError("Height may be 39.49 m at max.")
+
+    # Define the coefficients
+    a = 10.14
+    b = 0.0124
+    c = 0.03117
+    d = -0.36381
+    e = 0.28578
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_108():
     pass
@@ -463,8 +595,31 @@ def stem_volume_formula_121():
 def stem_volume_formula_122():
     pass
 
-def stem_volume_formula_123():
-    pass
+# Linus - Picea abies, Sweden
+def stem_volume_formula_123(D, H):
+
+    # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 2:
+        raise ValueError("Diameter must be at least 2 cm.")
+    # Raise ValueError if the height is out of range
+    if H < 2:
+        raise ValueError("Height must be at least 2 m.")
+
+    # Define the coefficients
+    a = -1.0342
+    b = 1.9683
+    c = -0.3850
+    d = 2.4018
+    e = -1.2075
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = 10**a * D**b * (D + 20)**c * H**d * (H - 1.3)**e
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_124():
     pass
@@ -514,8 +669,21 @@ def stem_volume_formula_137():
 def stem_volume_formula_138():
     pass
 
-def stem_volume_formula_139():
-    pass
+# Linus - Pinus spp., Germany
+def stem_volume_formula_139(H):
+
+    # Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099–1115.
+    # Units: V(m^3), H(m)
+
+    # Define the coefficients
+    a = 0.000074
+    b = 3.1
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * H**b
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_140():
     pass
@@ -564,8 +732,29 @@ def stem_volume_formula_153():
 def stem_volume_formula_154():
     pass
 
-def stem_volume_formula_155():
-    pass
+# Linus - Pinus sylvestris, Germany
+def stem_volume_formula_155(D, H):
+
+    # Reference: Lockow, K.-W. 1993. Modellbildung und Quantifizierung der Durchmesser- und Volumenstruktur des ausscheidenden Kieferjungbestandes – Holzmeßkundliche Entscheideungshilfen für die Erstdurchforstung. Beiträge für Forstwirtschaft und Landschaftsökologie 27(2): 77–82.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 3 or D > 14:
+        raise ValueError("Diameter must be between 3 and 14 cm.")
+    # Raise ValueError if the height is out of range
+    if H < 5.8 or H > 10.7:
+        raise ValueError("Height must be between 5.8 and 10.7 m.")
+
+    # Define the coefficients
+    a = 5.6537 * 10**-5
+    b = 1.960466
+    c = 0.894433
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * D**b * H**c
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_156():
     pass
@@ -614,8 +803,31 @@ def stem_volume_formula_169():
 def stem_volume_formula_170():
     pass
 
-def stem_volume_formula_171():
-    pass
+# Linus - Pinus sylvestris, Sweden 
+def stem_volume_formula_171(D, H):
+
+    # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+    # Units: V(dm^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 2:
+        raise ValueError("Diameter must be at least 2 cm.")
+    # Raise ValueError if the height is out of range
+    if H < 2:
+        raise ValueError("Height must be at least 2 m.")
+
+    # Define the coefficients
+    a = -1.1226
+    b = 2.0180
+    c = -0.2135
+    d = 1.8271
+    e = -0.8297
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = 10**a * D**b * (D + 20)**c * H**d * (H - 1.3)**e
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_172():
     pass
@@ -664,8 +876,27 @@ def stem_volume_formula_185():
 def stem_volume_formula_186():
     pass
 
-def stem_volume_formula_187():
-    pass
+# Linus - Populus tremulus, Romania
+def stem_volume_formula_187(D, H):
+
+    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Import the log10 function from the math package
+    from math import log10
+
+    # Define the coefficients
+    a = 0.00007604
+    b = 1.7812
+    c = 0.0528
+    d = 0.8533
+    e = 0.0654
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_188():
     pass
@@ -714,8 +945,27 @@ def stem_volume_formula_201():
 def stem_volume_formula_202():
     pass
 
-def stem_volume_formula_203():
-    pass
+# Linus - Quercus laevis, Romania
+def stem_volume_formula_203(D, H):
+
+    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Import the log10 function from the math package
+    from math import log10
+
+    # Define the coefficients
+    a = 0.0001992
+    b = 2.014
+    c = -0.0602	
+    d = -0.1108
+    e = 0.4811
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_204():
     pass
@@ -764,8 +1014,27 @@ def stem_volume_formula_217():
 def stem_volume_formula_218():
     pass
 
-def stem_volume_formula_219():
-    pass
+# Linus - Salix caprea, Romania
+def stem_volume_formula_219(D, H):
+
+    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Import the log10 function from the math package
+    from math import log10
+
+    # Define the coefficients
+    a = 0.00011585
+    b = 1.6688
+    c = 0.1090
+    d = 0.7781
+    e = 0.0269
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_220():
     pass
