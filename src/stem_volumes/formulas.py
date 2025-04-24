@@ -376,8 +376,33 @@ def stem_volume_formula_37(D, H):
     V = 10**a * D**b * (D+20)**c * H**d * (H-1.3)**e
     return V
 
-def stem_volume_formula_38():
-    pass
+def stem_volume_formula_38(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)  
+    Country: Sweden
+
+    n=1363, r² = unknown. 
+    
+    Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd. Meddelanden från Statens skogsforskningsinstitutet 36(3): 1-81.
+    
+    Args:
+        D (float): diameter in cm (range 5-34.9 cm)
+        H (float): height in m (range 5-26.9 m)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = 0.1432
+    b = 0.008561
+    c = 0.02180
+    d = -0.06630
+
+    # Calculate volume / D[cm], H[m], V[dm³]
+    V = a * D**2 + b * D**2 * H + c * D * H**2 + d * H
+
+    return V
 
 def stem_volume_formula_39():
     pass
