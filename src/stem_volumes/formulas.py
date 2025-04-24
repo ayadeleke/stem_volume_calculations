@@ -522,10 +522,13 @@ def stem_volume_formula_128():
 
 def stem_volume_formula_129():
     pass
-
-def stem_volume_formula_130():
-    pass
-
+ #rogy equation
+def stem_volume_formula_130(D,H):
+    a=0.0739
+    b=1.7508
+    c=1.0228
+    v= a * D**b * H**c #Picea spp. (Molid)(Iceland)
+    return v
 def stem_volume_formula_131():
     pass
 
