@@ -59,15 +59,30 @@ def stem_volume_formula_5(D, H):
     V = (math.pi/4)*(a*D**2*H+b*D**2*H*math.log(D)**2+c*D**2+d*D*H+e*H+f*D+g)
     return V
 
-def stem_volume_formula_6(D, H):
+def stem_volume_formula_6(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Abies spp. (Fir, Brad)  
+    Country: Austria
+
+    n = unknown, r² = 0.848. 
     
+    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and Yield Research, University for Agricultural Sciences, Vienna.
+
+    Args:
+        D (float): diameter in dm (range 0.5-1.04 cm)
+        H (float): height in dm (range unknown)
+
+    Returns:
+        float: volume in dm³
+    """
     # Coefficients
     a = 0.560673
     b = 0.15468
     c = -0.65583
     d = 0.033210
     
-    # Equation / D[dm], H[dm], V[dm3]
+    # Equation / D[dm], H[dm], V[dm³]
     V = (math.pi/4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H)
     
     return V
