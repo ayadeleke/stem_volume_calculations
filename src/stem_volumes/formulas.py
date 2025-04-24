@@ -849,9 +849,13 @@ def stem_volume_formula_224():
 
 def stem_volume_formula_225():
     pass
-
-def stem_volume_formula_226():
-    pass
+ #rogy equation
+def stem_volume_formula_226(D,H):
+    a=1.76755
+    b=1.37219
+    c=-3.54922
+    v= (D**a) * (H**b) * math.exp(c)#QTsuga heterophylla (Hemlock)(Neatherlands)
+    return v
 
 def stem_volume_formula_227():
     pass
