@@ -1020,8 +1020,22 @@ def stem_volume_formula_147():
 def stem_volume_formula_148():
     pass
 
-def stem_volume_formula_149():
-    pass
+def stem_volume_formula_149(D, H):
+    # Reference: Laasasenaho, J. 198 . Taper curve and volume functions for pine, spruce and birch. communicationes Instituti Forestalis Fenniae 108: 1–74.  
+    # for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), from Finland
+    # input: diameter D in cm (range 0.9-50.6), height H in m (1.5-28.3)
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.036089
+    b = 2.01395
+    c = 0.99676
+    d = 2.07025
+    e = -1.07209
+
+    # implement formula
+    V = a*(D**b)*(c**D)*(H**d)*(H-1.3)**e
+    return V
 
 def stem_volume_formula_150():
     pass
