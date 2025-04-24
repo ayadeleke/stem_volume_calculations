@@ -1126,8 +1126,34 @@ def stem_volume_formula_117(D, H):
     V = 10**a * D**b * (D+20)**c * H**d * (H-1.3)**e
     return V
 
-def stem_volume_formula_118():
-    pass
+def stem_volume_formula_118(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)  
+    Country: Sweden
+
+    n = 2609, r² = 0.998
+    
+    Original source: Brandel, G. 1990. Volumfunktioner för enskilda träd. Sveriges lantbruksuniversitet, Institutionen för skogsproduktion, Rapport 26: 1-181
+    
+    Args:
+        D (float): diameter in cm (range 4.5-)
+        H (float): height in m (range 4-)
+
+    Returns:
+        float: volume in dm³
+    """
+    # Define coefficients
+    a = -0.79783
+    b = 2.07157
+    c = -0.73882
+    d = 3.16332
+    e = -1.82622
+
+    # Calculate volume
+    V = 10**a * D**b * (D + 20)**c * H**d * (H - 1.3)**e
+
+    return V
 
 def stem_volume_formula_119():
     pass
