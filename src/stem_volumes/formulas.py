@@ -1427,8 +1427,34 @@ def stem_volume_formula_149(D, H):
     V = a*(D**b)*(c**D)*(H**d)*(H-1.3)**e
     return V
 
-def stem_volume_formula_150():
-    pass
+def stem_volume_formula_150(D: float, H: float) -> float:
+    """Calculate stem volume based on diameter and height.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
+
+    n = 2326, r² = unknown
+    
+    Original source: Hakkila, P. 1979. Wood density survey and dry weight tables for pine, spruce and birch stems in Finland. communicationes Instituti Forestalis Fenniae 96(3): 1-59.
+
+    Args:
+        D (float): diameter in cm (range unknown)
+        H (float): height in m (range unknown)
+
+    Returns:
+        float: volume in ln(dm³)
+    """
+    # Define coefficients
+    a = -3.2890
+    b = 1.9995
+    c = 2.1395
+    d = -1.1411
+    e = -0.002847
+
+    # Calculate volume
+    V = a + b * math.log(D) + c * math.log(H) + d * math.log(H - 1.3) + e * D
+
+    return V
 
 def stem_volume_formula_151():
     pass
