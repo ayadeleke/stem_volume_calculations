@@ -628,9 +628,15 @@ def stem_volume_formula_160():
 
 def stem_volume_formula_161():
     pass
-
-def stem_volume_formula_162():
-    pass
+ #rogy equation
+def stem_volume_formula_162(D,H):
+    a=0.1263
+    b=2.4621
+    c=1.9008
+    d=-1.3716
+    e=-0.2663
+    v=a * H**b * D**c * (H - 1.3)**d * (D + 100)**e  #Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)(Norway)
+    return v
 
 def stem_volume_formula_163():
     pass
