@@ -38,7 +38,7 @@ def stem_volume_formula_5(D, H):
 
     # Reference: Pollanschütz, J. 1974. Formzahlfunktionen der Hauptbaumarten Österreichs. Allgemeine Forstzeitung 85: 341–343.
     # for Abies spp. (Fir, Brad), from Austria
-    # input: diameter D in dm, height H in dm
+    # input: diameter D in dm (range 1 -), height H in dm
     # output: volume in dm³
     
     import math
@@ -167,8 +167,24 @@ def stem_volume_formula_19():
 def stem_volume_formula_20():
     pass
 
-def stem_volume_formula_21():
-    pass
+def stem_volume_formula_21(D, H):
+    # Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majori-tatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173–178.
+    # for Alnus nigra (Anin negru), from Romania
+    # input: diameter D in cm, height H in m
+    # output: volume in m³
+
+    import math
+
+    # define parameters
+    a = 0.00008666
+    b = 1.7148
+    c = 0.1014
+    d = 0.801
+    e = 0.0530
+
+    # implement formula
+    V =  a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
+    return V
 
 def stem_volume_formula_22():
     pass
@@ -269,8 +285,22 @@ def stem_volume_formula_35():
 def stem_volume_formula_36():
     pass
 
-def stem_volume_formula_37():
-    pass
+def stem_volume_formula_37(D, H):
+    # Reference: Brandel, G. 1990. Volumfunktioner för enskilda träd. Sveriges lantbruksuniversitet, Institutionen för skogsproduktion, Rapport 6: 1–181.
+    # for  Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan), from Sweden
+    # input: diameter D in cm (range 4.5 -), height H in m (range 6 -)
+    # output: volume in dm³
+
+    # define parameters
+    a = -0.35394
+    b = 2.52141
+    c = -1.54257
+    d = 4.88165
+    e = -3.47422
+
+    # implement formula
+    V = 10**a * D**b * (D+20)**c * H**d * (H-1.3)**e
+    return V
 
 def stem_volume_formula_38():
     pass
@@ -358,8 +388,20 @@ def stem_volume_formula_51():
 def stem_volume_formula_52():
     pass
 
-def stem_volume_formula_53():
-    pass
+def stem_volume_formula_53(D, H):
+    # Reference: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+    # for  Fagus sylvatica (Beech, Rotbuche, Beuk), from the Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.049
+    b = 1.78189
+    c = 1.08345
+
+    # implement formula
+    V = a * D**b * H**c
+    return V
 
 def stem_volume_formula_54():
     pass
@@ -443,8 +485,22 @@ def stem_volume_formula_67():
 def stem_volume_formula_68():
     pass
 
-def stem_volume_formula_69():
-    pass
+def stem_volume_formula_69(D, H):
+    # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
+    # for  Larix hybrid (Hyprid larix), from Norway
+    # input: diameter D in cm (range 5 -), height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.7761
+    b = 3.6461
+    c = 1.9166
+    d = -2.3179
+    e = -0.8236
+
+    # implement formula
+    V =  a * H**b * D**c * (H-1.3)**d * (D+100)**e
+    return V
 
 def stem_volume_formula_70():
     pass
@@ -534,8 +590,19 @@ def stem_volume_formula_83():
 def stem_volume_formula_84():
     pass
 
-def stem_volume_formula_85():
-    pass
+def stem_volume_formula_85(D):
+    # Reference: Cerný, M. 1990. Biomass of Picea abies (l.) Karst. in midwestern Bohemia. Scandinavian Journal of Forest Research 5: 83–95.
+    # for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from Czech Republic
+    # input: diameter D in cm
+    # output: volume in m³
+
+    # define parameters
+    a = 0.00059707
+    b = 2.1286
+
+    # implement formula
+    V =  a * D**b
+    return V
 
 def stem_volume_formula_86():
     pass
@@ -631,8 +698,20 @@ def stem_volume_formula_99():
 def stem_volume_formula_100():
     pass
 
-def stem_volume_formula_101():
-    pass
+def stem_volume_formula_101(D, H):
+    # Reference: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+    # for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from the Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.04143
+    b = 1.6704
+    c = 1.3337
+
+    # implement formula
+    V =  a * D**b * H**c
+    return V
 
 def stem_volume_formula_102():
     pass
@@ -729,8 +808,22 @@ def stem_volume_formula_115():
 def stem_volume_formula_116():
     pass
 
-def stem_volume_formula_117():
-    pass
+def stem_volume_formula_117(D, H):
+    # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+    # for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar), from Sweden
+    # input: diameter D in cm (range 2 -), height H in m (range 2 -)
+    # output: volume in dm³
+
+    # define parameters
+    a = -0.9513
+    b = 1.9781
+    c = -0.5254
+    d = 2.7604
+    e = -1.4684
+
+    # implement formula
+    V = 10**a * D**b * (D+20)**c * H**d * (H-1.3)**e
+    return V
 
 def stem_volume_formula_118():
     pass
@@ -828,8 +921,22 @@ def stem_volume_formula_131():
 def stem_volume_formula_132():
     pass
 
-def stem_volume_formula_133():
-    pass
+def stem_volume_formula_133(D, H):
+    # Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 6: 1– 6. 
+    # for Pinus contorta (contorta tall), from Sweden
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.1121
+    b = 0.02870
+    c = -0.000061
+    d = 0.09176
+    e = 0.01249
+
+    # implement formula
+    V = a*D**2+b*D**2*H+c*D**2*H**2-d*D*H+e*D*H**2
+    return V
 
 def stem_volume_formula_134():
     pass
@@ -913,8 +1020,22 @@ def stem_volume_formula_147():
 def stem_volume_formula_148():
     pass
 
-def stem_volume_formula_149():
-    pass
+def stem_volume_formula_149(D, H):
+    # Reference: Laasasenaho, J. 198 . Taper curve and volume functions for pine, spruce and birch. communicationes Instituti Forestalis Fenniae 108: 1–74.  
+    # for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), from Finland
+    # input: diameter D in cm (range 0.9-50.6), height H in m (1.5-28.3)
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.036089
+    b = 2.01395
+    c = 0.99676
+    d = 2.07025
+    e = -1.07209
+
+    # implement formula
+    V = a*(D**b)*(c**D)*(H**d)*(H-1.3)**e
+    return V
 
 def stem_volume_formula_150():
     pass
@@ -1004,8 +1125,21 @@ def stem_volume_formula_163():
 def stem_volume_formula_164():
     pass
 
-def stem_volume_formula_165():
-    pass
+def stem_volume_formula_165(D, H):
+    # Reference: Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. Meddelelser fra det Norske Skogforsøksvesen 84: 689–739. 
+    # for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), from Norway
+    # input: diameter D in cm (range - 12), height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.6716
+    b = 0.075708
+    c = 0.029679
+    d = 0.004341
+
+    # implement formula
+    V = a+b*D**2+c*D**2*H+d*D*H**2
+    return V
 
 def stem_volume_formula_166():
     pass
@@ -1098,8 +1232,21 @@ def stem_volume_formula_179():
 def stem_volume_formula_180():
     pass
 
-def stem_volume_formula_181():
-    pass
+def stem_volume_formula_181(D, H):
+    # Reference: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
+    # for Populus spp. (Poplar, Plop), from the Netherlands
+    # input: diameter D in mm, height H in m (seed trees)
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.0009507
+    b = 1.895629295
+    c = -0.00773694
+    d = 0.8392146
+
+    # implement formula
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_182():
     pass
@@ -1186,8 +1333,21 @@ def stem_volume_formula_195():
 def stem_volume_formula_196():
     pass
 
-def stem_volume_formula_197():
-    pass
+def stem_volume_formula_197(D, H):
+    # Reference: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
+    # for Pseudotsuga spp., from the Netherlands
+    # input: diameter D in mm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.00095916
+    b = 2.092560524
+    c = 0.000297255
+    d = 0.48824344
+
+    # implement formula
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_198():
     pass
@@ -1277,8 +1437,21 @@ def stem_volume_formula_211():
 def stem_volume_formula_212():
     pass
 
-def stem_volume_formula_213():
-    pass
+def stem_volume_formula_213(D, H):
+    # Reference: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44. 
+    # for  Quercus spp. (Oak, chênes, Stejar), from the Netherlands
+    # input: diameter D in mm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 0.00095853
+    b = 2.040672356
+    c = 0.001965013
+    d = 0.56366437
+
+    # implement formula
+    V = a*D**(b+c)*H**d
+    return V
 
 def stem_volume_formula_214():
     pass
@@ -1367,8 +1540,22 @@ def stem_volume_formula_227():
 def stem_volume_formula_228():
     pass
 
-def stem_volume_formula_229():
-    pass
+def stem_volume_formula_229(D, H):
+    # Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114. 
+    # for Ulmus spp. (Elm, Orme, Ulm), from the Netherlands
+    # input: diameter D in cm, height H in m
+    # output: volume in dm³
+
+    # define parameters
+    a = 1.94295
+    b = 1.29229
+    c = -4.20064
+
+    import math
+
+    # implement formula
+    V = D**a*H**b*math.exp(c)
+    return V
 
 def stem_volume_formula_230():
     pass
