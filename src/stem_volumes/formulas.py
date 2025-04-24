@@ -732,8 +732,29 @@ def stem_volume_formula_153():
 def stem_volume_formula_154():
     pass
 
-def stem_volume_formula_155():
-    pass
+# Linus - Pinus sylvestris, Germany
+def stem_volume_formula_155(D, H):
+
+    # Reference: Lockow, K.-W. 1993. Modellbildung und Quantifizierung der Durchmesser- und Volumenstruktur des ausscheidenden Kieferjungbestandes – Holzmeßkundliche Entscheideungshilfen für die Erstdurchforstung. Beiträge für Forstwirtschaft und Landschaftsökologie 27(2): 77–82.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Raise ValueError if the diameter is out of range
+    if D < 3 or D > 14:
+        raise ValueError("Diameter must be between 3 and 14 cm.")
+    # Raise ValueError if the height is out of range
+    if H < 5.8 or H > 10.7:
+        raise ValueError("Height must be between 5.8 and 10.7 m.")
+
+    # Define the coefficients
+    a = 5.6537 * 10**-5
+    b = 1.960466
+    c = 0.894433
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * D**b * H**c
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_156():
     pass
