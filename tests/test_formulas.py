@@ -107,7 +107,8 @@ def test_stem_volume_formula_8():
     assert 1==1
 
 def test_stem_volume_formula_9():
-    assert 1==1
+    assert stem_volume_formula_9(1, 1) > 0
+    assert stem_volume_formula_9(1, 1) < 1000000
 
 def test_stem_volume_formula_10():
     assert 1==1
@@ -155,7 +156,8 @@ def test_stem_volume_formula_24():
     assert 1==1
 
 def test_stem_volume_formula_25():
-    assert 1==1
+    assert stem_volume_formula_25(2, 3) > 0
+    assert stem_volume_formula_25(2, 3) < 1000000
 
 def test_stem_volume_formula_26():
     assert 1==1
@@ -203,7 +205,8 @@ def test_stem_volume_formula_40():
     assert 1==1
 
 def test_stem_volume_formula_41():
-    assert 1==1
+    assert stem_volume_formula_41(1, 1) > 0
+    assert stem_volume_formula_41(1, 1) < 1000000
 
 def test_stem_volume_formula_42():
     assert 1==1
@@ -251,7 +254,8 @@ def test_stem_volume_formula_56():
     assert 1==1
 
 def test_stem_volume_formula_57():
-    assert 1==1
+    assert stem_volume_formula_57(1, 1) > 0
+    assert stem_volume_formula_57(1, 1) < 1000000
 
 def test_stem_volume_formula_58():
     assert 1==1
@@ -299,7 +303,8 @@ def test_stem_volume_formula_72():
     assert 1==1
 
 def test_stem_volume_formula_73():
-    assert 1==1
+    assert stem_volume_formula_73(1, 1) > 0
+    assert stem_volume_formula_73(1, 1) < 1000000
 
 def test_stem_volume_formula_74():
     assert 1==1
@@ -347,7 +352,8 @@ def test_stem_volume_formula_88():
     assert 1==1
 
 def test_stem_volume_formula_89():
-    assert 1==1
+    assert stem_volume_formula_89(1.5, 1.8) > 0
+    assert stem_volume_formula_89(1.5, 1.8) < 1000000
 
 def test_stem_volume_formula_90():
     assert 1==1
@@ -395,7 +401,8 @@ def test_stem_volume_formula_104():
     assert 1==1
 
 def test_stem_volume_formula_105():
-    assert 1==1
+    assert stem_volume_formula_105(1, 1) > 0
+    assert stem_volume_formula_105(1, 1) < 1000000
 
 def test_stem_volume_formula_106():
     assert 1==1
@@ -443,7 +450,8 @@ def test_stem_volume_formula_120():
     assert 1==1
 
 def test_stem_volume_formula_121():
-    assert 1==1
+    assert stem_volume_formula_121(4.5, 4) > 0
+    assert stem_volume_formula_121(4.5, 4) < 1000000
 
 def test_stem_volume_formula_122():
     assert 1==1
@@ -491,7 +499,8 @@ def test_stem_volume_formula_136():
     assert 1==1
 
 def test_stem_volume_formula_137():
-    assert 1==1
+    assert stem_volume_formula_137(1, 1) > 0
+    assert stem_volume_formula_137(1, 1) < 1000000
 
 def test_stem_volume_formula_138():
     assert 1==1
@@ -539,7 +548,8 @@ def test_stem_volume_formula_152():
     assert 1==1
 
 def test_stem_volume_formula_153():
-    assert 1==1
+    assert stem_volume_formula_153(1, 1) > 0
+    assert stem_volume_formula_153(1, 1) < 1000000
 
 def test_stem_volume_formula_154():
     assert 1==1
@@ -587,7 +597,8 @@ def test_stem_volume_formula_168():
     assert 1==1
 
 def test_stem_volume_formula_169():
-    assert 1==1
+    assert stem_volume_formula_169(1, 1) > 0
+    assert stem_volume_formula_169(1, 1) < 1000000
 
 def test_stem_volume_formula_170():
     assert 1==1
@@ -635,7 +646,8 @@ def test_stem_volume_formula_184():
     assert 1==1
 
 def test_stem_volume_formula_185():
-    assert 1==1
+    assert stem_volume_formula_185(1, 1) > 0
+    assert stem_volume_formula_185(1, 1) < 1000000
 
 def test_stem_volume_formula_186():
     assert 1==1
@@ -683,7 +695,8 @@ def test_stem_volume_formula_200():
     assert 1==1
 
 def test_stem_volume_formula_201():
-    assert 1==1
+    assert stem_volume_formula_201(1, 1) > 0
+    assert stem_volume_formula_201(1, 1) < 1000000
 
 def test_stem_volume_formula_202():
     assert 1==1
@@ -731,7 +744,8 @@ def test_stem_volume_formula_216():
     assert 1==1
 
 def test_stem_volume_formula_217():
-    assert 1==1
+    assert stem_volume_formula_217(5, 5) > 0
+    assert stem_volume_formula_217(5, 5) < 1000000
 
 def test_stem_volume_formula_218():
     assert 1==1
