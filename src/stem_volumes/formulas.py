@@ -9,7 +9,7 @@ https://doi.org/10.14214/sf.sfm4.
 
 import math
 
-def stem_volume_formula_1(D, H, a=1.6662, b=3.2394, c=1.9335, d=-1.8997, e=-0.9739):
+def stem_volume_formula_1(D, H, a=1.6662, b=3.2394, c=1.9335, d=-1.8997, e=-0.9739): # D should be greater than 5cm
     # Volume calculation formula for Abies alba Silver fir from Norway.
         V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
         return V # Calculated volume in dm³
@@ -27,7 +27,7 @@ def stem_volume_formula_4(D):
     b = 2.52
     
     # Formula - Abies sibirica (Germany)
-    V = a*D**b 
+    V = a*D**b
     return V
 
 def stem_volume_formula_5(D, H):
@@ -127,7 +127,8 @@ def stem_volume_formula_16(D, H):
     # V=dm³
     return V
 
-def stem_volume_formula_17(D, H, a=0.0001, b=2.5, c=0.5, d=0.3, e=0.2): # Alnus glutinosa (Black alder, Klibbal) in Sweden
+def stem_volume_formula_17(D, H, a=0.0001, b=2.5, c=0.5, d=0.3, e=0.2):
+    # Alnus glutinosa (Black alder, Klibbal) in Sweden
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * D * H + e * D**2 * H**2
     return V # Calculated volume in dm³
 
@@ -176,7 +177,7 @@ def stem_volume_formula_31():
 def stem_volume_formula_32():
     pass
 
-def stem_volume_formula_33(D, H, a=0.1305, b=0.01338, c=0.01757, d=-0.05606):
+def stem_volume_formula_33(D, H, a=0.1305, b=0.01338, c=0.01757, d=-0.05606): # D should be between 5cm-34.9cm and H between 5m-26.9m
     # Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan) in Sweden
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * H**2
     return V # Calculated volume in dm³
@@ -276,7 +277,8 @@ def stem_volume_formula_63():
 def stem_volume_formula_64():
     pass
 
-def stem_volume_formula_65(D, H, a=0.487270, b=-2.04291, c=5.9995): # Larix decidua (larch, Mélèzes) in Austria
+def stem_volume_formula_65(D, H, a=0.487270, b=-2.04291, c=5.9995): # D should be between 0.5cm to 1.04cm
+    # Larix decidua (larch, Mélèzes) in Austria
     V = (math.pi / 4) * (a * D **2 * H + b * D**2 + c * D)
     return V # Calculated volume in dm³
 
@@ -325,7 +327,8 @@ def stem_volume_formula_79():
 def stem_volume_formula_80():
     pass
 
-def stem_volume_formula_81(D, H, a=2.822*10**(-5), b=2.2060, c=-0.1136, d=1.115, e=0.0129): # Larix spp. (lehtikuusi, lork, larice) in Romania
+def stem_volume_formula_81(D, H, a=2.822*10**(-5), b=2.2060, c=-0.1136, d=1.115, e=0.0129):
+    # Larix spp. (lehtikuusi, lork, larice) in Romania
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V # Calculated volume in m³
 
@@ -424,7 +427,7 @@ def stem_volume_formula_111():
 def stem_volume_formula_112():
     pass
 
-def stem_volume_formula_113(D, H, a=4.33, b=0.01491, c=0.02606, d=-0.31854, e=0.31106):
+def stem_volume_formula_113(D, H, a=4.33, b=0.01491, c=0.02606, d=-0.31854, e=0.31106): # D should be between 10cm-59.4cm and H should be <39.49
     # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Norway
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
     return V # Calculated volume in dm³
@@ -474,7 +477,8 @@ def stem_volume_formula_127():
 def stem_volume_formula_128():
     pass
 
-def stem_volume_formula_129(D, H, a=0.00009464, b=1.9341, c=-0.0722, d=0.6365, e=0.172): # Picea spp. (Molid) in Romania
+def stem_volume_formula_129(D, H, a=0.00009464, b=1.9341, c=-0.0722, d=0.6365, e=0.172):
+    # Picea spp. (Molid) in Romania
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V # Calculated volume in m³
 
@@ -524,7 +528,8 @@ def stem_volume_formula_143():
 def stem_volume_formula_144():
     pass
 
-def stem_volume_formula_145(D, a=0.000244, b=2.32716): # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Belgium
+def stem_volume_formula_145(D, a=0.000244, b=2.32716):
+    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Belgium
     V = a * D**b
     return V # Calculated volume in m³
 
@@ -623,7 +628,7 @@ def stem_volume_formula_175():
 def stem_volume_formula_176():
     pass
 
-def stem_volume_formula_177(D, H, a=-1.2605, b=1.9322, c=-0.0897, d=2.1795, e=-1.1676):
+def stem_volume_formula_177(D, H, a=-1.2605, b=1.9322, c=-0.0897, d=2.1795, e=-1.1676): # D should be >2cm and H should be >2m
     # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden
     V = 10**a * D**b * (D + 20)**c * H**d * (H + 1.3)**e
     return V # Calculated volume in dm³
@@ -723,7 +728,8 @@ def stem_volume_formula_207():
 def stem_volume_formula_208():
     pass
 
-def stem_volume_formula_209(D, H, a=1.83932, b=0.9724, c=-2.71877): #  Quercus rubra (Red oak, chêne rouge) in Netherlands
+def stem_volume_formula_209(D, H, a=1.83932, b=0.9724, c=-2.71877):
+    #  Quercus rubra (Red oak, chêne rouge) in Netherlands
     V = D**a * H**b * math.exp(c)
     return V # Calculated volume in dm³
 
@@ -772,7 +778,8 @@ def stem_volume_formula_223():
 def stem_volume_formula_224():
     pass
 
-def stem_volume_formula_225(D, H, a=0.00004124, b=1.9302, c=0.0209, d=0.129, e=-0.1903): # Tilia cordata (Tei) in Romania
+def stem_volume_formula_225(D, H, a=0.00004124, b=1.9302, c=0.0209, d=0.129, e=-0.1903):
+    # Tilia cordata (Tei) in Romania
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V # Calculated volume in m³
 
