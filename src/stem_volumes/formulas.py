@@ -803,7 +803,7 @@ def stem_volume_formula_169():
 def stem_volume_formula_170():
     pass
 
-# Linus - Pinus sylvestris, Germany
+# Linus - Pinus sylvestris, Sweden 
 def stem_volume_formula_171(D, H):
 
     # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
@@ -876,8 +876,27 @@ def stem_volume_formula_185():
 def stem_volume_formula_186():
     pass
 
-def stem_volume_formula_187():
-    pass
+# Linus - Populus tremulus, Romania
+def stem_volume_formula_187(D, H):
+
+    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    # Units: V(m^3), D(cm), H(m)
+
+    # Import the log10 function from the math package
+    from math import log10
+
+    # Define the coefficients
+    a = 0.00007604
+    b = 1.7812
+    c = 0.0528
+    d = 0.8533
+    e = 0.0654
+
+    # Calculate the volume according to the formula given by Zianis et al.
+    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+
+    # Return the calculated volume
+    return V
 
 def stem_volume_formula_188():
     pass
