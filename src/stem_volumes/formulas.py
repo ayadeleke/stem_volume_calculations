@@ -246,9 +246,14 @@ def stem_volume_formula_48():
 
 def stem_volume_formula_49():
     pass
-
-def stem_volume_formula_50():
-    pass
+ #rogy equation
+def stem_volume_formula_50(D,H):
+    a=-15.589e-3
+    b=0.01696e-3
+    c=0.01883e-3
+    v= a * b * D * (H**2) +c * (D**3)
+    #BFagus sylvatica (Beech, Rotbuche, Beuk)(Germany)
+    return v
 
 def stem_volume_formula_51():
     pass
