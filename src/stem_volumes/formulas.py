@@ -355,9 +355,24 @@ def stem_volume_formula_80():
 
 def stem_volume_formula_81():
     pass
-
-def stem_volume_formula_82():
-    pass
+  #rogy equation
+def stem_volume_formula_82(D,H):
+    a=0.46818
+    b=-0.013919
+    c=-28.213
+    d=0.37474
+    e=-0.28875
+    f=28.279
+    v= (math.pi / 4) * (
+    a * D**2 * H +
+    b * D**2 * H * (math.log(D))**2 +
+    c * D**2 +
+    d * D * H +
+    e * H +
+    f * D
+)
+ #Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Austria)
+    return v
 
 def stem_volume_formula_83():
     pass
