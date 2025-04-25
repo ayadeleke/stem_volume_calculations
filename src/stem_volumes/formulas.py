@@ -456,19 +456,31 @@ def stem_volume_formula_32(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
-def stem_volume_formula_33(D, H): # D should be between 5cm-34.9cm and H between 5m-26.9m
+def stem_volume_formula_33(D, H):
 
+    """
+    Calculate the stem volume for a standing tree of Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    in Sweden.
+
+    Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd.
+    Meddelanden från Statens skogsforskningsinstitutet 36(3): 1–81.
+
+    Parameters:
+    D (float): Diameter of the tree in cm. Recommended range: 5 cm - 34.9 cm.
+    H (float): Height of the tree in m. Recommended range: 5 m - 26.9 m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
     # Define parameters
     a=0.1305
     b=0.01338
     c=0.01757
     d=-0.05606
 
-    # Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan) in Sweden
-
     # Implement formula
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * H**2
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_34():
     pass
