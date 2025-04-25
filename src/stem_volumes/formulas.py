@@ -197,20 +197,25 @@ def stem_volume_formula_15():
 
 def stem_volume_formula_16(D, H):
     
-    # Alnus glutinosa - Norway
-    # D = cm | H = m | V = dm³
-    # D range = 0-12cm 
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Alnus glutinosa from Norway. The range of valid values for D is 0-12 cm. 
+    Original source is Brantseg (1967) - https://hdl.handle.net/11250/2988649.
 
-    # coefficients
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 0-12 cm.
+        H: Tree height in m.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
     a = 0.6716
     b = 0.75708
     c = 0.029679
     d = 0.004341
-
-    # equation  
+ 
     V = a + b * D**2 + c * D**2 * H + d * H**2 * D
-
-    # volume
     return V
 
 def stem_volume_formula_17(D, H, a=0.0001, b=2.5, c=0.5, d=0.3, e=0.2):
