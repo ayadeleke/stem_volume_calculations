@@ -45,14 +45,22 @@ def stem_volume_formula_2(D, H):
 def stem_volume_formula_3():
     pass
 
-# Theos equation
 def stem_volume_formula_4(D):
-    # Coefficients
+    """
+    Species:    Abies sibirica
+    Location:   Germany 
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 10-48cm.
+
+    Returns:
+        V: Stem volume in m3.
+    """
+
     a = 0.0001316
     b = 2.52
-    
-    # Formula - Abies sibirica (Germany)
-    V = a*D**b
+     
+    V = a*D**b 
     return V
 
 def stem_volume_formula_5(D, H):
@@ -273,8 +281,27 @@ def stem_volume_formula_18():
 def stem_volume_formula_19():
     pass
 
-def stem_volume_formula_20():
-    pass
+def stem_volume_formula_20(D, H):
+    """
+    Species:    Alnus incana
+    Location:   Norway
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 5cm or above.
+        H: Tree height in m.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+    
+    a = -1.86827
+    b = 0.21461
+    c = 0.01283
+    d = 0.0138
+    e = -0.06311
+
+    V = a + b*D**2 + c*D**2 * H + d*H**2 * D + e*H**2
+    return V
 
 def stem_volume_formula_21(D, H):
 
@@ -301,7 +328,7 @@ def stem_volume_formula_21(D, H):
     e = 0.0530
 
     V =  a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
-    return V
+    return V    
 
 def stem_volume_formula_22(D: float, H: float) -> float:
     """Calculate the stem volume of a tree based on diameter and height.
@@ -485,8 +512,27 @@ def stem_volume_formula_34():
 def stem_volume_formula_35():
     pass
 
-def stem_volume_formula_36():
-    pass
+def stem_volume_formula_36(D, H):
+    """
+    Species:    Betula spp.
+    Location:   Sweden
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 4.5cm or above.
+        H: Tree height in m. Recommendend range: 6m or above.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+
+    a = -0.44224
+    b = 2.47580
+    c = -1.40854
+    d = 5.16863
+    e = -3.77147
+
+    V = 10**a * D**b * (D+20)**c * H**d * (H-1.3)**e
+    return V
 
 def stem_volume_formula_37(D, H):
     
@@ -691,8 +737,25 @@ def stem_volume_formula_50():
 def stem_volume_formula_51():
     pass
 
-def stem_volume_formula_52():
-    pass
+def stem_volume_formula_52(D, H):
+    """
+    Species:    Fagus sylvatica
+    Location:   Netherlands
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA
+        H: Tree height in m. Recommendend range: NA
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+
+    a = 1.55448
+    b = 1.55880
+    c = -3.57875
+
+    V = D**a * H**b * math.exp(c)
+    return V
 
 def stem_volume_formula_53(D, H):
 
@@ -895,8 +958,27 @@ def stem_volume_formula_66():
 def stem_volume_formula_67():
     pass
 
-def stem_volume_formula_68():
-    pass
+def stem_volume_formula_68(D, H):
+    """
+    Species:    Larix decidua
+    Location:   Norway
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 5cm or above.
+        H: Tree height in m. Recommendend range: 6m or above.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+    
+    a = 0.7761
+    b = 3.6461
+    c = 1.9166
+    d = -2.3179
+    e = -0.8236
+
+    V = a*H**b * D**c * (H-1.3)**d * (D+100)**e
+    return V
 
 def stem_volume_formula_69(D, H):
 
@@ -1103,8 +1185,28 @@ def stem_volume_formula_82():
 def stem_volume_formula_83():
     pass
 
-def stem_volume_formula_84():
-    pass
+def stem_volume_formula_84(D, H):
+    """
+    Species:    Picea abies
+    Location:   Belgium
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in m3.
+    """
+    
+    a = -0.010929       
+    b = 0.004380951     
+    c = -0.000094713    
+    d = -0.0000078024   
+    e = -0.0027922      
+    f = 0.00004834610   
+
+    V = a + b*D + c*D**2 + d*D**3 + e*H + f*D**2 * H
+    return V 
 
 def stem_volume_formula_85(D):
 
@@ -1310,8 +1412,25 @@ def stem_volume_formula_98():
 def stem_volume_formula_99():
     pass
 
-def stem_volume_formula_100():
-    pass
+def stem_volume_formula_100(D, H):
+    """
+    Species:    Picea abies
+    Location:   Netherlands
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in m3.
+    """
+    
+    a = 1.75055
+    b = 1.10897
+    c = -2.75863
+
+    V = D**a * H**b * math.exp**c
+    return V  
 
 def stem_volume_formula_101(D, H):
 
@@ -1525,8 +1644,26 @@ def stem_volume_formula_114():
 def stem_volume_formula_115():
     pass
 
-def stem_volume_formula_116():
-    pass
+def stem_volume_formula_116(D, H):
+    """
+    Species:    Picea abies
+    Location:   Sweden
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 5-55.9cm.
+        H: Tree height in m. Recommendend range: 3-34.9m.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+    
+    a = 0.1150
+    b = 0.01746
+    c = 0.02022	
+    d = -0.05618
+
+    V = a*D**2 + b*D**2 * H + c * D * H**2 + d*H**2
+    return V     
 
 def stem_volume_formula_117(D, H):
 
@@ -1743,8 +1880,25 @@ def stem_volume_formula_130():
 def stem_volume_formula_131():
     pass
 
-def stem_volume_formula_132():
-    pass
+def stem_volume_formula_132(D, H):
+    """
+    Species:    Pinus contorta
+    Location:   Netherlands
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+    
+    a = 1.89303
+    b = 0.98667
+    c = -2.88614
+
+    V = D**a * H**b * math.exp(c)
+    return V
 
 def stem_volume_formula_133(D, H):
 
@@ -1769,7 +1923,7 @@ def stem_volume_formula_133(D, H):
     e = 0.01249
 
     V = a*D**2+b*D**2*H+c*D**2*H**2-d*D*H+e*D*H**2
-    return V
+    return V    
 
 def stem_volume_formula_134(D: float, H: float) -> float:
     """Calculate the stem volume of a tree based on diameter and height.
@@ -1939,8 +2093,26 @@ def stem_volume_formula_146():
 def stem_volume_formula_147():
     pass
 
-def stem_volume_formula_148():
-    pass
+def stem_volume_formula_148(D):
+    """
+    Species:    Pinus sylvestris
+    Location:   Finland
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 0.9-50.6cm.
+
+    Returns:
+        V: Stem volume in ln(dm3).
+    """
+    
+    a = -5.39417
+    b = 3.48060
+    c = 2
+    d = 1.25
+    e = -0.039884 
+
+    V = a + b*math.log(c+d*D) + e*D
+    return V
 
 def stem_volume_formula_149(D, H):
 
@@ -2147,8 +2319,25 @@ def stem_volume_formula_162():
 def stem_volume_formula_163():
     pass
 
-def stem_volume_formula_164():
-    pass
+def stem_volume_formula_164(D, H):
+    """
+    Species:    Pinus sylvestris
+    Location:   Norway
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 10cm or above.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+    
+    a = 8.6524
+    b = 0.076844    
+    c = 0.031573
+
+    V = a + b*D**2 + c*D**2 *H
+    return V
 
 def stem_volume_formula_165(D, H):
 
@@ -2172,7 +2361,7 @@ def stem_volume_formula_165(D, H):
     d = 0.004341 # NOTE: parameter d listed in Zianis et al. for formula #166 belongs to formula #165 according to the original publication
 
     V = a+b*D**2+c*D**2*H+d*D*H**2
-    return V
+    return V    
 
 def stem_volume_formula_166(D: float, H: float) -> float:
     """Calculate the stem volume of a tree based on diameter and height.
@@ -2358,8 +2547,26 @@ def stem_volume_formula_178():
 def stem_volume_formula_179():
     pass
 
-def stem_volume_formula_180():
-    pass
+def stem_volume_formula_180(D, H):
+    """
+    Species:    Populus spp.
+    Location:   Netherlands
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in dm3.
+    """
+    
+    a = 0.0009507
+    b = 1.895629295
+    c = -0.00773694
+    d = 0.8392146
+
+    V = a*D**(b+c) * H**d
+    return V
 
 def stem_volume_formula_181(D, H):
 
@@ -2565,8 +2772,27 @@ def stem_volume_formula_194():
 def stem_volume_formula_195():
     pass
 
-def stem_volume_formula_196():
-    pass
+def stem_volume_formula_196(D, H):
+    """
+    Species:    Pseudotsuga menziesii
+    Location:   Romania
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in m3.
+    """
+    
+    a = 0.0000477
+    b = 1.8688
+    c = 0.0424
+    d = 1.1411
+    e = -0.1047
+
+    V = a*10**(b*math.log10(D) + c*math.log10(D)**2 + d*math.log10(H) + e*math.log10(H)**2)    
+    return V
 
 def stem_volume_formula_197(D, H):
 
@@ -2772,8 +2998,28 @@ def stem_volume_formula_210():
 def stem_volume_formula_211():
     pass
 
-def stem_volume_formula_212():
-    pass
+def stem_volume_formula_212(D, H):
+    """
+    Species:    Quercus spp.
+    Location:   Belgium
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+
+    Returns:
+        V: Stem volume in m3.
+    """
+    
+    a = -0.0022735
+    b = 0.000389557
+    c = 0.000124772
+    d = -0.0000018434
+    e = -0.0016657
+    f = 0.000036985
+
+    V = a + b*D + c*D**2 + d*D**3 + e*H + f*D**2 * H
+    return V 	      
 
 def stem_volume_formula_213(D, H):
 
@@ -2984,8 +3230,27 @@ def stem_volume_formula_226():
 def stem_volume_formula_227():
     pass
 
-def stem_volume_formula_228():
-    pass
+def stem_volume_formula_228(D, H):
+    """
+    Species:    Ulmus spp.
+    Location:   Belgium
+    
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: NA.
+        H: Tree height in m. Recommendend range: NA.
+        
+    Returns:
+        V: Stem volume in m3."""
+    
+    a = -0.034716
+    b = 0.004268168
+    c = -0.00013227
+    d = -0.0000017667
+    e = 0.00016516
+    f = 0.000038311
+
+    V = a + b*D + c*D**2 + d*D**3 + e*H + f*D**2 * H
+    return V
 
 def stem_volume_formula_229(D, H):
 
