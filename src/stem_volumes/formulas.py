@@ -868,9 +868,21 @@ def stem_volume_formula_64(D,H):
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H + e * H + f * D + g)
     return V
 
-def stem_volume_formula_65(D, H): # D should be between 0.5cm to 1.04cm
-    # Larix decidua (larch, Mélèzes) in Austria
+def stem_volume_formula_65(D, H):
 
+    """
+    Calculate the stem volume for a standing tree of Larix decidua (larch, Mélèzes) in Austria.
+
+    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and
+    Yield Reserch, University for Agricultural Sciences, Vienna.
+
+    Parameters:
+    D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
     # Define parameters
     a=0.487270
     b=-2.04291
@@ -878,7 +890,7 @@ def stem_volume_formula_65(D, H): # D should be between 0.5cm to 1.04cm
 
     # Implement formula
     V = (math.pi / 4) * (a * D **2 * H + b * D**2 + c * D)
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_66():
     pass
