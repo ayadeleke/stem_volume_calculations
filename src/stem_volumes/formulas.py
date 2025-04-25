@@ -1131,19 +1131,26 @@ def stem_volume_formula_95():
 
 def stem_volume_formula_96(D,H):
 
-    # RESULTS TOO HIGH | checked original source: eq, coeff and units correct
-    # Picea abies - Iceland
-    # D = cm | H = m  | V = m³
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Picea abies from Iceland. The range of valid values for D is 2.7-27.9 cm and above. 
+    Original source is Snorrason & Einarsson (2006) - https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=6668a0d8e81f7c32c0a0926d99b3451c9c69c160
 
-    # coefficients
+    TODO - results are too high; checked og source and eq, coeff and units are the same; maybe typo?
+
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 2.7-27.9 cm and above.
+        H: Tree height in m. Recommended range 2.7-12 m.
+            
+    Returns:
+        V: Stem volume in m3.
+    """    
     a = 0.1299		
     b = 1.6834
     c = 0.8598
 
-    # equation  
     V = a * D**b * H**c
-
-    # volume
     return V
 
 def stem_volume_formula_97(D, H, a=0.00053238, b=2.164126647, c=0.004108377, d=0.54879808):
