@@ -352,6 +352,18 @@ def stem_volume_formula_39():
     pass
 
 def stem_volume_formula_40(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for  Carpinus spp. from Netherlands. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
     #coefficients
     a=0.00021491
     b=2.258957614
