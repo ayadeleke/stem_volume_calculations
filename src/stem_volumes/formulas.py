@@ -478,6 +478,19 @@ def stem_volume_formula_55():
     pass
 
 def stem_volume_formula_56(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for  Fraxinus exselsior (Ash, Frêne, Es)
+  from Sweden. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
     #coefficients
     a=0.03246
     b=0.03310
