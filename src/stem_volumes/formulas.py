@@ -1134,19 +1134,19 @@ def stem_volume_formula_96(D,H):
     """
     Calculates the volume of the stem of a standing tree.
         
-    This formula is implemented from Zianis and is recommended for Picea abies from Iceland. The range of valid values for D is 2.7-27.9 cm and above. 
+    This formula is implemented from Zianis and is recommended for Picea abies from Iceland. The range of valid values for D is 2.7-27.9 cm. 
     Original source is Snorrason & Einarsson (2006) - https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=6668a0d8e81f7c32c0a0926d99b3451c9c69c160
 
     TODO - results are too high; checked og source and eq, coeff and units are the same; maybe typo?
 
     Args:
-        D: Diameter at breast height in cm. Recommendend range: 2.7-27.9 cm and above.
+        D: Diameter at breast height in cm. Recommendend range: 2.7-27.9 cm.
         H: Tree height in m. Recommended range 2.7-12 m.
             
     Returns:
         V: Stem volume in m3.
     """    
-    a = 0.1299		
+    a = 0.1299
     b = 1.6834
     c = 0.8598
 
@@ -1338,7 +1338,7 @@ def stem_volume_formula_112(D,H):
     Returns:
         V: Stem volume in dm3.
     """    
-    a = 0.3				
+    a = 0.3
     b = 0.02593
     c = 0.01268
     d = -0.0977
@@ -1534,7 +1534,7 @@ def stem_volume_formula_128(D,H):
     Returns:
         V: Stem volume in dm3.
     """    
-    a = 0.2101			
+    a = 0.2101
     b = 1.892
     c = 1.1095
     d = -0.3895
@@ -1713,7 +1713,7 @@ def stem_volume_formula_144(D,H):
     Returns:
         V: Stem volume in dm3.
     """    
-    a = 0.435949	
+    a = 0.435949
     b = -0.0149083
     c = 5.21091
     d = 0.028702
@@ -2077,18 +2077,24 @@ def stem_volume_formula_175():
 
 def stem_volume_formula_176(D,H):
     
-    # Pinus sylvestric - Sweden
-    # D = cm | H = m  | V = dm³
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Pinus sylvestris from Sweden. The range of valid values for D is 5-49.9 cm. 
+    Original source is Näslund (1947) - https://pub.epsilon.slu.se/10185/1/medd_statens_skogsforskningsanst_032_04.pdf
 
-    # coefficients
-    a = 0.1072		
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 5-49.9 cm.
+        H: Tree height in m. Recommendend range: 3-32.9 cm.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
+    a = 0.1072
     b = 0.02427
     c = 0.007315
 
-    # equation  
     V = a * D**2 + b * D**2 * H + c * D * H**2
-
-    # volume
     return V
 
 def stem_volume_formula_177(D, H, a=-1.2605, b=1.9322, c=-0.0897, d=2.1795, e=-1.1676): # D should be >2cm and H should be >2m
