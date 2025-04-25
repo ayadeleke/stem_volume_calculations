@@ -1149,6 +1149,18 @@ def stem_volume_formula_135():
     pass
 
 def stem_volume_formula_136(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for Pinus nigra var maritima (Black pine) from Netherlands.
+    
+    Args:
+        D: Diameter at breast height in cm. 
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
         #coefficients
     a=1.89192
     b=0.95374
