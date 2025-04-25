@@ -1664,6 +1664,18 @@ def stem_volume_formula_199():
     pass
 
 def stem_volume_formula_200(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for Quercus grisea (Gray oak, Stejar brumariu) from Romania. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
        #coefficients
     a=0.00007188
     b=1.4486
