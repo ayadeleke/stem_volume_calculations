@@ -151,12 +151,22 @@ def stem_volume_formula_9(D, H):
 def stem_volume_formula_10():
     pass
 
-# Linus - Acer pseudoplatanus, Romania
 def stem_volume_formula_11(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Acer pseudoplatanus
+    Location: Romania
 
-    # Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
-    # Units: V(m^3), D(cm), H(m)
+    Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
+    Args:
+        D: Diameter at breast height in cm. 
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
     # Import the log10 function from the math package
     from math import log10
 
@@ -324,24 +334,27 @@ def stem_volume_formula_25(D, H):
 def stem_volume_formula_26():
     pass
 
-# Linus - Betula spp., Finland
-# The calculated volume seems to be unrealistically low,
-# however the implementation of the formula is according to the original paper.
 def stem_volume_formula_27(D):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Betula spp.
+    Location: Finland
+    
+    Reference: Laasasenaho, J. 1982. Taper curve and volume functions for pine, spruce and birch. Communicationes Instituti Forestalis Fenniae 108: 1-74.
 
-    # Reference: Laasasenaho, J. 1982. Taper curve and volume functions for pine, spruce and birch. Communicationes Instituti Forestalis Fenniae 108: 1–74.
-    # Units: V(dm^3), D(cm)
-
+    Args:
+        D: Diameter at breast height in cm. Recommended range: 1.2-49.7 cm.
+    
+    Returns:
+        V: Volume in dm3.
+    """
     # Import the natural logarithm function from the math package
     from math import log 
 
-    # Raise ValueError if the diameter is out of range
-    if D < 1.2 or D > 49.7: 
-        raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
-    
-    # Raise ValueError if the height is out of range
-    if H < 2.4 or H > 29.5:
-        raise ValueError("Height must be between 2.4 and 29.5 m.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 1.2 or D > 49.7: 
+    #     raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
 
     # Define the coefficients
     a = -5.41948
@@ -352,7 +365,8 @@ def stem_volume_formula_27(D):
 
     # Calculate the volume according to the formula given by Zianis et al.
     V = a + b * log(c + d * D) + e * D 
-    
+    # The calculated volume seems to be unrealistically low, however the implementation of the formula is according to the original paper. Furthermore, D values below 2.13 result in negative volumes, which is not possible. This contradicts the recommended range of 1.2-49.7 cm.
+   
     # Return the calculated volume
     return V
 
@@ -505,12 +519,22 @@ def stem_volume_formula_41(D, H):
 def stem_volume_formula_42():
     pass
 
-# Linus - Chamaecyparis lawsoniana, Netherlands
 def stem_volume_formula_43(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Chamaecyparis lawsoniana
+    Location: Netherlands
+    
+    Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1-114.
 
-    # Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
-    # Units: V(dm^3), D(cm), H(m)
-
+    Args:
+        D: Diameter at breast height in cm. Recommended range: 5 cm or more.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
     # Import the exponential function from the math package
     from math import exp
 
@@ -648,7 +672,7 @@ def stem_volume_formula_56(D, H):
     return V
 
 def stem_volume_formula_57(D, H):
-    # reference: Eriksson, H. 1973. Volymfunktioner för ståendeträd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1–26.
+    # reference: Eriksson, H. 1973. Volymfunktioner för ståendeträd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1-26.
     # Fraxinus exselsior (Ash, Frêne, Es), from Sweden
     # input: diameter D in cm, height H in m
     # output: volume in dm3
@@ -675,12 +699,22 @@ def stem_volume_formula_57(D, H):
 def stem_volume_formula_58():
     pass
 
-# Linus - Fraxinus Excelsior, Sweden
 def stem_volume_formula_59(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
     
-    # Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1–26.
-    # Units: V(dm^3), D(cm), H(m)
+    Species: Fraxinus Excelsior
+    Location: Sweden
+    
+    Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1-26.
 
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in dm3.
+    """
     # Define the coefficients
     a = 0.03249
     b = 0.02941
@@ -841,15 +875,26 @@ def stem_volume_formula_73(D, H):
 def stem_volume_formula_74():
     pass
 
-# Linus - Larix sibirica, Norway
+
 def stem_volume_formula_75(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Larix sibirica
+    Location: Norway
+    
+    Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18-19.
 
-    # Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
-    # Units: V(dm^3), D(cm), H(m)
-
+    Args:
+        D: Diameter at breast height in cm. Recommended range: 5 cm or more.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in dm3.
+    """
     # Raise ValueError if the diameter is out of range
-    if D < 5:
-        raise ValueError("Diameter must be at least 5 cm.")
+    # if D < 5:
+    #     raise ValueError("Diameter must be at least 5 cm.")
 
     # Define the coefficients
     a = 0.7761
@@ -1009,19 +1054,30 @@ def stem_volume_formula_89(D, H):
 def stem_volume_formula_90():
     pass
 
-# Linus - Picea abies, Finland
+
 def stem_volume_formula_91(D, H):
-
-    # Reference: Kanninen, K., Uusvaara, O. & Valonen, P. 1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403: 1–53.
-    # Units: V(dm^1), D(cm), H(m)
-
-    # Raise ValueError if the diameter is out of range
-    if D < 2 or D > 18: 
-        raise ValueError("Diameter must be between 2 and 18 cm.")
+    """
+    Calculates the volume of the stem of a standing tree.
     
-    # Raise ValueError if the height is out of range
-    if H < 2 or H > 18:
-        raise ValueError("Height must be between 2 and 18 m.")
+    Species: Picea abies
+    Location: Finland
+    
+    Reference: Kanninen, K., Uusvaara, O. & Valonen, P. 1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403: 1-53.
+
+    Args:
+        D: Diameter at breast height in cm. Recommended range: 2-18 cm.
+        H: Tree height in m. Recommended range: 2-18 m.
+    
+    Returns:
+        V: Volume in dm3.
+    """
+    # # Raise ValueError if the diameter is out of range
+    # if D < 2 or D > 18: 
+    #     raise ValueError("Diameter must be between 2 and 18 cm.")
+    
+    # # Raise ValueError if the height is out of range
+    # if H < 2 or H > 18:
+    #     raise ValueError("Height must be between 2 and 18 m.")
 
     # Define the coefficients
     a = 0.7877 
@@ -1184,18 +1240,29 @@ def stem_volume_formula_105(D, H):
 def stem_volume_formula_106():
     pass
 
-# Linus - Picea abies, Norway
+
 def stem_volume_formula_107(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Picea abies
+    Location: Norway
+    
+    Reference: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539-574.
 
-    # Reference: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
-    # Units: V(dm^3), D(cm), H(m)
-
-    # Raise ValueError if the diameter is out of range
-    if D < 13 or D > 59.4:
-        raise ValueError("Diameter must be between 13 and 59.4 cm.")
-    # Raise ValueError if the height is out of range
-    if H > 39.49:
-        raise ValueError("Height may be 39.49 m at max.")
+    Args:
+        D: Diameter at breast height in cm. Recommended range: 13-59.4 cm.
+        H: Tree height in m. Recommended range: Up to 39.49 m.
+    
+    Returns:
+        V: Volume in dm3.
+    """
+    # # Raise ValueError if the diameter is out of range
+    # if D < 13 or D > 59.4:
+    #     raise ValueError("Diameter must be between 13 and 59.4 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H > 39.49:
+    #     raise ValueError("Height may be 39.49 m at max.")
 
     # Define the coefficients
     a = 10.14
@@ -1364,18 +1431,29 @@ def stem_volume_formula_121(D, H):
 def stem_volume_formula_122():
     pass
 
-# Linus - Picea abies, Sweden
+
 def stem_volume_formula_123(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Picea abies
+    Location: Sweden
+    
+    Reference: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178-191.
 
-    # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
-    # Units: V(dm^3), D(cm), H(m)
-
-    # Raise ValueError if the diameter is out of range
-    if D < 2:
-        raise ValueError("Diameter must be at least 2 cm.")
-    # Raise ValueError if the height is out of range
-    if H < 2:
-        raise ValueError("Height must be at least 2 m.")
+    Args:
+        D: Diameter at breast height in cm. Recommended range: At least 2 cm.
+        H: Tree height in m. Recommended range: At least 2 m.
+    
+    Returns:
+        V: Volume in dm3.
+    """
+    # # Raise ValueError if the diameter is out of range
+    # if D < 2:
+    #     raise ValueError("Diameter must be at least 2 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H < 2:
+    #     raise ValueError("Height must be at least 2 m.")
 
     # Define the coefficients
     a = -1.0342
@@ -1538,12 +1616,22 @@ def stem_volume_formula_137(D, H):
 def stem_volume_formula_138():
     pass
 
-# Linus - Pinus spp., Germany
 def stem_volume_formula_139(H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Pinus spp.
+    Location: Germany
+    
+    Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099-1115.
 
-    # Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099–1115.
-    # Units: V(m^3), H(m)
-
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
     # Define the coefficients
     a = 0.000074
     b = 3.1
@@ -1702,18 +1790,28 @@ def stem_volume_formula_153(D, H):
 def stem_volume_formula_154():
     pass
 
-# Linus - Pinus sylvestris, Germany
 def stem_volume_formula_155(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Pinus sylvestris
+    Location: Germany
+    
+    Reference: Lockow, K.-W. 1993. Modellbildung und Quantifizierung der Durchmesser- und Volumenstruktur des ausscheidenden Kieferjungbestandes - Holzmeßkundliche Entscheideungshilfen für die Erstdurchforstung. Beiträge für Forstwirtschaft und Landschaftsökologie 27(2): 77-82.
 
-    # Reference: Lockow, K.-W. 1993. Modellbildung und Quantifizierung der Durchmesser- und Volumenstruktur des ausscheidenden Kieferjungbestandes – Holzmeßkundliche Entscheideungshilfen für die Erstdurchforstung. Beiträge für Forstwirtschaft und Landschaftsökologie 27(2): 77–82.
-    # Units: V(m^3), D(cm), H(m)
-
-    # Raise ValueError if the diameter is out of range
-    if D < 3 or D > 14:
-        raise ValueError("Diameter must be between 3 and 14 cm.")
-    # Raise ValueError if the height is out of range
-    if H < 5.8 or H > 10.7:
-        raise ValueError("Height must be between 5.8 and 10.7 m.")
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
+    # # Raise ValueError if the diameter is out of range
+    # if D < 3 or D > 14:
+    #     raise ValueError("Diameter must be between 3 and 14 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H < 5.8 or H > 10.7:
+    #     raise ValueError("Height must be between 5.8 and 10.7 m.")
 
     # Define the coefficients
     a = 5.6537 * 10**-5
@@ -1845,7 +1943,7 @@ def stem_volume_formula_168(D, H):
     return V
 
 def stem_volume_formula_169(D, H):
-    # reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173–178
+    # reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173-178
     # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri), Romania
     # input: diameter D in cm, height H in m
     # output: volume in m3
@@ -1874,18 +1972,28 @@ def stem_volume_formula_169(D, H):
 def stem_volume_formula_170():
     pass
 
-# Linus - Pinus sylvestris, Sweden 
 def stem_volume_formula_171(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Pinus sylvestris
+    Location: Sweden 
+    
+    Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178-191.
 
-    # Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
-    # Units: V(dm^3), D(cm), H(m)
-
-    # Raise ValueError if the diameter is out of range
-    if D < 2:
-        raise ValueError("Diameter must be at least 2 cm.")
-    # Raise ValueError if the height is out of range
-    if H < 2:
-        raise ValueError("Height must be at least 2 m.")
+    Args:
+        D: Diameter at breast height in cm. Recommended range: At least 2 cm.
+        H: Tree height in m. At least 2 m.
+    
+    Returns:
+        V: Volume in dm3.
+    """
+    # # Raise ValueError if the diameter is out of range
+    # if D < 2:
+    #     raise ValueError("Diameter must be at least 2 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H < 2:
+    #     raise ValueError("Height must be at least 2 m.")
 
     # Define the coefficients
     a = -1.1226
@@ -2044,12 +2152,22 @@ def stem_volume_formula_185(D, H):
 def stem_volume_formula_186():
     pass
 
-# Linus - Populus tremulus, Romania
 def stem_volume_formula_187(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Populus tremulus
+    Location: Romania
+    
+    Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
-    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
-    # Units: V(m^3), D(cm), H(m)
-
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
     # Import the log10 function from the math package
     from math import log10
 
@@ -2215,12 +2333,22 @@ def stem_volume_formula_201(D, H):
 def stem_volume_formula_202():
     pass
 
-# Linus - Quercus laevis, Romania
 def stem_volume_formula_203(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Quercus laevis
+    Location: Romania
+    
+    Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
-    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
-    # Units: V(m^3), D(cm), H(m)
-
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
     # Import the log10 function from the math package
     from math import log10
 
@@ -2392,12 +2520,22 @@ def stem_volume_formula_217(D, H):
 def stem_volume_formula_218():
     pass
 
-# Linus - Salix caprea, Romania
 def stem_volume_formula_219(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    Species: Salix caprea
+    Location: Romania
+    
+    Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
-    # Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
-    # Units: V(m^3), D(cm), H(m)
-
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+    
+    Returns:
+        V: Volume in m3.
+    """
     # Import the log10 function from the math package
     from math import log10
 

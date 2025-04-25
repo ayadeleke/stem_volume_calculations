@@ -116,7 +116,8 @@ def test_stem_volume_formula_10():
     assert 1==1
 
 def test_stem_volume_formula_11():
-    assert 1==1
+    assert stem_volume_formula_11(1,2) > 0
+    assert stem_volume_formula_11(1,2) < 80, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_12():
     assert 1==1
@@ -167,7 +168,8 @@ def test_stem_volume_formula_26():
     assert 1==1
 
 def test_stem_volume_formula_27():
-    assert 1==1
+    assert stem_volume_formula_27(2.13) > 0
+    assert stem_volume_formula_27(2.13) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_28():
     assert 1==1
@@ -218,7 +220,8 @@ def test_stem_volume_formula_42():
     assert 1==1
 
 def test_stem_volume_formula_43():
-    assert 1==1
+    assert stem_volume_formula_43(1,2) > 0
+    assert stem_volume_formula_43(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_44():
     assert 1==1
@@ -269,7 +272,8 @@ def test_stem_volume_formula_58():
     assert 1==1
 
 def test_stem_volume_formula_59():
-    assert 1==1
+    assert stem_volume_formula_59(1,2) > 0
+    assert stem_volume_formula_59(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_60():
     assert 1==1
@@ -320,7 +324,8 @@ def test_stem_volume_formula_74():
     assert 1==1
 
 def test_stem_volume_formula_75():
-    assert 1==1
+    assert stem_volume_formula_75(1,2) > 0
+    assert stem_volume_formula_75(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_76():
     assert 1==1
@@ -371,7 +376,8 @@ def test_stem_volume_formula_90():
     assert 1==1
 
 def test_stem_volume_formula_91():
-    assert 1==1
+    assert stem_volume_formula_91(1,2) > 0
+    assert stem_volume_formula_91(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_92():
     assert 1==1
@@ -422,7 +428,8 @@ def test_stem_volume_formula_106():
     assert 1==1
 
 def test_stem_volume_formula_107():
-    assert 1==1
+    assert stem_volume_formula_107(1,2) > 0
+    assert stem_volume_formula_107(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_108():
     assert 1==1
@@ -473,7 +480,8 @@ def test_stem_volume_formula_122():
     assert 1==1
 
 def test_stem_volume_formula_123():
-    assert 1==1
+    assert stem_volume_formula_123(1,2) > 0
+    assert stem_volume_formula_123(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_124():
     assert 1==1
@@ -524,10 +532,8 @@ def test_stem_volume_formula_138():
     assert 1==1
 
 def test_stem_volume_formula_139():
-    assert 1==1
-
-def test_stem_volume_formula_140():
-    assert 1==1
+    assert stem_volume_formula_139(1) > 0
+    assert stem_volume_formula_139(1) < 80, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_141():
     assert 1==1
@@ -575,7 +581,8 @@ def test_stem_volume_formula_154():
     assert 1==1
 
 def test_stem_volume_formula_155():
-    assert 1==1
+    assert stem_volume_formula_155(1,2) > 0
+    assert stem_volume_formula_155(1,2) < 80, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_156():
     assert 1==1
@@ -626,7 +633,8 @@ def test_stem_volume_formula_170():
     assert 1==1
 
 def test_stem_volume_formula_171():
-    assert 1==1
+    assert stem_volume_formula_171(1,2) > 0
+    assert stem_volume_formula_171(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_172():
     assert 1==1
@@ -677,7 +685,8 @@ def test_stem_volume_formula_186():
     assert 1==1
 
 def test_stem_volume_formula_187():
-    assert 1==1
+    assert stem_volume_formula_187(1,2) > 0
+    assert stem_volume_formula_187(1,2) < 80, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_188():
     assert 1==1
@@ -728,7 +737,8 @@ def test_stem_volume_formula_202():
     assert 1==1
 
 def test_stem_volume_formula_203():
-    assert 1==1
+    assert stem_volume_formula_203(1,2) > 0
+    assert stem_volume_formula_203(1,2) < 80, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_204():
     assert 1==1
@@ -779,7 +789,8 @@ def test_stem_volume_formula_218():
     assert 1==1
 
 def test_stem_volume_formula_219():
-    assert 1==1
+    assert stem_volume_formula_219(1,2) > 0
+    assert stem_volume_formula_219(1,2) < 80, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_220():
     assert 1==1
