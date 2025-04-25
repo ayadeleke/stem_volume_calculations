@@ -1712,7 +1712,21 @@ def stem_volume_formula_128(D,H):
     return V
 
 def stem_volume_formula_129(D, H):
-    # Picea spp. (Molid) in Romania
+
+    """
+    Calculate the stem volume for a standing tree of Picea spp. (Molid) in Romania.
+
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum,
+    pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor
+    89(4): 173–178.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic meters (m³).
+    """
 
     # Define parameters
     a=0.00009464
@@ -1720,10 +1734,10 @@ def stem_volume_formula_129(D, H):
     c=-0.0722
     d=0.6365
     e=0.172
-    
+
     # Implement formula
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
-    return V # Calculated volume in m³
+    return V
 
 
 def stem_volume_formula_130():
