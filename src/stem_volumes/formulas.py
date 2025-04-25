@@ -1283,7 +1283,19 @@ def stem_volume_formula_96(D,H):
     return V
 
 def stem_volume_formula_97(D, H):
-    # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Netherlands
+
+    """
+    Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in the Netherlands.
+
+    Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
 
     # Define parameters
     a=0.00053238
@@ -1293,7 +1305,7 @@ def stem_volume_formula_97(D, H):
 
     # Implement formula
     V = a*D**(b+c) * H**d
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_98():
     pass
