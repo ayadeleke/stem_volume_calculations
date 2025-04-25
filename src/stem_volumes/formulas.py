@@ -573,6 +573,19 @@ def stem_volume_formula_47():
 
 def stem_volume_formula_48(D,H):
 
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Fagus spp from UK.  
+    Original source is Broadmeadow et al (2004) - https://nora.nerc.ac.uk/id/eprint/8644/1/N008644CR.pdf
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 5 cm and above.
+        H: Tree height in m.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
+
     # Fagus spp. - UK
     # D = cm | H = m  | V = m³
 
