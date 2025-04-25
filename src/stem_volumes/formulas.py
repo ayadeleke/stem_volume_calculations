@@ -13,18 +13,15 @@ def stem_volume_formula_1(D, H):
     """
     Calculate the stem volume for a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Silver fir from Norway. 
-    The range value for diameter should be 5cm or greater.
-
-    Original source: Øen, S., Bauger, E. & Øyen, B.-H. 001. Functionar for volumberekning 
-    av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
+    This formula is implemented from Zianis et al. (2005) and is recommended for Silver fir from Norway. 
+    The diameter should be 5 cm or greater.
 
     Args:
-    D (float): Diameter of the tree in cm. Recommended range: 5 cm and above.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
@@ -36,7 +33,7 @@ def stem_volume_formula_1(D, H):
 
     # Implement formula
     V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_2(D, H):
     a = 1.89756
@@ -247,16 +244,16 @@ def stem_volume_formula_17(D, H):
     """
     Calculate the stem volume for a standing tree of Alnus glutinosa (Black alder, Klibbal) in Sweden.
 
-    Original source: Eriksson, H. 1973. Volymfunktioner för stående 
+    Original source: Eriksson, H. 1973. Volymfunktioner för stående
     träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, 
     Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
@@ -466,11 +463,11 @@ def stem_volume_formula_33(D, H):
     Meddelanden från Statens skogsforskningsinstitutet 36(3): 1–81.
 
     Args:
-    D (float): Diameter of the tree in cm. Recommended range: 5 cm - 34.9 cm.
-    H (float): Height of the tree in m. Recommended range: 5 m - 26.9 m.
+        D (float): Diameter of the tree in cm. Recommended range: 5 cm - 34.9 cm.
+        H (float): Height of the tree in m. Recommended range: 5 m - 26.9 m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
     # Define parameters
     a=0.1305
@@ -669,11 +666,11 @@ def stem_volume_formula_49(D, H):
     Gembloux, Gembloux. 1 6 p.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic meters (m³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define parameters
@@ -877,11 +874,11 @@ def stem_volume_formula_65(D, H):
     Yield Reserch, University for Agricultural Sciences, Vienna.
 
     Args:
-    D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        (float): The calculated stem volume in dm3.
     """
     # Define parameters
     a=0.487270
@@ -1082,11 +1079,11 @@ def stem_volume_formula_81(D, H):
     89(4): 173–178.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic meters (m³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define parameters
@@ -1290,11 +1287,11 @@ def stem_volume_formula_97(D, H):
     Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
@@ -1504,11 +1501,11 @@ def stem_volume_formula_113(D, H):
     Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
 
     Args:
-    D (float): Diameter of the tree in cm. The diameter should be between 10 cm and 59.4 cm.
-    H (float): Height of the tree in m. The height should be less than 39.49 m.
+        D (float): Diameter of the tree in cm. The diameter should be between 10 cm and 59.4 cm.
+        H (float): Height of the tree in m. The height should be less than 39.49 m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
@@ -1721,11 +1718,11 @@ def stem_volume_formula_129(D, H):
     89(4): 173–178.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic meters (m³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define parameters
@@ -1922,10 +1919,10 @@ def stem_volume_formula_145(D):
     production in a 73-year-old Scots pine forest. Tree Physiology 3: 505–516.
 
     Args:
-    D (float): Diameter of the tree in cm.
+        D (float): Diameter of the tree in cm.
 
     Returns:
-    V (float): The calculated stem volume in cubic meters (m³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define parameters
@@ -2126,11 +2123,11 @@ def stem_volume_formula_161(D, H):
     Rapport fra Skogforsk(16): 1–26.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
@@ -2337,11 +2334,11 @@ def stem_volume_formula_177(D, H):
     Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
 
     Args:
-    D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
-    H (float): Height of the tree in m. Recommended range: 2 m and above.
+        D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
+        H (float): Height of the tree in m. Recommended range: 2 m and above.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
@@ -2543,11 +2540,11 @@ def stem_volume_formula_193(D, H):
     arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 1 6 p.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic meters (m³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define the parameters
@@ -2753,11 +2750,11 @@ def stem_volume_formula_209(D, H):
     Uitvoerige verslagen 19(1): 1–114.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic decimeters (dm³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define parameters
@@ -2963,11 +2960,11 @@ def stem_volume_formula_225(D, H):
     pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
 
     Args:
-    D (float): Diameter of the tree in cm.
-    H (float): Height of the tree in m.
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
 
     Returns:
-    V (float): The calculated stem volume in cubic meters (m³).
+        V (float): The calculated stem volume in m3.
     """
 
     # Define parameters
@@ -2976,7 +2973,7 @@ def stem_volume_formula_225(D, H):
     c=0.0209
     d=0.129
     e=-0.1903
-    
+
     # Implement formula
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
