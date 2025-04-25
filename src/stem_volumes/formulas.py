@@ -1701,19 +1701,24 @@ def stem_volume_formula_143():
 
 def stem_volume_formula_144(D,H):
     
-    # Pinus sylvestris - Austria
-    # D = dm | H = dm  | V = dm³
-
-    # coefficients
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Pinus sylvestris from Austria. The range of valid values for D is 0.5 cm and above. 
+        
+    Args:
+        D: Diameter at breast height in dm. Recommendend range: 0.5 cm and above.
+        H: Tree height in dm.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
     a = 0.435949	
     b = -0.0149083
     c = 5.21091
     d = 0.028702
 
-    # equation  
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * H)
-
-    # volume
     return V
 
 def stem_volume_formula_145(D, a=0.000244, b=2.32716):
