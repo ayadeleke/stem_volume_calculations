@@ -871,6 +871,18 @@ def stem_volume_formula_103():
     pass
 
 def stem_volume_formula_104(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) from Norway. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
       #coefficients
     a=0.5824
     b=1.1987
