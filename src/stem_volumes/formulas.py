@@ -2955,9 +2955,22 @@ def stem_volume_formula_224(D,H):
     return V
 
 def stem_volume_formula_225(D, H):
-    # Tilia cordata (Tei) in Romania
 
-    # Define the parameters
+    """
+    Calculate the stem volume for a standing tree of Tilia cordata (Tei) in Romania.
+
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, 
+    pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic meters (m³).
+    """
+
+    # Define parameters
     a=0.00004124
     b=1.9302
     c=0.0209
@@ -2966,7 +2979,7 @@ def stem_volume_formula_225(D, H):
     
     # Implement formula
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_226():
     pass
