@@ -13,15 +13,7 @@ stem-volumes/
 
 """
 
-# Incude the path to the formulas
-# Option 1:
-#import sys
-#sys.append path parent
-
-# Option 2: Modify pyproject.toml
-
 from stem_volumes.formulas import *
-# Tests
 
 def test_stem_volume_formula_1():
     assert stem_volume_formula_1(1,1) > 0
