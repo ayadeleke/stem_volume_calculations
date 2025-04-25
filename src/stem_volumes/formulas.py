@@ -760,8 +760,7 @@ def stem_volume_formula_72(D, H):
     """
     Calculates the volume of the stem of a standing tree.
     
-    This formula is implemented from Zianis and is recommended for Larix sibirica (Siberian larix)
-  from Iceland. The range of valid values for D is 4 cm and above. 
+    This formula is implemented from Zianis and is recommended for Larix sibirica (Siberian larix) from Iceland. The range of valid values for D is 4 cm and above. 
     
     Args:
         D: Diameter at breast height in cm. Recommendend range: 4 cm and above.
