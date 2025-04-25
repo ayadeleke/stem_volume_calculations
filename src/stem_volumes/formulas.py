@@ -2744,16 +2744,30 @@ def stem_volume_formula_208(D,H):
     return V
 
 def stem_volume_formula_209(D, H):
-    #  Quercus rubra (Red oak, chêne rouge) in Netherlands
 
-    # Define the parameters
+    """
+    Calculate the stem volume for a standing tree of Quercus rubra (Red oak, chêne rouge) in the Netherlands.
+
+    Original source: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice.
+    Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen.
+    Uitvoerige verslagen 19(1): 1–114.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
+
+    # Define parameters
     a=1.83932
     b=0.9724
     c=-2.71877
     
     # Implement formula
     V = D**a * H**b * math.exp(c)
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_210():
     pass
