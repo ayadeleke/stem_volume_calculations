@@ -238,7 +238,8 @@ def test_stem_volume_formula_47():
     assert 1==1
 
 def test_stem_volume_formula_48():
-    assert 1==1
+    assert stem_volume_formula_48(30,15) > 0
+    assert stem_volume_formula_48(30,15) < 10
 
 def test_stem_volume_formula_49():
     assert 1==1
