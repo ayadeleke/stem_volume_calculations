@@ -2535,7 +2535,20 @@ def stem_volume_formula_192(D,H):
     return V
 
 def stem_volume_formula_193(D, H):
-    # Pseudotsuga menziesii (Douglas fir, Duglas) in Belgium
+
+    """
+    Calculate the stem volume for a standing tree of Pseudotsuga menziesii (Douglas fir, Duglas) in Belgium.
+
+    Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des
+    arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 1 6 p.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic meters (m³).
+    """
 
     # Define the parameters
     a=-0.019911
@@ -2547,7 +2560,7 @@ def stem_volume_formula_193(D, H):
 
     # Implement formula
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_194():
     pass
