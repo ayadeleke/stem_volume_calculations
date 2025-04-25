@@ -1403,6 +1403,18 @@ def stem_volume_formula_167():
     pass
 
 def stem_volume_formula_168(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) from Norway. The range of valid values for D is 0 cm and above. 
+    
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 0 cm and above.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
        #coefficients
     a=2.9361
     b=0.038906
