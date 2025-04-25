@@ -82,8 +82,8 @@ def test_volume_unit_from_docstring(formula_no):
     assert unit in set(["dm3", "m3", "ln(dm3)", "ln(m3)"])
 
 def test_stem_volume_formula_1():
-    assert stem_volume_formula_1(1,1) > 0
-    assert stem_volume_formula_1(1,1) < 1000000
+    assert stem_volume_formula_1(20,10) > 0
+    assert stem_volume_formula_1(20,10) < 1000000
 
 def test_stem_volume_formula_2():
     assert 1==1

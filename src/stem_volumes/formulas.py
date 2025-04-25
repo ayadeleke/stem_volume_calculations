@@ -73,6 +73,18 @@ def stem_volume_formula_7():
     pass
 
 def stem_volume_formula_8(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for Acacia spp. (Salcim) from Romania. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
     #coefficients
     a=0.00046903
     b=1.807
