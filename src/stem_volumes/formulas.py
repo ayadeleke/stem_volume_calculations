@@ -1913,15 +1913,28 @@ def stem_volume_formula_144(D,H):
     return V
 
 def stem_volume_formula_145(D):
-    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Belgium
-    
+
+    """
+    Calculate the stem volume for a standing tree of Pinus sylvestris (Scots pine) in Belgium.
+
+    Original source: Xiao, c.W., curiel Yuste, J., Janssens, I.A., Roskams, P., Nachtergale, l.,
+    carrara, A., Sanchez, B.Y. & ceulemans, R. 003. Above-and belowground biomass and net primary
+    production in a 73-year-old Scots pine forest. Tree Physiology 3: 505–516.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+
+    Returns:
+    V (float): The calculated stem volume in cubic meters (m³).
+    """
+
     # Define parameters
     a=0.000244
     b=2.32716
-    
+
     # Implement formula
     V = a * D**b
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_146():
     pass
