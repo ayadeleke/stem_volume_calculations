@@ -1522,19 +1522,24 @@ def stem_volume_formula_127():
 
 def stem_volume_formula_128(D,H):
     
-    # Picea sitchensis - Norway
-    # D = cm | H = m  | V = dm³
-
-    # coefficients
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Picea sitchensis from Norway. 
+        
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
     a = 0.2101			
     b = 1.892
     c = 1.1095
     d = -0.3895
 
-    # equation  
     V = a * D**b * (H - 1.3)**c * (D + 40)**d
-
-    # volume
     return V
 
 def stem_volume_formula_129(D, H, a=0.00009464, b=1.9341, c=-0.0722, d=0.6365, e=0.172):
