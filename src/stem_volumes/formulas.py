@@ -196,7 +196,6 @@ def stem_volume_formula_15():
     pass
 
 def stem_volume_formula_16(D, H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -388,7 +387,6 @@ def stem_volume_formula_31():
     pass
 
 def stem_volume_formula_32(D, H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -572,7 +570,6 @@ def stem_volume_formula_47():
     pass
 
 def stem_volume_formula_48(D,H):
-
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -755,7 +752,6 @@ def stem_volume_formula_63():
     pass
 
 def stem_volume_formula_64(D,H):
-
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -943,7 +939,6 @@ def stem_volume_formula_79():
     pass
 
 def stem_volume_formula_80(D,H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -1130,7 +1125,6 @@ def stem_volume_formula_95():
     pass
 
 def stem_volume_formula_96(D,H):
-
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -1324,7 +1318,6 @@ def stem_volume_formula_111():
     pass
 
 def stem_volume_formula_112(D,H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -1521,7 +1514,6 @@ def stem_volume_formula_127():
     pass
 
 def stem_volume_formula_128(D,H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -1700,7 +1692,6 @@ def stem_volume_formula_143():
     pass
 
 def stem_volume_formula_144(D,H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -1887,7 +1878,6 @@ def stem_volume_formula_159():
     pass
 
 def stem_volume_formula_160(D,H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -2076,7 +2066,6 @@ def stem_volume_formula_175():
     pass
 
 def stem_volume_formula_176(D,H):
-    
     """
     Calculates the volume of the stem of a standing tree.
         
@@ -2258,7 +2247,6 @@ def stem_volume_formula_191():
     pass
 
 def stem_volume_formula_192(D,H):
-
     """
     Calculates the volume of the stem of a standing tree.
         
