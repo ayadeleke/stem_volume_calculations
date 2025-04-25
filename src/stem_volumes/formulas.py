@@ -2117,7 +2117,21 @@ def stem_volume_formula_160(D,H):
     return V
 
 def stem_volume_formula_161(D, H):
-    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway
+
+    """
+    Calculate the stem volume for a standing tree of Pinus sylvestris
+    (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway.
+
+    Original source: Bauger, E. 1995. Funksjoner og tabeller for kubering av stående trær.
+    Rapport fra Skogforsk(16): 1–26.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
 
     # Define parameters
     a=0.1424
@@ -2128,7 +2142,7 @@ def stem_volume_formula_161(D, H):
 
     # Implement formula
     V = a * H**b * D**c * (H-1.3)**d * (D+100)**e
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_162():
     pass
