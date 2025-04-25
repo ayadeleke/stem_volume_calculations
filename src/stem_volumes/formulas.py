@@ -15,11 +15,11 @@ def stem_volume_formula_1(D, H):
 
     This formula is implemented from Zianis et al., (2005) and is recommended for Silver fir from Norway. 
     The range value for diameter should be 5cm or greater.
-    
+
     Original source: Øen, S., Bauger, E. & Øyen, B.-H. 001. Functionar for volumberekning 
     av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm. Recommended range: 5 cm and above.
     H (float): Height of the tree in m.
 
@@ -251,7 +251,7 @@ def stem_volume_formula_17(D, H):
     träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, 
     Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -465,7 +465,7 @@ def stem_volume_formula_33(D, H):
     Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd.
     Meddelanden från Statens skogsforskningsinstitutet 36(3): 1–81.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm. Recommended range: 5 cm - 34.9 cm.
     H (float): Height of the tree in m. Recommended range: 5 m - 26.9 m.
 
@@ -668,7 +668,7 @@ def stem_volume_formula_49(D, H):
     Tables de cubage des arbres et des peuplements forestiers. les Presses Agronomiques de
     Gembloux, Gembloux. 1 6 p.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -876,7 +876,7 @@ def stem_volume_formula_65(D, H):
     Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and
     Yield Reserch, University for Agricultural Sciences, Vienna.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
     H (float): Height of the tree in m.
 
@@ -1081,7 +1081,7 @@ def stem_volume_formula_81(D, H):
     pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 
     89(4): 173–178.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -1289,7 +1289,7 @@ def stem_volume_formula_97(D, H):
 
     Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -1503,7 +1503,7 @@ def stem_volume_formula_113(D, H):
     Original source: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. 
     Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm. The diameter should be between 10 cm and 59.4 cm.
     H (float): Height of the tree in m. The height should be less than 39.49 m.
 
@@ -1720,7 +1720,7 @@ def stem_volume_formula_129(D, H):
     pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor
     89(4): 173–178.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -1921,7 +1921,7 @@ def stem_volume_formula_145(D):
     carrara, A., Sanchez, B.Y. & ceulemans, R. 003. Above-and belowground biomass and net primary
     production in a 73-year-old Scots pine forest. Tree Physiology 3: 505–516.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
 
     Returns:
@@ -2125,7 +2125,7 @@ def stem_volume_formula_161(D, H):
     Original source: Bauger, E. 1995. Funksjoner og tabeller for kubering av stående trær.
     Rapport fra Skogforsk(16): 1–26.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -2336,7 +2336,7 @@ def stem_volume_formula_177(D, H):
     Original source: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan,
     Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
     H (float): Height of the tree in m. Recommended range: 2 m and above.
 
@@ -2542,7 +2542,7 @@ def stem_volume_formula_193(D, H):
     Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des
     arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 1 6 p.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -2752,7 +2752,7 @@ def stem_volume_formula_209(D, H):
     Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen.
     Uitvoerige verslagen 19(1): 1–114.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
@@ -2962,7 +2962,7 @@ def stem_volume_formula_225(D, H):
     Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, 
     pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
 
-    Parameters:
+    Args:
     D (float): Diameter of the tree in cm.
     H (float): Height of the tree in m.
 
