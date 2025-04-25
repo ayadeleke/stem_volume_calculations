@@ -1325,20 +1325,26 @@ def stem_volume_formula_111():
 
 def stem_volume_formula_112(D,H):
     
-    # Picea abies - Norway
-    # D = cm | H = m  | V = dm³
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Picea abies from Norway. The range of valid values for D is 0-15 cm and above. 
+    Original source is Vestjordet (1967) - https://hdl.handle.net/11250/2988611
 
-    # coefficients
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 0-15 cm and above.
+        H: Tree height in m. Recommended range: 0-39.49 m.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
     a = 0.3				
     b = 0.02593
     c = 0.01268
     d = -0.0977
     e = 0.14586
 
-    # equation  
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
-
-    # volume
     return V
 
 def stem_volume_formula_113(D, H, a=4.33, b=0.01491, c=0.02606, d=-0.31854, e=0.31106): # D should be between 10cm-59.4cm and H should be <39.49
