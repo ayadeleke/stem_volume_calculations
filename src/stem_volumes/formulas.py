@@ -2328,8 +2328,21 @@ def stem_volume_formula_176(D,H):
     V = a * D**2 + b * D**2 * H + c * D * H**2
     return V
 
-def stem_volume_formula_177(D, H): # D should be >2cm and H should be >2m
-    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden
+def stem_volume_formula_177(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden.
+
+    Original source: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan,
+    Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+
+    Parameters:
+    D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
+    H (float): Height of the tree in m. Recommended range: 2 m and above.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
 
     # Define parameters
     a=-1.2605
@@ -2340,7 +2353,7 @@ def stem_volume_formula_177(D, H): # D should be >2cm and H should be >2m
 
     # Implement formula
     V = 10**a * D**b * (D + 20)**c * H**d * (H + 1.3)**e
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_178():
     pass
