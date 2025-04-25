@@ -1495,19 +1495,32 @@ def stem_volume_formula_112(D,H):
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
     return V
 
-def stem_volume_formula_113(D, H): # D should be between 10cm-59.4cm and H should be <39.49
-    
+def stem_volume_formula_113(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Norway.
+
+    Original source: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. 
+    Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
+
+    Parameters:
+    D (float): Diameter of the tree in cm. The diameter should be between 10 cm and 59.4 cm.
+    H (float): Height of the tree in m. The height should be less than 39.49 m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
+
     # Define parameters
     a=4.33
     b=0.01491
     c=0.02606
     d=-0.31854
     e=0.31106
-    
-    # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Norway
+
     # Implement formula
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_114():
     pass
