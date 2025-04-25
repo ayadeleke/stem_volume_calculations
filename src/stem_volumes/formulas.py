@@ -2637,21 +2637,25 @@ def stem_volume_formula_223():
     pass
 
 def stem_volume_formula_224(D,H):
-    
-    # Thuja pilicata - Norway
-    # D = cm | H = m | V = dm³
-
-    # coefficients
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Thuja pilicata from Norway. The range of valid values for D is 5 cm and above. 
+        
+    Args:
+        D: Diameter at breast height in cm. Recommendend range: 5 cm and above.
+        H: Tree height in m.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
     a = 1.3057
     b = 3.9075
     c = 1.9832
     d = -2.3337
     e = -1.3024
 
-    # equation  
     V = a * H**b * D**c * (H - 1.3)**d * (D + 40)**e
-
-    # volume
     return V
 
 def stem_volume_formula_225(D, H, a=0.00004124, b=1.9302, c=0.0209, d=0.129, e=-0.1903):
