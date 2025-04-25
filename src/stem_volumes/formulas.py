@@ -1535,6 +1535,18 @@ def stem_volume_formula_183():
     pass
 
 def stem_volume_formula_184(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for Populus spp. (Poplar, Plop) from UK. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
        #coefficients
     a=-0.004298
     b=0.0000435
