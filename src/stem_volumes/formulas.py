@@ -578,26 +578,19 @@ def stem_volume_formula_48(D,H):
         
     This formula is implemented from Zianis and is recommended for Fagus spp from UK.  
     Original source is Broadmeadow et al (2004) - https://nora.nerc.ac.uk/id/eprint/8644/1/N008644CR.pdf
+
     Args:
-        D: Diameter at breast height in cm. Recommendend range: 5 cm and above.
+        D: Diameter at breast height in cm.
         H: Tree height in m.
             
     Returns:
-        V: Stem volume in dm3.
-    """    
-
-    # Fagus spp. - UK
-    # D = cm | H = m  | V = m³
-
-    # coefficients
+        V: Stem volume in m3.
+    """
     a = -0.014306
     b = 0.0000748
     c = 0.75
 
-    # equation  
     V = a + b * D**2 * H**c
-
-    # volume
     return V
 
 def stem_volume_formula_49(D, H, a=-0.015572, b=0.00290013, c=-7.0476*10**(-6), d=2.3935*10**(-6), e=-0.0013528, f=3.9837*10**(-5)):
@@ -763,10 +756,18 @@ def stem_volume_formula_63():
 
 def stem_volume_formula_64(D,H):
 
-    # Larix decidua - Austria
-    # D = dm | H = dm  | V = dm³
-
-    # coefficients
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Larix decidua from Austria. The range of valid values for D is 1 cm and above.
+    
+    Args:
+        D: Diameter at breast height in dm. Recommendend range: 1 cm and above.
+        H: Tree height in dm.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """
     a = 0.609443
     b = -0.0455748
     c = -18.6631
@@ -774,11 +775,8 @@ def stem_volume_formula_64(D,H):
     e = 0.126594
     f = 36.9783
     g = -14.204
-
-    # equation  
+ 
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H + e * H + f * D + g)
-
-    # volume
     return V
 
 def stem_volume_formula_65(D, H, a=0.487270, b=-2.04291, c=5.9995): # D should be between 0.5cm to 1.04cm
