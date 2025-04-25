@@ -60,21 +60,22 @@ def stem_volume_formula_5(D, H):
     return V
 
 def stem_volume_formula_6(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Abies spp. (Fir, Brad)  
     Country: Austria
 
-    n = unknown, r² = 0.848. 
+    n = unknown, r2 = 0.848
     
-    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and Yield Research, University for Agricultural Sciences, Vienna.
+    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and Yield Research,
+    University for Agricultural Sciences, Vienna.
 
     Args:
-        D (float): diameter in dm (range 0.5-1.04 cm)
-        H (float): height in dm (range unknown)
+        D (float): Diameter at breast height in dm. Recommended range: 0.5-1.04 cm.
+        H (float): Tree height in dm.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Coefficients
     a = 0.560673
@@ -82,7 +83,7 @@ def stem_volume_formula_6(D: float, H: float) -> float:
     c = -0.65583
     d = 0.033210
     
-    # Equation / D[dm], H[dm], V[dm³]
+    # Calculate volume
     V = (math.pi/4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H)
     
     return V
@@ -217,28 +218,29 @@ def stem_volume_formula_21(D, H):
     return V
 
 def stem_volume_formula_22(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Alnus spp. (Alder)  
     Country: Austria
 
-    n = unknown, r² = 0.583. 
+    n = unknown, r2 = 0.583
     
-    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and Yield Research, University for Agricultural Sciences, Vienna.
+    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and Yield Research, 
+    University for Agricultural Sciences, Vienna.
 
     Args:
-        D (float): diameter in dm (range 0.5-1.04 cm)
-        H (float): height in dm (range unknown)
+        D (float): Diameter at breast height in dm. Recommendend range: 0.5-1.04 cm.
+        H (float): Tree height in dm.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 0.387399
     b = 7.17123
     c = 0.04407
     
-    # Calculate volume / D[dm], H[dm], V[dm³]
+    # Calculate volume
     V = (math.pi/4) * (a * D**2 * H + b * D**2 + c * D)
     
     return V
@@ -377,21 +379,22 @@ def stem_volume_formula_37(D, H):
     return V
 
 def stem_volume_formula_38(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)  
     Country: Sweden
 
-    n=1363, r² = unknown. 
+    n=1363, r2 = unknown
     
-    Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd. Meddelanden från Statens skogsforskningsinstitutet 36(3): 1-81.
+    Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd. 
+    Meddelanden från Statens skogsforskningsinstitutet 36(3): 1-81.
     
     Args:
-        D (float): diameter in cm (range 5-34.9 cm)
-        H (float): height in m (range 5-26.9 m)
+        D (float): Diameter at breast height in cm. Recommendend range: 5-34.9 cm.
+        H (float): Tree height in m. Recommendend range: 5-26.9 m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 0.1432
@@ -399,7 +402,7 @@ def stem_volume_formula_38(D: float, H: float) -> float:
     c = 0.02180
     d = -0.06630
 
-    # Calculate volume / D[cm], H[m], V[dm³]
+    # Calculate volume
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * H
 
     return V
@@ -521,21 +524,22 @@ def stem_volume_formula_53(D, H):
     return V
 
 def stem_volume_formula_54(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Betula spp. Fraxinus exselsior (Ash, Frêne, Es)  
     Country: Belgium
 
-    n = 534, r² = unknown
+    n = 534, r2 = unknown
 
-    Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 126 p
+    Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. 
+    Tables de cubage des arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 126 p.
 
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in m³
+        float: Stem volume in m3.
     """
     # Define coefficients
     a = -0.039836
@@ -545,7 +549,7 @@ def stem_volume_formula_54(D: float, H: float) -> float:
     e = -0.0009834
     f = 3.7872 * 10**-5
 
-    # Calculate volume / D[cm], H[m], V[m³]
+    # Calculate volume
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
 
     return V
@@ -673,21 +677,22 @@ def stem_volume_formula_69(D, H):
     return V
 
 def stem_volume_formula_70(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Larix kaempferi (Japanese larch)  
     Country: Netherlands
 
-    n = 1023, r² = 0.996
+    n = 1023, r2 = 0.996
 
-    Original source: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1-114
+    Original source: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. 
+    Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1-114.
 
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 1.87077
@@ -818,21 +823,22 @@ def stem_volume_formula_85(D):
     return V
 
 def stem_volume_formula_86(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)  
     Country: Czech Republic
 
-    n = 26, r² = 0.98
+    n = 26, r2 = 0.98
     
-    Original source: Cerný, M. 1990. Biomass of Picea abies (l.) Karst. in midwestern Bohemia. Scandinavian Journal of Forest Research 5: 83–95.
+    Original source: Cerný, M. 1990. Biomass of Picea abies (l.) Karst. in midwestern Bohemia. 
+    Scandinavian Journal of Forest Research 5: 83-95.
     
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in m³
+        float: Stem volume in m3.
     """
     # Define coefficients
     a = 0.00011261 
@@ -969,21 +975,22 @@ def stem_volume_formula_101(D, H):
     return V
 
 def stem_volume_formula_102(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)  
     Country: Norway
 
-    n = 2621, r² = 0.998
+    n = 2621, r2 = 0.998
     
-    Original source: Bauger, E. 1995. Funksjoner og tabeller for kubering av stående trær. Rapport fra Skogforsk(16): 1-26.
+    Original source: Bauger, E. 1995. Funksjoner og tabeller for kubering av stående trær. 
+    Rapport fra Skogforsk(16): 1-26.
     
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 0.6844
@@ -1127,21 +1134,22 @@ def stem_volume_formula_117(D, H):
     return V
 
 def stem_volume_formula_118(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)  
     Country: Sweden
 
-    n = 2609, r² = 0.998
+    n = 2609, r2 = 0.998
     
-    Original source: Brandel, G. 1990. Volumfunktioner för enskilda träd. Sveriges lantbruksuniversitet, Institutionen för skogsproduktion, Rapport 26: 1-181
+    Original source: Brandel, G. 1990. Volumfunktioner för enskilda träd. 
+    Sveriges lantbruksuniversitet, Institutionen för skogsproduktion, Rapport 26: 1-181.
     
     Args:
-        D (float): diameter in cm (range 4.5-)
-        H (float): height in m (range 4-)
+        D (float): Diameter at breast height in cm. Recommendend range: 4.5cm and above.
+        H (float): Tree height in m. Recommendend range: 4m and above.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = -0.79783
@@ -1286,21 +1294,22 @@ def stem_volume_formula_133(D, H):
     return V
 
 def stem_volume_formula_134(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Pinus contorta (contorta tall)
     Country: Sweden
 
-    n = 1301, r² = unknown
+    n = 1301, r2 = unknown
     
-    Original source: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 26: 1-26
+    Original source: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. 
+    Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 26: 1-26
     
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 0.04514
@@ -1428,21 +1437,22 @@ def stem_volume_formula_149(D, H):
     return V
 
 def stem_volume_formula_150(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
     Country: Finland
 
-    n = 2326, r² = unknown
+    n = 2326, r2 = unknown
     
-    Original source: Hakkila, P. 1979. Wood density survey and dry weight tables for pine, spruce and birch stems in Finland. communicationes Instituti Forestalis Fenniae 96(3): 1-59.
+    Original source: Hakkila, P. 1979. Wood density survey and dry weight tables for pine, spruce and birch stems in Finland. 
+    Communicationes Instituti Forestalis Fenniae 96(3): 1-59.
 
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in ln(dm³)
+        float: Stem volume in ln(dm3).
     """
     # Define coefficients
     a = -3.2890
@@ -1577,21 +1587,22 @@ def stem_volume_formula_165(D, H):
     return V
 
 def stem_volume_formula_166(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)  
     Country: Norway
 
-    n = 2622, r² = 0.999
+    n = 2622, r2 = 0.999
     
-    Original source: Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. Meddelelser fra det Norske Skogforsøksvesen 84: 689-739
+    Original source: Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. 
+    Meddelelser fra det Norske Skogforsøksvesen 84: 689-739.
 
     Args:
-        D (float): diameter in cm (range 0-12)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm. Recommendend range: 0-12.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 2.0044
@@ -1730,21 +1741,22 @@ def stem_volume_formula_181(D, H):
     return V
 
 def stem_volume_formula_182(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Populus spp. (Poplar, Plop)  
     Country: Romania
 
-    n = unknown, r² = unknown
+    n = unknown, r2 = unknown
     
-    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173-178.
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru 
+    majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173-178.
 
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in m³
+        float: Stem volume in m3.
     """
     # Define coefficients
     a = 0.00018059
@@ -1878,21 +1890,22 @@ def stem_volume_formula_197(D, H):
     return V
 
 def stem_volume_formula_198(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Pseudotsuga spp.  
     Country: Netherlands
 
-    n = unknown, r² = unknown
+    n = unknown, r2 = unknown
     
-    Original source: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 2002. converging estimates of the forest carbon sink. Alterra-rapport 631: 1-44
+    Original source: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 2002. 
+    Converging estimates of the forest carbon sink. Alterra-rapport 631: 1-44.
 
     Args:
-        D (float): diameter in mm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in mm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 0.00095916
@@ -2028,21 +2041,22 @@ def stem_volume_formula_213(D, H):
     return V
 
 def stem_volume_formula_214(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Quercus spp. (Oak, chênes, Stejar)
     Country: Netherlands
 
-    n = unknown, r² = unknown
+    n = unknown, r2 = unknown
     
-    Original source: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 2002. converging estimates of the forest carbon sink. Alterra-rapport 631: 1-44
+    Resource: Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 2002. 
+    Converging estimates of the forest carbon sink. Alterra-rapport 631: 1-44.
 
     Args:
-        D (float): diameter in mm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in mm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in dm³
+        float: Stem volume in dm3.
     """
     # Define coefficients
     a = 0.00095853
@@ -2184,21 +2198,22 @@ def stem_volume_formula_229(D, H):
     return V
 
 def stem_volume_formula_230(D: float, H: float) -> float:
-    """Calculate stem volume based on diameter and height.
+    """Calculate the stem volume of a tree based on diameter and height.
 
     Species: Ulmus spp. (Elm, Orme, Ulm)
     Country: Romania
 
-    n = unknown, r² = unknown
+    n = unknown, r2 = unknown
     
-    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173-178
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru 
+    majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173-178.
 
     Args:
-        D (float): diameter in cm (range unknown)
-        H (float): height in m (range unknown)
+        D (float): Diameter at breast height in cm.
+        H (float): Tree height in m.
 
     Returns:
-        float: volume in m³
+        float: Stem volume in m3.
     """
     # Define coefficients
     a = 3.992 * 10**-5
