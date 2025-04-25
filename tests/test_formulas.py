@@ -98,7 +98,8 @@ def test_stem_volume_formula_5():
     assert 1==1
 
 def test_stem_volume_formula_6():
-    assert 1==1
+    assert stem_volume_formula_6(1, 25) > 0
+    assert stem_volume_formula_6(1, 25) < 10000 # dm³
 
 def test_stem_volume_formula_7():
     assert 1==1
@@ -107,7 +108,8 @@ def test_stem_volume_formula_8():
     assert 1==1
 
 def test_stem_volume_formula_9():
-    assert 1==1
+    assert stem_volume_formula_9(20, 10) > 0
+    assert stem_volume_formula_9(20, 10) < 1000000
 
 def test_stem_volume_formula_10():
     assert 1==1
@@ -146,7 +148,8 @@ def test_stem_volume_formula_21():
     assert 1==1
 
 def test_stem_volume_formula_22():
-    assert 1==1
+    assert stem_volume_formula_22(1, 25) > 0
+    assert stem_volume_formula_22(1, 25) < 10000 # dm³
 
 def test_stem_volume_formula_23():
     assert 1==1
@@ -155,7 +158,8 @@ def test_stem_volume_formula_24():
     assert 1==1
 
 def test_stem_volume_formula_25():
-    assert 1==1
+    assert stem_volume_formula_25(44, 28) > 0
+    assert stem_volume_formula_25(44, 28) < 1000000
 
 def test_stem_volume_formula_26():
     assert 1==1
@@ -194,7 +198,8 @@ def test_stem_volume_formula_37():
     assert 1==1
 
 def test_stem_volume_formula_38():
-    assert 1==1
+    assert stem_volume_formula_54(10, 5) > 0
+    assert stem_volume_formula_54(10, 5) < 10000 # dm³
 
 def test_stem_volume_formula_39():
     assert 1==1
@@ -203,7 +208,8 @@ def test_stem_volume_formula_40():
     assert 1==1
 
 def test_stem_volume_formula_41():
-    assert 1==1
+    assert stem_volume_formula_41(1, 1) > 0
+    assert stem_volume_formula_41(1, 1) < 1000000
 
 def test_stem_volume_formula_42():
     assert 1==1
@@ -242,7 +248,8 @@ def test_stem_volume_formula_53():
     assert 1==1
 
 def test_stem_volume_formula_54():
-    assert 1==1
+    assert stem_volume_formula_54(10, 2.5) > 0
+    assert stem_volume_formula_54(10, 2.5) < 10 # m³
 
 def test_stem_volume_formula_55():
     assert 1==1
@@ -251,7 +258,8 @@ def test_stem_volume_formula_56():
     assert 1==1
 
 def test_stem_volume_formula_57():
-    assert 1==1
+    assert stem_volume_formula_57(1, 1) > 0
+    assert stem_volume_formula_57(1, 1) < 1000000
 
 def test_stem_volume_formula_58():
     assert 1==1
@@ -290,7 +298,8 @@ def test_stem_volume_formula_69():
     assert 1==1
 
 def test_stem_volume_formula_70():
-    assert 1==1
+    assert stem_volume_formula_70(50, 35) > 0
+    assert stem_volume_formula_70(50, 35) < 10000 # dm³
 
 def test_stem_volume_formula_71():
     assert 1==1
@@ -299,7 +308,8 @@ def test_stem_volume_formula_72():
     assert 1==1
 
 def test_stem_volume_formula_73():
-    assert 1==1
+    assert stem_volume_formula_73(1, 1) > 0
+    assert stem_volume_formula_73(1, 1) < 1000000
 
 def test_stem_volume_formula_74():
     assert 1==1
@@ -338,7 +348,8 @@ def test_stem_volume_formula_85():
     assert 1==1
 
 def test_stem_volume_formula_86():
-    assert 1==1
+    assert stem_volume_formula_86(50, 35) > 0
+    assert stem_volume_formula_86(50, 35) < 10 # m³
 
 def test_stem_volume_formula_87():
     assert 1==1
@@ -347,7 +358,8 @@ def test_stem_volume_formula_88():
     assert 1==1
 
 def test_stem_volume_formula_89():
-    assert 1==1
+    assert stem_volume_formula_89(1.5, 1.8) > 0
+    assert stem_volume_formula_89(1.5, 1.8) < 1000000
 
 def test_stem_volume_formula_90():
     assert 1==1
@@ -386,7 +398,8 @@ def test_stem_volume_formula_101():
     assert 1==1
 
 def test_stem_volume_formula_102():
-    assert 1==1
+    assert stem_volume_formula_102(50, 35) > 0
+    assert stem_volume_formula_102(50, 35) < 10000 # dm³
 
 def test_stem_volume_formula_103():
     assert 1==1
@@ -395,7 +408,8 @@ def test_stem_volume_formula_104():
     assert 1==1
 
 def test_stem_volume_formula_105():
-    assert 1==1
+    assert stem_volume_formula_105(1, 1) > 0
+    assert stem_volume_formula_105(1, 1) < 1000000
 
 def test_stem_volume_formula_106():
     assert 1==1
@@ -434,7 +448,8 @@ def test_stem_volume_formula_117():
     assert 1==1
 
 def test_stem_volume_formula_118():
-    assert 1==1
+    assert stem_volume_formula_118(50, 35) > 0
+    assert stem_volume_formula_118(50, 35) < 10000 #dm³
 
 def test_stem_volume_formula_119():
     assert 1==1
@@ -443,7 +458,8 @@ def test_stem_volume_formula_120():
     assert 1==1
 
 def test_stem_volume_formula_121():
-    assert 1==1
+    assert stem_volume_formula_121(4.5, 4) > 0
+    assert stem_volume_formula_121(4.5, 4) < 1000000
 
 def test_stem_volume_formula_122():
     assert 1==1
@@ -482,7 +498,8 @@ def test_stem_volume_formula_133():
     assert 1==1
 
 def test_stem_volume_formula_134():
-    assert 1==1
+    assert stem_volume_formula_134(50, 35) > 0
+    assert stem_volume_formula_134(50, 35) < 10000 #dm³
 
 def test_stem_volume_formula_135():
     assert 1==1
@@ -491,7 +508,8 @@ def test_stem_volume_formula_136():
     assert 1==1
 
 def test_stem_volume_formula_137():
-    assert 1==1
+    assert stem_volume_formula_137(1, 1) > 0
+    assert stem_volume_formula_137(1, 1) < 1000000
 
 def test_stem_volume_formula_138():
     assert 1==1
@@ -530,7 +548,8 @@ def test_stem_volume_formula_149():
     assert 1==1
 
 def test_stem_volume_formula_150():
-    assert 1==1
+    assert math.exp(stem_volume_formula_150(50, 35)) > 0
+    assert math.exp(stem_volume_formula_150(50, 35)) < 10000 #ln(dm³)
 
 def test_stem_volume_formula_151():
     assert 1==1
@@ -539,7 +558,8 @@ def test_stem_volume_formula_152():
     assert 1==1
 
 def test_stem_volume_formula_153():
-    assert 1==1
+    assert stem_volume_formula_153(1, 1) > 0
+    assert stem_volume_formula_153(1, 1) < 1000000
 
 def test_stem_volume_formula_154():
     assert 1==1
@@ -578,7 +598,8 @@ def test_stem_volume_formula_165():
     assert 1==1
 
 def test_stem_volume_formula_166():
-    assert 1==1
+    assert stem_volume_formula_166(10, 5) > 0
+    assert stem_volume_formula_166(10, 5) < 10000 #dm³
 
 def test_stem_volume_formula_167():
     assert 1==1
@@ -587,7 +608,8 @@ def test_stem_volume_formula_168():
     assert 1==1
 
 def test_stem_volume_formula_169():
-    assert 1==1
+    assert stem_volume_formula_169(1, 1) > 0
+    assert stem_volume_formula_169(1, 1) < 1000000
 
 def test_stem_volume_formula_170():
     assert 1==1
@@ -626,7 +648,8 @@ def test_stem_volume_formula_181():
     assert 1==1
 
 def test_stem_volume_formula_182():
-    assert 1==1
+    assert stem_volume_formula_182(50, 35) > 0
+    assert stem_volume_formula_182(50, 35) < 10 #m³
 
 def test_stem_volume_formula_183():
     assert 1==1
@@ -635,7 +658,8 @@ def test_stem_volume_formula_184():
     assert 1==1
 
 def test_stem_volume_formula_185():
-    assert 1==1
+    assert stem_volume_formula_185(1, 1) > 0
+    assert stem_volume_formula_185(1, 1) < 1000000
 
 def test_stem_volume_formula_186():
     assert 1==1
@@ -674,7 +698,8 @@ def test_stem_volume_formula_197():
     assert 1==1
 
 def test_stem_volume_formula_198():
-    assert 1==1
+    assert stem_volume_formula_198(500, 35) > 0
+    assert stem_volume_formula_198(500, 35) < 10000 #dm³
 
 def test_stem_volume_formula_199():
     assert 1==1
@@ -683,7 +708,8 @@ def test_stem_volume_formula_200():
     assert 1==1
 
 def test_stem_volume_formula_201():
-    assert 1==1
+    assert stem_volume_formula_201(1, 1) > 0
+    assert stem_volume_formula_201(1, 1) < 1000000
 
 def test_stem_volume_formula_202():
     assert 1==1
@@ -722,7 +748,8 @@ def test_stem_volume_formula_213():
     assert 1==1
 
 def test_stem_volume_formula_214():
-    assert 1==1
+    assert stem_volume_formula_214(500, 35) > 0
+    assert stem_volume_formula_214(500, 35) < 10000 #dm³
 
 def test_stem_volume_formula_215():
     assert 1==1
@@ -731,7 +758,8 @@ def test_stem_volume_formula_216():
     assert 1==1
 
 def test_stem_volume_formula_217():
-    assert 1==1
+    assert stem_volume_formula_217(10, 3) > 0
+    assert stem_volume_formula_217(10, 3) < 1000000
 
 def test_stem_volume_formula_218():
     assert 1==1
@@ -770,4 +798,5 @@ def test_stem_volume_formula_229():
     assert 1==1
 
 def test_stem_volume_formula_230():
-    assert 1==1
+    assert stem_volume_formula_230(50, 35) > 0
+    assert stem_volume_formula_230(50, 35) < 10 #m³
