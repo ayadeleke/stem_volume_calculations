@@ -944,19 +944,25 @@ def stem_volume_formula_79():
 
 def stem_volume_formula_80(D,H):
     
-    # Larix spp. - Netherlands
-    # D = mm | H = m  | V = dm³
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Larix spp from Netherlands. 
+    Original source is Schelhaas et al (2002) - https://library.wur.nl/WebQuery/wurpubs/reports/320536
 
-    # coefficients
+    Args:
+        D: Diameter at breast height in mm.
+        H: Tree height in m.
+            
+    Returns:
+        V: Stem volume in dm3.
+    """    
     a = 0.00035217
     b = 2.12841828
     c = -0.0026067	
     d = 0.76283925
 
-    # equation  
     V = a * D**(b + c) * H**d
-
-    # volume
     return V
 
 def stem_volume_formula_81(D, H, a=2.822*10**(-5), b=2.2060, c=-0.1136, d=1.115, e=0.0129):
