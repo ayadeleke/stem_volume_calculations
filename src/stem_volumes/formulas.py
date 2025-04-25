@@ -9,10 +9,31 @@ https://doi.org/10.14214/sf.sfm4.
 
 import math
 
-def stem_volume_formula_1(D, H, a=1.6662, b=3.2394, c=1.9335, d=-1.8997, e=-0.9739): # D should be greater than 5cm
-    # Volume calculation formula for Abies alba Silver fir from Norway.
-        V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
-        return V # Calculated volume in dm³
+def stem_volume_formula_1(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for Silver fir from Norway. 
+    The diameter should be 5 cm or greater.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+
+    # Define parameters
+    a=1.6662
+    b=3.2394
+    c=1.9335
+    d=-1.8997
+    e=-0.9739
+
+    # Implement formula
+    V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
+    return V
 
 def stem_volume_formula_2(D, H):
     a = 1.89756
@@ -217,8 +238,32 @@ def stem_volume_formula_16(D, H):
     V = a + b * D**2 + c * D**2 * H + d * H**2 * D
     return V
 
-def stem_volume_formula_17(D, H, a=0.0001, b=2.5, c=0.5, d=0.3, e=0.2):
+def stem_volume_formula_17(D, H):
     # Alnus glutinosa (Black alder, Klibbal) in Sweden
+
+    """
+    Calculate the stem volume for a standing tree of Alnus glutinosa (Black alder, Klibbal) in Sweden.
+
+    Original source: Eriksson, H. 1973. Volymfunktioner för stående
+    träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, 
+    Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+
+    # Define parameters
+    a=0.0001
+    b=2.5
+    c=0.5
+    d=0.3
+    e=0.2
+
+    # implement formula
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * D * H + e * D**2 * H**2
     return V # Calculated volume in dm³
 
@@ -408,10 +453,31 @@ def stem_volume_formula_32(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
-def stem_volume_formula_33(D, H, a=0.1305, b=0.01338, c=0.01757, d=-0.05606): # D should be between 5cm-34.9cm and H between 5m-26.9m
-    # Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan) in Sweden
+def stem_volume_formula_33(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    in Sweden.
+
+    Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd.
+    Meddelanden från Statens skogsforskningsinstitutet 36(3): 1–81.
+
+    Args:
+        D (float): Diameter of the tree in cm. Recommended range: 5 cm - 34.9 cm.
+        H (float): Height of the tree in m. Recommended range: 5 m - 26.9 m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    # Define parameters
+    a=0.1305
+    b=0.01338
+    c=0.01757
+    d=-0.05606
+
+    # Implement formula
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * H**2
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_34():
     pass
@@ -590,10 +656,34 @@ def stem_volume_formula_48(D,H):
     V = a + b * D**2 * H**c
     return V
 
-def stem_volume_formula_49(D, H, a=-0.015572, b=0.00290013, c=-7.0476*10**(-6), d=2.3935*10**(-6), e=-0.0013528, f=3.9837*10**(-5)):
-    # Fagus sylvatica (Beech, Rotbuche, Beuk) in Belgium
+def stem_volume_formula_49(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Fagus sylvatica (Beech, Rotbuche, Beuk) in Belgium.
+
+    Original Source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999.
+    Tables de cubage des arbres et des peuplements forestiers. les Presses Agronomiques de
+    Gembloux, Gembloux. 1 6 p.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define parameters
+    a=-0.015572
+    b=0.00290013
+    c=-7.0476*10**(-6)
+    d=2.3935*10**(-6)
+    e=-0.0013528
+    f=3.9837*10**(-5)
+
+    # Implement formula
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_50():
     pass
@@ -775,10 +865,29 @@ def stem_volume_formula_64(D,H):
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H + e * H + f * D + g)
     return V
 
-def stem_volume_formula_65(D, H, a=0.487270, b=-2.04291, c=5.9995): # D should be between 0.5cm to 1.04cm
-    # Larix decidua (larch, Mélèzes) in Austria
+def stem_volume_formula_65(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Larix decidua (larch, Mélèzes) in Austria.
+
+    Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and
+    Yield Reserch, University for Agricultural Sciences, Vienna.
+
+    Args:
+        D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        (float): The calculated stem volume in dm3.
+    """
+    # Define parameters
+    a=0.487270
+    b=-2.04291
+    c=5.9995
+
+    # Implement formula
     V = (math.pi / 4) * (a * D **2 * H + b * D**2 + c * D)
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_66():
     pass
@@ -960,10 +1069,33 @@ def stem_volume_formula_80(D,H):
     V = a * D**(b + c) * H**d
     return V
 
-def stem_volume_formula_81(D, H, a=2.822*10**(-5), b=2.2060, c=-0.1136, d=1.115, e=0.0129):
-    # Larix spp. (lehtikuusi, lork, larice) in Romania
+def stem_volume_formula_81(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Larix spp. (lehtikuusi, lork, larice) in Romania.
+
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, 
+    pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 
+    89(4): 173–178.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define parameters
+    a=2.822*10**(-5)
+    b=2.2060
+    c=-0.1136
+    d=1.115
+    e=0.0129
+
+    # Implement formula
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_82():
     pass
@@ -1147,10 +1279,30 @@ def stem_volume_formula_96(D,H):
     V = a * D**b * H**c
     return V
 
-def stem_volume_formula_97(D, H, a=0.00053238, b=2.164126647, c=0.004108377, d=0.54879808):
-    # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Netherlands
+def stem_volume_formula_97(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in the Netherlands.
+
+    Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+
+    # Define parameters
+    a=0.00053238
+    b=2.164126647
+    c=0.004108377
+    d=0.54879808
+
+    # Implement formula
     V = a*D**(b+c) * H**d
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_98():
     pass
@@ -1340,10 +1492,32 @@ def stem_volume_formula_112(D,H):
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
     return V
 
-def stem_volume_formula_113(D, H, a=4.33, b=0.01491, c=0.02606, d=-0.31854, e=0.31106): # D should be between 10cm-59.4cm and H should be <39.49
-    # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Norway
+def stem_volume_formula_113(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Norway.
+
+    Original source: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. 
+    Meddelelser fra det Norske Skogforsøksvesen 84: 539–574.
+
+    Args:
+        D (float): Diameter of the tree in cm. The diameter should be between 10 cm and 59.4 cm.
+        H (float): Height of the tree in m. The height should be less than 39.49 m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+
+    # Define parameters
+    a=4.33
+    b=0.01491
+    c=0.02606
+    d=-0.31854
+    e=0.31106
+
+    # Implement formula
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_114():
     pass
@@ -1534,10 +1708,33 @@ def stem_volume_formula_128(D,H):
     V = a * D**b * (H - 1.3)**c * (D + 40)**d
     return V
 
-def stem_volume_formula_129(D, H, a=0.00009464, b=1.9341, c=-0.0722, d=0.6365, e=0.172):
-    # Picea spp. (Molid) in Romania
+def stem_volume_formula_129(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Picea spp. (Molid) in Romania.
+
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum,
+    pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor
+    89(4): 173–178.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define parameters
+    a=0.00009464
+    b=1.9341
+    c=-0.0722
+    d=0.6365
+    e=0.172
+
+    # Implement formula
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
-    return V # Calculated volume in m³
+    return V
 
 
 def stem_volume_formula_130():
@@ -1712,10 +1909,29 @@ def stem_volume_formula_144(D,H):
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * H)
     return V
 
-def stem_volume_formula_145(D, a=0.000244, b=2.32716):
-    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Belgium
+def stem_volume_formula_145(D):
+
+    """
+    Calculate the stem volume for a standing tree of Pinus sylvestris (Scots pine) in Belgium.
+
+    Original source: Xiao, c.W., curiel Yuste, J., Janssens, I.A., Roskams, P., Nachtergale, l.,
+    carrara, A., Sanchez, B.Y. & ceulemans, R. 003. Above-and belowground biomass and net primary
+    production in a 73-year-old Scots pine forest. Tree Physiology 3: 505–516.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define parameters
+    a=0.000244
+    b=2.32716
+
+    # Implement formula
     V = a * D**b
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_146():
     pass
@@ -1897,10 +2113,33 @@ def stem_volume_formula_160(D,H):
     V = D ** a * H ** b * math.exp(c)
     return V
 
-def stem_volume_formula_161(D, H, a=0.1424, b=2.0786, c=1.9028, d=-1.0259, e=-0.2640):
-    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway
+def stem_volume_formula_161(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Pinus sylvestris
+    (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway.
+
+    Original source: Bauger, E. 1995. Funksjoner og tabeller for kubering av stående trær.
+    Rapport fra Skogforsk(16): 1–26.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+
+    # Define parameters
+    a=0.1424
+    b=2.0786
+    c=1.9028
+    d=-1.0259
+    e=-0.2640
+
+    # Implement formula
     V = a * H**b * D**c * (H-1.3)**d * (D+100)**e
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_162():
     pass
@@ -2086,10 +2325,32 @@ def stem_volume_formula_176(D,H):
     V = a * D**2 + b * D**2 * H + c * D * H**2
     return V
 
-def stem_volume_formula_177(D, H, a=-1.2605, b=1.9322, c=-0.0897, d=2.1795, e=-1.1676): # D should be >2cm and H should be >2m
-    # Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden
+def stem_volume_formula_177(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden.
+
+    Original source: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan,
+    Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+
+    Args:
+        D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
+        H (float): Height of the tree in m. Recommended range: 2 m and above.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+
+    # Define parameters
+    a=-1.2605
+    b=1.9322
+    c=-0.0897
+    d=2.1795
+    e=-1.1676
+
+    # Implement formula
     V = 10**a * D**b * (D + 20)**c * H**d * (H + 1.3)**e
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_178():
     pass
@@ -2270,10 +2531,33 @@ def stem_volume_formula_192(D,H):
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H 
     return V
 
-def stem_volume_formula_193(D, H, a=-0.019911, b=0.001871101, c=0.000127328, d=-5.7631*10**(-6), e=0.00071591, f=3.9371*10**(-5)):
-    # Pseudotsuga menziesii (Douglas fir, Duglas) in Belgium
+def stem_volume_formula_193(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Pseudotsuga menziesii (Douglas fir, Duglas) in Belgium.
+
+    Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des
+    arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 1 6 p.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define the parameters
+    a=-0.019911
+    b=0.001871101
+    c=0.000127328
+    d=-5.7631*10**(-6)
+    e=0.00071591
+    f=3.9371*10**(-5)
+
+    # Implement formula
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_194():
     pass
@@ -2456,10 +2740,31 @@ def stem_volume_formula_208(D,H):
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
     return V
 
-def stem_volume_formula_209(D, H, a=1.83932, b=0.9724, c=-2.71877):
-    #  Quercus rubra (Red oak, chêne rouge) in Netherlands
+def stem_volume_formula_209(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Quercus rubra (Red oak, chêne rouge) in the Netherlands.
+
+    Original source: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice.
+    Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen.
+    Uitvoerige verslagen 19(1): 1–114.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define parameters
+    a=1.83932
+    b=0.9724
+    c=-2.71877
+    
+    # Implement formula
     V = D**a * H**b * math.exp(c)
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_210():
     pass
@@ -2646,10 +2951,32 @@ def stem_volume_formula_224(D,H):
     V = a * H**b * D**c * (H - 1.3)**d * (D + 40)**e
     return V
 
-def stem_volume_formula_225(D, H, a=0.00004124, b=1.9302, c=0.0209, d=0.129, e=-0.1903):
-    # Tilia cordata (Tei) in Romania
+def stem_volume_formula_225(D, H):
+
+    """
+    Calculate the stem volume for a standing tree of Tilia cordata (Tei) in Romania.
+
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, 
+    pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+
+    Args:
+        D (float): Diameter of the tree in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in m3.
+    """
+
+    # Define parameters
+    a=0.00004124
+    b=1.9302
+    c=0.0209
+    d=0.129
+    e=-0.1903
+
+    # Implement formula
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
-    return V # Calculated volume in m³
+    return V
 
 def stem_volume_formula_226():
     pass
