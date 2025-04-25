@@ -352,9 +352,9 @@ def stem_volume_formula_27(D):
     # Import the natural logarithm function from the math package
     from math import log 
 
-    # Raise ValueError if the diameter is out of range
-    if D < 1.2 or D > 49.7: 
-        raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 1.2 or D > 49.7: 
+    #     raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
 
     # Define the coefficients
     a = -5.41948
@@ -365,7 +365,7 @@ def stem_volume_formula_27(D):
 
     # Calculate the volume according to the formula given by Zianis et al.
     V = a + b * log(c + d * D) + e * D 
-    # The calculated volume seems to be unrealistically low, however the implementation of the formula is according to the original paper.
+    # The calculated volume seems to be unrealistically low, however the implementation of the formula is according to the original paper. Furthermore, D values below 2.13 result in negative volumes, which is not possible. This contradicts the recommended range of 1.2-49.7 cm.
    
     # Return the calculated volume
     return V
@@ -893,8 +893,8 @@ def stem_volume_formula_75(D, H):
         V: Volume in dm3.
     """
     # Raise ValueError if the diameter is out of range
-    if D < 5:
-        raise ValueError("Diameter must be at least 5 cm.")
+    # if D < 5:
+    #     raise ValueError("Diameter must be at least 5 cm.")
 
     # Define the coefficients
     a = 0.7761
@@ -1071,13 +1071,13 @@ def stem_volume_formula_91(D, H):
     Returns:
         V: Volume in dm3.
     """
-    # Raise ValueError if the diameter is out of range
-    if D < 2 or D > 18: 
-        raise ValueError("Diameter must be between 2 and 18 cm.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 2 or D > 18: 
+    #     raise ValueError("Diameter must be between 2 and 18 cm.")
     
-    # Raise ValueError if the height is out of range
-    if H < 2 or H > 18:
-        raise ValueError("Height must be between 2 and 18 m.")
+    # # Raise ValueError if the height is out of range
+    # if H < 2 or H > 18:
+    #     raise ValueError("Height must be between 2 and 18 m.")
 
     # Define the coefficients
     a = 0.7877 
@@ -1257,12 +1257,12 @@ def stem_volume_formula_107(D, H):
     Returns:
         V: Volume in dm3.
     """
-    # Raise ValueError if the diameter is out of range
-    if D < 13 or D > 59.4:
-        raise ValueError("Diameter must be between 13 and 59.4 cm.")
-    # Raise ValueError if the height is out of range
-    if H > 39.49:
-        raise ValueError("Height may be 39.49 m at max.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 13 or D > 59.4:
+    #     raise ValueError("Diameter must be between 13 and 59.4 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H > 39.49:
+    #     raise ValueError("Height may be 39.49 m at max.")
 
     # Define the coefficients
     a = 10.14
@@ -1448,12 +1448,12 @@ def stem_volume_formula_123(D, H):
     Returns:
         V: Volume in dm3.
     """
-    # Raise ValueError if the diameter is out of range
-    if D < 2:
-        raise ValueError("Diameter must be at least 2 cm.")
-    # Raise ValueError if the height is out of range
-    if H < 2:
-        raise ValueError("Height must be at least 2 m.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 2:
+    #     raise ValueError("Diameter must be at least 2 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H < 2:
+    #     raise ValueError("Height must be at least 2 m.")
 
     # Define the coefficients
     a = -1.0342
@@ -1806,12 +1806,12 @@ def stem_volume_formula_155(D, H):
     Returns:
         V: Volume in m3.
     """
-    # Raise ValueError if the diameter is out of range
-    if D < 3 or D > 14:
-        raise ValueError("Diameter must be between 3 and 14 cm.")
-    # Raise ValueError if the height is out of range
-    if H < 5.8 or H > 10.7:
-        raise ValueError("Height must be between 5.8 and 10.7 m.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 3 or D > 14:
+    #     raise ValueError("Diameter must be between 3 and 14 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H < 5.8 or H > 10.7:
+    #     raise ValueError("Height must be between 5.8 and 10.7 m.")
 
     # Define the coefficients
     a = 5.6537 * 10**-5
@@ -1988,12 +1988,12 @@ def stem_volume_formula_171(D, H):
     Returns:
         V: Volume in dm3.
     """
-    # Raise ValueError if the diameter is out of range
-    if D < 2:
-        raise ValueError("Diameter must be at least 2 cm.")
-    # Raise ValueError if the height is out of range
-    if H < 2:
-        raise ValueError("Height must be at least 2 m.")
+    # # Raise ValueError if the diameter is out of range
+    # if D < 2:
+    #     raise ValueError("Diameter must be at least 2 cm.")
+    # # Raise ValueError if the height is out of range
+    # if H < 2:
+    #     raise ValueError("Height must be at least 2 m.")
 
     # Define the coefficients
     a = -1.1226
