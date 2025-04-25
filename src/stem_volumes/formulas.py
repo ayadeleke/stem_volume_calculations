@@ -2264,6 +2264,7 @@ def stem_volume_formula_192(D,H):
         
     This formula is implemented from Zianis and is recommended for Prunus avium from Belgium.
     Original source is Dagnelie et al (1999) - https://orbi.uliege.be/bitstream/2268/100984/1/tables%20de%20cubage%201999.pdf
+    
     Args:
         D: Diameter at breast height in cm.
         H: Tree height in m.
