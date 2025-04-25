@@ -2258,13 +2258,13 @@ def stem_volume_formula_191():
     pass
 
 def stem_volume_formula_192(D,H):
-    
+
     """
     Calculates the volume of the stem of a standing tree.
         
     This formula is implemented from Zianis and is recommended for Prunus avium from Belgium.
     Original source is Dagnelie et al (1999) - https://orbi.uliege.be/bitstream/2268/100984/1/tables%20de%20cubage%201999.pdf
-    
+
     Args:
         D: Diameter at breast height in cm.
         H: Tree height in m.
@@ -2445,11 +2445,19 @@ def stem_volume_formula_207():
     pass
 
 def stem_volume_formula_208(D,H):
-    
-    # Quercus rubra - Belgium
-    # D = cm | H = m | V = m³
+    """
+    Calculates the volume of the stem of a standing tree.
+        
+    This formula is implemented from Zianis and is recommended for Quercus rubra from Belgium.
+    Original source is Dagnelie et al (1999) - https://orbi.uliege.be/bitstream/2268/100984/1/tables%20de%20cubage%201999.pdf
 
-    # coefficients
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+            
+    Returns:
+        V: Stem volume in m3.
+    """    
     a = -0.02149
     b = 0.002986681
     c = -4.2506e-5
@@ -2457,10 +2465,7 @@ def stem_volume_formula_208(D,H):
     e = -0.000743
     f = 3.7473e-5
 
-    # equation  
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
-
-    # volume
     return V
 
 def stem_volume_formula_209(D, H, a=1.83932, b=0.9724, c=-2.71877):
