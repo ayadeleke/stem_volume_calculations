@@ -244,6 +244,21 @@ def stem_volume_formula_16(D, H):
 def stem_volume_formula_17(D, H):
     # Alnus glutinosa (Black alder, Klibbal) in Sweden
 
+    """
+    Calculate the stem volume for a standing tree of Alnus glutinosa (Black alder, Klibbal) in Sweden.
+
+    Original source: Eriksson, H. 1973. Volymfunktioner för stående 
+    träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, 
+    Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
+
+    Parameters:
+    D (float): Diameter of the tree in cm.
+    H (float): Height of the tree in m.
+
+    Returns:
+    V (float): The calculated stem volume in cubic decimeters (dm³).
+    """
+
     # Define parameters
     a=0.0001
     b=2.5
