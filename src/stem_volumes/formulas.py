@@ -209,6 +209,18 @@ def stem_volume_formula_23():
     pass
 
 def stem_volume_formula_24(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+    
+    This formula is implemented from Zianis and is recommended for  Betula pendula (Birch, Berk) from Netherlands. 
+    
+    Args:
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
+        
+    Returns:
+        V: Stem volume in dm3.
+    """
      #coefficients
     a=1.89060
     b=0.26595
