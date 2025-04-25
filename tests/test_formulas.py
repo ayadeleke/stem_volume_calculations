@@ -13,7 +13,73 @@ stem-volumes/
 
 """
 
+import pytest
+from stem_volumes import formulas
 from stem_volumes.formulas import *
+from inspect import signature
+from stem_volumes.utils import extract_parameter_units, extract_volume_unit
+
+NUM_FORMULAS = 230
+
+@pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
+def test_formula_function_exists(formula_no):
+    """
+    Testing that we have a symbol named stem_volume_formula_<formula_no>
+    """
+    function_name = f"stem_volume_formula_{formula_no}"
+    f = getattr(formulas, function_name)
+    assert f
+
+@pytest.mark.xfail
+@pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
+def test_formula_function_signature(formula_no):
+    """
+    Testing that the stem volume function has one or two parameters and the
+    first is called `D` and the second called `H` if applicable.
+
+    This makes sure that all functions follow a similar interface.
+    """
+    function_name = f"stem_volume_formula_{formula_no}"
+    f = getattr(formulas, function_name)
+    params = list(signature(f).parameters)
+    assert 1 <= len(params) and len(params) <= 2
+    assert params == ["D", "H"][:len(params)], params
+
+@pytest.mark.xfail
+@pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
+def test_calling_formula_function(formula_no):
+    """
+    Testing that the stem volume function can be called
+    """
+    function_name = f"stem_volume_formula_{formula_no}"
+    f = getattr(formulas, function_name)
+    params = list(signature(f).parameters)
+    args = [10.0] * len(params)
+    assert f(*args) >= 0
+
+@pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
+def test_parameter_units_from_docstring(formula_no):
+    """
+    Testing that the stem volume function's docstring provides extractable
+    units for its paramters
+    """
+    function_name = f"stem_volume_formula_{formula_no}"
+    f = getattr(formulas, function_name)
+    units = extract_parameter_units(f)
+    assert units[0] in set(["mm", "cm", "dm", "m"])
+    if len(units) == 2:
+        assert units[1] in set(["dm", "m"])
+
+@pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
+def test_volume_unit_from_docstring(formula_no):
+    """
+    Testing that the stem volume function's docstring provides extractable
+    units for its return value
+    """
+    function_name = f"stem_volume_formula_{formula_no}"
+    f = getattr(formulas, function_name)
+    unit = extract_volume_unit(f)
+    assert unit in set(["dm3", "m3", "ln(dm3)", "ln(m3)"])
 
 def test_stem_volume_formula_1():
     assert stem_volume_formula_1(1,1) > 0
