@@ -265,7 +265,7 @@ def stem_volume_formula_17(D, H):
 
     # implement formula
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * D * H + e * D**2 * H**2
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_18():
     pass
