@@ -44,8 +44,30 @@ def stem_volume_formula_2(D, H):
     V = (D ** a) * (H ** b) * math.exp(c) # Formula - Abies grandis (Grand fir)(Netherland)
     return V
 
-def stem_volume_formula_3():
-    pass
+def stem_volume_formula_3(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Abies alba (Silver fir) from Norway. The diameter should be 5 cm or greater.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    # Coefficients
+    a = 1.6662
+    b = 3.2394
+    c = 1.9334
+    d = -1.8997
+    e = -0.9739
+
+    # Formula implementation
+    V = a * H ** b * D ** c * (H - 1.3) ** d * (D + 100) ** e
+    return V
 
 def stem_volume_formula_4(D):
     """
@@ -126,8 +148,27 @@ def stem_volume_formula_6(D: float, H: float) -> float:
     
     return V
 
-def stem_volume_formula_7():
-    pass
+def stem_volume_formula_7(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Pinus sylvestris (Scots pine) from Finland.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = 4.52e-05
+    b = 2.1554
+    c = -0.1067
+    d = 0.938
+    e = 0.0228
+    V = a * 10 ** (b * math.log10(D) + c * math.log10(D) ** 2 + d * math.log10(H) + e * math.log10(H) ** 2)
+    return V
 
 def stem_volume_formula_8(D, H):
     """
@@ -178,9 +219,25 @@ def stem_volume_formula_9(D, H):
     V = a+b*D+c*(D**2)+d*(D**3)+e*H+f*(D**2)*H
     return V
 
+def stem_volume_formula_10(D, H):
+    """
+    Calculate the stem volume for a standing tree.
 
-def stem_volume_formula_10():
-    pass
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Picea abies (Norway spruce) from Finland.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = 1.89756
+    b = 0.97716
+    c = -2.94253
+    V = D ** a * H ** b * math.exp(c)
+    return V
 
 def stem_volume_formula_11(D, H):
     """
@@ -214,17 +271,87 @@ def stem_volume_formula_11(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_12():
-    pass
+def stem_volume_formula_12(D, H):
+    """
+    Calculate the stem volume for a standing tree.
 
-def stem_volume_formula_13():
-    pass
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Pinus sylvestris (Scots pine) from Sweden.
 
-def stem_volume_formula_14():
-    pass
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
 
-def stem_volume_formula_15():
-    pass
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = -0.012668
+    b = 7.37e-05
+    c = 0.75
+    V = a + b * D ** 2 * H ** c
+    return V
+
+def stem_volume_formula_13(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Picea abies (Norway spruce) from Norway.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = 0.00065013
+    b = 1.675
+    c = 0.1001
+    d = -0.499
+    e = 0.5902
+    V = a * 10 ** (b * math.log10(D) + c * math.log10(D) ** 2 + d * math.log10(H) + e * math.log10(H) ** 2)
+    return V
+
+def stem_volume_formula_14(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Pinus sylvestris (Scots pine) from Finland.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = 1.85749
+    b = 0.88675
+    c = -2.5222
+    V = D ** a * H ** b * math.exp(c)
+    return V
+
+def stem_volume_formula_15(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Picea abies (Norway spruce) from Norway.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = 8.6524
+    b = 0.076844
+    c = 0.031573
+    V = a + b * D ** 2 + c * D ** 2 * H
+    return V
 
 def stem_volume_formula_16(D, H):
     """
@@ -277,7 +404,6 @@ def stem_volume_formula_17(D, H):
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * D * H + e * D**2 * H**2
     return V
 
-     #rogy equation
 def stem_volume_formula_18(D,H):
    
     a=0.05437
@@ -285,8 +411,28 @@ def stem_volume_formula_18(D,H):
     c=0.92947
     v = a * (D**b) * (H**c)  #Alnus glutinosa (Black alder, Klibbal)(Sweden)
     return v
-def stem_volume_formula_19():
-    pass
+
+def stem_volume_formula_19(D, H):
+    """
+    Calculate the stem volume for a standing tree.
+
+    This formula is implemented from Zianis et al. (2005) and is recommended for 
+    Pinus sylvestris (Scots pine) from Sweden.
+
+    Args:
+        D (float): Diameter at breast height in cm.
+        H (float): Height of the tree in m.
+
+    Returns:
+        V (float): The calculated stem volume in dm3.
+    """
+    a = 0.2264
+    b = 0.01347
+    c = 0.007665
+    d = -0.06669
+    e = 0.000428
+    V = a * D ** 2 + b * D ** 2 * H + c * D * H ** 2 + d * D * H + e * D ** 2 * H ** 2
+    return V
 
 def stem_volume_formula_20(D, H):
     """
@@ -1225,7 +1371,6 @@ def stem_volume_formula_82(D,H):
 
 def stem_volume_formula_82():
     pass
->>>>>>> src/stem_volumes/formulas.py
 
 def stem_volume_formula_83():
     pass
