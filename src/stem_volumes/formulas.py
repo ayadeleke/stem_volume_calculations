@@ -46,18 +46,19 @@ def stem_volume_formula_2(D, H):
 
 def stem_volume_formula_3(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Abies alba (Silver fir) from Norway. The diameter should be 5 cm or greater.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: Stem volume in dm3.
     """
+
     # Coefficients
     a = 1.6662
     b = 3.2394
@@ -137,6 +138,7 @@ def stem_volume_formula_6(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Coefficients
     a = 0.560673
     b = 0.15468
@@ -150,18 +152,19 @@ def stem_volume_formula_6(D: float, H: float) -> float:
 
 def stem_volume_formula_7(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Pinus sylvestris (Scots pine) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 4.52e-05
     b = 2.1554
     c = -0.1067
@@ -183,6 +186,7 @@ def stem_volume_formula_8(D, H):
     Returns:
         V: Stem volume in dm3.
     """
+
     #coefficients
     a=0.00046903
     b=1.807
@@ -209,6 +213,7 @@ def stem_volume_formula_9(D, H):
     
     
     """
+
     a = 0.010343
     b = -0.00450536
     c = 0.0003407
@@ -221,18 +226,19 @@ def stem_volume_formula_9(D, H):
 
 def stem_volume_formula_10(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Picea abies (Norway spruce) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 1.89756
     b = 0.97716
     c = -2.94253
@@ -255,6 +261,7 @@ def stem_volume_formula_11(D, H):
     Returns:
         V: Volume in m3.
     """
+
     # # Import the log10 function from the math package
     # from math import log10
 
@@ -273,18 +280,19 @@ def stem_volume_formula_11(D, H):
 
 def stem_volume_formula_12(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Pinus sylvestris (Scots pine) from Sweden.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in m3.
     """
+
     a = -0.012668
     b = 7.37e-05
     c = 0.75
@@ -293,18 +301,19 @@ def stem_volume_formula_12(D, H):
 
 def stem_volume_formula_13(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Picea abies (Norway spruce) from Norway.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in m3.
     """
+
     a = 0.00065013
     b = 1.675
     c = 0.1001
@@ -315,18 +324,19 @@ def stem_volume_formula_13(D, H):
 
 def stem_volume_formula_14(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Pinus sylvestris (Scots pine) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 1.85749
     b = 0.88675
     c = -2.5222
@@ -335,18 +345,19 @@ def stem_volume_formula_14(D, H):
 
 def stem_volume_formula_15(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Picea abies (Norway spruce) from Norway.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 8.6524
     b = 0.076844
     c = 0.031573
@@ -414,18 +425,19 @@ def stem_volume_formula_18(D,H):
 
 def stem_volume_formula_19(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Pinus sylvestris (Scots pine) from Sweden.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 0.2264
     b = 0.01347
     c = 0.007665
@@ -501,6 +513,7 @@ def stem_volume_formula_22(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 0.387399
     b = 7.17123
@@ -511,8 +524,20 @@ def stem_volume_formula_22(D: float, H: float) -> float:
     
     return V
 
-def stem_volume_formula_23(D, H):
-    # cm, -, dm3
+def stem_volume_formula_23(D):
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = –0.5547
     b = 0.3757
     V = a+b*D**2
@@ -554,6 +579,7 @@ def stem_volume_formula_25(D, H):
     Returns:
         V: Stem volume in m3
     """
+
     a = -0.011392
     b = -0.00031447
     c = 0.000279211 
@@ -565,18 +591,19 @@ def stem_volume_formula_25(D, H):
     return V
 
 def stem_volume_formula_26(D):
-    """
-    Calculate the stem volume for a standing tree.
+        """
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    Betula spp. (Birch) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
+        D: Diameter at breast height in cm.
 
     Returns:
-        V (float): The calculated stem volume in ln(dm3).
+        V: The calculated stem volume in ln(dm3).
     """
+
     # Coefficients
     a = -2.09787
     b = 2.55058
@@ -600,6 +627,7 @@ def stem_volume_formula_27(D):
     Returns:
         V: Volume in dm3.
     """
+
     # # Import the natural logarithm function from the math package
     # from math import log 
 
@@ -623,18 +651,19 @@ def stem_volume_formula_27(D):
 
 def stem_volume_formula_28(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    a specific tree species (details unknown) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 0.011197
     b = 2.10253
     c = 0.986
@@ -645,18 +674,19 @@ def stem_volume_formula_28(D, H):
 
 def stem_volume_formula_29(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    a specific tree species (details unknown) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in m3.
     """
+
     a = -4.4759
     b = 2.0851
     c = 4.0691
@@ -667,18 +697,19 @@ def stem_volume_formula_29(D, H):
 
 def stem_volume_formula_30(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    a specific tree species (details unknown) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in m3.
     """
+
     a = -18.6827
     b = 2.1461
     c = 0.1283
@@ -689,18 +720,19 @@ def stem_volume_formula_30(D, H):
 
 def stem_volume_formula_31(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    a specific tree species (details unknown) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in m3.
     """
+
     a = 0.99983
     b = 0.006325
     c = 0.02849
@@ -747,6 +779,7 @@ def stem_volume_formula_33(D, H):
     Returns:
         V (float): The calculated stem volume in dm3.
     """
+
     # Define parameters
     a=0.1305
     b=0.01338
@@ -768,7 +801,20 @@ def stem_volume_formula_34(D,H):
     return v
 
 def stem_volume_formula_35(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -0.93631
     b = 2.30212
     c = –1.40378
@@ -842,6 +888,7 @@ def stem_volume_formula_38(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 0.1432
     b = 0.008561
@@ -855,18 +902,19 @@ def stem_volume_formula_38(D: float, H: float) -> float:
 
 def stem_volume_formula_39(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    a specific tree species (details unknown) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in m3.
     """
+
     a = -0.009184
     b = 6.73e-05
     c = 0.75
@@ -886,6 +934,7 @@ def stem_volume_formula_40(D, H):
     Returns:
         V: Stem volume in dm3.
     """
+
     #coefficients
     a=0.00021491
     b=2.258957614
@@ -910,6 +959,7 @@ def stem_volume_formula_41(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = 0.00021491
     b = 2.258957614
     c = -0.01120638
@@ -920,18 +970,19 @@ def stem_volume_formula_41(D, H):
 
 def stem_volume_formula_42(D, H):
     """
-    Calculate the stem volume for a standing tree.
+    Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for 
-    a specific tree species (details unknown) from Finland.
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in cm.
-        H (float): Height of the tree in m.
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
     a = 0.00021491
     b = 2.258957614
     c = -0.00956695
@@ -955,6 +1006,7 @@ def stem_volume_formula_43(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # # Import the exponential function from the math package
     # from math import exp
 
@@ -970,17 +1022,43 @@ def stem_volume_formula_43(D, H):
     return V 
 
 def stem_volume_formula_44(D, H):
-# cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.86827
     b = 0.21461
     c = 0.01283
     d = 0.0138
     e = -0.06311
-    V = a + b * dbh_cm ** 2 + c * dbh_cm ** 2 * height_m + d * dbh_cm * height_m ** 2 + e * height_m ** 2
+    V = a + b * D ** 2 + c * D ** 2 * H + d * D * H ** 2 + e * H ** 2
     return V
 
 def stem_volume_formula_45(D,H):
-# dm, dm, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in dm.
+        H: Height of the tree in dm.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.989253
     b = -0.0371508
     c = -31.0674
@@ -988,7 +1066,7 @@ def stem_volume_formula_45(D,H):
     e = 0.219462
     f = 49.6136
     g = -22.372
-    V = pi / 4 * (a * (dbh_m * 10) ** 2 * (height_m * 10) + b * (dbh_m * 10) ** 2 * (height_m * 10) * ln(dbh_m * 10) ** 2 + c * (dbh_m * 10) ** 2 + d * (dbh_m * 10) * (height_m * 10) + e * (height_m * 10) + f * (dbh_m * 10) + g)
+    V = pi / 4 * (a * (D * 10) ** 2 * (H * 10) + b * (D * 10) ** 2 * (H * 10) * ln(D * 10) ** 2 + c * (D * 10) ** 2 + d * (D * 10) * (H * 10) + e * (H * 10) + f * (D * 10) + g)
     return V
 
 
@@ -996,15 +1074,18 @@ def stem_volume_formula_46(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for a specific tree species (details unknown).
+    Species: Unknown  
+    Country: Unknown
 
     Args:
-        D (float): Diameter at breast height in dm.
-        H (float): Tree height in dm.
+        D: Diameter at breast height in dm.
+        H: Height of the tree in dm.
 
     Returns:
-        V (float): Stem volume in dm3.
+        V: The calculated stem volume in dm3.
     """
+
+    # Coefficients
     a = 0.5173
     b = -13.62144
     c = 9.9888
@@ -1013,7 +1094,20 @@ def stem_volume_formula_46(D, H):
     return V 
 
 def stem_volume_formula_47(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.0000757
     b = 1.3791
     c = 0.2127
@@ -1082,7 +1176,20 @@ def stem_volume_formula_50(D,H):
     return v
 
 def stem_volume_formula_51(D,H):
-    # cm, dm, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in dm.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.016641
     b=0.00072179
     c=2.52e-06
@@ -1151,6 +1258,7 @@ def stem_volume_formula_54(D: float, H: float) -> float:
     Returns:
         float: Stem volume in m3.
     """
+
     # Define coefficients
     a = -0.039836
     b = 0.006262765
@@ -1165,7 +1273,20 @@ def stem_volume_formula_54(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_55():
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 1.9577
     b = 0.7706
     c = -2.48079
@@ -1186,6 +1307,7 @@ def stem_volume_formula_56(D, H):
     Returns:
         V: Stem volume in dm3.
     """
+
     #coefficients
     a=0.03246
     b=0.03310
@@ -1214,6 +1336,7 @@ def stem_volume_formula_57(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = 0.03593
     b = 0.03310
     c = 0.04127
@@ -1222,7 +1345,20 @@ def stem_volume_formula_57(D, H):
     return V
     
 def stem_volume_formula_58(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.06328
     b = 1.92428
     c = 0.8869
@@ -1245,6 +1381,7 @@ def stem_volume_formula_59(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # Define the coefficients
     a = 0.03249
     b = 0.02941
@@ -1257,7 +1394,20 @@ def stem_volume_formula_59(D, H):
     return V
 
 def stem_volume_formula_60():
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.03453
     b = 0.02941
     c = 0.03892
@@ -1265,17 +1415,43 @@ def stem_volume_formula_60():
     return V
 
 def stem_volume_formula_61(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.86827
     b = 0.21461
     c = 0.01283
     d = 0.0138
     e = -0.06311
-    V = a + b * dbh_m ** 2 + c * dbh_m ** 2 * height_m + d * dbh_m * height_m ** 2 + e * height_m ** 2
+    V = a + b * D ** 2 + c * D ** 2 * H + d * D * H ** 2 + e * H ** 2
     return V
 
 def stem_volume_formula_62(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.00030648
     b = 1.2676
     c = 0.3102
@@ -1286,7 +1462,20 @@ def stem_volume_formula_62(D, H):
     return V
 
 def stem_volume_formula_63():
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a=-0.012107
     b=7.77e-05
     c=0.75
@@ -1306,6 +1495,7 @@ def stem_volume_formula_64(D,H):
     Returns:
         V: Stem volume in dm3.
     """
+
     a = 0.609443
     b = -0.0455748
     c = -18.6631
@@ -1332,6 +1522,7 @@ def stem_volume_formula_65(D, H):
     Returns:
         (float): The calculated stem volume in dm3.
     """
+
     # Define parameters
     a=0.487270
     b=-2.04291
@@ -1353,7 +1544,20 @@ def stem_volume_formula_66(D,H):
     return v
 
 def stem_volume_formula_67(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 1.8667
     b = 1.08118
     c = -3.0488
@@ -1425,6 +1629,7 @@ def stem_volume_formula_70(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 1.87077
     b = 1.00616
@@ -1436,7 +1641,20 @@ def stem_volume_formula_70(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_71(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.7606
     b = 3.5377
     c = 1.9741
@@ -1458,6 +1676,7 @@ def stem_volume_formula_72(D, H):
     Returns:
         V: Stem volume in dm3.
     """
+
     #coefficients
     a=-2.5079
     b=1.7574
@@ -1482,6 +1701,7 @@ def stem_volume_formula_73(D, H):
     Returns:
         V: Stem volume in m3
     """
+
     a = -2.9946
     b = 1.8105
     c = 0.9908 
@@ -1490,11 +1710,24 @@ def stem_volume_formula_73(D, H):
     return V
 
 def stem_volume_formula_74(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.0983
     b = 1.551
     c = 1.1483
-    V = a * dbh_cm ** b * height_m ** c
+    V = a * D ** b * H ** c
     return V
 
 
@@ -1514,6 +1747,7 @@ def stem_volume_formula_75(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # Raise ValueError if the diameter is out of range
     # if D < 5:
     #     raise ValueError("Diameter must be at least 5 cm.")
@@ -1532,16 +1766,42 @@ def stem_volume_formula_75(D, H):
     return V
 
 def stem_volume_formula_76(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.5
     b = 0.0753
     c = 0.03345
     d = -0.00243
     V = a + b * D ** 2 + c * D ** 2 * H + d * H ** 2 * D
-    return V / 1000
+    return V
 
 def stem_volume_formula_77(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.4
     b = –0.01
     c = 0.03355
@@ -1550,7 +1810,20 @@ def stem_volume_formula_77(D, H):
     return V
 
 def stem_volume_formula_78(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00035217
     b = 2.12841828
     c = 0.003292718
@@ -1560,7 +1833,20 @@ def stem_volume_formula_78(D, H):
     return V
 
 def stem_volume_formula_79(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00035217
     b = 2.12841828
     c = -0.1054168
@@ -1639,7 +1925,20 @@ def stem_volume_formula_82():
     pass
 
 def stem_volume_formula_83(D, H):
-    # dm, dm, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in dm.
+        H: Height of the tree in dm.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.563443
     b = –0.12731
     c = –8.55022
@@ -1709,6 +2008,7 @@ def stem_volume_formula_86(D: float, H: float) -> float:
     Returns:
         float: Stem volume in m3.
     """
+
     # Define coefficients
     a = 0.00011261 
     b = 0.87852
@@ -1719,7 +2019,19 @@ def stem_volume_formula_86(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_87(D):
-    # cm, ln(dm3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a=-2.41218
     b=2.62463
 
@@ -1765,6 +2077,7 @@ def stem_volume_formula_89(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = 0.022927
     b = 1.91505
     c = 0.99146 
@@ -1775,13 +2088,26 @@ def stem_volume_formula_89(D, H):
     return V
 
 def stem_volume_formula_90(D, H):
-    # cm, m, ln(dm3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a = -3.7544
     b = 1.896
     c = 2.8979
     d = -1.602
     e = -0.007827
-    V = exp(a + b * ln(dbh_m * 100) + c * ln(height_m) + d * ln(height_m - 1.3) + e * (dbh_m * 100))
+    V = exp(a + b * ln(D) + c * ln(H) + d * ln(H - 1.3) + e * (D))
     return V
 
 
@@ -1801,6 +2127,7 @@ def stem_volume_formula_91(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # # Raise ValueError if the diameter is out of range
     # if D < 2 or D > 18: 
     #     raise ValueError("Diameter must be between 2 and 18 cm.")
@@ -1822,29 +2149,84 @@ def stem_volume_formula_91(D, H):
     return V
 
 def stem_volume_formula_92(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.10838
     b = 1.8202
     c = 0.77154
-    V = a * dbh_cm ** b * height_m ** c
+    V = a * D ** b * H ** c
     return V
 
 def stem_volume_formula_93():
-    # cm, m, ln(dm3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a=-2.59385
     b=2.71757
     c=-9.7e-05
-    V = a + b * ln(dbh_m * 100) + c * (dbh_m * 100) ** 2
+    V = a + b * ln(D) + c * (D) ** 2
     return V
 
 def stem_volume_formula_94(D, H):
-    # m, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in m.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.502
-    V = a * height_m * dbh_m ** 2
+    V = a * H * D ** 2
     return V
 
-def stem_volume_formula_95():
-    pass
+def stem_volume_formula_95(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in m.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
+    a = 0.418
+    V = a * H * D ** 2
+    return V
 
 def stem_volume_formula_96(D,H):
     """
@@ -1903,7 +2285,20 @@ def stem_volume_formula_98(D,H):
     return v
 
 def stem_volume_formula_99():
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.00053238
     b=2.164126647
     c=-0.0102582
@@ -1972,6 +2367,7 @@ def stem_volume_formula_102(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 0.6844
     b = 3.0296
@@ -1985,13 +2381,26 @@ def stem_volume_formula_102(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_103(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.7464
     b=2.496
     c=2.0714
     d=-1.4175
     e=-0.9601
-    V = a * height_m ** b * (dbh_m * 100) ** c * (height_m - 1.3) ** d * (dbh_m * 100 + 40) ** e
+    V = a * H ** b * (D) ** c * (H - 1.3) ** d * (D + 40) ** e
     return V
 
 def stem_volume_formula_104(D, H):
@@ -2033,6 +2442,7 @@ def stem_volume_formula_105(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = 0.52
     b = 0.02403
     c = 0.01463 
@@ -2043,14 +2453,27 @@ def stem_volume_formula_105(D, H):
     return V
 
 def stem_volume_formula_106(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=-31.57
     b=0.0016
     c=0.0186
     d=0.63
     e=-2.34
     f=3.2
-    V = a + b * (dbh_m * 100) * height_m ** 2 + c * height_m ** 2 + d * (dbh_m * 100) * height_m + e * height_m + f * (dbh_m * 100)
+    V = a + b * (D) * H ** 2 + c * H ** 2 + d * (D) * H + e * H + f * (D)
     return V
 
 
@@ -2070,6 +2493,7 @@ def stem_volume_formula_107(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # # Raise ValueError if the diameter is out of range
     # if D < 13 or D > 59.4:
     #     raise ValueError("Diameter must be between 13 and 59.4 cm.")
@@ -2091,42 +2515,94 @@ def stem_volume_formula_107(D, H):
     return V
 
 def stem_volume_formula_108(D,H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=6.69
     b=0.01308
     c=0.02853
     d=-0.31956
     e=0.28969
-    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2 + e * (dbh_m * 100) * height_m
+    V = a + b * D ** 2 * H + c * D * H ** 2 + d * H ** 2 + e * D * H
     return V
 
 def stem_volume_formula_109(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.46
     b=0.02427
     c=0.01521
     d=-0.18254
     e=0.20994
-    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2 + e * (dbh_m * 100) * height_m
+    V = a + b * D ** 2 * H + c * D * H ** 2 + d * H ** 2 + e * D * H
     return V
 
 def stem_volume_formula_110(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.67
     b=0.03023
     c=0.00712
     d=0.04175
-    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * (dbh_m * 100) ** 2
+    V = a + b * D ** 2 * H + c * D * H ** 2 + d * D ** 2
     return V
 
 def stem_volume_formula_111(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.28
     b=0.00815
     c=0.03053
     d=-0.50725
     e=0.51643
-    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2 + e * (dbh_m * 100) * height_m
+    V = a + b * D ** 2 * H + c * D * H ** 2 + d * H ** 2 + e * D * H
     return V
 
 def stem_volume_formula_112(D,H):
@@ -2186,10 +2662,23 @@ def stem_volume_formula_114(D,H):
     return v
 
 def stem_volume_formula_115(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a=0.53005
     b=1.229283
-    V = pi / 40000 * height_m * (dbh_m * 100) * (a * (dbh_m * 100) + b)
+    V = pi / 40000 * H * D * (a * D + b)
     return V
 
 def stem_volume_formula_116(D, H):
@@ -2256,6 +2745,7 @@ def stem_volume_formula_118(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = -0.79783
     b = 2.07157
@@ -2269,7 +2759,20 @@ def stem_volume_formula_118(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_119(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = –1.02039
     b = 2.00128
     c = –0.47473
@@ -2318,6 +2821,7 @@ def stem_volume_formula_121(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = -1.06019
     b = 2.04239
     c = -0.54292
@@ -2328,12 +2832,25 @@ def stem_volume_formula_121(D, H):
     return V
 
 def stem_volume_formula_122(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.1104
     b=0.01925
     c=0.01815
     d=-0.04936
-    V = a * (dbh_m * 100) ** 2 + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2
+    V = a * D ** 2 + b * D ** 2 * H + c * D * H ** 2 + d * H ** 2
     return V
 
 
@@ -2353,6 +2870,7 @@ def stem_volume_formula_123(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # # Raise ValueError if the diameter is out of range
     # if D < 2:
     #     raise ValueError("Diameter must be at least 2 cm.")
@@ -2374,15 +2892,41 @@ def stem_volume_formula_123(D, H):
     return V
 
 def stem_volume_formula_124():
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a=0.4693
     b=1.311
     c=0.781
-    V = a * (dbh_m * 100) ** b * height_m ** c
+    V = a * D ** b * H ** c
     return V 
 
 def stem_volume_formula_125(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 1.78383
     b = 1.13397
     c = –2.90893
@@ -2390,22 +2934,49 @@ def stem_volume_formula_125(D, H):
     return V
 
 def stem_volume_formula_126(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.1614
     b=3.706
     c=1.9747
     d=-2.2905
     e=-0.6665
-    V = a * height_m ** b * (dbh_m * 100) ** c * (height_m - 1.3) ** d * (dbh_m * 100 + 40) ** e
+    V = a * H ** b * D ** c * (H - 1.3) ** d * (D + 40) ** e
     return V
 
 def stem_volume_formula_127(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.187
     b=3.7077
     c=1.9854
     d=-2.2816
     e=-0.7161
-    V = a * height_m ** b * (dbh_m * 100) ** c * (height_m - 1.3) ** d * (dbh_m * 100 + 40) ** e
+    V = a * H ** b * D ** c * (H - 1.3) ** d * (D + 40) ** e
     return V
 
 def stem_volume_formula_128(D,H):
@@ -2465,7 +3036,20 @@ def stem_volume_formula_130(D,H):
     return v
 
 def stem_volume_formula_131(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.1491
     b = 1.6466
     c = 0.8325
@@ -2535,6 +3119,7 @@ def stem_volume_formula_134(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 0.04514
     b = 1.9005
@@ -2546,14 +3131,27 @@ def stem_volume_formula_134(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_135(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.0883
     b=0.03202
     c=-0.000114
     d=-0.07892
     e=-0.01049
     
-    V = a * (dbh_m * 100) ** 2 + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) ** 2 * height_m ** 2 - d * (dbh_m * 100) * height_m + e * (dbh_m * 100) * height_m ** 2
+    V = a * D ** 2 + b * D ** 2 * H + c * D ** 2 * H ** 2 - d * D * H + e * D * H ** 2
     return V 
 
 def stem_volume_formula_136(D, H):
@@ -2594,6 +3192,7 @@ def stem_volume_formula_137(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = 1.95645
     b = 0.88671
     c = -2.7675
@@ -2602,13 +3201,26 @@ def stem_volume_formula_137(D, H):
     return V
 
 def stem_volume_formula_138(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a=0.00010892
     b=1.9701
     c=0.0102
     d=0.0102
     e=0.133
-    V = a * 10 ** (b * log(dbh_m * 100) + c * log(dbh_m * 100 * (dbh_m * 100)) + d * log(height_m) + e * log(height_m * height_m))
+    V = a * 10 ** (b * logD + c * log(D * D) + d * log(H) + e * log(H * H))
     return V
 
 def stem_volume_formula_139(H):
@@ -2626,6 +3238,7 @@ def stem_volume_formula_139(H):
     Returns:
         V: Volume in m3.
     """
+
     # Define the coefficients
     a = 0.000074
     b = 3.1
@@ -2636,34 +3249,85 @@ def stem_volume_formula_139(H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_140(D, H):
-    # cm, -, m3
+def stem_volume_formula_140(D):
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a=0.0001078
     b=2.56
-    v = a * (dbh_m * 100) ** b
+    v = a * D ** b
     return v
 
 def stem_volume_formula_141(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.00042613
     b=2.066225947
     c=-0.001926657
     d=0.80636901
     
-    V = a * (dbh_m * 1000) ** (b + c) * height_m ** d
+    V = a * D ** (b + c) * H ** d
     return V
 
 def stem_volume_formula_142(D, H):
-    #
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.00042613
     b=2.066225947
     c=-0.07956244
     d=0.80636901
-    V = a * (dbh_m * 1000) ** (b + c) * height_m ** d
+    V = a * D ** (b + c) * H ** d
     return V
 
 def stem_volume_formula_143(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00042613
     b = 2.066225947
     c = 0.00369501
@@ -2727,10 +3391,22 @@ def stem_volume_formula_146(D,H):
     return v
 
 def stem_volume_formula_147(D):
-    # cm, -, ln(dm3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a=-2.2945
     b=2.57025
-    D = dbh_m * 100
     V = a + b * ln(D)
     return V
 
@@ -2798,6 +3474,7 @@ def stem_volume_formula_150(D: float, H: float) -> float:
     Returns:
         float: Stem volume in ln(dm3).
     """
+
     # Define coefficients
     a = -3.2890
     b = 1.9995
@@ -2811,7 +3488,20 @@ def stem_volume_formula_150(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_151(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.0942
     b = 1.9671
     c = 0.7005
@@ -2854,6 +3544,7 @@ def stem_volume_formula_153(D, H):
     Returns:
         V: Stem volume in dm3
     """
+
     a = 0.05782
     b = 0.11632
     c = -0.01092
@@ -2863,11 +3554,24 @@ def stem_volume_formula_153(D, H):
     return V
 
 def stem_volume_formula_154(D, H):
-    # cm, m, ln(dm3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a=-2.37912
     b=2.62903
     c=-0.000126
-    V = a + b * ln(dbh_m * 100) + c * (dbh_m * 100) ** 2
+    V = a + b * lnD + c * D ** 2
     return V
 
 def stem_volume_formula_155(D, H):
@@ -2886,6 +3590,7 @@ def stem_volume_formula_155(D, H):
     Returns:
         V: Volume in m3.
     """
+
     # # Raise ValueError if the diameter is out of range
     # if D < 3 or D > 14:
     #     raise ValueError("Diameter must be between 3 and 14 cm.")
@@ -2913,26 +3618,64 @@ def stem_volume_formula_156(D, H):
     return V
 
 def stem_volume_formula_157(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00207765
     b = 1.952764402
     c = -8.6651 * 10 ** (-5)
     d = 0.48560878
-    dbh_m = dbh_m * 1000
-    V = a * dbh_m ** (b + c) * height_m ** d
+    V = a * D ** (b + c) * H ** d
     return V
 
 def stem_volume_formula_158(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00207765
     b = 1.952764402
     c = -0.11110535
     d = 0.48560878
-    V = a * dbh_mm ** (b + c) * height_m ** d
+    V = a * Dm ** (b + c) * H ** d
     return V
 
 def stem_volume_formula_159():
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=0.00207765
     b=1.952764402
     c=0.001095496
@@ -2998,7 +3741,20 @@ def stem_volume_formula_162(D,H):
     return v
 
 def stem_volume_formula_163(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.4434
     b = 4.9667
     c = 1.9912
@@ -3069,6 +3825,7 @@ def stem_volume_formula_166(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 2.0044
     b = 0.029886
@@ -3080,7 +3837,20 @@ def stem_volume_formula_166(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_167(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 2.9121
     b = 0.039994
     c = –0.001091
@@ -3136,11 +3906,24 @@ def stem_volume_formula_169(D, H):
     return V
 
 def stem_volume_formula_170(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.1028
     b = 0.02705
     c = 0.005215
-    V = a * dbh_cm**2 + b * dbh_cm**2 * height_m + c * dbh_cm * height_m**2
+    V = a * D**2 + b * D**2 * H + c * D * H**2
     return V
 
 def stem_volume_formula_171(D, H):
@@ -3159,6 +3942,7 @@ def stem_volume_formula_171(D, H):
     Returns:
         V: Volume in dm3.
     """
+
     # # Raise ValueError if the diameter is out of range
     # if D < 2:
     #     raise ValueError("Diameter must be at least 2 cm.")
@@ -3180,7 +3964,20 @@ def stem_volume_formula_171(D, H):
     return V
 
 def stem_volume_formula_172(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.20914
     b = 1.9474
     c = -0.05947
@@ -3190,7 +3987,20 @@ def stem_volume_formula_172(D, H):
     return V
 
 def stem_volume_formula_173(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = –1.38903
     b = 1.84493
     c = 0.06563
@@ -3200,7 +4010,20 @@ def stem_volume_formula_173(D, H):
     return V
 
 def stem_volume_formula_174(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.25246
     b = 1.98244
     c = -0.13118
@@ -3210,7 +4033,20 @@ def stem_volume_formula_174(D, H):
     return V
 
 def stem_volume_formula_175(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.52761
     b = 1.82928
     c = 0.07454
@@ -3275,7 +4111,20 @@ def stem_volume_formula_178(D,H):
     return v
 
 def stem_volume_formula_179(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.0009507
     b = 1.895629295
     c = 0.001650837
@@ -3346,6 +4195,7 @@ def stem_volume_formula_182(D: float, H: float) -> float:
     Returns:
         float: Stem volume in m3.
     """
+
     # Define coefficients
     a = 0.00018059
     b = 1.9342
@@ -3359,7 +4209,20 @@ def stem_volume_formula_182(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_183(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00041486
     b = 1.4466
     c = 0.1089
@@ -3411,7 +4274,20 @@ def stem_volume_formula_185(D, H):
     return V
 
 def stem_volume_formula_186(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -0.21
     b = 0.0398
     V = a + b*D**2 * H
@@ -3434,6 +4310,7 @@ def stem_volume_formula_187(D, H):
     Returns:
         V: Volume in m3.
     """
+
     # # Import the log10 function from the math package
     # from math import log10
 
@@ -3451,35 +4328,87 @@ def stem_volume_formula_187(D, H):
     return V
 
 def stem_volume_formula_188(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.01548
     b = 0.03255
     c = -4.7e-05
     d = -0.01333
     e = 0.004859
-    V = a * D**2 + b * D**2 * height_m + c * D**2 * height_m ** 2 + d * dbh_cm * height_m + e * dbh_cm * height_m ** 2
+    V = a * D**2 + b * D**2 * H + c * D**2 * H ** 2 + d * D * H + e * D * H ** 2
     return V
 
 def stem_volume_formula_189(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.03597
     b = 1.84297
     c = 1.15988
-    V = a * dbh_m ** b * height_m ** c
+    V = a * D ** b * H ** c
     return V
 
 def stem_volume_formula_190(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.03392
     b = -0.01491
     c = -5e-06
     d = 0.01704
     e = 0.002926
-    V = a * (dbh_m * 100) ** 2 * height_m + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) ** 2 * height_m ** 2 + d * (dbh_m * 100) * height_m + e * (dbh_m * 100) * height_m ** 2
+    V = a * D ** 2 * H + b * D ** 2 * H + c * D ** 2 * H ** 2 + d * D * H + e * D * H ** 2
     return V
 
 def stem_volume_formula_191(D, H):
-    #cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.0732
     b = 1.6933
     c = 1.0562
@@ -3546,7 +4475,20 @@ def stem_volume_formula_194(D,H):
     return v
 
 def stem_volume_formula_195(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=1.8211
     b=4.153
     c=2.1342
@@ -3619,6 +4561,7 @@ def stem_volume_formula_198(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 0.00095916
     b = 2.092560524
@@ -3631,7 +4574,20 @@ def stem_volume_formula_198(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_199(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00095916
     b = 2.092560524
     c = 0
@@ -3687,11 +4643,24 @@ def stem_volume_formula_201(D, H):
     return V
 
 def stem_volume_formula_202(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 9.6e-05
     b = 1.821
     c = 0.759
-    V = a * D ** b * height_m ** c
+    V = a * D ** b * H ** c
     return V
 
 def stem_volume_formula_203(D, H):
@@ -3710,8 +4679,10 @@ def stem_volume_formula_203(D, H):
     Returns:
         V: Volume in m3.
     """
+
     # # Import the log10 function from the math package
     # from math import log10
+
 
     # Define the coefficients
     a = 0.0001992
@@ -3727,33 +4698,85 @@ def stem_volume_formula_203(D, H):
     return V
 
 def stem_volume_formula_204(D, H):
-    # cm, m, ln(m3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a=-9.646
     b=2.076
     c=0.761
-    V = a + b * ln(D) + c * height_m
+    V = a + b * ln(D) + c * H
     return V
 
 def stem_volume_formula_205(D, H):
-    # cm, m, ln(m3)
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in ln(dm3).
+    """
+
     a = -11.473
     b = 2.548
     c = 0.967
-    v = a + b * ln(dbh_m) + c * height_m
+    v = a + b * ln(D) + c * H
     return v
 
 def stem_volume_formula_206(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 0.00035164
     b = 1.1119
     c = 0.3108
     d = 0.5356
     e = 0.2139
-    V = a * 10 ** (b * log(dbh_cm) + c * log(dbh_cm) ** 2 + d * log(height_m) + e * log(height_m) ** 2)
+    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
     return V
 
 def stem_volume_formula_207(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a=2.00333
     b=0.85925
     c=-2.86353
@@ -3829,7 +4852,20 @@ def stem_volume_formula_210(D,H):
     return v
 
 def stem_volume_formula_211(D, H):
-    # dm, dm, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in dm.
+        H: Height of the tree in dm.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.417118
     b = 0.21941
     c = 13.32594
@@ -3901,6 +4937,7 @@ def stem_volume_formula_214(D: float, H: float) -> float:
     Returns:
         float: Stem volume in dm3.
     """
+
     # Define coefficients
     a = 0.00095853
     b = 2.040672356
@@ -3913,7 +4950,20 @@ def stem_volume_formula_214(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_215(D, H):
-    # mm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in mm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.00095853
     b = 2.040672356
     c = –0.04354461
@@ -3973,13 +5023,26 @@ def stem_volume_formula_217(D, H):
     return V
 
 def stem_volume_formula_218(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.86827
     b = 0.21461
     c = 0.01283
     d = 0.0138
     e = -0.06311
-    V = a + b * dbh_cm ** 2 + c * dbh_cm ** 2 * height_m + d * dbh_cm * height_m ** 2 + e * height_m ** 2
+    V = a + b * D ** 2 + c * D ** 2 * H + d * D * H ** 2 + e * H ** 2
     return V
 
 def stem_volume_formula_219(D, H):
@@ -3998,6 +5061,7 @@ def stem_volume_formula_219(D, H):
     Returns:
         V: Volume in m3.
     """
+
     # # Import the log10 function from the math package
     # from math import log10
 
@@ -4015,7 +5079,20 @@ def stem_volume_formula_219(D, H):
     return V
 
 def stem_volume_formula_220(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 4.281e-05
     b = 2.0766
     c = -0.1296
@@ -4025,7 +5102,20 @@ def stem_volume_formula_220(D, H):
     return V
 
 def stem_volume_formula_221(D, H):
-    # cm, m, m3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in m3.
+    """
+
     a = 7.325e-05
     b = 1.5598
     c = 0.0302
@@ -4035,7 +5125,20 @@ def stem_volume_formula_221(D, H):
     return V
 
 def stem_volume_formula_222(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = -1.86827
     b = 0.21461
     c = 0.01283
@@ -4045,7 +5148,20 @@ def stem_volume_formula_222(D, H):
     return V
 
 def stem_volume_formula_223(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 1.67887
     b = 1.11243
     c = -2.64821
@@ -4109,7 +5225,20 @@ def stem_volume_formula_226(D,H):
     return v
 
 def stem_volume_formula_227(D, H):
-    # cm, m, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in cm.
+        H: Height of the tree in m.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
+
     a = 0.4291
     b = 2.6153
     c = 1.9145
@@ -4183,6 +5312,7 @@ def stem_volume_formula_230(D: float, H: float) -> float:
     Returns:
         float: Stem volume in m3.
     """
+
     # Define coefficients
     a = 3.992 * 10**-5
     b = 2.1569
