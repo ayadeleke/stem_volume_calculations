@@ -538,7 +538,7 @@ def stem_volume_formula_23(D):
         V: The calculated stem volume in dm3.
     """
 
-    a = –0.5547
+    a = -0.5547
     b = 0.3757
     V = a+b*D**2
     return V
@@ -591,7 +591,7 @@ def stem_volume_formula_25(D, H):
     return V
 
 def stem_volume_formula_26(D):
-        """
+    """
     Calculates the volume of the stem of a standing tree.
 
     Species: Unknown  
@@ -817,9 +817,9 @@ def stem_volume_formula_35(D, H):
 
     a = -0.93631
     b = 2.30212
-    c = –1.40378
+    c = -1.40378
     d = 8.01817
-    e = –6.18825
+    e = -6.18825
     V = 10 * a * (D ** b) * ((D + 20) ** c) * (H ** d) * (H - 1.3) ** e
     return V
 
@@ -1112,7 +1112,7 @@ def stem_volume_formula_47(D, H):
     b = 1.3791
     c = 0.2127
     d = 1.1992	
-    e = –0.0584
+    e = -0.0584
     V = a * 10 * (b * math.log(D) + c * (math.log(D) ** 2) + d * math.log(H) + e * (math.log(H) ** 2))
     return V
 
@@ -1272,7 +1272,7 @@ def stem_volume_formula_54(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_55():
+def stem_volume_formula_55(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -1393,7 +1393,7 @@ def stem_volume_formula_59(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_60():
+def stem_volume_formula_60(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -1461,7 +1461,7 @@ def stem_volume_formula_62(D, H):
     V = a * 10**( b*log10(D) + c*log10(D)**2 + d*log10(H) + e*log10(H)**2 )
     return V
 
-def stem_volume_formula_63():
+def stem_volume_formula_63(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -1658,8 +1658,8 @@ def stem_volume_formula_71(D, H):
     a = 0.7606
     b = 3.5377
     c = 1.9741
-    d = –2.1902	
-    e = –0.8459
+    d = -2.1902	
+    e = -0.8459
     V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
     return V
 
@@ -1803,9 +1803,9 @@ def stem_volume_formula_77(D, H):
     """
 
     a = 0.4
-    b = –0.01
+    b = -0.01
     c = 0.03355
-    d = –0.00359
+    d = -0.00359
     V =  a + b * D**2 + c * D**2 * H + d * H**2 * D
     return V
 
@@ -1940,8 +1940,8 @@ def stem_volume_formula_83(D, H):
     """
 
     a = 0.563443
-    b = –0.12731
-    c = –8.55022
+    b = -0.12731
+    c = -8.55022
     d = 7.6331
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * (math.log(D)**2) + c * D**2 + d * D)
     return V
@@ -2169,7 +2169,7 @@ def stem_volume_formula_92(D, H):
     V = a * D ** b * H ** c
     return V
 
-def stem_volume_formula_93():
+def stem_volume_formula_93(D):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -2178,7 +2178,6 @@ def stem_volume_formula_93():
 
     Args:
         D: Diameter at breast height in cm.
-        H: Height of the tree in m.
 
     Returns:
         V: The calculated stem volume in ln(dm3).
@@ -2284,7 +2283,7 @@ def stem_volume_formula_98(D,H):
     v= a * D**(b + c) * H**d #Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Neatherlands)
     return v
 
-def stem_volume_formula_99():
+def stem_volume_formula_99(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -2773,11 +2772,11 @@ def stem_volume_formula_119(D, H):
         V: The calculated stem volume in dm3.
     """
 
-    a = –1.02039
+    a = -1.02039
     b = 2.00128
-    c = –0.47473
+    c = -0.47473
     d = 2.87138
-    e = –1.61803
+    e = -1.61803
     V = 10 * a * (D ** b) * ((D + 20) ** c) * (H ** d) * (H - 1.3) ** e
     return V
 
@@ -2891,7 +2890,7 @@ def stem_volume_formula_123(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_124():
+def stem_volume_formula_124(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -2929,7 +2928,7 @@ def stem_volume_formula_125(D, H):
 
     a = 1.78383
     b = 1.13397
-    c = –2.90893
+    c = -2.90893
     V = D**a * H**b * np.exp(c)
     return V
 
@@ -3661,7 +3660,7 @@ def stem_volume_formula_158(D, H):
     V = a * Dm ** (b + c) * H ** d
     return V
 
-def stem_volume_formula_159():
+def stem_volume_formula_159(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
@@ -3853,7 +3852,7 @@ def stem_volume_formula_167(D, H):
 
     a = 2.9121
     b = 0.039994
-    c = –0.001091
+    c = -0.001091
     V = a + b * D**2 + c * D**2 * H
     return V
 
@@ -4001,11 +4000,11 @@ def stem_volume_formula_173(D, H):
         V: The calculated stem volume in dm3.
     """
 
-    a = –1.38903
+    a = -1.38903
     b = 1.84493
     c = 0.06563
     d = 2.02122
-    e = –1.01095
+    e = -1.01095
     V = 10 * a * (D ** b) * ((D + 20) ** c) * (H ** d) * (H - 1.3) ** e
     return V
 
@@ -4226,7 +4225,7 @@ def stem_volume_formula_183(D, H):
     a = 0.00041486
     b = 1.4466
     c = 0.1089
-    d = –0.1963
+    d = -0.1963
     e = 0.5681
     V = a * 10 * (b * math.log(D) + c * (math.log(D) ** 2) + d * math.log(H) + e * (math.log(H) ** 2))
     return V
@@ -4966,7 +4965,7 @@ def stem_volume_formula_215(D, H):
 
     a = 0.00095853
     b = 2.040672356
-    c = –0.04354461
+    c = -0.04354461
     d = 0.56366437
     V = a * D * (b + c) * (H ** d)
     return V
@@ -5242,8 +5241,8 @@ def stem_volume_formula_227(D, H):
     a = 0.4291
     b = 2.6153
     c = 1.9145
-    d = –1.2696
-    e = –0.6715
+    d = -1.2696
+    e = -0.6715
     V =  a * (H ** b) * (D ** c) * (H - 1.3) ** d * (D + 100) ** e
     return V
 
