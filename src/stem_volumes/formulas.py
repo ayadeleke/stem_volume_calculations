@@ -958,14 +958,49 @@ def stem_volume_formula_43(D, H):
     # Return the calculated volume
     return V 
 
-def stem_volume_formula_44():
-    pass
+def stem_volume_formula_44(D, H):
+# cm, m, dm3
+    a = -1.86827
+    b = 0.21461
+    c = 0.01283
+    d = 0.0138
+    e = -0.06311
+    V = a + b * dbh_cm ** 2 + c * dbh_cm ** 2 * height_m + d * dbh_cm * height_m ** 2 + e * height_m ** 2
+    return V
 
-def stem_volume_formula_45():
-    pass
+def stem_volume_formula_45(D,H):
+# dm, dm, dm3
+    a = 0.989253
+    b = -0.0371508
+    c = -31.0674
+    d = -0.386321
+    e = 0.219462
+    f = 49.6136
+    g = -22.372
+    V = pi / 4 * (a * (dbh_m * 10) ** 2 * (height_m * 10) + b * (dbh_m * 10) ** 2 * (height_m * 10) * ln(dbh_m * 10) ** 2 + c * (dbh_m * 10) ** 2 + d * (dbh_m * 10) * (height_m * 10) + e * (height_m * 10) + f * (dbh_m * 10) + g)
+    return V
 
-def stem_volume_formula_46():
-    pass
+
+def stem_volume_formula_46(D, H):
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    This formula is implemented from Zianis and is recommended for a specific tree species (details unknown).
+    The range of valid values for D is in dm, and H is in dm.
+
+    Args:
+        D (float): Diameter at breast height in dm.
+        H (float): Tree height in dm.
+
+    Returns:
+        V (float): Stem volume in dm3.
+    """
+    a = 0.5173
+    b = -13.62144
+    c = 9.9888
+
+    V = (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D)
+    return V 
 
 def stem_volume_formula_47():
     pass
@@ -1029,8 +1064,14 @@ def stem_volume_formula_50(D,H):
     #BFagus sylvatica (Beech, Rotbuche, Beuk)(Germany)
     return v
 
-def stem_volume_formula_51():
-    pass
+def stem_volume_formula_51(D,H):
+    # cm, dm, dm3
+    a=0.016641
+    b=0.00072179
+    c=2.52e-06
+    
+    V = a + b * D * H ** 2 + c * D ** 3
+    return V
 
 def stem_volume_formula_52(D, H):
     """
@@ -1107,7 +1148,13 @@ def stem_volume_formula_54(D: float, H: float) -> float:
     return V
 
 def stem_volume_formula_55():
-    pass
+    # cm, m, dm3
+    a = 1.9577
+    b = 0.7706
+    c = -2.48079
+    
+    V = D ** a * H ** b * exp(c)
+    return V
 
 def stem_volume_formula_56(D, H):
     """
@@ -1157,8 +1204,13 @@ def stem_volume_formula_57(D, H):
     V = a * (D**2) * H + b * (D**2) + c * D * H
     return V
     
-def stem_volume_formula_58():
-    pass
+def stem_volume_formula_58(D, H):
+    # cm, m, dm3
+    a = 0.06328
+    b = 1.92428
+    c = 0.8869
+    V = a * D ** b * H ** c
+    return V 
 
 def stem_volume_formula_59(D, H):
     """
@@ -1188,16 +1240,41 @@ def stem_volume_formula_59(D, H):
     return V
 
 def stem_volume_formula_60():
-    pass
+    # cm, m, dm3
+    a = 0.03453
+    b = 0.02941
+    c = 0.03892
+    V = a * D ** 2 * H + b * D ** 2 + c * D * H
+    return V
 
-def stem_volume_formula_61():
-    pass
+def stem_volume_formula_61(D, H):
+    # cm, m, dm3
+    a = -1.86827
+    b = 0.21461
+    c = 0.01283
+    d = 0.0138
+    e = -0.06311
+    V = a + b * dbh_m ** 2 + c * dbh_m ** 2 * height_m + d * dbh_m * height_m ** 2 + e * height_m ** 2
+    return V
 
-def stem_volume_formula_62():
-    pass
+def stem_volume_formula_62(D, H):
+    # cm, m, m3
+    a = 0.00030648
+    b = 1.2676
+    c = 0.3102
+    d = 0.4929
+    e = 0.0962
+    
+    V = a * 10**( b*log10(D) + c*log10(D)**2 + d*log10(H) + e*log10(H)**2 )
+    return V
 
 def stem_volume_formula_63():
-    pass
+    # cm, m, m3
+    a=-0.012107
+    b=7.77e-05
+    c=0.75
+    V = a + b * D ** 2 * H ** c
+    return V
 
 def stem_volume_formula_64(D,H):
     """
@@ -1258,8 +1335,13 @@ def stem_volume_formula_66(D,H):
     v= a + b*D + c*(D**2) + d*(D**3) + e*H + f*(D**2)*H #Larix decidua (Larch, Mélèzes)(Belgium)
     return v
 
-def stem_volume_formula_67():
-    pass
+def stem_volume_formula_67(D, H):
+    # cm, m, dm3
+    a = 1.8667
+    b = 1.08118
+    c = -3.0488
+
+    return D ** a * H ** b * exp(c)
 
 def stem_volume_formula_68(D, H):
     """
@@ -1383,8 +1465,13 @@ def stem_volume_formula_73(D, H):
     V = math.exp(a) * (D**b) * (H**c)
     return V
 
-def stem_volume_formula_74():
-    pass
+def stem_volume_formula_74(D, H):
+    # cm, m, m3
+    a = 0.0983
+    b = 1.551
+    c = 1.1483
+    V = a * dbh_cm ** b * height_m ** c
+    return V
 
 
 def stem_volume_formula_75(D, H):
@@ -1420,17 +1507,37 @@ def stem_volume_formula_75(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_76():
-    pass
+def stem_volume_formula_76(D, H):
+    # cm, m, dm3
+    a = 0.5
+    b = 0.0753
+    c = 0.03345
+    d = -0.00243
+    V = a + b * D ** 2 + c * D ** 2 * H + d * H ** 2 * D
+    return V / 1000
 
 def stem_volume_formula_77():
     pass
 
-def stem_volume_formula_78():
-    pass
+def stem_volume_formula_78(D, H):
+    # mm, m, dm3
+    a = 0.00035217
+    b = 2.12841828
+    c = 0.003292718
+    d = 0.76283925
 
-def stem_volume_formula_79():
-    pass
+    V = a * D ** (b + c) * H ** d
+    return V
+
+def stem_volume_formula_79(D, H):
+    # mm, m, dm3
+    a = 0.00035217
+    b = 2.12841828
+    c = -0.1054168
+    d = 0.76283925
+
+    V = a * D ** (b + c) * H ** d
+    return V
 
 def stem_volume_formula_80(D,H):
     """
@@ -1575,8 +1682,13 @@ def stem_volume_formula_86(D: float, H: float) -> float:
     
     return V
 
-def stem_volume_formula_87():
-    pass
+def stem_volume_formula_87(D):
+    # cm, ln(dm3)
+    a=-2.41218
+    b=2.62463
+
+    V = a + b * ln(D)
+    return V
 
 def stem_volume_formula_88(D, H):
     """
@@ -1626,8 +1738,15 @@ def stem_volume_formula_89(D, H):
     V = a * (D**b) * (c**D) * (H**d) * ((H-1.3)**e)
     return V
 
-def stem_volume_formula_90():
-    pass
+def stem_volume_formula_90(D, H):
+    # cm, m, ln(dm3)
+    a = -3.7544
+    b = 1.896
+    c = 2.8979
+    d = -1.602
+    e = -0.007827
+    V = exp(a + b * ln(dbh_m * 100) + c * ln(height_m) + d * ln(height_m - 1.3) + e * (dbh_m * 100))
+    return V
 
 
 def stem_volume_formula_91(D, H):
@@ -1666,14 +1785,27 @@ def stem_volume_formula_91(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_92():
-    pass
+def stem_volume_formula_92(D, H):
+    # cm, m, dm3
+    a = 0.10838
+    b = 1.8202
+    c = 0.77154
+    V = a * dbh_cm ** b * height_m ** c
+    return V
 
 def stem_volume_formula_93():
-    pass
+    # cm, m, ln(dm3)
+    a=-2.59385
+    b=2.71757
+    c=-9.7e-05
+    V = a + b * ln(dbh_m * 100) + c * (dbh_m * 100) ** 2
+    return V
 
-def stem_volume_formula_94():
-    pass
+def stem_volume_formula_94(D, H):
+    # m, m, m3
+    a = 0.502
+    V = a * height_m * dbh_m ** 2
+    return V
 
 def stem_volume_formula_95():
     pass
@@ -1735,7 +1867,13 @@ def stem_volume_formula_98(D,H):
     return v
 
 def stem_volume_formula_99():
-    pass
+    # mm, m, dm3
+    a=0.00053238
+    b=2.164126647
+    c=-0.0102582
+    d=0.54879808
+    V = a * D ** (b + c) * H ** d
+    return V
 
 def stem_volume_formula_100(D, H):
     """
@@ -1810,8 +1948,15 @@ def stem_volume_formula_102(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_103():
-    pass
+def stem_volume_formula_103(D, H):
+    # cm, m, dm3
+    a=0.7464
+    b=2.496
+    c=2.0714
+    d=-1.4175
+    e=-0.9601
+    V = a * height_m ** b * (dbh_m * 100) ** c * (height_m - 1.3) ** d * (dbh_m * 100 + 40) ** e
+    return V
 
 def stem_volume_formula_104(D, H):
     """
@@ -1861,8 +2006,16 @@ def stem_volume_formula_105(D, H):
     V = a + b * (D**2) * H + c * D * (H**2) + d * (H**2) + e * D * H
     return V
 
-def stem_volume_formula_106():
-    pass
+def stem_volume_formula_106(D, H):
+    # cm, m, dm3
+    a=-31.57
+    b=0.0016
+    c=0.0186
+    d=0.63
+    e=-2.34
+    f=3.2
+    V = a + b * (dbh_m * 100) * height_m ** 2 + c * height_m ** 2 + d * (dbh_m * 100) * height_m + e * height_m + f * (dbh_m * 100)
+    return V
 
 
 def stem_volume_formula_107(D, H):
@@ -1901,17 +2054,44 @@ def stem_volume_formula_107(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_108():
-    pass
+def stem_volume_formula_108(D,H):
+    # cm, m, dm3
+    a=6.69
+    b=0.01308
+    c=0.02853
+    d=-0.31956
+    e=0.28969
+    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2 + e * (dbh_m * 100) * height_m
+    return V
 
-def stem_volume_formula_109():
-    pass
+def stem_volume_formula_109(D, H):
+    # cm, m, dm3
+    a=0.46
+    b=0.02427
+    c=0.01521
+    d=-0.18254
+    e=0.20994
+    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2 + e * (dbh_m * 100) * height_m
+    return V
 
-def stem_volume_formula_110():
-    pass
+def stem_volume_formula_110(D, H):
+    # cm, m, dm3
+    a=0.67
+    b=0.03023
+    c=0.00712
+    d=0.04175
+    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * (dbh_m * 100) ** 2
+    return V
 
-def stem_volume_formula_111():
-    pass
+def stem_volume_formula_111(D, H):
+    # cm, m, dm3
+    a=0.28
+    b=0.00815
+    c=0.03053
+    d=-0.50725
+    e=0.51643
+    V = a + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2 + e * (dbh_m * 100) * height_m
+    return V
 
 def stem_volume_formula_112(D,H):
     """
@@ -1969,8 +2149,12 @@ def stem_volume_formula_114(D,H):
     v= (math.pi / 40000) * H * D * (a + b * D) #Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Poland)
     return v
 
-def stem_volume_formula_115():
-    pass
+def stem_volume_formula_115(D, H):
+    # cm, m, m3
+    a=0.53005
+    b=1.229283
+    V = pi / 40000 * height_m * (dbh_m * 100) * (a * (dbh_m * 100) + b)
+    return V
 
 def stem_volume_formula_116(D, H):
     """
@@ -2100,8 +2284,14 @@ def stem_volume_formula_121(D, H):
     V = (10 ** a) * (D ** b) * ((D + 20) ** c) * (H ** d) * ((H - 1.3) ** e)
     return V
 
-def stem_volume_formula_122():
-    pass
+def stem_volume_formula_122(D, H):
+    # cm, m, dm3
+    a=0.1104
+    b=0.01925
+    c=0.01815
+    d=-0.04936
+    V = a * (dbh_m * 100) ** 2 + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) * height_m ** 2 + d * height_m ** 2
+    return V
 
 
 def stem_volume_formula_123(D, H):
