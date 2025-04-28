@@ -36,10 +36,12 @@ def stem_volume_formula_1(D, H):
     return V
 
 def stem_volume_formula_2(D, H):
-    a = 1.89756
-    b = 0.97717
-    c = -2.94252
-    V = (D ** a) * (H ** b) * math.exp(c)
+     # Coefficients
+    a = 1.77220
+    b = 0.96736
+    c = -2.45224
+
+    V = (D ** a) * (H ** b) * math.exp(c) # Formula - Abies grandis (Grand fir)(Netherland)
     return V
 
 def stem_volume_formula_3():
@@ -275,9 +277,14 @@ def stem_volume_formula_17(D, H):
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * D * H + e * D**2 * H**2
     return V
 
-def stem_volume_formula_18():
-    pass
-
+     #rogy equation
+def stem_volume_formula_18(D,H):
+   
+    a=0.05437
+    b=1.94505
+    c=0.92947
+    v = a * (D**b) * (H**c)  #Alnus glutinosa (Black alder, Klibbal)(Sweden)
+    return v
 def stem_volume_formula_19():
     pass
 
@@ -506,8 +513,15 @@ def stem_volume_formula_33(D, H):
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * H**2
     return V
 
-def stem_volume_formula_34():
-    pass
+def stem_volume_formula_34(D,H):
+    a=-0.89359
+    b=2.27954
+    c=-1.18672
+    d=7.07362
+    e=-5.45175
+    v= (10**a)* (D**b)* ((D*20)**c) * (H**d) * ((H-1.3)**e)
+    #Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)(sweeden)
+    return v
 
 def stem_volume_formula_35():
     pass
@@ -689,12 +703,13 @@ def stem_volume_formula_48(D,H):
     Original source is Broadmeadow et al (2004) - https://nora.nerc.ac.uk/id/eprint/8644/1/N008644CR.pdf
 
     Args:
-        D: Diameter at breast height in cm.
-        H: Tree height in m.
-            
+    D: Diameter at breast height in cm.
+    H: Tree height in m.
+        
     Returns:
         V: Stem volume in m3.
     """
+
     a = -0.014306
     b = 0.0000748
     c = 0.75
@@ -731,8 +746,13 @@ def stem_volume_formula_49(D, H):
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
     return V
 
-def stem_volume_formula_50():
-    pass
+def stem_volume_formula_50(D,H):
+    a=-15.589e-3
+    b=0.01696e-3
+    c=0.01883e-3
+    v= a * b * D * (H**2) +c * (D**3)
+    #BFagus sylvatica (Beech, Rotbuche, Beuk)(Germany)
+    return v
 
 def stem_volume_formula_51():
     pass
@@ -952,8 +972,16 @@ def stem_volume_formula_65(D, H):
     V = (math.pi / 4) * (a * D **2 * H + b * D**2 + c * D)
     return V
 
-def stem_volume_formula_66():
-    pass
+#rogy equation
+def stem_volume_formula_66(D,H):
+    a=-0.03088
+    b=0.004676261
+    c=-4.8614e-5
+    d=-3.8178e-6
+    e=-0.0011638
+    f=4.0597e-5
+    v= a + b*D + c*(D**2) + d*(D**3) + e*H + f*(D**2)*H #Larix decidua (Larch, Mélèzes)(Belgium)
+    return v
 
 def stem_volume_formula_67():
     pass
@@ -1135,7 +1163,6 @@ def stem_volume_formula_80(D,H):
         
     This formula is implemented from Zianis and is recommended for Larix spp from Netherlands. 
     Original source is Schelhaas et al (2002) - https://library.wur.nl/WebQuery/wurpubs/reports/320536
-
     Args:
         D: Diameter at breast height in mm.
         H: Tree height in m.
@@ -1179,8 +1206,26 @@ def stem_volume_formula_81(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
+def stem_volume_formula_82(D,H):
+    a=0.46818
+    b=-0.013919
+    c=-28.213
+    d=0.37474
+    e=-0.28875
+    f=28.279
+    v= (math.pi / 4) * (
+    a * D**2 * H +
+    b * D**2 * H * (math.log(D))**2 +
+    c * D**2 +
+    d * D * H +
+    e * H +
+    f * D )
+ #Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Austria)
+    return v
+
 def stem_volume_formula_82():
     pass
+>>>>>>> src/stem_volumes/formulas.py
 
 def stem_volume_formula_83():
     pass
@@ -1407,8 +1452,13 @@ def stem_volume_formula_97(D, H):
     V = a*D**(b+c) * H**d
     return V
 
-def stem_volume_formula_98():
-    pass
+def stem_volume_formula_98(D,H):
+    a=0.00053238
+    b=2.164126647
+    c=-0.04670018
+    d=0.54879808
+    v= a * D**(b + c) * H**d #Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Neatherlands)
+    return v
 
 def stem_volume_formula_99():
     pass
@@ -1639,8 +1689,11 @@ def stem_volume_formula_113(D, H):
     V = a + b * D**2 * H + c * D * H**2 + d * H**2 + e * D * H
     return V
 
-def stem_volume_formula_114():
-    pass
+def stem_volume_formula_114(D,H):
+    a=0.666151
+    b=0.458507
+    v= (math.pi / 40000) * H * D * (a + b * D) #Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Poland)
+    return v
 
 def stem_volume_formula_115():
     pass
@@ -1874,9 +1927,12 @@ def stem_volume_formula_129(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
-
-def stem_volume_formula_130():
-    pass
+def stem_volume_formula_130(D,H):
+    a=0.0739
+    b=1.7508
+    c=1.0228
+    v= a * D**b * H**c #Picea spp. (Molid)(Iceland)
+    return v
 
 def stem_volume_formula_131():
     pass
@@ -2087,8 +2143,15 @@ def stem_volume_formula_145(D):
     V = a * D**b
     return V
 
-def stem_volume_formula_146():
-    pass
+def stem_volume_formula_146(D,H):
+    a=-0.039836
+    b=4.8710e-3
+    c=-6.102e-5
+    d=1.4889-5
+    e=7.3997-5
+    f=2.9221-5
+    v= a + b*D + c*(D**2) + d*(D**3) + e*H + f*(D**2)*H #Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)(Belgium)
+    return v
 
 def stem_volume_formula_147():
     pass
@@ -2313,8 +2376,14 @@ def stem_volume_formula_161(D, H):
     V = a * H**b * D**c * (H-1.3)**d * (D+100)**e
     return V
 
-def stem_volume_formula_162():
-    pass
+def stem_volume_formula_162(D,H):
+    a=0.1263
+    b=2.4621
+    c=1.9008
+    d=-1.3716
+    e=-0.2663
+    v=a * H**b * D**c * (H - 1.3)**d * (D + 100)**e  #Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)(Norway)
+    return v
 
 def stem_volume_formula_163():
     pass
@@ -2541,8 +2610,12 @@ def stem_volume_formula_177(D, H):
     V = 10**a * D**b * (D + 20)**c * H**d * (H + 1.3)**e
     return V
 
-def stem_volume_formula_178():
-    pass
+def stem_volume_formula_178(D,H):
+    a=0.366419
+    b=1.13323
+    c=0.1306
+    v= (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D) #Populus spp. (Poplar, Plop)(Austria)
+    return v
 
 def stem_volume_formula_179():
     pass
@@ -2766,8 +2839,12 @@ def stem_volume_formula_193(D, H):
     V = a + b * D + c * D**2 + d * D**3 + e * H + f * D**2 * H
     return V
 
-def stem_volume_formula_194():
-    pass
+def stem_volume_formula_194(D,H):
+    a=1.90053
+    b=0.80726
+    c=-2.43151
+    v= (D**a) * (H**b) * math.exp(c) #Pseudotsuga menziesii (Douglas fir, Duglas)(Netherlands)
+    return v
 
 def stem_volume_formula_195():
     pass
@@ -2991,9 +3068,24 @@ def stem_volume_formula_209(D, H):
     # Implement formula
     V = D**a * H**b * math.exp(c)
     return V
+    
+def stem_volume_formula_210(D,H):
+    a=0.115631
+    b=65.9961
+    c=1.20321
+    d=-0.930406
+    e=-215.758
+    f=168.477
+    v= (math.pi / 4) * (
+    a * D**2 * H +
+    b * D**2 +
+    c * D * H +
+    d * H +
+    e * D +
+    f
+) #Quercus spp. (Oak, Chênes, Stejar)(Austria)
 
-def stem_volume_formula_210():
-    pass
+    return v
 
 def stem_volume_formula_211():
     pass
@@ -3224,8 +3316,12 @@ def stem_volume_formula_225(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
-def stem_volume_formula_226():
-    pass
+def stem_volume_formula_226(D,H):
+    a=1.76755
+    b=1.37219
+    c=-3.54922
+    v= (D**a) * (H**b) * math.exp(c)#QTsuga heterophylla (Hemlock)(Neatherlands)
+    return v
 
 def stem_volume_formula_227():
     pass
