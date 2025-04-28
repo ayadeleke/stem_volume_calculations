@@ -90,6 +90,7 @@ def test_formulas(formula_no):
     function_name = f"stem_volume_formula_{formula_no}"
     f = getattr(formulas, function_name)
     parameter_units = extract_parameter_units(f)
+    print(parameter_units)
     # convert units to what the formula expects
     UNITS = [
        ["mm", "cm", "dm", "m"], # units for diameters
@@ -98,7 +99,7 @@ def test_formulas(formula_no):
     diameter_mm = 200
     height_dm = 200
     args = [diameter_mm, height_dm]
-    converted_args = [arg / 10 ** UNITS[i].index(parameter_units[i]) for i, arg in enumerate(args)]
+    converted_args = [args[i] / 10 ** UNITS[i].index(parameter_units[i]) for i, arg in enumerate(parameter_units)]
 
     # call stem volume formula and convert volume to m3
     volume = f(*converted_args)
