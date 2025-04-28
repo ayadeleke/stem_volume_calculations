@@ -997,7 +997,6 @@ def stem_volume_formula_46(D, H):
     Calculates the volume of the stem of a standing tree.
 
     This formula is implemented from Zianis and is recommended for a specific tree species (details unknown).
-    The range of valid values for D is in dm, and H is in dm.
 
     Args:
         D (float): Diameter at breast height in dm.
