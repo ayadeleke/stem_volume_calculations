@@ -1066,7 +1066,7 @@ def stem_volume_formula_45(D,H):
     e = 0.219462
     f = 49.6136
     g = -22.372
-    V = pi / 4 * (a * (D * 10) ** 2 * (H * 10) + b * (D * 10) ** 2 * (H * 10) * ln(D * 10) ** 2 + c * (D * 10) ** 2 + d * (D * 10) * (H * 10) + e * (H * 10) + f * (D * 10) + g)
+    V = math.pi / 4 * (a * (D * 10) ** 2 * (H * 10) + b * (D * 10) ** 2 * (H * 10) * math.log(D * 10) ** 2 + c * (D * 10) ** 2 + d * (D * 10) * (H * 10) + e * (H * 10) + f * (D * 10) + g)
     return V
 
 
@@ -1124,8 +1124,8 @@ def stem_volume_formula_48(D,H):
     Original source is Broadmeadow et al (2004) - https://nora.nerc.ac.uk/id/eprint/8644/1/N008644CR.pdf
 
     Args:
-    D: Diameter at breast height in cm.
-    H: Tree height in m.
+        D: Diameter at breast height in cm.
+        H: Tree height in m.
         
     Returns:
         V: Stem volume in m3.
@@ -1291,7 +1291,7 @@ def stem_volume_formula_55(D, H):
     b = 0.7706
     c = -2.48079
     
-    V = D ** a * H ** b * exp(c)
+    V = D ** a * H ** b * math.exp(c)
     return V
 
 def stem_volume_formula_56(D, H):
@@ -1458,7 +1458,7 @@ def stem_volume_formula_62(D, H):
     d = 0.4929
     e = 0.0962
     
-    V = a * 10**( b*log10(D) + c*log10(D)**2 + d*log10(H) + e*log10(H)**2 )
+    V = a * 10**( b*math.log10(D) + c*math.log10(D)**2 + d*math.log10(H) + e*math.log10(H)**2 )
     return V
 
 def stem_volume_formula_63(D, H):
@@ -1562,7 +1562,7 @@ def stem_volume_formula_67(D, H):
     b = 1.08118
     c = -3.0488
 
-    return D ** a * H ** b * exp(c)
+    return D ** a * H ** b * math.exp(c)
 
 def stem_volume_formula_68(D, H):
     """
@@ -2035,7 +2035,7 @@ def stem_volume_formula_87(D):
     a=-2.41218
     b=2.62463
 
-    V = a + b * ln(D)
+    V = a + b * math.log(D)
     return V
 
 def stem_volume_formula_88(D, H):
@@ -2107,7 +2107,7 @@ def stem_volume_formula_90(D, H):
     c = 2.8979
     d = -1.602
     e = -0.007827
-    V = exp(a + b * ln(D) + c * ln(H) + d * ln(H - 1.3) + e * (D))
+    V = math.exp(a + b * math.log(D) + c * math.log(H) + d * math.log(H - 1.3) + e * (D))
     return V
 
 
@@ -2186,7 +2186,7 @@ def stem_volume_formula_93(D):
     a=-2.59385
     b=2.71757
     c=-9.7e-05
-    V = a + b * ln(D) + c * (D) ** 2
+    V = a + b * math.log(D) + c * (D) ** 2
     return V
 
 def stem_volume_formula_94(D, H):
@@ -2677,7 +2677,7 @@ def stem_volume_formula_115(D, H):
 
     a=0.53005
     b=1.229283
-    V = pi / 40000 * H * D * (a * D + b)
+    V = math.pi / 40000 * H * D * (a * D + b)
     return V
 
 def stem_volume_formula_116(D, H):
@@ -2929,7 +2929,7 @@ def stem_volume_formula_125(D, H):
     a = 1.78383
     b = 1.13397
     c = -2.90893
-    V = D**a * H**b * np.exp(c)
+    V = D**a * H**b * math.exp(c)
     return V
 
 def stem_volume_formula_126(D, H):
@@ -3219,7 +3219,7 @@ def stem_volume_formula_138(D, H):
     c=0.0102
     d=0.0102
     e=0.133
-    V = a * 10 ** (b * logD + c * log(D * D) + d * log(H) + e * log(H * H))
+    V = a * 10 ** (b * math.log(D) + c * math.log(D * D) + d * math.log(H) + e * math.log(H * H))
     return V
 
 def stem_volume_formula_139(H):
@@ -3406,7 +3406,7 @@ def stem_volume_formula_147(D):
 
     a=-2.2945
     b=2.57025
-    V = a + b * ln(D)
+    V = a + b * math.log(D)
     return V
 
 def stem_volume_formula_148(D):
@@ -3570,7 +3570,7 @@ def stem_volume_formula_154(D, H):
     a=-2.37912
     b=2.62903
     c=-0.000126
-    V = a + b * lnD + c * D ** 2
+    V = a + b * math.log(D) + c * D ** 2
     return V
 
 def stem_volume_formula_155(D, H):
@@ -3609,7 +3609,19 @@ def stem_volume_formula_155(D, H):
     return V
 
 def stem_volume_formula_156(D, H):
-    # dm, dm, dm3
+    """
+    Calculates the volume of the stem of a standing tree.
+
+    Species: Unknown  
+    Country: Unknown
+
+    Args:
+        D: Diameter at breast height in dm.
+        H: Height of the tree in dm.
+
+    Returns:
+        V: The calculated stem volume in dm3.
+    """
     a = 1.480589
     b = 1.982459514
     c = 0.742674501
@@ -3657,7 +3669,7 @@ def stem_volume_formula_158(D, H):
     b = 1.952764402
     c = -0.11110535
     d = 0.48560878
-    V = a * Dm ** (b + c) * H ** d
+    V = a * D ** (b + c) * H ** d
     return V
 
 def stem_volume_formula_159(D, H):
@@ -4607,7 +4619,7 @@ def stem_volume_formula_200(D, H):
         H: Tree height in m.
         
     Returns:
-        V: Stem volume in dm3.
+        V: Stem volume in m3.
     """
        #coefficients
     a=0.00007188
@@ -4616,9 +4628,7 @@ def stem_volume_formula_200(D, H):
     d=1.4084
     e=0.0409
 
-    
-
-    V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
+    V = a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
     return V
 
 def stem_volume_formula_201(D, H):
@@ -4714,7 +4724,7 @@ def stem_volume_formula_204(D, H):
     a=-9.646
     b=2.076
     c=0.761
-    V = a + b * ln(D) + c * H
+    V = a + b * math.log(D) + c * H
     return V
 
 def stem_volume_formula_205(D, H):
@@ -4735,7 +4745,7 @@ def stem_volume_formula_205(D, H):
     a = -11.473
     b = 2.548
     c = 0.967
-    v = a + b * ln(D) + c * H
+    v = a + b * math.log(D) + c * H
     return v
 
 def stem_volume_formula_206(D, H):
@@ -4758,7 +4768,7 @@ def stem_volume_formula_206(D, H):
     c = 0.3108
     d = 0.5356
     e = 0.2139
-    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
+    V = a * 10 ** (b * math.log(D) + c * math.log(D) ** 2 + d * math.log(H) + e * math.log(H) ** 2)
     return V
 
 def stem_volume_formula_207(D, H):
@@ -4990,7 +5000,7 @@ def stem_volume_formula_216(D, H):
     d=0.8059
     e=-0.0045
 
-    V = a*10**(b*math.log10**(D)+c*math.log10**(D)**2+d*math.log10**(H)+e*math.log10**(H)**2)
+    V = a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
     return V
 
 def stem_volume_formula_217(D, H):
@@ -5097,7 +5107,7 @@ def stem_volume_formula_220(D, H):
     c = -0.1296
     d = 0.6843
     e = 0.2745
-    V = a * 10 ** b * ln(D) + c * ln(D) ** 2 + d * ln(H) + e * ln(H) ** 2
+    V = a * 10 ** b * math.log(D) + c * math.log(D) ** 2 + d * math.log(H) + e * math.log(H) ** 2
     return V
 
 def stem_volume_formula_221(D, H):
@@ -5164,7 +5174,7 @@ def stem_volume_formula_223(D, H):
     a = 1.67887
     b = 1.11243
     c = -2.64821
-    V = D ** a * H ** b * exp(c)
+    V = D ** a * H ** b * math.exp(c)
     return V
 
 def stem_volume_formula_224(D,H):
