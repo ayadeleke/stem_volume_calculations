@@ -511,8 +511,12 @@ def stem_volume_formula_22(D: float, H: float) -> float:
     
     return V
 
-def stem_volume_formula_23():
-    pass
+def stem_volume_formula_23(D, H):
+    # cm, -, dm3
+    a = –0.5547
+    b = 0.3757
+    V = a+b*D**2
+    return V
 
 def stem_volume_formula_24(D, H):
     """
@@ -763,8 +767,15 @@ def stem_volume_formula_34(D,H):
     #Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)(sweeden)
     return v
 
-def stem_volume_formula_35():
-    pass
+def stem_volume_formula_35(D, H):
+    # cm, m, dm3
+    a = -0.93631
+    b = 2.30212
+    c = –1.40378
+    d = 8.01817
+    e = –6.18825
+    V = 10 * a * (D ** b) * ((D + 20) ** c) * (H ** d) * (H - 1.3) ** e
+    return V
 
 def stem_volume_formula_36(D, H):
     """
@@ -1002,8 +1013,15 @@ def stem_volume_formula_46(D, H):
     V = (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D)
     return V 
 
-def stem_volume_formula_47():
-    pass
+def stem_volume_formula_47(D, H):
+    # cm, m, m3
+    a = 0.0000757
+    b = 1.3791
+    c = 0.2127
+    d = 1.1992	
+    e = –0.0584
+    V = a * 10 * (b * math.log(D) + c * (math.log(D) ** 2) + d * math.log(H) + e * (math.log(H) ** 2))
+    return V
 
 def stem_volume_formula_48(D,H):
     """
@@ -1418,8 +1436,15 @@ def stem_volume_formula_70(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_71():
-    pass
+def stem_volume_formula_71(D, H):
+    # cm, m, dm3
+    a = 0.7606
+    b = 3.5377
+    c = 1.9741
+    d = –2.1902	
+    e = –0.8459
+    V = a * H**b * D**c * (H - 1.3)**d * (D + 100)**e
+    return V
 
 def stem_volume_formula_72(D, H):
     """
@@ -1516,8 +1541,14 @@ def stem_volume_formula_76(D, H):
     V = a + b * D ** 2 + c * D ** 2 * H + d * H ** 2 * D
     return V / 1000
 
-def stem_volume_formula_77():
-    pass
+def stem_volume_formula_77(D, H):
+    # cm, m, dm3
+    a = 0.4
+    b = –0.01
+    c = 0.03355
+    d = –0.00359
+    V =  a + b * D**2 + c * D**2 * H + d * H**2 * D
+    return V
 
 def stem_volume_formula_78(D, H):
     # mm, m, dm3
@@ -1608,8 +1639,14 @@ def stem_volume_formula_82(D,H):
 def stem_volume_formula_82():
     pass
 
-def stem_volume_formula_83():
-    pass
+def stem_volume_formula_83(D, H):
+    # dm, dm, dm3
+    a = 0.563443
+    b = –0.12731
+    c = –8.55022
+    d = 7.6331
+    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * (math.log(D)**2) + c * D**2 + d * D)
+    return V
 
 def stem_volume_formula_84(D, H):
     """
@@ -2232,8 +2269,15 @@ def stem_volume_formula_118(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_119():
-    pass
+def stem_volume_formula_119(D, H):
+    # cm, m, dm3
+    a = –1.02039
+    b = 2.00128
+    c = –0.47473
+    d = 2.87138
+    e = –1.61803
+    V = 10 * a * (D ** b) * ((D + 20) ** c) * (H ** d) * (H - 1.3) ** e
+    return V
 
 def stem_volume_formula_120(D, H):
     """
@@ -2331,16 +2375,39 @@ def stem_volume_formula_123(D, H):
     return V
 
 def stem_volume_formula_124():
-    pass
+    # cm, m, m3
+    a=0.4693
+    b=1.311
+    c=0.781
+    V = a * (dbh_m * 100) ** b * height_m ** c
+    return V 
 
-def stem_volume_formula_125():
-    pass
+def stem_volume_formula_125(D, H):
+    # cm, m, dm3
+    a = 1.78383
+    b = 1.13397
+    c = –2.90893
+    V = D**a * H**b * np.exp(c)
+    return V
 
-def stem_volume_formula_126():
-    pass
+def stem_volume_formula_126(D, H):
+    # cm, m, dm3
+    a=0.1614
+    b=3.706
+    c=1.9747
+    d=-2.2905
+    e=-0.6665
+    V = a * height_m ** b * (dbh_m * 100) ** c * (height_m - 1.3) ** d * (dbh_m * 100 + 40) ** e
+    return V
 
-def stem_volume_formula_127():
-    pass
+def stem_volume_formula_127(D, H):
+    a=0.187
+    b=3.7077
+    c=1.9854
+    d=-2.2816
+    e=-0.7161
+    V = a * height_m ** b * (dbh_m * 100) ** c * (height_m - 1.3) ** d * (dbh_m * 100 + 40) ** e
+    return V
 
 def stem_volume_formula_128(D,H):
     """
@@ -2398,8 +2465,13 @@ def stem_volume_formula_130(D,H):
     v= a * D**b * H**c #Picea spp. (Molid)(Iceland)
     return v
 
-def stem_volume_formula_131():
-    pass
+def stem_volume_formula_131(D, H):
+    # cm, m, m3
+    a = 0.1491
+    b = 1.6466
+    c = 0.8325
+    V = a*D**b*H**c
+    return V
 
 def stem_volume_formula_132(D, H):
     """
@@ -2474,8 +2546,16 @@ def stem_volume_formula_134(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_135():
-    pass
+def stem_volume_formula_135(D, H):
+    # cm, m, dm3
+    a=0.0883
+    b=0.03202
+    c=-0.000114
+    d=-0.07892
+    e=-0.01049
+    
+    V = a * (dbh_m * 100) ** 2 + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) ** 2 * height_m ** 2 - d * (dbh_m * 100) * height_m + e * (dbh_m * 100) * height_m ** 2
+    return V 
 
 def stem_volume_formula_136(D, H):
     """
@@ -2522,8 +2602,15 @@ def stem_volume_formula_137(D, H):
     V = (D ** a) * (H ** b) * math.exp(c)
     return V
 
-def stem_volume_formula_138():
-    pass
+def stem_volume_formula_138(D, H):
+    # cm, m, m3
+    a=0.00010892
+    b=1.9701
+    c=0.0102
+    d=0.0102
+    e=0.133
+    V = a * 10 ** (b * log(dbh_m * 100) + c * log(dbh_m * 100 * (dbh_m * 100)) + d * log(height_m) + e * log(height_m * height_m))
+    return V
 
 def stem_volume_formula_139(H):
     """
@@ -2550,17 +2637,40 @@ def stem_volume_formula_139(H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_140():
-    pass
+def stem_volume_formula_140(D, H):
+    # cm, -, m3
+    a=0.0001078
+    b=2.56
+    v = a * (dbh_m * 100) ** b
+    return v
 
-def stem_volume_formula_141():
-    pass
+def stem_volume_formula_141(D, H):
+    # mm, m, dm3
+    a=0.00042613
+    b=2.066225947
+    c=-0.001926657
+    d=0.80636901
+    
+    V = a * (dbh_m * 1000) ** (b + c) * height_m ** d
+    return V
 
-def stem_volume_formula_142():
-    pass
+def stem_volume_formula_142(D, H):
+    #
+    a=0.00042613
+    b=2.066225947
+    c=-0.07956244
+    d=0.80636901
+    V = a * (dbh_m * 1000) ** (b + c) * height_m ** d
+    return V
 
-def stem_volume_formula_143():
-    pass
+def stem_volume_formula_143(D, H):
+    # mm, m, dm3
+    a = 0.00042613
+    b = 2.066225947
+    c = 0.00369501
+    d = 0.80636901
+    V = a * D**(b+c) * H**d 
+    return V
 
 def stem_volume_formula_144(D,H):
     """
@@ -2617,8 +2727,13 @@ def stem_volume_formula_146(D,H):
     v= a + b*D + c*(D**2) + d*(D**3) + e*H + f*(D**2)*H #Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)(Belgium)
     return v
 
-def stem_volume_formula_147():
-    pass
+def stem_volume_formula_147(D):
+    # cm, -, ln(dm3)
+    a=-2.2945
+    b=2.57025
+    D = dbh_m * 100
+    V = a + b * ln(D)
+    return V
 
 def stem_volume_formula_148(D):
     """
@@ -2696,8 +2811,13 @@ def stem_volume_formula_150(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_151():
-    pass
+def stem_volume_formula_151(D, H):
+    # cm, m, dm3
+    a = 0.0942
+    b = 1.9671
+    c = 0.7005
+    V = a * D**b * H**c
+    return V
 
 def stem_volume_formula_152(D, H):
     """
@@ -2743,8 +2863,13 @@ def stem_volume_formula_153(D, H):
     V = a * H * D**2 + b * D * H + c * D**3 + d * D * H**2
     return V
 
-def stem_volume_formula_154():
-    pass
+def stem_volume_formula_154(D, H):
+    # cm, m, ln(dm3)
+    a=-2.37912
+    b=2.62903
+    c=-0.000126
+    V = a + b * ln(dbh_m * 100) + c * (dbh_m * 100) ** 2
+    return V
 
 def stem_volume_formula_155(D, H):
     """
@@ -2780,17 +2905,41 @@ def stem_volume_formula_155(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_156():
-    pass
+def stem_volume_formula_156(D, H):
+    # dm, dm, dm3
+    a = 1.480589
+    b = 1.982459514
+    c = 0.742674501
+    V = a * D ** b * H**c
+    return V
 
-def stem_volume_formula_157():
-    pass
+def stem_volume_formula_157(D, H):
+    # mm, m, dm3
+    a = 0.00207765
+    b = 1.952764402
+    c = -8.6651 * 10 ** (-5)
+    d = 0.48560878
+    dbh_m = dbh_m * 1000
+    V = a * dbh_m ** (b + c) * height_m ** d
+    return V
 
-def stem_volume_formula_158():
-    pass
+def stem_volume_formula_158(D, H):
+    # mm, m, dm3
+    a = 0.00207765
+    b = 1.952764402
+    c = -0.11110535
+    d = 0.48560878
+    V = a * dbh_mm ** (b + c) * height_m ** d
+    return V
 
 def stem_volume_formula_159():
-    pass
+    # mm, m, dm3
+    a=0.00207765
+    b=1.952764402
+    c=0.001095496
+    d=0.48560878
+    V = a * D ** (b + c) * H ** d
+    return V
 
 def stem_volume_formula_160(D,H):
     """
@@ -2849,8 +2998,15 @@ def stem_volume_formula_162(D,H):
     v=a * H**b * D**c * (H - 1.3)**d * (D + 100)**e  #Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)(Norway)
     return v
 
-def stem_volume_formula_163():
-    pass
+def stem_volume_formula_163(D, H):
+    # cm, m, dm3
+    a = 0.4434
+    b = 4.9667
+    c = 1.9912
+    d = -3.6612
+    e = -0.7502
+    V = a * H**b * D**c * (H-1.3)**d * (D+100)**e
+    return V
 
 def stem_volume_formula_164(D, H):
     """
@@ -2924,8 +3080,13 @@ def stem_volume_formula_166(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_167():
-    pass
+def stem_volume_formula_167(D, H):
+    # cm, m, dm3
+    a = 2.9121
+    b = 0.039994
+    c = –0.001091
+    V = a + b * D**2 + c * D**2 * H
+    return V
 
 def stem_volume_formula_168(D, H):
     """
@@ -2975,8 +3136,13 @@ def stem_volume_formula_169(D, H):
     V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
     return V
 
-def stem_volume_formula_170():
-    pass
+def stem_volume_formula_170(D, H):
+    # cm, m, dm3
+    a = 0.1028
+    b = 0.02705
+    c = 0.005215
+    V = a * dbh_cm**2 + b * dbh_cm**2 * height_m + c * dbh_cm * height_m**2
+    return V
 
 def stem_volume_formula_171(D, H):
     """
@@ -3014,17 +3180,45 @@ def stem_volume_formula_171(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_172():
-    pass
+def stem_volume_formula_172(D, H):
+    # cm, m, dm3
+    a = -1.20914
+    b = 1.9474
+    c = -0.05947
+    d = 1.40958
+    e = -0.4581
+    V = 10 ** a * D**b * (D+20)**c * H**d * (H-1.3)**e
+    return V
 
-def stem_volume_formula_173():
-    pass
+def stem_volume_formula_173(D, H):
+    # cm, m, dm3
+    a = –1.38903
+    b = 1.84493
+    c = 0.06563
+    d = 2.02122
+    e = –1.01095
+    V = 10 * a * (D ** b) * ((D + 20) ** c) * (H ** d) * (H - 1.3) ** e
+    return V
 
-def stem_volume_formula_174():
-    pass
+def stem_volume_formula_174(D, H):
+    # cm, m, dm3
+    a = -1.25246
+    b = 1.98244
+    c = -0.13118
+    d = 1.03781
+    e = -0.03482
+    V = 10 ** a * D ** b * (D + 20) ** c * H ** d * (H - 1.3) ** e
+    return V
 
-def stem_volume_formula_175():
-    pass
+def stem_volume_formula_175(D, H):
+    # cm, m, dm3
+    a = -1.52761
+    b = 1.82928
+    c = 0.07454
+    d = 1.43792
+    e = -0.35559
+    V = 10 ** a * D ** b * (D + 20) ** c * H ** d * (H - 1.3) ** e 
+    return V
 
 def stem_volume_formula_176(D,H):
     """
@@ -3081,8 +3275,14 @@ def stem_volume_formula_178(D,H):
     v= (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D) #Populus spp. (Poplar, Plop)(Austria)
     return v
 
-def stem_volume_formula_179():
-    pass
+def stem_volume_formula_179(D, H):
+    # mm, m, dm3
+    a = 0.0009507
+    b = 1.895629295
+    c = 0.001650837
+    d = 0.8392146
+    V = a * D * (b + c) * (H ** d)
+    return V
 
 def stem_volume_formula_180(D, H):
     """
@@ -3159,8 +3359,15 @@ def stem_volume_formula_182(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_183():
-    pass
+def stem_volume_formula_183(D, H):
+    # cm, m, m3
+    a = 0.00041486
+    b = 1.4466
+    c = 0.1089
+    d = –0.1963
+    e = 0.5681
+    V = a * 10 * (b * math.log(D) + c * (math.log(D) ** 2) + d * math.log(H) + e * (math.log(H) ** 2))
+    return V
 
 def stem_volume_formula_184(D, H):
     """
@@ -3204,8 +3411,13 @@ def stem_volume_formula_185(D, H):
     V = a + b * (D**2) * H
     return V
 
-def stem_volume_formula_186():
-    pass
+def stem_volume_formula_186(D, H):
+    # cm, m, dm3
+    a = -0.21
+    b = 0.0398
+    V = a + b*D**2 * H
+    return V
+
 
 def stem_volume_formula_187(D, H):
     """
@@ -3239,17 +3451,41 @@ def stem_volume_formula_187(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_188():
-    pass
+def stem_volume_formula_188(D, H):
+    # cm, m, dm3
+    a = 0.01548
+    b = 0.03255
+    c = -4.7e-05
+    d = -0.01333
+    e = 0.004859
+    V = a * D**2 + b * D**2 * height_m + c * D**2 * height_m ** 2 + d * dbh_cm * height_m + e * dbh_cm * height_m ** 2
+    return V
 
-def stem_volume_formula_189():
-    pass
+def stem_volume_formula_189(D, H):
+    # cm, m, dm3
+    a = 0.03597
+    b = 1.84297
+    c = 1.15988
+    V = a * dbh_m ** b * height_m ** c
+    return V
 
-def stem_volume_formula_190():
-    pass
+def stem_volume_formula_190(D, H):
+    # cm, m, dm3
+    a = 0.03392
+    b = -0.01491
+    c = -5e-06
+    d = 0.01704
+    e = 0.002926
+    V = a * (dbh_m * 100) ** 2 * height_m + b * (dbh_m * 100) ** 2 * height_m + c * (dbh_m * 100) ** 2 * height_m ** 2 + d * (dbh_m * 100) * height_m + e * (dbh_m * 100) * height_m ** 2
+    return V
 
-def stem_volume_formula_191():
-    pass
+def stem_volume_formula_191(D, H):
+    #cm, m, m3
+    a = 0.0732
+    b = 1.6933
+    c = 1.0562
+    V = a * D**b * H**c  
+    return V
 
 def stem_volume_formula_192(D,H):
     """
@@ -3310,8 +3546,15 @@ def stem_volume_formula_194(D,H):
     v= (D**a) * (H**b) * math.exp(c) #Pseudotsuga menziesii (Douglas fir, Duglas)(Netherlands)
     return v
 
-def stem_volume_formula_195():
-    pass
+def stem_volume_formula_195(D, H):
+    # cm, m, dm3
+    a=1.8211
+    b=4.153
+    c=2.1342
+    d=-2.6902
+    e=-1.4265
+    V = a * H ** b * D ** c * (H - 1.3) ** d * (D + 40) ** e
+    return V
 
 def stem_volume_formula_196(D, H):
     """
@@ -3388,8 +3631,16 @@ def stem_volume_formula_198(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_199():
-    pass
+def stem_volume_formula_199(D, H):
+    # mm, m, dm3
+    a = 0.00095916
+    b = 2.092560524
+    c = 0
+    d = 0.48824344
+
+    V = a * D ** (b + c) * H ** d
+    return V
+
 
 def stem_volume_formula_200(D, H):
     """
@@ -3436,8 +3687,13 @@ def stem_volume_formula_201(D, H):
     V = a + b * (D**2) * H
     return V
 
-def stem_volume_formula_202():
-    pass
+def stem_volume_formula_202(D, H):
+    # cm, m, m3
+    a = 9.6e-05
+    b = 1.821
+    c = 0.759
+    V = a * D ** b * height_m ** c
+    return V
 
 def stem_volume_formula_203(D, H):
     """
@@ -3471,17 +3727,39 @@ def stem_volume_formula_203(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_204():
-    pass
+def stem_volume_formula_204(D, H):
+    # cm, m, ln(m3)
+    a=-9.646
+    b=2.076
+    c=0.761
+    V = a + b * ln(D) + c * height_m
+    return V
 
-def stem_volume_formula_205():
-    pass
+def stem_volume_formula_205(D, H):
+    # cm, m, ln(m3)
+    a = -11.473
+    b = 2.548
+    c = 0.967
+    v = a + b * ln(dbh_m) + c * height_m
+    return v
 
-def stem_volume_formula_206():
-    pass
+def stem_volume_formula_206(D, H):
+    # cm, m, m3
+    a = 0.00035164
+    b = 1.1119
+    c = 0.3108
+    d = 0.5356
+    e = 0.2139
+    V = a * 10 ** (b * log(dbh_cm) + c * log(dbh_cm) ** 2 + d * log(height_m) + e * log(height_m) ** 2)
+    return V
 
-def stem_volume_formula_207():
-    pass
+def stem_volume_formula_207(D, H):
+    # cm, m, dm3
+    a=2.00333
+    b=0.85925
+    c=-2.86353
+    V = D ** a * H ** b * math.exp(c)
+    return V
 
 def stem_volume_formula_208(D,H):
     """
@@ -3551,8 +3829,13 @@ def stem_volume_formula_210(D,H):
 
     return v
 
-def stem_volume_formula_211():
-    pass
+def stem_volume_formula_211(D, H):
+    # dm, dm, dm3
+    a = 0.417118
+    b = 0.21941
+    c = 13.32594
+    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * (math.log(D)**2) + c * D**2)
+    return V
 
 def stem_volume_formula_212(D, H):
     """
@@ -3630,8 +3913,14 @@ def stem_volume_formula_214(D: float, H: float) -> float:
 
     return V
 
-def stem_volume_formula_215():
-    pass
+def stem_volume_formula_215(D, H):
+    # mm, m, dm3
+    a = 0.00095853
+    b = 2.040672356
+    c = –0.04354461
+    d = 0.56366437
+    V = a * D * (b + c) * (H ** d)
+    return V
 
 def stem_volume_formula_216(D, H):
     """
@@ -3684,8 +3973,15 @@ def stem_volume_formula_217(D, H):
 
     return V
 
-def stem_volume_formula_218():
-    pass
+def stem_volume_formula_218(D, H):
+    # cm, m, dm3
+    a = -1.86827
+    b = 0.21461
+    c = 0.01283
+    d = 0.0138
+    e = -0.06311
+    V = a + b * dbh_cm ** 2 + c * dbh_cm ** 2 * height_m + d * dbh_cm * height_m ** 2 + e * height_m ** 2
+    return V
 
 def stem_volume_formula_219(D, H):
     """
@@ -3719,17 +4015,43 @@ def stem_volume_formula_219(D, H):
     # Return the calculated volume
     return V
 
-def stem_volume_formula_220():
-    pass
+def stem_volume_formula_220(D, H):
+    # cm, m, m3
+    a = 4.281e-05
+    b = 2.0766
+    c = -0.1296
+    d = 0.6843
+    e = 0.2745
+    V = a * 10 ** b * ln(D) + c * ln(D) ** 2 + d * ln(H) + e * ln(H) ** 2
+    return V
 
-def stem_volume_formula_221():
-    pass
+def stem_volume_formula_221(D, H):
+    # cm, m, m3
+    a = 7.325e-05
+    b = 1.5598
+    c = 0.0302
+    d = 0.8572
+    e = 0.1791
+    V = a * 10 * (b * math.log(D) + c * (math.log(D) ** 2) + d * math.log(H) + e * (math.log(H) ** 2)) 
+    return V
 
-def stem_volume_formula_222():
-    pass
+def stem_volume_formula_222(D, H):
+    # cm, m, dm3
+    a = -1.86827
+    b = 0.21461
+    c = 0.01283
+    d = 0.0138
+    e = -0.06311
+    V = (a + b * D ** 2 + c * D ** 2 * H + d * H ** 2 + D + e * H ** 2)
+    return V
 
-def stem_volume_formula_223():
-    pass
+def stem_volume_formula_223(D, H):
+    # cm, m, dm3
+    a = 1.67887
+    b = 1.11243
+    c = -2.64821
+    V = D ** a * H ** b * exp(c)
+    return V
 
 def stem_volume_formula_224(D,H):
     """
@@ -3787,8 +4109,15 @@ def stem_volume_formula_226(D,H):
     v= (D**a) * (H**b) * math.exp(c)#QTsuga heterophylla (Hemlock)(Neatherlands)
     return v
 
-def stem_volume_formula_227():
-    pass
+def stem_volume_formula_227(D, H):
+    # cm, m, dm3
+    a = 0.4291
+    b = 2.6153
+    c = 1.9145
+    d = –1.2696
+    e = –0.6715
+    V =  a * (H ** b) * (D ** c) * (H - 1.3) ** d * (D + 100) ** e
+    return V
 
 def stem_volume_formula_228(D, H):
     """
