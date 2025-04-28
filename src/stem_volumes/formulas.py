@@ -188,8 +188,8 @@ def stem_volume_formula_11(D, H):
     Returns:
         V: Volume in m3.
     """
-    # Import the log10 function from the math package
-    from math import log10
+    # # Import the log10 function from the math package
+    # from math import log10
 
     # Define the coefficients
     a = 0.00035375
@@ -199,7 +199,7 @@ def stem_volume_formula_11(D, H):
     e = 0.021
     
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
 
     # Return the calculated volume
     return V
@@ -398,8 +398,8 @@ def stem_volume_formula_27(D):
     Returns:
         V: Volume in dm3.
     """
-    # Import the natural logarithm function from the math package
-    from math import log 
+    # # Import the natural logarithm function from the math package
+    # from math import log 
 
     # # Raise ValueError if the diameter is out of range
     # if D < 1.2 or D > 49.7: 
@@ -413,7 +413,7 @@ def stem_volume_formula_27(D):
     e = -0.0395855
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a + b * log(c + d * D) + e * D 
+    V = a + b * math.log(c + d * D) + e * D 
     # The calculated volume seems to be unrealistically low, however the implementation of the formula is according to the original paper. Furthermore, D values below 2.13 result in negative volumes, which is not possible. This contradicts the recommended range of 1.2-49.7 cm.
    
     # Return the calculated volume
@@ -609,8 +609,8 @@ def stem_volume_formula_43(D, H):
     Returns:
         V: Volume in dm3.
     """
-    # Import the exponential function from the math package
-    from math import exp
+    # # Import the exponential function from the math package
+    # from math import exp
 
     # Define the coefficients
     a = 1.85298
@@ -618,7 +618,7 @@ def stem_volume_formula_43(D, H):
     c = -2.33706
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = D**a * H**b * exp(c)
+    V = D**a * H**b * math.exp(c)
 
     # Return the calculated volume
     return V 
@@ -2479,8 +2479,8 @@ def stem_volume_formula_187(D, H):
     Returns:
         V: Volume in m3.
     """
-    # Import the log10 function from the math package
-    from math import log10
+    # # Import the log10 function from the math package
+    # from math import log10
 
     # Define the coefficients
     a = 0.00007604
@@ -2490,7 +2490,7 @@ def stem_volume_formula_187(D, H):
     e = 0.0654
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
 
     # Return the calculated volume
     return V
@@ -2688,8 +2688,8 @@ def stem_volume_formula_203(D, H):
     Returns:
         V: Volume in m3.
     """
-    # Import the log10 function from the math package
-    from math import log10
+    # # Import the log10 function from the math package
+    # from math import log10
 
     # Define the coefficients
     a = 0.0001992
@@ -2699,7 +2699,7 @@ def stem_volume_formula_203(D, H):
     e = 0.4811
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
 
     # Return the calculated volume
     return V
@@ -2901,8 +2901,8 @@ def stem_volume_formula_219(D, H):
     Returns:
         V: Volume in m3.
     """
-    # Import the log10 function from the math package
-    from math import log10
+    # # Import the log10 function from the math package
+    # from math import log10
 
     # Define the coefficients
     a = 0.00011585
@@ -2912,7 +2912,7 @@ def stem_volume_formula_219(D, H):
     e = 0.0269
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * log10(D) + c * log10(D)**2 + d * log10(H) + e * log10(H)**2)
+    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
 
     # Return the calculated volume
     return V
