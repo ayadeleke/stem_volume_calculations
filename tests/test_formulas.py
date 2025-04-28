@@ -17,7 +17,7 @@ import pytest
 from stem_volumes import formulas
 from stem_volumes.formulas import *
 from inspect import signature
-from stem_volumes.utils import extract_parameter_units, extract_volume_unit
+from stem_volumes.utils import extract_parameter_units, extract_volume_unit, convert_volume_to_m3
 
 NUM_FORMULAS = 230
 
@@ -80,6 +80,33 @@ def test_volume_unit_from_docstring(formula_no):
     f = getattr(formulas, function_name)
     unit = extract_volume_unit(f)
     assert unit in set(["dm3", "m3", "ln(dm3)", "ln(m3)"])
+
+@pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
+def test_formulas(formula_no):
+    """
+    Tests that the calculated volume is not larger than the volume of a
+    cyclinder
+    """
+    function_name = f"stem_volume_formula_{formula_no}"
+    f = getattr(formulas, function_name)
+    parameter_units = extract_parameter_units(f)
+    # convert units to what the formula expects
+    UNITS = [
+       ["mm", "cm", "dm", "m"], # units for diameters
+       ["dm", "m"], # units for heights
+    ]
+    diameter_mm = 200
+    height_dm = 200
+    args = [diameter_mm, height_dm]
+    converted_args = [arg / 10 ** UNITS[i].index(parameter_units[i]) for i, arg in enumerate(args)]
+
+    # call stem volume formula and convert volume to m3
+    volume = f(*converted_args)
+    volume_unit = extract_volume_unit(f)
+    volume = convert_volume_to_m3(volume, volume_unit)
+    # calculate the volume in m3 of a cylinder as upper bound
+    volume_cylinder = height_dm / 10 *  math.pi / 4 * (diameter_mm / 1000) ** 2
+    assert 0 < volume and volume < volume_cylinder
 
 def test_stem_volume_formula_1():
     assert stem_volume_formula_1(20,10) > 0
