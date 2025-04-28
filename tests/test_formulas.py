@@ -98,7 +98,7 @@ def test_formulas(formula_no):
     diameter_mm = 200
     height_dm = 200
     args = [diameter_mm, height_dm]
-    converted_args = [arg / 10 ** UNITS[i].index(parameter_units[i]) for i, arg in enumerate(args)]
+    converted_args = [args[i] / 10 ** UNITS[i].index(parameter_units[i]) for i, unit in enumerate(parameter_units)]
 
     # call stem volume formula and convert volume to m3
     volume = f(*converted_args)
