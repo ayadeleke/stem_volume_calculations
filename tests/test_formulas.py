@@ -87,18 +87,21 @@ def test_formulas(formula_no):
     Tests that the calculated volume is not larger than the volume of a
     cyclinder
     """
+    
     function_name = f"stem_volume_formula_{formula_no}"
     f = getattr(formulas, function_name)
+    params = list(signature(f).parameters)
     parameter_units = extract_parameter_units(f)
+
     # convert units to what the formula expects
-    UNITS = [
-       ["mm", "cm", "dm", "m"], # units for diameters
-       ["dm", "m"], # units for heights
-    ]
+    UNITS = {
+       "D": ["mm", "cm", "dm", "m"], # units for diameters
+       "H": ["dm", "m"], # units for heights
+    }
     diameter_mm = 200
     height_dm = 200
-    args = [diameter_mm, height_dm]
-    converted_args = [args[i] / 10 ** UNITS[i].index(parameter_units[i]) for i, unit in enumerate(parameter_units)]
+    args = { "D":diameter_mm, "H":height_dm }
+    converted_args = [args[par_name] / 10 ** UNITS[par_name].index(parameter_units[i]) for i, par_name in enumerate(params)]
 
     # call stem volume formula and convert volume to m3
     volume = f(*converted_args)
