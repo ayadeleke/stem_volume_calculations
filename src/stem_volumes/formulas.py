@@ -607,7 +607,7 @@ def stem_volume_formula_43(D, H):
         H: Tree height in m.
     
     Returns:
-        V: Volume in m3.
+        V: Volume in dm3.
     """
     # Import the exponential function from the math package
     from math import exp
