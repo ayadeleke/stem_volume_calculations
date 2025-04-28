@@ -1422,14 +1422,14 @@ def stem_volume_formula_100(D, H):
         H: Tree height in m. Recommendend range: NA.
 
     Returns:
-        V: Stem volume in m3.
+        V: Stem volume in dm3.
     """
     
     a = 1.75055
     b = 1.10897
     c = -2.75863
 
-    V = D**a * H**b * math.exp**c
+    V = D**a * H**b * math.exp(c)
     return V  
 
 def stem_volume_formula_101(D, H):
