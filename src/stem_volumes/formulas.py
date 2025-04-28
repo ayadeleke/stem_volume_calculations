@@ -1861,7 +1861,6 @@ def stem_volume_formula_139(H):
     Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099-1115.
 
     Args:
-        D: Diameter at breast height in cm.
         H: Tree height in m.
     
     Returns:
