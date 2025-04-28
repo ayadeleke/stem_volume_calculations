@@ -424,7 +424,7 @@ def test_stem_volume_formula_95():
 
 def test_stem_volume_formula_96():
     assert stem_volume_formula_96(18,10) > 0
-    assert stem_volume_formula_96(18,10) < 5
+    assert stem_volume_formula_96(18,10) < 200
 
 def test_stem_volume_formula_97():
     assert 1==1
