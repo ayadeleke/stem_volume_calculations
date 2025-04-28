@@ -874,8 +874,8 @@ def stem_volume_formula_65(D, H):
     Yield Reserch, University for Agricultural Sciences, Vienna.
 
     Args:
-        D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
-        H (float): Height of the tree in m.
+        D (float): Diameter of the tree in dm. Recommended range: 0.5 dm - 1.04 dm.
+        H (float): Height of the tree in dm.
 
     Returns:
         (float): The calculated stem volume in dm3.
@@ -1287,7 +1287,7 @@ def stem_volume_formula_97(D, H):
     Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
 
     Args:
-        D (float): Diameter of the tree in cm.
+        D (float): Diameter of the tree in mm.
         H (float): Height of the tree in m.
 
     Returns:

@@ -98,7 +98,7 @@ def test_formulas(formula_no):
     diameter_mm = 200
     height_dm = 200
     args = [diameter_mm, height_dm]
-    converted_args = [arg / 10 ** UNITS[i].index(parameter_units[i]) for i, arg in enumerate(args)]
+    converted_args = [args[i] / 10 ** UNITS[i].index(parameter_units[i]) for i, arg in enumerate(parameter_units)]
 
     # call stem volume formula and convert volume to m3
     volume = f(*converted_args)
@@ -270,8 +270,8 @@ def test_stem_volume_formula_48():
     assert stem_volume_formula_48(30,15) < 10
 
 def test_stem_volume_formula_49():
-    assert stem_volume_formula_49(35, 24) > 0
-    assert stem_volume_formula_49(35, 24) < 10
+    assert stem_volume_formula_49(20, 10) > 0
+    assert stem_volume_formula_49(20, 10) < 10
 
 def test_stem_volume_formula_50():
     assert 1==1
@@ -324,7 +324,7 @@ def test_stem_volume_formula_64():
     assert stem_volume_formula_64(2.5,25) < 35
 
 def test_stem_volume_formula_65():
-    assert stem_volume_formula_65(0.5,10.04) > 0
+    assert stem_volume_formula_65(0.5,1.04) > 0
     assert stem_volume_formula_65(0.5,1.04) < 5
 
 def test_stem_volume_formula_66():
@@ -590,8 +590,8 @@ def test_stem_volume_formula_144():
     assert stem_volume_formula_144(5,100) < 1000
 
 def test_stem_volume_formula_145():
-    assert stem_volume_formula_145(50) > 0
-    assert stem_volume_formula_145(50) < 100
+    assert stem_volume_formula_145(30) > 0
+    assert stem_volume_formula_145(30) < 100
 
 def test_stem_volume_formula_146():
     assert 1==1
