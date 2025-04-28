@@ -1240,7 +1240,8 @@ def stem_volume_formula_91(D, H):
 
     # Calculate the volume according to the formula given by Zianis et al.
     V = a * D**b * H**c
-    
+    # Volume tests might be failing because formula is only valid for a dimater range of 2-18 cm and a height range of 2-18 m.
+
     # Return the calculated volume
     return V
 
