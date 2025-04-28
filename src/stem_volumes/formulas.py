@@ -265,15 +265,15 @@ def stem_volume_formula_17(D, H):
     """
 
     # Define parameters
-    a=0.0001
-    b=2.5
-    c=0.5
-    d=0.3
-    e=0.2
+    a=0.1926
+    b=0.01631
+    c=0.003755
+    d=-0.02756
+    e=0.000499
 
     # implement formula
     V = a * D**2 + b * D**2 * H + c * D * H**2 + d * D * H + e * D**2 * H**2
-    return V # Calculated volume in dm³
+    return V
 
 def stem_volume_formula_18():
     pass
@@ -937,8 +937,8 @@ def stem_volume_formula_65(D, H):
     Yield Reserch, University for Agricultural Sciences, Vienna.
 
     Args:
-        D (float): Diameter of the tree in cm. Recommended range: 0.5 cm - 1.04 cm.
-        H (float): Height of the tree in m.
+        D (float): Diameter of the tree in dm. Recommended range: 0.5 dm - 1.04 dm.
+        H (float): Height of the tree in dm.
 
     Returns:
         (float): The calculated stem volume in dm3.
@@ -1390,7 +1390,7 @@ def stem_volume_formula_97(D, H):
     Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
 
     Args:
-        D (float): Diameter of the tree in cm.
+        D (float): Diameter of the tree in mm.
         H (float): Height of the tree in m.
 
     Returns:
@@ -2980,7 +2980,7 @@ def stem_volume_formula_209(D, H):
         H (float): Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in m3.
+        V (float): The calculated stem volume in dm3.
     """
 
     # Define parameters
