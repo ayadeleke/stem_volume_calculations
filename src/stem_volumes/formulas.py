@@ -1113,7 +1113,7 @@ def stem_volume_formula_47(D, H):
     c = 0.2127
     d = 1.1992	
     e = -0.0584
-    V = a * 10 ** ((b * math.log10(D)) + (c * math.log10(D)**2) + (d * math.log10(H)) + (e * (math.log10(H) ** 2)))
+    V = a * 10 ** (b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * (math.log10(H) ** 2))
     return V
 
 def stem_volume_formula_48(D,H):
