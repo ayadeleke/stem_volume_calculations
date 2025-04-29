@@ -2892,17 +2892,21 @@ def stem_volume_formula_123(D, H):
 
 def stem_volume_formula_124(D, H):
     """
-    Calculates the volume of the stem of a standing tree.
+    Calculates the volume of the stem of a standing tree. 
+    Volume unit in Zianis et al is not properly copied. The original source states that the volume is in dm3 instead of m3.
 
-    Species: Unknown  
-    Country: Unknown
+    Original source is Snorrason & Einarsson (2006) - http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf
+    see p. 18 for V, D and H units
+
+    Species: Picea engelmannii (Engelmanni spruce).
+    Country: Iceland.
 
     Args:
-        D: Diameter at breast height in cm.
-        H: Height of the tree in m.
+        D: Diameter at breast height in cm. Recommended range: 1.4-12.7 cm.
+        H: Height of the tree in m. Recommended range: 1.7-12.7 m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in dm3.
     """
 
     a=0.4693
