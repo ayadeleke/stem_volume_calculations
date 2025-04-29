@@ -5081,11 +5081,11 @@ def stem_volume_formula_210(D,H):
     (Oak, Chênes, Stejar) from Austria. The diameter should be biger than 1.
 
     Args:
-        D: Diameter at breast height in cm.
-        H: Tree height in m.
+        D: Diameter at breast height in dm.
+        H: Tree height in dm.
 
     Returns:
-        v: Stem volume in m3.
+        V: Stem volume in dm3.
     """
 
     a=0.115631
