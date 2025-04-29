@@ -2895,7 +2895,7 @@ def stem_volume_formula_124(D, H):
     Calculates the volume of the stem of a standing tree. 
     Volume unit in Zianis et al is not properly copied. The original source states that the volume is in dm3 instead of m3.
 
-    Original source is Snorrason & Einarsson (2006) - https://api.semanticscholar.org/CorpusID:55618341
+    Original source is Snorrason & Einarsson (2006) - http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf
     see p. 18 for V, D and H units
 
     Species: Picea engelmannii (Engelmanni spruce).
