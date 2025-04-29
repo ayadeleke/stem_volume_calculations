@@ -4,7 +4,8 @@ Zianis et al.
 
 The different formulas are based on Appendix B (starting on page 44) and
 Appendix C (starting page 52) of the monograph. It can be downloaded at
-https://doi.org/10.14214/sf.sfm4.
+https://doi.org/10.14214/sf.sfm4. An Excel file covering Appendix B and C is
+avaiable at https://jukuri.luke.fi/handle/10024/512732.
 """
 
 import math
