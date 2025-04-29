@@ -4,7 +4,8 @@ Zianis et al.
 
 The different formulas are based on Appendix B (starting on page 44) and
 Appendix C (starting page 52) of the monograph. It can be downloaded at
-https://doi.org/10.14214/sf.sfm4.
+https://doi.org/10.14214/sf.sfm4. An Excel file covering Appendix B and C is
+avaiable at https://jukuri.luke.fi/handle/10024/512732.
 """
 
 import math
@@ -1719,8 +1720,17 @@ def stem_volume_formula_74(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown  
-    Country: Unknown
+    The formula is given in "Single-tree biomass and stem volume functions for
+    eleven tree species used in Icelandic forestry" by Snorrason et al. The
+    paper can be found at
+    http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf.
+    The volume formula is given in Table 1 (see Volume for Siberian larch).
+    The volume unit of m3 in Zianis et al. is not properly copied. In the paper
+    after equation 1 on page 18 you can verify that the formula reports the
+    volume in dm3.
+
+    Species: Larix sibirica (Siberian larch)
+    Country: Iceland
 
     Args:
         D: Diameter at breast height in cm.
@@ -3048,15 +3058,24 @@ def stem_volume_formula_131(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown  
-    Country: Unknown
+    Species: Pinus contorta (Contorta tall)
+    Country: Iceland
+
+    The formula is given in "Single-tree biomass and stem volume functions for
+    eleven tree species used in Icelandic forestry" by Snorrason et al. The
+    paper can be found at
+    http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf.
+    The volume formula is given in Table 1 (see Volume for Black cottonwood).
+    The volume unit of m3 in Zianis et al. is not properly copied. In the paper
+    after equation 1 on page 18 you can verify that the formula reports the
+    volume in dm3.
 
     Args:
         D: Diameter at breast height in cm.
         H: Height of the tree in m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in dm3.
     """
 
     a = 0.1491
@@ -4419,15 +4438,24 @@ def stem_volume_formula_191(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown  
-    Country: Unknown
+    Species: Populus trichocarpa (Black cottonwood)
+    Country: Iceland
+
+    The formula is given in "Single-tree biomass and stem volume functions for
+    eleven tree species used in Icelandic forestry" by Snorrason et al. The
+    paper can be found at
+    http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf.
+    The volume formula is given in Table 1 (see Volume for Black cottonwood).
+    The volume unit of m3 in Zianis et al. is not properly copied. In the paper
+    after equation 1 on page 18 you can verify that the formula reports the
+    volume in dm3.
 
     Args:
         D: Diameter at breast height in cm.
         H: Height of the tree in m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in dm3.
     """
 
     a = 0.0732
