@@ -1,3 +1,9 @@
+# Usage
+
+To calculate the stem volumes of data provided in a CSV file, use the command
+
+    $ uv run stem-volumes path/to/file.csv /path/to/output/file.csv
+
 # Setup
 
 This project uses [uv](https://github.com/astral-sh/uv) for software dependency
