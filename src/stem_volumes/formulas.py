@@ -2894,12 +2894,12 @@ def stem_volume_formula_124(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Picea engelmannii (Engelmanni spruce)  
-    Country: Iceland
+    Species: Picea engelmannii (Engelmanni spruce).
+    Country: Iceland.
 
     Args:
-        D: Diameter at breast height in cm.
-        H: Height of the tree in m.
+        D: Diameter at breast height in cm. Recommended range: 1.4-12.7 cm.
+        H: Height of the tree in m. Recommended range: 1.7-12.7 m.
 
     Returns:
         V: The calculated stem volume in dm3.
