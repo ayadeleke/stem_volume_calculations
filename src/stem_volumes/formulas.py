@@ -699,15 +699,17 @@ def stem_volume_formula_30(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown  
-    Country: Unknown
+    Issue resulted from the V unit of measure stated from Ziania et al. (2005). The original paper (Braastad, H., 1966) used dm3 instead of m3 for Volume. 
+
+    Species: Betula spp. (Birch)  
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
         H: Height of the tree in m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in dm3.
     """
 
     a = -1.86827
