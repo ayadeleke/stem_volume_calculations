@@ -1696,6 +1696,8 @@ def stem_volume_formula_73(D, H):
     Calculate the volume of the stem of a standing tree.
     
     This formula is implemented from Zianis et al., (2005) and is recommended for Larix sibirica (Siberian larix), from Iceland.
+    Issue resulted from the V unit of measure stated from Ziania et al. (2005). We were unable to find the original paper, but several papers (inc. Bjarnadoottir B and Signurdsson B, 2007) used dm3 instead of m3 for Volume. 
+
     The range of valid values for D is 4-34cm, and for H is 4-16m.
 
     Args:
@@ -1703,7 +1705,7 @@ def stem_volume_formula_73(D, H):
         H: Tree Height in m. Recommended range: 4-16m
     
     Returns:
-        V: Stem volume in m3
+        V: Stem volume in dm3
     """
 
     a = -2.9946
