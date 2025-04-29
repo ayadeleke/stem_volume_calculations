@@ -184,7 +184,7 @@ def stem_volume_formula_8(D, H):
         H: Tree height in m.
         
     Returns:
-        V: Stem volume in dm3.
+        V: Stem volume in m3.
     """
 
     #coefficients
@@ -935,7 +935,7 @@ def stem_volume_formula_40(D, H):
     This formula is implemented from Zianis and is recommended for  Carpinus spp. from Netherlands. 
     
     Args:
-        D: Diameter at breast height in cm.
+        D: Diameter at breast height in mm.
         H: Tree height in m.
         
     Returns:
@@ -1053,13 +1053,10 @@ def stem_volume_formula_44(D, H):
 
 def stem_volume_formula_45(D,H):
     """
-    Calculates the volume of the stem of a standing tree.
-
-    Species: Unknown  
-    Country: Unknown
+    Calculates the volume of the stem of a standing tree. This formula is implemented from Zianis and is recommended for Fagus spp. (Beech, Fag) from Austria  
 
     Args:
-        D: Diameter at breast height in dm.
+        D: Diameter at breast height in dm. The Recommended range is 1 and above
         H: Height of the tree in dm.
 
     Returns:
@@ -1073,7 +1070,7 @@ def stem_volume_formula_45(D,H):
     e = 0.219462
     f = 49.6136
     g = -22.372
-    V = math.pi / 4 * (a * (D * 10) ** 2 * (H * 10) + b * (D * 10) ** 2 * (H * 10) * math.log(D * 10) ** 2 + c * (D * 10) ** 2 + d * (D * 10) * (H * 10) + e * (H * 10) + f * (D * 10) + g)
+    V = (math.pi/4)*(a*D**2*H+b*D**2*H*math.log(D)**2+c*D**2+d*D*H+e*H+f*D+g)
     return V
 
 
@@ -2045,7 +2042,7 @@ def stem_volume_formula_87(D):
     V = a + b * math.log(D)
     return V
 
-def stem_volume_formula_88(D, H):
+def stem_volume_formula_88(D):
     """
     Calculates the volume of the stem of a standing tree.
     
@@ -2053,11 +2050,11 @@ def stem_volume_formula_88(D, H):
     
     Args:
         D: Diameter at breast height in cm. Recommendend range: 1.5 cm and above.
-        H: Tree height in m.
-        
+
     Returns:
         V: Stem volume in dm3.
     """
+
      #coefficients
     a=-5.39934
     b=3.46468
@@ -5002,7 +4999,7 @@ def stem_volume_formula_216(D, H):
         H: Tree height in m.
         
     Returns:
-        V: Stem volume in dm3.
+        V: Stem volume in m3.
     """
        #coefficients
     a=0.00008839
