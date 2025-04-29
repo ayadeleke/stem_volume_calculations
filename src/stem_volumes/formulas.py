@@ -2152,7 +2152,24 @@ def stem_volume_formula_91(D, H):
     Species: Picea abies
     Location: Finland
 
-    Reference: Kanninen, K., Uusvaara, O. & Valonen, P. 1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403: 1-53.
+    Reference: Kanninen, K., Uusvaara, O. & Valonen, P.
+    1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403:
+    1-53. https://jukuri.luke.fi/handle/10024/521986.
+
+    The formula is given on page 10 in the upper right, i.e., Etelä-Suomen
+    ensiharvennuskuusikot
+    Tilavuus, dm3:
+    Runko y_2 = 0.7877 * x_1^1.9302 * x_2^0.79465
+
+    Note: This implements a slight deviation from the formula as collected by
+    Zianis et al. (2005) and introduced in the original reference.
+    Recalculating r2 for the formula based on the data provided in Table 7 (p.
+    17) results in r2 = -195.3775, which is unreasonably high. It is likely,
+    that parameter a=0.7877 should actually be a=0.07877 (which then results
+    in r2=0.9974, reported was r2=0.993). Use with caution, since this is an
+    educated best guess!
+    Refitting the same model to the data of Table 7 yields different
+    parameters (a=0.1046, b=1.8976, c=0.7213) with r2=0.9983.
 
     Args:
         D: Diameter at breast height in cm. Recommended range: 2-18 cm.
@@ -2170,13 +2187,12 @@ def stem_volume_formula_91(D, H):
     #     raise ValueError("Height must be between 2 and 18 m.")
 
     # Define the coefficients
-    a = 0.7877
+    a = 0.07877 # Originally: a=0.7877
     b = 1.9302
     c = 0.79465
 
     # Calculate the volume according to the formula given by Zianis et al.
     V = a * D**b * H**c
-    # Volume tests might be failing because formula is only valid for a dimater range of 2-18 cm and a height range of 2-18 m.
 
     # Return the calculated volume
     return V
