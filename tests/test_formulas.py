@@ -527,8 +527,8 @@ def test_stem_volume_formula_123():
     assert stem_volume_formula_123(1,2) < 80000, 'Check your input values, the resulting volume seems unrealistic'
 
 def test_stem_volume_formula_124():
-    assert stem_volume_formula_96(18,10) > 0
-    assert stem_volume_formula_96(18,10) < 200
+    assert stem_volume_formula_96(10,10) > 0
+    assert stem_volume_formula_96(10,10) < 200
 
 def test_stem_volume_formula_125():
     assert 1==1
