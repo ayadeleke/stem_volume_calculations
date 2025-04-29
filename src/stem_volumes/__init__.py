@@ -1,7 +1,9 @@
 """This module implements a command to apply the stem volume to a CSV file."""
 
 import argparse
+import cProfile
 import os
+import pstats
 import sys
 import time
 from inspect import signature
@@ -18,6 +20,8 @@ from stem_volumes.utils import (
 
 def main():
     """Main function."""
+    pr = cProfile.Profile()
+    pr.enable()
     tic = time.perf_counter()
     args = parse_arguments()
 
@@ -46,6 +50,10 @@ def main():
     df_calculated.to_csv(args.output_file, index=False)
     toc = time.perf_counter()
     print(f'Writing the CSV file took {toc - tic:.6f} seconds')
+
+    pr.disable()
+    stats = pstats.Stats(pr)
+    stats.sort_stats('cumtime').print_stats(10)
 
 
 def parse_arguments():
