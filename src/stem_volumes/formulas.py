@@ -8,7 +8,9 @@ https://doi.org/10.14214/sf.sfm4. An Excel file covering Appendix B and C is
 avaiable at https://jukuri.luke.fi/handle/10024/512732.
 """
 
-import math
+# use ln and log as in the Zianis paper (see table caption in Appendix C on
+# page 52)
+from math import log as ln, log10 as log, exp, pi
 
 def stem_volume_formula_1(D, H):
     """
@@ -56,7 +58,7 @@ def stem_volume_formula_2(D, H):
     b = 0.96736
     c = -2.45224
      # Implement formula
-    V = (D ** a) * (H ** b) * math.exp(c) # Formula - Abies grandis (Grand fir)(Netherland)
+    V = (D ** a) * (H ** b) * exp(c) # Formula - Abies grandis (Grand fir)(Netherland)
     return V
 
 def stem_volume_formula_3(D, H):
@@ -119,8 +121,6 @@ def stem_volume_formula_5(D, H):
         V: Stem volume in dm3.
     """
     
-    import math
-
     a = 0.580223
 
 
@@ -132,7 +132,7 @@ def stem_volume_formula_5(D, H):
     f = 19.661
     g = -2.4584
 
-    V = (math.pi/4)*(a*D**2*H+b*D**2*H*math.log(D)**2+c*D**2+d*D*H+e*H+f*D+g)
+    V = (pi/4)*(a*D**2*H+b*D**2*H*ln(D)**2+c*D**2+d*D*H+e*H+f*D+g)
     return V
 
 def stem_volume_formula_6(D: float, H: float) -> float:
@@ -161,7 +161,7 @@ def stem_volume_formula_6(D: float, H: float) -> float:
     d = 0.033210
     
     # Calculate volume
-    V = (math.pi/4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H)
+    V = (pi/4) * (a * D**2 * H + b * D**2 * H * ln(D)**2 + c * D**2 + d * D * H)
     
     return V
 
@@ -185,7 +185,7 @@ def stem_volume_formula_7(D, H):
     c = -0.1067
     d = 0.938
     e = 0.0228
-    V = a * 10 ** (b * math.log10(D) + c * math.log10(D) ** 2 + d * math.log10(H) + e * math.log10(H) ** 2)
+    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
     return V
 
 def stem_volume_formula_8(D, H):
@@ -209,7 +209,7 @@ def stem_volume_formula_8(D, H):
     d=-0.4155
     e=0.5455
 
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
     return V
 
 def stem_volume_formula_9(D, H):
@@ -257,7 +257,7 @@ def stem_volume_formula_10(D, H):
     a = 1.89756
     b = 0.97716
     c = -2.94253
-    V = D ** a * H ** b * math.exp(c)
+    V = D ** a * H ** b * exp(c)
     return V
 
 def stem_volume_formula_11(D, H):
@@ -277,9 +277,6 @@ def stem_volume_formula_11(D, H):
         V: Volume in m3.
     """
 
-    # # Import the log10 function from the math package
-    # from math import log10
-
     # Define the coefficients
     a = 0.00035375
     b = 1.02
@@ -288,7 +285,7 @@ def stem_volume_formula_11(D, H):
     e = 0.021
     
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
 
     # Return the calculated volume
     return V
@@ -334,7 +331,7 @@ def stem_volume_formula_13(D, H):
     c = 0.1001
     d = -0.499
     e = 0.5902
-    V = a * 10 ** (b * math.log10(D) + c * math.log10(D) ** 2 + d * math.log10(H) + e * math.log10(H) ** 2)
+    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
     return V
 
 def stem_volume_formula_14(D, H):
@@ -355,7 +352,7 @@ def stem_volume_formula_14(D, H):
     a = 1.85749
     b = 0.88675
     c = -2.5222
-    V = D ** a * H ** b * math.exp(c)
+    V = D ** a * H ** b * exp(c)
     return V
 
 def stem_volume_formula_15(D, H):
@@ -513,15 +510,13 @@ def stem_volume_formula_21(D, H):
         V: Stem volume in m3.
     """
 
-    import math
-
     a = 0.00008666
     b = 1.7148
     c = 0.1014
     d = 0.801
     e = 0.0530
 
-    V =  a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
+    V =  a*10**(b*log(D)+c*log(D)**2+d*log(H)+e*log(H)**2)
     return V    
 
 def stem_volume_formula_22(D: float, H: float) -> float:
@@ -549,7 +544,7 @@ def stem_volume_formula_22(D: float, H: float) -> float:
     c = 0.04407
     
     # Calculate volume
-    V = (math.pi/4) * (a * D**2 * H + b * D**2 + c * D)
+    V = (pi/4) * (a * D**2 * H + b * D**2 + c * D)
     
     return V
 
@@ -591,7 +586,7 @@ def stem_volume_formula_24(D, H):
     c=-1.07055
     
 
-    V = D**a *H**b *math.exp(c)
+    V = D**a *H**b *exp(c)
     return V
 
 def stem_volume_formula_25(D, H):
@@ -638,7 +633,7 @@ def stem_volume_formula_26(D):
     b = 2.55058
 
     # Formula implementation
-    V = a + b * math.log(D)
+    V = a + b * ln(D)
     return V
 
 def stem_volume_formula_27(D):
@@ -657,9 +652,6 @@ def stem_volume_formula_27(D):
         V: Volume in dm3.
     """
 
-    # # Import the natural logarithm function from the math package
-    # from math import log 
-
     # # Raise ValueError if the diameter is out of range
     # if D < 1.2 or D > 49.7: 
     #     raise ValueError("Diameter must be between 1.2 and 49.7 cm.")
@@ -672,7 +664,7 @@ def stem_volume_formula_27(D):
     e = -0.0395855
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a + b * math.log(c + d * D) + e * D 
+    V = a + b * ln(c + d * D) + e * D
     # The calculated volume seems to be unrealistically low, however the implementation of the formula is according to the original paper. Furthermore, D values below 2.13 result in negative volumes, which is not possible. This contradicts the recommended range of 1.2-49.7 cm.
    
     # Return the calculated volume
@@ -725,7 +717,7 @@ def stem_volume_formula_29(D, H):
     c = 4.0691
     d = -2.7375
     e = -0.013311
-    V = a + b * math.log(D) + c * math.log(H) + d * math.log(H - 1.3) + e * D
+    V = a + b * ln(D) + c * ln(H) + d * ln(H - 1.3) + e * D
     return V
 
 def stem_volume_formula_30(D, H):
@@ -800,7 +792,7 @@ def stem_volume_formula_32(D, H):
     d = 0.1946
     e = 0.4147
 
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
     return V
 
 def stem_volume_formula_33(D, H):
@@ -1060,16 +1052,13 @@ def stem_volume_formula_43(D, H):
         V: Volume in dm3.
     """
 
-    # # Import the exponential function from the math package
-    # from math import exp
-
     # Define the coefficients
     a = 1.85298
     b = 0.86717
     c = -2.33706
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
 
     # Return the calculated volume
     return V 
@@ -1116,7 +1105,7 @@ def stem_volume_formula_45(D,H):
     e = 0.219462
     f = 49.6136
     g = -22.372
-    V = (math.pi/4)*(a*D**2*H+b*D**2*H*math.log(D)**2+c*D**2+d*D*H+e*H+f*D+g)
+    V = (pi/4)*(a*D**2*H+b*D**2*H*ln(D)**2+c*D**2+d*D*H+e*H+f*D+g)
     return V
 
 
@@ -1140,7 +1129,7 @@ def stem_volume_formula_46(D, H):
     b = -13.62144
     c = 9.9888
 
-    V = (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D)
+    V = (pi / 4) * (a * D**2 * H + b * D**2 + c * D)
     return V 
 
 def stem_volume_formula_47(D, H):
@@ -1163,7 +1152,7 @@ def stem_volume_formula_47(D, H):
     c = 0.2127
     d = 1.1992	
     e = -0.0584
-    V = a * 10 ** (b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * (math.log10(H) ** 2))
+    V = a * 10 ** (b * log(D) + c * log(D)**2 + d * log(H) + e * (log(H) ** 2))
     return V
 
 def stem_volume_formula_48(D,H):
@@ -1275,7 +1264,7 @@ def stem_volume_formula_52(D, H):
     b = 1.55880
     c = -3.57875
 
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
     return V
 
 def stem_volume_formula_53(D, H):
@@ -1352,7 +1341,7 @@ def stem_volume_formula_55(D, H):
     b = 0.7706
     c = -2.48079
     
-    V = D ** a * H ** b * math.exp(c)
+    V = D ** a * H ** b * exp(c)
     return V
 
 def stem_volume_formula_56(D, H):
@@ -1519,7 +1508,7 @@ def stem_volume_formula_62(D, H):
     d = 0.4929
     e = 0.0962
     
-    V = a * 10**( b*math.log10(D) + c*math.log10(D)**2 + d*math.log10(H) + e*math.log10(H)**2 )
+    V = a * 10**( b*log(D) + c*log(D)**2 + d*log(H) + e*log(H)**2 )
     return V
 
 def stem_volume_formula_63(D, H):
@@ -1565,7 +1554,7 @@ def stem_volume_formula_64(D,H):
     f = 36.9783
     g = -14.204
  
-    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * D * H + e * H + f * D + g)
+    V = (pi / 4) * (a * D**2 * H + b * D**2 * H * ln(D)**2 + c * D**2 + d * D * H + e * H + f * D + g)
     return V
 
 def stem_volume_formula_65(D, H):
@@ -1590,7 +1579,7 @@ def stem_volume_formula_65(D, H):
     c=5.9995
 
     # Implement formula
-    V = (math.pi / 4) * (a * D **2 * H + b * D**2 + c * D)
+    V = (pi / 4) * (a * D **2 * H + b * D**2 + c * D)
     return V
 
 
@@ -1636,7 +1625,7 @@ def stem_volume_formula_67(D, H):
     b = 1.08118
     c = -3.0488
 
-    return D ** a * H ** b * math.exp(c)
+    return D ** a * H ** b * exp(c)
 
 def stem_volume_formula_68(D, H):
     """
@@ -1710,7 +1699,7 @@ def stem_volume_formula_70(D: float, H: float) -> float:
     c = -2.8748
 
     # Calculate volume
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
 
     return V
 
@@ -1758,7 +1747,7 @@ def stem_volume_formula_72(D, H):
     
     
 
-    V = math.exp(a)*D**b*H**c
+    V = exp(a)*D**b*H**c
     return V
 
 def stem_volume_formula_73(D, H):
@@ -1782,7 +1771,7 @@ def stem_volume_formula_73(D, H):
     b = 1.8105
     c = 0.9908 
 
-    V = math.exp(a) * (D**b) * (H**c)
+    V = exp(a) * (D**b) * (H**c)
     return V
 
 def stem_volume_formula_74(D, H):
@@ -1986,7 +1975,7 @@ def stem_volume_formula_81(D, H):
     e=0.0129
 
     # Implement formula
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
     return V
 
 def stem_volume_formula_82(D,H):
@@ -2014,9 +2003,9 @@ def stem_volume_formula_82(D,H):
     e=-0.28875
     f=28.279
     # Implement formula
-    v= (math.pi / 4) * (
+    v= (pi / 4) * (
     a * D**2 * H +
-    b * D**2 * H * (math.log(D))**2 +
+    b * D**2 * H * (ln(D))**2 +
     c * D**2 +
     d * D * H +
     e * H +
@@ -2045,7 +2034,7 @@ def stem_volume_formula_83(D, H):
     b = -0.12731
     c = -8.55022
     d = 7.6331
-    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * (math.log(D)**2) + c * D**2 + d * D)
+    V = (pi / 4) * (a * D**2 * H + b * D**2 * H * (ln(D)**2) + c * D**2 + d * D)
     return V
 
 def stem_volume_formula_84(D, H):
@@ -2137,7 +2126,7 @@ def stem_volume_formula_87(D):
     a=-2.41218
     b=2.62463
 
-    V = a + b * math.log(D)
+    V = a + b * ln(D)
     return V
 
 def stem_volume_formula_88(D):
@@ -2162,7 +2151,7 @@ def stem_volume_formula_88(D):
     
     
 
-    V = a+b*math.log(c+d*D)+e*D
+    V = a+b*ln(c+d*D)+e*D
     return V
 
 def stem_volume_formula_89(D, H):
@@ -2209,7 +2198,7 @@ def stem_volume_formula_90(D, H):
     c = 2.8979
     d = -1.602
     e = -0.007827
-    V = a + b * math.log(D) + c * math.log(H) + d * math.log(H - 1.3) + e * (D)
+    V = a + b * ln(D) + c * ln(H) + d * ln(H - 1.3) + e * (D)
     return V
 
 
@@ -2288,7 +2277,7 @@ def stem_volume_formula_93(D):
     a=-2.59385
     b=2.71757
     c=-9.7e-05
-    V = a + b * math.log(D) + c * (D) ** 2
+    V = a + b * ln(D) + c * (D) ** 2
     return V
 
 def stem_volume_formula_94(D, H):
@@ -2437,7 +2426,7 @@ def stem_volume_formula_100(D, H):
     b = 1.10897
     c = -2.75863
 
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
     return V  
 
 def stem_volume_formula_101(D, H):
@@ -2788,7 +2777,7 @@ def stem_volume_formula_114(D,H):
     a=0.666151
     b=0.458507
      #Implement formula
-    V= (math.pi / 40000) * H * D * (a + b * D)
+    V= (pi / 40000) * H * D * (a + b * D)
     return V
 
 def stem_volume_formula_115(D, H):
@@ -2808,7 +2797,7 @@ def stem_volume_formula_115(D, H):
 
     a=0.53005
     b=1.229283
-    V = math.pi / 40000 * H * D * (a * D + b)
+    V = pi / 40000 * H * D * (a * D + b)
     return V
 
 def stem_volume_formula_116(D, H):
@@ -3064,7 +3053,7 @@ def stem_volume_formula_125(D, H):
     a = 1.78383
     b = 1.13397
     c = -2.90893
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
     return V
 
 def stem_volume_formula_126(D, H):
@@ -3159,7 +3148,7 @@ def stem_volume_formula_129(D, H):
     e=0.172
 
     # Implement formula
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
     return V
 
 def stem_volume_formula_130(D,H):
@@ -3233,7 +3222,7 @@ def stem_volume_formula_132(D, H):
     b = 0.98667
     c = -2.88614
 
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
     return V
 
 def stem_volume_formula_133(D, H):
@@ -3335,7 +3324,7 @@ def stem_volume_formula_136(D, H):
     
     
 
-    V = D**a*H**b*math.exp(c)
+    V = D**a*H**b*exp(c)
     return V
 
 def stem_volume_formula_137(D, H):
@@ -3357,7 +3346,7 @@ def stem_volume_formula_137(D, H):
     b = 0.88671
     c = -2.7675
  
-    V = (D ** a) * (H ** b) * math.exp(c)
+    V = (D ** a) * (H ** b) * exp(c)
     return V
 
 def stem_volume_formula_138(D, H):
@@ -3380,7 +3369,7 @@ def stem_volume_formula_138(D, H):
     c=0.0102
     d=0.0102
     e=0.133
-    V = a * 10 ** (b * math.log10(D) + c * math.log10(D * D) + d * math.log10(H) + e * math.log10(H * H))
+    V = a * 10 ** (b * log(D) + c * log(D * D) + d * log(H) + e * log(H * H))
     return V
 
 def stem_volume_formula_139(H):
@@ -3513,7 +3502,7 @@ def stem_volume_formula_144(D,H):
     c = 5.21091
     d = 0.028702
 
-    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * math.log(D)**2 + c * D**2 + d * H)
+    V = (pi / 4) * (a * D**2 * H + b * D**2 * H * ln(D)**2 + c * D**2 + d * H)
     return V
 
 def stem_volume_formula_145(D):
@@ -3580,7 +3569,7 @@ def stem_volume_formula_147(D):
 
     a=-2.2945
     b=2.57025
-    V = a + b * math.log(D)
+    V = a + b * ln(D)
     return V
 
 def stem_volume_formula_148(D):
@@ -3601,7 +3590,7 @@ def stem_volume_formula_148(D):
     d = 1.25
     e = -0.039884 
 
-    V = a + b*math.log(c+d*D) + e*D
+    V = a + b*ln(c+d*D) + e*D
     return V
 
 def stem_volume_formula_149(D, H):
@@ -3656,7 +3645,7 @@ def stem_volume_formula_150(D: float, H: float) -> float:
     e = -0.002847
 
     # Calculate volume
-    V = a + b * math.log(D) + c * math.log(H) + d * math.log(H - 1.3) + e * D
+    V = a + b * ln(D) + c * ln(H) + d * ln(H - 1.3) + e * D
 
     return V
 
@@ -3744,7 +3733,7 @@ def stem_volume_formula_154(D, H):
     a=-2.37912
     b=2.62903
     c=-0.000126
-    V = a + b * math.log(D) + c * D ** 2
+    V = a + b * ln(D) + c * D ** 2
     return V
 
 def stem_volume_formula_155(D, H):
@@ -3885,7 +3874,7 @@ def stem_volume_formula_160(D,H):
     b = 1.07427
     c = -2.8885
  
-    V = D ** a * H ** b * math.exp(c)
+    V = D ** a * H ** b * exp(c)
     return V
 
 def stem_volume_formula_161(D, H):
@@ -4102,7 +4091,7 @@ def stem_volume_formula_169(D, H):
     d = 0.3115
     e = 0.3525
 
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
     return V
 
 def stem_volume_formula_170(D, H):
@@ -4324,7 +4313,7 @@ def stem_volume_formula_178(D,H):
     b=1.13323
     c=0.1306
     # Implement formula
-    V= (math.pi / 4) * (a * D**2 * H + b * D**2 + c * D) 
+    V= (pi / 4) * (a * D**2 * H + b * D**2 + c * D) 
     return V
 
 def stem_volume_formula_179(D, H):
@@ -4421,7 +4410,7 @@ def stem_volume_formula_182(D: float, H: float) -> float:
     e = 0.4099
 
     # Calculate volume
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
 
     return V
 
@@ -4445,7 +4434,7 @@ def stem_volume_formula_183(D, H):
     c = 0.1089
     d = -0.1963
     e = 0.5681
-    V = a * 10 * (b * math.log10(D) + c * (math.log10(D) ** 2) + d * math.log10(H) + e * (math.log10(H) ** 2))
+    V = a * 10 * (b * log(D) + c * (log(D) ** 2) + d * log(H) + e * (log(H) ** 2))
     return V
 
 def stem_volume_formula_184(D, H):
@@ -4528,9 +4517,6 @@ def stem_volume_formula_187(D, H):
         V: Volume in m3.
     """
 
-    # # Import the log10 function from the math package
-    # from math import log10
-
     # Define the coefficients
     a = 0.00007604
     b = 1.7812
@@ -4539,7 +4525,7 @@ def stem_volume_formula_187(D, H):
     e = 0.0654
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
 
     # Return the calculated volume
     return V
@@ -4713,7 +4699,7 @@ def stem_volume_formula_194(D,H):
     b=0.80726
     c=-2.43151
      # Implement formula
-    V= (D**a) * (H**b) * math.exp(c) 
+    V= (D**a) * (H**b) * exp(c) 
     return V
 
 def stem_volume_formula_195(D, H):
@@ -4758,7 +4744,7 @@ def stem_volume_formula_196(D, H):
     d = 1.1411
     e = -0.1047
 
-    V = a*10**(b*math.log10(D) + c*math.log10(D)**2 + d*math.log10(H) + e*math.log10(H)**2)    
+    V = a*10**(b*log(D) + c*log(D)**2 + d*log(H) + e*log(H)**2)    
     return V
 
 def stem_volume_formula_197(D, H):
@@ -4859,7 +4845,7 @@ def stem_volume_formula_200(D, H):
     d=1.4084
     e=0.0409
 
-    V = a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
+    V = a*10**(b*log(D)+c*log(D)**2+d*log(H)+e*log(H)**2)
     return V
 
 def stem_volume_formula_201(D, H):
@@ -4920,10 +4906,6 @@ def stem_volume_formula_203(D, H):
         V: Volume in m3.
     """
 
-    # # Import the log10 function from the math package
-    # from math import log10
-
-
     # Define the coefficients
     a = 0.0001992
     b = 2.014
@@ -4932,7 +4914,7 @@ def stem_volume_formula_203(D, H):
     e = 0.4811
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
 
     # Return the calculated volume
     return V
@@ -4955,7 +4937,7 @@ def stem_volume_formula_204(D, H):
     a=-9.646
     b=2.076
     c=0.761
-    V = a + b * math.log(D) + c * H
+    V = a + b * ln(D) + c * H
     return V
 
 def stem_volume_formula_205(D, H):
@@ -4976,7 +4958,7 @@ def stem_volume_formula_205(D, H):
     a = -11.473
     b = 2.548
     c = 0.967
-    V = a + b * math.log(D) + c * H
+    V = a + b * ln(D) + c * H
     return V
 
 def stem_volume_formula_206(D, H):
@@ -4999,7 +4981,7 @@ def stem_volume_formula_206(D, H):
     c = 0.3108
     d = 0.5356
     e = 0.2139
-    V = a * 10 ** (b * math.log10(D) + c * math.log10(D) ** 2 + d * math.log10(H) + e * math.log10(H) ** 2)
+    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
     return V
 
 def stem_volume_formula_207(D, H):
@@ -5020,7 +5002,7 @@ def stem_volume_formula_207(D, H):
     a=2.00333
     b=0.85925
     c=-2.86353
-    V = D ** a * H ** b * math.exp(c)
+    V = D ** a * H ** b * exp(c)
     return V
 
 def stem_volume_formula_208(D,H):
@@ -5070,7 +5052,7 @@ def stem_volume_formula_209(D, H):
     c=-2.71877
     
     # Implement formula
-    V = D**a * H**b * math.exp(c)
+    V = D**a * H**b * exp(c)
     return V
     
 def stem_volume_formula_210(D,H):
@@ -5096,7 +5078,7 @@ def stem_volume_formula_210(D,H):
     d=-0.930406
     e=-215.758
     f=168.477
-    V= (math.pi / 4) * (
+    V= (pi / 4) * (
     a * D**2 * H +
     b * D**2 +
     c * D * H +
@@ -5125,7 +5107,7 @@ def stem_volume_formula_211(D, H):
     a = 0.417118
     b = 0.21941
     c = 13.32594
-    V = (math.pi / 4) * (a * D**2 * H + b * D**2 * H * (math.log(D)**2) + c * D**2)
+    V = (pi / 4) * (a * D**2 * H + b * D**2 * H * (ln(D)**2) + c * D**2)
     return V
 
 def stem_volume_formula_212(D, H):
@@ -5247,7 +5229,7 @@ def stem_volume_formula_216(D, H):
     d=0.8059
     e=-0.0045
 
-    V = a*10**(b*math.log10(D)+c*math.log10(D)**2+d*math.log10(H)+e*math.log10(H)**2)
+    V = a*10**(b*log(D)+c*log(D)**2+d*log(H)+e*log(H)**2)
     return V
 
 def stem_volume_formula_217(D, H):
@@ -5318,9 +5300,6 @@ def stem_volume_formula_219(D, H):
         V: Volume in m3.
     """
 
-    # # Import the log10 function from the math package
-    # from math import log10
-
     # Define the coefficients
     a = 0.00011585
     b = 1.6688
@@ -5329,7 +5308,7 @@ def stem_volume_formula_219(D, H):
     e = 0.0269
 
     # Calculate the volume according to the formula given by Zianis et al.
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
 
     # Return the calculated volume
     return V
@@ -5354,7 +5333,7 @@ def stem_volume_formula_220(D, H):
     c = -0.1296
     d = 0.6843
     e = 0.2745
-    V = a * 10 ** (b * math.log10(D) + c * math.log10(D) ** 2 + d * math.log10(H) + e * math.log10(H) ** 2)
+    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
     return V
 
 def stem_volume_formula_221(D, H):
@@ -5377,7 +5356,7 @@ def stem_volume_formula_221(D, H):
     c = 0.0302
     d = 0.8572
     e = 0.1791
-    V = a * 10 * (b * math.log10(D) + c * (math.log10(D) ** 2) + d * math.log10(H) + e * (math.log10(H) ** 2)) 
+    V = a * 10 * (b * log(D) + c * (log(D) ** 2) + d * log(H) + e * (log(H) ** 2)) 
     return V
 
 def stem_volume_formula_222(D, H):
@@ -5421,7 +5400,7 @@ def stem_volume_formula_223(D, H):
     a = 1.67887
     b = 1.11243
     c = -2.64821
-    V = D ** a * H ** b * math.exp(c)
+    V = D ** a * H ** b * exp(c)
     return V
 
 def stem_volume_formula_224(D,H):
@@ -5470,7 +5449,7 @@ def stem_volume_formula_225(D, H):
     e=-0.1903
 
     # Implement formula
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H) + e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H) + e * log(H)**2)
     return V
 
 def stem_volume_formula_226(D,H):
@@ -5491,7 +5470,7 @@ def stem_volume_formula_226(D,H):
     b=1.37219
     c=-3.54922
     # Implement formula
-    V= (D**a) * (H**b) * math.exp(c)#QTsuga heterophylla (Hemlock)(Neatherlands)
+    V= (D**a) * (H**b) * exp(c)#QTsuga heterophylla (Hemlock)(Neatherlands)
     return V
 
 def stem_volume_formula_227(D, H):
@@ -5559,9 +5538,7 @@ def stem_volume_formula_229(D, H):
     b = 1.29229
     c = -4.20064
 
-    import math
-
-    V = D**a*H**b*math.exp(c)
+    V = D**a*H**b*exp(c)
     return V
 
 def stem_volume_formula_230(D: float, H: float) -> float:
@@ -5591,6 +5568,6 @@ def stem_volume_formula_230(D: float, H: float) -> float:
     e = -0.0708
 
     # Calculate volume
-    V = a * 10**(b * math.log10(D) + c * math.log10(D)**2 + d * math.log10(H)+ e * math.log10(H)**2)
+    V = a * 10**(b * log(D) + c * log(D)**2 + d * log(H)+ e * log(H)**2)
 
     return V
