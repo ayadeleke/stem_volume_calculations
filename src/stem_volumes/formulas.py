@@ -833,8 +833,10 @@ def stem_volume_formula_33(D, H):
 def stem_volume_formula_34(D,H):  
     """
     Calculate the stem volume for a standing tree git of Betula spp. (Birch) from Sweden.
+    
     This formula is implemented from Zianis et al. (2005).The Diameter should be biger than 4.5 and the height should be bigger than 6. 
-        Args:
+    
+    Args:
         D (float): Diameter of the tree in cm.
         H (float): Height of the tree in m.
 
