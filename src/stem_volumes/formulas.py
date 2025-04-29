@@ -677,16 +677,19 @@ def stem_volume_formula_29(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown  
-    Country: Unknown
+    Original Source: Hakkila, P. 1979. Wood density survey and dry weight tables for pine, spruce and birch stems in Finland. communicationes Instituti Forestalis Fenniae 96(3): 1–59.
+    Species: Betula spp. (Birch) 
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
         H: Height of the tree in m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in ln(dm3).
     """
+
+    # unit of volume was wrong in Zianis et al., it gives the volume in ln(dm3) according to the original publication
 
     a = -4.4759
     b = 2.0851
