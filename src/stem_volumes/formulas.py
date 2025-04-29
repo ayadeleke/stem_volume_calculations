@@ -724,15 +724,20 @@ def stem_volume_formula_31(D, H):
     """
     Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown  
-    Country: Unknown
+    The unit of the volume as presented in the original paper is dm3, indicating an error from the
+Zianis et al. (2005) paper computation. The original parer from Braastad, H. 1966. Volumtabeller for bjørk. Med
+delelser fra det Norske Skogforsøksvesen 1(1): 3–78. Especifically from table in page 75 and the explanation in
+page 76 confirmed that the volume is in dm3.
+
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan) 
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
         H: Height of the tree in m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in dm3.
     """
 
     a = 0.99983
