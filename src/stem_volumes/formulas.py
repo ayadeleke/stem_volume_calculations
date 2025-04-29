@@ -2902,7 +2902,7 @@ def stem_volume_formula_124(D, H):
         H: Height of the tree in m.
 
     Returns:
-        V: The calculated stem volume in m3.
+        V: The calculated stem volume in dm3.
     """
 
     a=0.4693
