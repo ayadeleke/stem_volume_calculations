@@ -3,6 +3,7 @@
 import argparse
 import os
 import sys
+import time
 from inspect import signature
 
 import pandas as pd
@@ -17,6 +18,7 @@ from stem_volumes.utils import (
 
 def main():
     """Main function."""
+    tic = time.perf_counter()
     args = parse_arguments()
 
     if os.path.exists(args.output_file):
@@ -27,9 +29,23 @@ def main():
         )
         sys.exit(1)
 
+    toc = time.perf_counter()
+    print(f'Parsing arguments took {toc - tic:.6f} seconds')
+    tic = toc
+
     df = pd.read_csv(args.csv_file)
+    toc = time.perf_counter()
+    print(f'Reading CSV file took {toc - tic:.6f} seconds')
+    tic = toc
+
     df_calculated = calculate_stem_volumes(df)
+    toc = time.perf_counter()
+    print(f'Calculating the volumes took {toc - tic:.6f} seconds')
+    tic = toc
+
     df_calculated.to_csv(args.output_file, index=False)
+    toc = time.perf_counter()
+    print(f'Writing the CSV file took {toc - tic:.6f} seconds')
 
 
 def parse_arguments():
