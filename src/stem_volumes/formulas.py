@@ -1745,7 +1745,7 @@ def stem_volume_formula_74(D, H):
     http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf.
     The volume formula is given in Table 1 (see Volume for Siberian larch).
     The volume unit of m3 in Zianis et al. is not properly copied. In the paper
-    after equation 1 on page 18 you can verify that the formula reports the
+    after equation 2 on page 18 you can verify that the formula reports the
     volume in dm3.
 
     Species: Larix sibirica (Siberian larch)
@@ -3097,7 +3097,7 @@ def stem_volume_formula_131(D, H):
     http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf.
     The volume formula is given in Table 1 (see Volume for Black cottonwood).
     The volume unit of m3 in Zianis et al. is not properly copied. In the paper
-    after equation 1 on page 18 you can verify that the formula reports the
+    after equation 2 on page 18 you can verify that the formula reports the
     volume in dm3.
 
     Args:
@@ -4470,7 +4470,7 @@ def stem_volume_formula_191(D, H):
     http://ias.is/wp-content/uploads/Single-tree-biomass-and-stem-volume-functions-for.pdf.
     The volume formula is given in Table 1 (see Volume for Black cottonwood).
     The volume unit of m3 in Zianis et al. is not properly copied. In the paper
-    after equation 1 on page 18 you can verify that the formula reports the
+    after equation 2 on page 18 you can verify that the formula reports the
     volume in dm3.
 
     Args:
