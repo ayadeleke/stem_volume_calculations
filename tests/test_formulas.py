@@ -16,6 +16,7 @@ stem-volumes/
 import pytest
 from stem_volumes import formulas
 from stem_volumes.formulas import *
+from math import pi, exp
 from inspect import signature
 from stem_volumes.utils import extract_parameter_units, extract_volume_unit, convert_volume_to_m3
 
@@ -108,7 +109,7 @@ def test_formulas(formula_no):
     volume_unit = extract_volume_unit(f)
     volume = convert_volume_to_m3(volume, volume_unit)
     # calculate the volume in m3 of a cylinder as upper bound
-    volume_cylinder = height_dm / 10 *  math.pi / 4 * (diameter_mm / 1000) ** 2
+    volume_cylinder = height_dm / 10 *  pi / 4 * (diameter_mm / 1000) ** 2
     assert 0 < volume and volume < volume_cylinder * 1.5
 
 def test_stem_volume_formula_1():
@@ -613,8 +614,8 @@ def test_stem_volume_formula_149():
     assert stem_volume_formula_149(30,10) < 1000
 
 def test_stem_volume_formula_150():
-    assert math.exp(stem_volume_formula_150(50, 35)) > 0
-    assert math.exp(stem_volume_formula_150(50, 35)) < 10000 #ln(dm³)
+    assert exp(stem_volume_formula_150(50, 35)) > 0
+    assert exp(stem_volume_formula_150(50, 35)) < 10000 #ln(dm³)
 
 def test_stem_volume_formula_151():
     assert 1==1
