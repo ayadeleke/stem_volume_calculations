@@ -3636,6 +3636,13 @@ def stem_volume_formula_154(D, H):
     b = 2.62903
     c = -0.000126
     V = a + b * ln(D) + c * D**2
+    # TODO
+    # could also be
+    #V = a + b * ln(D) + c * H**2
+    # because in the table in Zianas et al. there is a unit for the height as
+    # indicated in the docstring above
+    # but note the H is not used in the formula
+    # we need to see the original source to see what is correct
     return V
 
 
