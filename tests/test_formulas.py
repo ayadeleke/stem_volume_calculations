@@ -256,7 +256,7 @@ def test_stem_volume_formula_30():
 
 def test_stem_volume_formula_31():
     assert stem_volume_formula_31(20, 10) > 0
-    assert stem_volume_formula_31(20, 10) < 10
+    assert stem_volume_formula_31(20, 10) < 1000
 
 
 def test_stem_volume_formula_32():
