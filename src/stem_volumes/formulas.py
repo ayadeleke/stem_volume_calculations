@@ -4808,7 +4808,9 @@ def stem_volume_formula_204(D, H):
     """
     a = -9.646
     b = 2.076
-    c = 0.761
+    # TODO
+    # note 0.761 in the Zianis et al.; could not verify in original source
+    c = 0.0761
     V = a + b * ln(D) + c * H
     return V
 
@@ -4828,7 +4830,9 @@ def stem_volume_formula_205(D, H):
     """
     a = -11.473
     b = 2.548
-    c = 0.967
+    # TODO
+    # note 0.967 in the Zianis et al.; could not verify in original source
+    c = 0.0967
     V = a + b * ln(D) + c * H
     return V
 
