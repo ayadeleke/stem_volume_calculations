@@ -2187,7 +2187,7 @@ def stem_volume_formula_91(D, H):
     #     raise ValueError("Height must be between 2 and 18 m.")
 
     # Define the coefficients
-    a = 0.07877 # Originally: a=0.7877
+    a = 0.07877  # Originally: a=0.7877
     b = 1.9302
     c = 0.79465
 
@@ -3638,7 +3638,7 @@ def stem_volume_formula_154(D, H):
     V = a + b * ln(D) + c * D**2
     # TODO
     # could also be
-    #V = a + b * ln(D) + c * H**2
+    # V = a + b * ln(D) + c * H**2
     # because in the table in Zianas et al. there is a unit for the height as
     # indicated in the docstring above
     # but note the H is not used in the formula
