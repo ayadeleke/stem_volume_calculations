@@ -134,7 +134,12 @@ def match_species_names(df: pd.DataFrame) -> list:
         "Corylus": ["Corylus avellana", "Hazel", "misc. deciduous trees with short life expectancy"]
     }
 
-    name_to_code = {v: k for k, v in genus_species_common_dict.items()}  # Reverse lookup: name -> code
+    name_to_code = {
+        species_name: genus
+        for genus, species_list in genus_species_common_dict.items()
+        for species_name in species_list
+    }
+
     
     matched_keys = []
     for name in df['species']:
