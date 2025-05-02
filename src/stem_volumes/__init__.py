@@ -19,6 +19,9 @@ from stem_volumes.utils import (
     convert_volume_to_m3,
     extract_parameter_units,
     extract_volume_unit,
+    clean_data,
+    match_species_names,
+    match_genus_to_functions,
 )
 
 
@@ -45,7 +48,13 @@ def __orig_main():
     print(f'Reading CSV file took {toc - tic:.6f} seconds')
     tic = toc
 
-    df_calculated = calculate_stem_volumes(df)
+    df_cleaned = clean_data(df)
+    toc = time.perf_counter()
+    print(f'Cleaning the CSV file took {toc - tic:.6f} seconds')
+    tic = toc
+    
+
+    df_calculated = calculate_stem_volumes(df_cleaned)
     toc = time.perf_counter()
     print(f'Calculating the volumes took {toc - tic:.6f} seconds')
     tic = toc
@@ -133,39 +142,51 @@ def _process_formula_batch(formula_data, diameters, heights):
     return results
 
 def calculate_stem_volumes(df):
-    """Applies the stem volume formulas to the given data frame."""
+    """Applies genus-specific stem volume formulas to the data, keeping all 230 columns."""
     result_df = df.copy()
-    diameters = df['diameter at breast height [mm]'].values
-    heights = df['height [dm]'].values
+    result_df['genus'] = match_species_names(result_df)  # Add genus column
 
-    formula_metadata = []
+    # Step 1: Get all formulas (1–230) into a lookup dict
+    all_formulas = {}
     for formula_no in range(1, 231):
-        function_name = f'stem_volume_formula_{formula_no}'
-        f = getattr(formulas, function_name)
+        func_name = f'stem_volume_formula_{formula_no}'
+        f = getattr(stem_volumes.formulas, func_name)
         params = tuple(signature(f).parameters)
-        parameter_units = tuple(extract_parameter_units(f))  # convert to tuple
-        volume_unit = extract_volume_unit(f)
-        formula_metadata.append((formula_no, (f, params, parameter_units, volume_unit)))
+        param_units = tuple(extract_parameter_units(f))
+        vol_unit = extract_volume_unit(f)
+        all_formulas[func_name] = (f, params, param_units, vol_unit)
 
-    num_workers = min(os.cpu_count() or 4, 8)
-    batch_size = max(1, len(formula_metadata) // num_workers)
-    formula_batches = [formula_metadata[i:i + batch_size] for i in range(0, len(formula_metadata), batch_size)]
+    # Step 2: Get genus → list of function names
+    raw_genus_formulas = match_genus_to_functions(result_df['genus'].tolist(), stem_volumes.formulas.__file__)
+    genus_formula_names = {g: set(funcs) for g, funcs in raw_genus_formulas.items()}
 
-    all_results = {}
-    with ProcessPoolExecutor(max_workers=num_workers) as executor:
-        future_to_batch = {
-            executor.submit(_process_formula_batch, batch, diameters, heights): i
-            for i, batch in enumerate(formula_batches)
-        }
+    # Step 3: Pre-fill all 230 columns with pd.NA
+    formula_columns = [f'{name} [m3]' for name in all_formulas]
+    empty_formulas_df = pd.DataFrame(pd.NA, index=result_df.index, columns=formula_columns)
+    result_df = pd.concat([result_df, empty_formulas_df], axis=1)
 
-        for future in as_completed(future_to_batch):
-            batch_results = future.result()
-            all_results.update(batch_results)
 
-    result_df = pd.concat([result_df, pd.DataFrame(all_results)], axis=1)
+    # Step 4: Group by genus and apply only relevant formulas
+    for genus, group_df in result_df.groupby('genus'):
+        if genus not in genus_formula_names:
+            continue
 
+        relevant_funcs = genus_formula_names[genus]
+        for func_name in relevant_funcs:
+            f, params, param_units, vol_unit = all_formulas[func_name]
+            col_name = f'{func_name} [m3]'
+            apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
+
+            idxs = group_df.index
+            diameters = group_df.loc[idxs, 'diameter at breast height [mm]'].values
+            heights = group_df.loc[idxs, 'height [dm]'].values
+
+            result_df.loc[idxs, col_name] = [
+                apply_func(d, h) for d, h in zip(diameters, heights)
+            ]
 
     return result_df
+
 
 
 if __name__ == '__main__':
