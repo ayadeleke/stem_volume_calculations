@@ -54,3 +54,17 @@ def convert_volume_to_m3(value, value_unit):
         value /= 1000
 
     return value
+
+def extract_species(f):
+    """Extracts the species from the docstring of the given stem volume formula.
+
+    Parameters:
+        f: function to extract species from
+
+    Returns:
+        a list of the extracted species as strings
+    """
+    parsed_docstring = docstring_parser.parse(f.__doc__)
+    return [
+        p.description.split('.')[0].split()[-1] for p in parsed_docstring.params
+    ]
