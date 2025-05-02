@@ -12,6 +12,9 @@ from inspect import signature
 
 import numpy as np
 import pandas as pd
+from functools import partial
+
+
 from line_profiler import LineProfiler
 
 import stem_volumes.formulas
@@ -22,6 +25,7 @@ from stem_volumes.utils import (
     clean_data,
     match_species_names,
     match_genus_to_functions,
+    get_genus_row_map
 )
 
 
@@ -167,23 +171,25 @@ def calculate_stem_volumes(df):
 
 
     # Step 4: Group by genus and apply only relevant formulas
-    for genus, group_df in result_df.groupby('genus'):
-        if genus not in genus_formula_names:
+    genus_to_indices = get_genus_row_map(result_df['genus'])
+
+    for genus, relevant_funcs in genus_formula_names.items():
+        idxs = genus_to_indices.get(genus, [])
+        if len(idxs) == 0:
             continue
 
-        relevant_funcs = genus_formula_names[genus]
+        diameters = result_df.loc[idxs, 'diameter at breast height [mm]'].values
+        heights = result_df.loc[idxs, 'height [dm]'].values
+
         for func_name in relevant_funcs:
             f, params, param_units, vol_unit = all_formulas[func_name]
             col_name = f'{func_name} [m3]'
             apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
 
-            idxs = group_df.index
-            diameters = group_df.loc[idxs, 'diameter at breast height [mm]'].values
-            heights = group_df.loc[idxs, 'height [dm]'].values
+            # Vectorized (no row-looping)
+            vectorized_func = np.vectorize(apply_func, otypes=[object])
+            result_df.loc[idxs, col_name] = vectorized_func(diameters, heights)
 
-            result_df.loc[idxs, col_name] = [
-                apply_func(d, h) for d, h in zip(diameters, heights)
-            ]
 
     return result_df
 

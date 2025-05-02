@@ -7,6 +7,8 @@ import re
 import os
 import importlib.util
 import pandas as pd
+from collections import defaultdict
+import numpy as np
 
 import docstring_parser
 
@@ -128,7 +130,7 @@ def match_species_names(df: pd.DataFrame) -> list:
         "Alnus": ["Alnus glutinosa", "Black alder", "Alnus incana", "Grey alder"],
         "Populus": ["Populus tremula", "Common aspen", "Populus nigra", "European black poplar",
                     "Populus × canescens", "Grey poplar", "Populus alba", "Silver poplar", 
-                    "Populus balsamifera", "Balsam poplar", "misc. deciduous trees with short life expectancy"],
+                    "Populus balsamifera", "Balsam poplar", "Misc. deciduous trees with short life expectancy"],
         "Salix": ["Salix spp.", "Willow", "misc. deciduous trees with short life expectancy"],
         "Prunus": ["Prunus padus", "Bird cherry", "Prunus avium", "Wild cherry", "Prunus serotina", "Black cherry", "misc. deciduous trees with short life expectancy"],
         "Malus": ["Malus sylvestris", "European crab apple", "misc. deciduous trees with short life expectancy"],
@@ -136,18 +138,14 @@ def match_species_names(df: pd.DataFrame) -> list:
         "Corylus": ["Corylus avellana", "Hazel", "misc. deciduous trees with short life expectancy"]
     }
 
-    name_to_code = {
-        species_name: genus
-        for genus, species_list in genus_species_common_dict.items()
-        for species_name in species_list
-    }
-
-    
     matched_keys = []
     for name in df['species']:
-        matched_key = name_to_code.get(name, None) # Get the genus code
-        matched_keys.append(matched_key)
-    
+        matched_genera = [
+            genus for genus, species_list in genus_species_common_dict.items()
+            if name in species_list
+        ]
+        matched_keys.append(matched_genera if matched_genera else None)
+
     return matched_keys
 
 
@@ -200,3 +198,17 @@ def match_genus_to_functions(genus_list: list, script_path: str) -> dict:
             function_dict[genus].append(name)
     
     return function_dict
+
+
+
+def get_genus_row_map(genus_column: pd.Series) -> dict[str, np.ndarray]:
+    """
+    Builds a mapping of genus to the row indices where it occurs (even if in a list).
+    Useful for applying formulas by genus without using groupby.
+    """
+    genus_map = defaultdict(list)
+    for i, genus_list in enumerate(genus_column):
+        if isinstance(genus_list, list):
+            for genus in genus_list:
+                genus_map[genus].append(i)
+    return {g: np.array(idxs) for g, idxs in genus_map.items()}
