@@ -1,12 +1,15 @@
 """This module implements a command to apply the stem volume to a CSV file."""
 
 import argparse
+import cProfile
 import os
+import pstats
 import sys
 import time
 from inspect import signature
 
 import pandas as pd
+from line_profiler import LineProfiler
 
 import stem_volumes.formulas
 from stem_volumes.utils import (
@@ -16,8 +19,9 @@ from stem_volumes.utils import (
 )
 
 
-def main():
-    """Main function."""
+def __orig_main():
+    pr = cProfile.Profile()
+    pr.enable()
     tic = time.perf_counter()
     args = parse_arguments()
 
@@ -46,6 +50,20 @@ def main():
     df_calculated.to_csv(args.output_file, index=False)
     toc = time.perf_counter()
     print(f'Writing the CSV file took {toc - tic:.6f} seconds')
+
+    pr.disable()
+    stats = pstats.Stats(pr)
+    stats.sort_stats('cumtime').print_stats(10)
+
+
+def main():
+    """Main function."""
+    profiler = LineProfiler()
+    profiler.add_function(calculate_stem_volumes)
+    profiler.add_function(__orig_main)
+    profiler_wrapper = profiler(orig_main)
+    profiler_wrapper()
+    profiler.print_stats()
 
 
 def parse_arguments():
