@@ -162,8 +162,8 @@ def calculate_stem_volumes(df):
             batch_results = future.result()
             all_results.update(batch_results)
 
-    for column_name, values in all_results.items():
-        result_df[column_name] = values
+    result_df = pd.concat([result_df, pd.DataFrame(all_results)], axis=1)
+
 
     return result_df
 
