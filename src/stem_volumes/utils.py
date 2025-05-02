@@ -54,3 +54,10 @@ def convert_volume_to_m3(value, value_unit):
         value /= 1000
 
     return value
+
+def get_genus_from_docstring(docstring: str) -> str:
+    """Extract genus from the docstring's species information."""
+    match = re.search(r"Species:\s*(\w+)", docstring)
+    if match:
+        return match.group(1)
+    return None
