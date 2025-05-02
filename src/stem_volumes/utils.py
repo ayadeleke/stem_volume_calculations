@@ -70,13 +70,10 @@ def clean_data(raw_df: pd.DataFrame):
     Returns:
         pd.DataFrame: Cleaned DataFrame.
     """
-    # Drop duplicates
+    raw_df = raw_df.copy()
     raw_df.drop_duplicates(inplace=True)
-
-    # Fill missing values
-    cleaned_df = raw_df.fillna(method='ffill', inplace=True)
-
-    return cleaned_df
+    raw_df.ffill(inplace=True)
+    return raw_df 
 
 def get_genus_from_docstring(docstring: str) -> str:
     """Extract genus from the docstring's species information.
