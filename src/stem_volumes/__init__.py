@@ -61,7 +61,7 @@ def main():
     profiler = LineProfiler()
     profiler.add_function(calculate_stem_volumes)
     profiler.add_function(__orig_main)
-    profiler_wrapper = profiler(orig_main)
+    profiler_wrapper = profiler(__orig_main)
     profiler_wrapper()
     profiler.print_stats()
 
