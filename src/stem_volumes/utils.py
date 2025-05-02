@@ -70,10 +70,12 @@ def clean_data(raw_df: pd.DataFrame):
     Returns:
         pd.DataFrame: Cleaned DataFrame.
     """
-    raw_df = raw_df.copy()
-    raw_df.drop_duplicates(inplace=True)
-    raw_df.ffill(inplace=True)
-    return raw_df 
+    df_filtered = raw_df.copy()
+    df_filtered.drop_duplicates(inplace=True)
+    df_filtered.ffill(inplace=True)
+    df_filtered['species'] = df_filtered['species'].str.capitalize()
+
+    return df_filtered 
 
 def get_genus_from_docstring(docstring: str) -> str:
     """Extract genus from the docstring's species information.
