@@ -16,8 +16,11 @@ from math import log10 as log
 def stem_volume_formula_1(D, H):
     """Calculate the stem volume for a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for Silver fir from Norway.
+    This formula is implemented from Zianis et al. (2005).
     The diameter should be 5 cm or greater.
+
+    Species: Abies alba (Silver fir)
+    Country: Norway
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -67,8 +70,8 @@ def stem_volume_formula_2(D, H):
 def stem_volume_formula_3(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Abies grandis (Grand fir)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -92,8 +95,8 @@ def stem_volume_formula_3(D, H):
 def stem_volume_formula_4(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Abies sibirica
-    Location:   Germany
+    Species:    Abies sibirica (Fir)
+    Country:   Germany
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 10-48cm.
@@ -111,8 +114,11 @@ def stem_volume_formula_4(D):
 def stem_volume_formula_5(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Abies spp. (Fir) from Austria. The range of valid values for D is 0.1 dm and above.
+    This formula is implemented from Zianis et al. The range of valid values for D is 0.1 dm and above.
     It was originally published in Pollanschütz, J. 1974. Formzahlfunktionen der Hauptbaumarten Österreichs. Allgemeine Forstzeitung 85: 341–343.
+
+    Species:   Abies spp. (Fir, Brad)
+    Country:   Austria
 
     Args:
         D: Diameter at breast height in dm. Recommendend range: 0.1 dm and above.
@@ -176,8 +182,9 @@ def stem_volume_formula_6(D: float, H: float) -> float:
 def stem_volume_formula_7(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Abies spp. (Fir, Brad)
+    Country: Romania
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -198,7 +205,10 @@ def stem_volume_formula_7(D, H):
 def stem_volume_formula_8(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Acacia spp. (Salcim) from Romania.
+    This formula is implemented from Zianis (2005) et al.
+
+    Species: Acacia spp. (Salcim)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -221,8 +231,11 @@ def stem_volume_formula_8(D, H):
 def stem_volume_formula_9(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Acer pseudoplatanus (Maple), from Belgium.
+    This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
+
+    Species: Acer pseudoplatanus (Maple, Erable sycomore, Paltin, Sycamore)
+    Country: Belgium
 
     Args:
         D: Diameter at breast height in cm.
@@ -247,8 +260,8 @@ def stem_volume_formula_9(D, H):
 def stem_volume_formula_10(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Acer pseudoplatanus (Maple, Erable sycomore, Paltin, Sycamore)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -267,8 +280,8 @@ def stem_volume_formula_10(D, H):
 def stem_volume_formula_11(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Acer pseudoplatanus
-    Location: Romania
+    Species: Acer pseudoplatanus (Maple, Erable sycomore, Paltin, Sycamore)
+    Country: Romania
 
     Reference: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
@@ -296,8 +309,8 @@ def stem_volume_formula_11(D, H):
 def stem_volume_formula_12(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Acer pseudoplatanus (Maple, Erable sycomore, Paltin, Sycamore)
+    Country: UK
 
     Args:
         D: Diameter at breast height in cm.
@@ -316,8 +329,8 @@ def stem_volume_formula_12(D, H):
 def stem_volume_formula_13(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Alnus alba (Anin alb)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -338,8 +351,8 @@ def stem_volume_formula_13(D, H):
 def stem_volume_formula_14(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Alnus glutinosa (Black alder, Klibbal)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -358,8 +371,8 @@ def stem_volume_formula_14(D, H):
 def stem_volume_formula_15(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Alnus glutinosa (Black alder, Klibbal)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -378,8 +391,11 @@ def stem_volume_formula_15(D, H):
 def stem_volume_formula_16(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Alnus glutinosa from Norway. The range of valid values for D is 0-12 cm.
+    This formula is implemented from Zianis (2005) et al. The range of valid values for D is 0-12 cm.
     Original source is Brantseg (1967) - https://hdl.handle.net/11250/2988649.
+
+    Species: Alnus glutinosa (Black alder, Klibbal)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 0-12 cm.
@@ -405,6 +421,9 @@ def stem_volume_formula_17(D, H):
     träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion,
     Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
 
+    Species: Alnus glutinosa (Black alder, Klibbal)
+    Country: Sweden
+
     Args:
         D (float): Diameter of the tree in cm.
         H (float): Height of the tree in m.
@@ -427,8 +446,11 @@ def stem_volume_formula_17(D, H):
 def stem_volume_formula_18(D, H):
     """Calculate the stem volume for a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for Alnus glutinosa (Black alder, Klibbal)from sweden.
+    This formula is implemented from Zianis et al. (2005).
     The diameter should be 5 cm or greater.
+
+    Species: Alnus glutinosa (Black alder, Klibbal)
+    Country: Sweden
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -447,8 +469,8 @@ def stem_volume_formula_18(D, H):
 def stem_volume_formula_19(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Alnus glutinosa (Black alder, Klibbal)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -469,8 +491,8 @@ def stem_volume_formula_19(D, H):
 def stem_volume_formula_20(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Alnus incana
-    Location:   Norway
+    Species:    Alnus incana (Grey alder)
+    Country:   Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5cm or above.
@@ -492,8 +514,11 @@ def stem_volume_formula_20(D, H):
 def stem_volume_formula_21(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Alnus nigra from Romania.
+    This formula is implemented from Zianis (2005) et al.
     It was originally published in Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173–178.
+
+    Species:    Alnus nigra (Anin negru)
+    Country:   Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -543,8 +568,8 @@ def stem_volume_formula_22(D: float, H: float) -> float:
 def stem_volume_formula_23(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Arbutus unedo (Strawberry-tree)
+    Country: Italy 
 
     Args:
         D: Diameter at breast height in cm.
@@ -561,7 +586,10 @@ def stem_volume_formula_23(D):
 def stem_volume_formula_24(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for  Betula pendula (Birch, Berk) from Netherlands.
+    This formula is implemented from Zianis (2005) et al.
+
+    Species: Betula pendula (Birch, Berk)
+    Country: Netherlands 
 
     Args:
         D: Diameter at breast height in cm.
@@ -585,6 +613,9 @@ def stem_volume_formula_25(D, H):
     This formula is implemented from Zianis et al., (2005) and is recommended for Betula spp. (Birch), from Belgium.
     No valid range for D and H is given.
 
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Belgium
+
     Args:
         D: Diameter at breast height in cm.
         H: Tree Height in m.
@@ -606,8 +637,8 @@ def stem_volume_formula_25(D, H):
 def stem_volume_formula_26(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -627,8 +658,8 @@ def stem_volume_formula_26(D):
 def stem_volume_formula_27(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Betula spp.
-    Location: Finland
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Finland
 
     Reference: Laasasenaho, J. 1982. Taper curve and volume functions for pine, spruce and birch. Communicationes Instituti Forestalis Fenniae 108: 1-74.
 
@@ -660,8 +691,8 @@ def stem_volume_formula_27(D):
 def stem_volume_formula_28(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -761,6 +792,9 @@ def stem_volume_formula_32(D, H):
 
     This formula is implemented from Zianis and is recommended for Betula spp from Romania.
 
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Romania
+
     Args:
         D: Diameter at breast height in cm.
         H: Tree height in m.
@@ -779,10 +813,13 @@ def stem_volume_formula_32(D, H):
 
 
 def stem_volume_formula_33(D, H):
-    """Calculate the stem volume for a standing tree of Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan) in Sweden.
+    """Calculate the stem volume of a standing tree.
 
     Original source: Näslund, M. 1947. Funktioner och tabeller för kubering av stående träd.
     Meddelanden från Statens skogsforskningsinstitutet 36(3): 1–81.
+
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Sweden
 
     Args:
         D (float): Diameter of the tree in cm. Recommended range: 5 cm - 34.9 cm.
@@ -803,9 +840,12 @@ def stem_volume_formula_33(D, H):
 
 
 def stem_volume_formula_34(D, H):
-    """Calculate the stem volume for a standing tree git of Betula spp. (Birch) from Sweden.
+    """Calculate the stem volume for a standing tree.
 
     This formula is implemented from Zianis et al. (2005).The Diameter should be biger than 4.5 and the height should be bigger than 6.
+
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Sweden
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -828,8 +868,8 @@ def stem_volume_formula_34(D, H):
 def stem_volume_formula_35(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -850,7 +890,7 @@ def stem_volume_formula_35(D, H):
 def stem_volume_formula_36(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Betula spp.
+    Species:    Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
     Location:   Sweden
 
     Args:
@@ -875,6 +915,9 @@ def stem_volume_formula_37(D, H):
 
     This formula is implemented from Zianis and is recommended for Betula spp. (Birch) from Sweden. The range of valid values for D is 4.5 cm and above; for H it is 6 m and above.
     It was originally published in Brandel, G. 1990. Volumfunktioner för enskilda träd. Sveriges lantbruksuniversitet, Institutionen för skogsproduktion, Rapport 6: 1–181.
+
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    country: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 4.5 cm and above.
@@ -926,8 +969,8 @@ def stem_volume_formula_38(D: float, H: float) -> float:
 def stem_volume_formula_39(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Country: UK
 
     Args:
         D: Diameter at breast height in cm.
@@ -946,7 +989,10 @@ def stem_volume_formula_39(D, H):
 def stem_volume_formula_40(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for  Carpinus spp. from Netherlands.
+    This formula is implemented from Zianis (2005) et  al.
+
+    Species: Carpinus spp
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -968,8 +1014,11 @@ def stem_volume_formula_40(D, H):
 def stem_volume_formula_41(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Carpinus spp, from Netherlands.
+    This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
+
+    Species: Carpinus spp
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -990,8 +1039,8 @@ def stem_volume_formula_41(D, H):
 def stem_volume_formula_42(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Carpinus spp
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -1011,8 +1060,8 @@ def stem_volume_formula_42(D, H):
 def stem_volume_formula_43(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Chamaecyparis lawsoniana
-    Location: Netherlands
+    Species: Chamaecyparis lawsoniana  (Lawson cypress)
+    Country: Netherlands
 
     Reference: Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1-114.
 
@@ -1038,8 +1087,8 @@ def stem_volume_formula_43(D, H):
 def stem_volume_formula_44(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: UnknownCorylus avellana (Hazel)
+    country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -1061,6 +1110,9 @@ def stem_volume_formula_45(D, H):
     """Calculates the volume of the stem of a standing tree.
 
     This formula is implemented from Zianis and is recommended for Fagus spp. (Beech, Fag) from Austria
+ 
+    Species: UnknownCorylus avellana (Hazel)
+    country: Norway
 
     Args:
         D: Diameter at breast height in dm. The Recommended range is 1 and above
@@ -1091,8 +1143,8 @@ def stem_volume_formula_45(D, H):
 def stem_volume_formula_46(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fagus spp. (Beech, Fag)
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm.
@@ -1113,7 +1165,7 @@ def stem_volume_formula_46(D, H):
 def stem_volume_formula_47(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Fagus spp.
+    Species: Fagus spp. (Beech, Fag)
     Country: Romania
 
     Args:
@@ -1137,8 +1189,11 @@ def stem_volume_formula_47(D, H):
 def stem_volume_formula_48(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Fagus spp from UK.
+    This formula is implemented from Zianis (2005) et al.
     Original source is Broadmeadow et al (2004) - https://nora.nerc.ac.uk/id/eprint/8644/1/N008644CR.pdf
+
+    Species: Fagus spp. (Beech, Fag)
+    Country: UK
 
     Args:
         D: Diameter at breast height in cm.
@@ -1156,12 +1211,15 @@ def stem_volume_formula_48(D, H):
 
 
 def stem_volume_formula_49(D, H):
-    """Calculate the stem volume for a standing tree of Fagus sylvatica (Beech, Rotbuche, Beuk) in Belgium.
+    """Calculate the stem volume for a standing tree. 
 
     Original Source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999.
     Tables de cubage des arbres et des peuplements forestiers. les Presses Agronomiques de
     Gembloux, Gembloux. 1 6 p.
 
+    Species: Fagus sylvatica (Beech, Rotbuche, Beuk)
+    Country: Belgium.
+    
     Args:
         D (float): Diameter of the tree in cm.
         H (float): Height of the tree in m.
@@ -1183,9 +1241,12 @@ def stem_volume_formula_49(D, H):
 
 
 def stem_volume_formula_50(D, H):
-    """Calculate the stem volume for a standing tree of Fagus sylvatica (Beech, Rotbuche, Beuk) in Germany.
+    """Calculate the stem volume for a standing tree.
 
     This formula is implemented from Zianis et al. (2005). The recommended range for diameter is between 10.7 and 61.8. The recommended range for the height is between 10.2 and 34.6.
+
+    Species: Fagus sylvatica (Beech, Rotbuche, Beuk)
+    Country: Germany
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -1206,8 +1267,8 @@ def stem_volume_formula_50(D, H):
 def stem_volume_formula_51(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fagus sylvatica (Beech, Rotbuche, Beuk)
+    Country: Germany
 
     Args:
         D: Diameter at breast height in cm.
@@ -1227,8 +1288,8 @@ def stem_volume_formula_51(D, H):
 def stem_volume_formula_52(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Fagus sylvatica
-    Location:   Netherlands
+    Species:    Fagus sylvatica (Beech, Rotbuche, Beuk)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA
@@ -1248,8 +1309,11 @@ def stem_volume_formula_52(D, H):
 def stem_volume_formula_53(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Fagus sylvatica (Beech) from the Netherlands.
+    This formula is implemented from Zianis (2005) et al.
     It was originally published in De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+
+    Species:    FFagus sylvatica (Beech)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -1301,8 +1365,8 @@ def stem_volume_formula_54(D: float, H: float) -> float:
 def stem_volume_formula_55(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fraxinus exselsior (Ash, Frêne, Es)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -1322,7 +1386,10 @@ def stem_volume_formula_55(D, H):
 def stem_volume_formula_56(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for  Fraxinus exselsior (Ash, Frêne, Es) from Sweden.
+    This formula is implemented from Zianis (2005) et al.
+    
+    Species: Fraxinus exselsior (Ash, Frêne, Es)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -1347,8 +1414,11 @@ def stem_volume_formula_57(D, H):
     # output: volume in dm3
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Fraxinus exselsior (Ash), from Sweden.
+    This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
+
+    Species: nd is recommended for Fraxinus exselsior (Ash)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -1368,8 +1438,8 @@ def stem_volume_formula_57(D, H):
 def stem_volume_formula_58(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fraxinus exselsior (Ash, Frêne, Es)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -1388,8 +1458,8 @@ def stem_volume_formula_58(D, H):
 def stem_volume_formula_59(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Fraxinus Excelsior
-    Location: Sweden
+    Species: Fraxinus exselsior (Ash, Frêne, Es)
+    Country: Sweden
 
     Reference: Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal College of Forestry, Stockholm. Research Notes 26: 1-26.
 
@@ -1415,8 +1485,8 @@ def stem_volume_formula_59(D, H):
 def stem_volume_formula_60(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fraxinus exselsior (Ash, Frêne, Es)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -1435,8 +1505,8 @@ def stem_volume_formula_60(D, H):
 def stem_volume_formula_61(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fraxinus spp. (Ash)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -1457,8 +1527,8 @@ def stem_volume_formula_61(D, H):
 def stem_volume_formula_62(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fraxinus spp. (Ash)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -1480,8 +1550,8 @@ def stem_volume_formula_62(D, H):
 def stem_volume_formula_63(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Fraxinus spp. (Ash)
+    Country: Uk
 
     Args:
         D: Diameter at breast height in cm.
@@ -1500,7 +1570,10 @@ def stem_volume_formula_63(D, H):
 def stem_volume_formula_64(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Larix decidua from Austria. The range of valid values for D is 1 cm and above.
+    This formula is implemented from Zianis (2005) et al. The range of valid values for D is 1 cm and above.
+
+    Species: Larix decidua (Larch, Mélèzes)
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm. Recommendend range: 1 cm and above.
@@ -1530,10 +1603,13 @@ def stem_volume_formula_64(D, H):
 
 
 def stem_volume_formula_65(D, H):
-    """Calculate the stem volume for a standing tree of Larix decidua (larch, Mélèzes) in Austria.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Schieler, K. 1988. Diploma thesis, Institute for Forest growth and
     Yield Reserch, University for Agricultural Sciences, Vienna.
+
+    Species: Larix decidua (Larch, Mélèzes)
+    Country: Austria
 
     Args:
         D (float): Diameter of the tree in dm. Recommended range: 0.5 dm - 1.04 dm.
@@ -1553,10 +1629,12 @@ def stem_volume_formula_65(D, H):
 
 
 def stem_volume_formula_66(D, H):
-    """Calculate the stem volume for a standing tree of Larix decidua (larch, Mélèzes) in Belgium.
+    """Calculate the stem volume for a standing tree .
 
     This formula is implemented from Zianis et al. (2005).
 
+    Species: Larix decidua (Larch, Mélèzes)
+    Country: Belgium
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -1578,8 +1656,8 @@ def stem_volume_formula_66(D, H):
 def stem_volume_formula_67(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Larix decidua (Larch, Mélèzes)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -1598,8 +1676,8 @@ def stem_volume_formula_67(D, H):
 def stem_volume_formula_68(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Larix decidua
-    Location:   Norway
+    Species:    Larix decidua (Larch, Mélèzes)
+    Country:   Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5cm or above.
@@ -1621,8 +1699,11 @@ def stem_volume_formula_68(D, H):
 def stem_volume_formula_69(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Larix hybrid from Norway. The range of valid values for D is 5 cm and above.
+    This formula is implemented from Zianis et al (2205). The range of valid values for D is 5 cm and above.
     It was originally published in Øen, S., Bauger, E. & Øyen, B.-H. 001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
+
+    Species:    Larix hybrid (Hyprid larix)
+    Country:   Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5 cm and above.
@@ -1673,8 +1754,8 @@ def stem_volume_formula_70(D: float, H: float) -> float:
 def stem_volume_formula_71(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Larix kaempferi (Japanese larch)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -1695,7 +1776,10 @@ def stem_volume_formula_71(D, H):
 def stem_volume_formula_72(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Larix sibirica (Siberian larix) from Iceland. The range of valid values for D is 4 cm and above.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 4 cm and above.
+
+    Species: Larix sibirica (Siberian larch)
+    Country: Iceland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 4 cm and above.
@@ -1716,11 +1800,14 @@ def stem_volume_formula_72(D, H):
 def stem_volume_formula_73(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Larix sibirica (Siberian larix), from Iceland.
+    This formula is implemented from Zianis et al., (2005).
     Issue resulted from the V unit of measure stated from Ziania et al. (2005). We were unable to find the original paper, but several papers (inc. Bjarnadoottir B and Signurdsson B, 2007) used dm3 instead of m3 for Volume.
 
     The range of valid values for D is 4-34cm, and for H is 4-16m.
 
+    Species: Larix sibirica (Siberian larch)
+    Country: Iceland
+    
     Args:
         D: Diameter at breast height in cm. Recommended range: 4-34cm
         H: Tree Height in m. Recommended range: 4-16m
@@ -1768,8 +1855,8 @@ def stem_volume_formula_74(D, H):
 def stem_volume_formula_75(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Larix sibirica
-    Location: Norway
+    Species: Larix sibirica (Siberian larix)
+    Country: Norway
 
     Reference: Øen, S., Bauger, E. & Øyen, B.-H. 2001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18-19.
 
@@ -1801,8 +1888,8 @@ def stem_volume_formula_75(D, H):
 def stem_volume_formula_76(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Larix spp. (Lehtikuusi, Lork, Larice)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -1822,8 +1909,8 @@ def stem_volume_formula_76(D, H):
 def stem_volume_formula_77(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Larix spp. (Lehtikuusi, Lork, Larice)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -1843,8 +1930,8 @@ def stem_volume_formula_77(D, H):
 def stem_volume_formula_78(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Larix spp. (Lehtikuusi, Lork, Larice)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -1865,8 +1952,8 @@ def stem_volume_formula_78(D, H):
 def stem_volume_formula_79(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Larix spp. (Lehtikuusi, Lork, Larice)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -1887,8 +1974,12 @@ def stem_volume_formula_79(D, H):
 def stem_volume_formula_80(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Larix spp from Netherlands.
+    This formula is implemented from Zianis et al., (2005).
     Original source is Schelhaas et al (2002) - https://library.wur.nl/WebQuery/wurpubs/reports/320536
+   
+    Species: Larix spp. (Lehtikuusi, Lork, Larice)
+    Country: Netherlands
+    
     Args:
         D: Diameter at breast height in mm.
         H: Tree height in m.
@@ -1906,11 +1997,14 @@ def stem_volume_formula_80(D, H):
 
 
 def stem_volume_formula_81(D, H):
-    """Calculate the stem volume for a standing tree of Larix spp. (lehtikuusi, lork, larice) in Romania.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum,
     pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor
     89(4): 173–178.
+
+    Species: Larix spp. (Lehtikuusi, Lork, Larice)
+    Country: Romania
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -1920,14 +2014,13 @@ def stem_volume_formula_81(D, H):
         V (float): The calculated stem volume in m3.
     """
     # Define parameters
-    a = 2.822 * 10 ** (-5)
-    b = 2.2060
-    c = -0.1136
-    d = 1.115
-    e = 0.0129
+    a = 0.00035217
+    b = 2.12841828
+    c = -0.0026067
+    d = 0.76283925
 
     # Implement formula
-    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
+    V = a * D ** (b + c) * H**d
     return V
 
 
@@ -1969,8 +2062,8 @@ def stem_volume_formula_82(D, H):
 def stem_volume_formula_83(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm.
@@ -1992,8 +2085,8 @@ def stem_volume_formula_83(D, H):
 def stem_volume_formula_84(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Picea abies
-    Location:   Belgium
+    Species:    Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country:   Belgium
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -2016,10 +2109,13 @@ def stem_volume_formula_84(D, H):
 def stem_volume_formula_85(D):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce) from Czech Republic.
+    This formula is implemented from Zianis (2005) et al.
     It was originally published in Cerný, M. 1990. Biomass of Picea abies (l.) Karst. in midwestern Bohemia. Scandinavian Journal of Forest Research 5: 83–95.
 
-    Args:
+    Specoes : Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Czech Republic
+
+     Args:
         D: Diameter at breast height in cm.
 
     Returns:
@@ -2063,8 +2159,8 @@ def stem_volume_formula_86(D: float, H: float) -> float:
 def stem_volume_formula_87(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -2082,7 +2178,10 @@ def stem_volume_formula_87(D):
 def stem_volume_formula_88(D):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) from Finland. The range of valid values for D is 1.5 cm and above.
+    This formula is implemented from Zianis (2005) et al.
+
+    Species : Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 1.5 cm and above.
@@ -2104,8 +2203,11 @@ def stem_volume_formula_88(D):
 def stem_volume_formula_89(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Picea abies (Norway spruce), from Finland.
+    This formula is implemented from Zianis et al., (2005).
     The range of valid values for D is 1.5-61.9cm, and for H is 1.8-32.7m.
+
+    Species :Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm. Recommended range: 1.5-61.9cm
@@ -2127,8 +2229,8 @@ def stem_volume_formula_89(D, H):
 def stem_volume_formula_90(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -2149,8 +2251,8 @@ def stem_volume_formula_90(D, H):
 def stem_volume_formula_91(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Picea abies
-    Location: Finland
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Reference: Kanninen, K., Uusvaara, O. & Valonen, P.
     1977.Kokopuuraaka-aineen mittaus ja ominaisuudet. Folia Forestalia 403:
@@ -2201,8 +2303,8 @@ def stem_volume_formula_91(D, H):
 def stem_volume_formula_92(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -2221,8 +2323,8 @@ def stem_volume_formula_92(D, H):
 def stem_volume_formula_93(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -2240,8 +2342,8 @@ def stem_volume_formula_93(D):
 def stem_volume_formula_94(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Germany
 
     Args:
         D: Diameter at breast height in m.
@@ -2258,8 +2360,8 @@ def stem_volume_formula_94(D, H):
 def stem_volume_formula_95(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Germany
 
     Args:
         D: Diameter at breast height in m.
@@ -2276,10 +2378,13 @@ def stem_volume_formula_95(D, H):
 def stem_volume_formula_96(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies from Iceland. The range of valid values for D is 2.7-27.9 cm.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 2.7-27.9 cm.
     Original source is Snorrason & Einarsson (2006) - https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=6668a0d8e81f7c32c0a0926d99b3451c9c69c160
 
     Volume unit different from Zianis! changed from m3 to dm3
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Iceland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 2.7-27.9 cm.
@@ -2297,9 +2402,11 @@ def stem_volume_formula_96(D, H):
 
 
 def stem_volume_formula_97(D, H):
-    """Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in the Netherlands.
-
+    """Calculate the stem volume for a standing tree.
     Original source: De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Neatherlands
 
     Args:
         D (float): Diameter of the tree in mm.
@@ -2320,9 +2427,12 @@ def stem_volume_formula_97(D, H):
 
 
 def stem_volume_formula_98(D, H):
-    """Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in the Netherlands.
+    """Calculate the stem volume for a standing tree.
 
     This formula is implemented from Zianis et al. (2005).
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Neatherlands
 
     Args:
         D (float): Diameter of the tree in mm.
@@ -2346,8 +2456,8 @@ def stem_volume_formula_98(D, H):
 def stem_volume_formula_99(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -2367,8 +2477,8 @@ def stem_volume_formula_99(D, H):
 def stem_volume_formula_100(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Picea abies
-    Location:   Netherlands
+    Species:    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -2388,8 +2498,11 @@ def stem_volume_formula_100(D, H):
 def stem_volume_formula_101(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce) from the Netherlands.
+    This formula is implemented from Zianis et al (2005).
     It was originally published in De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -2440,8 +2553,8 @@ def stem_volume_formula_102(D: float, H: float) -> float:
 def stem_volume_formula_103(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2462,7 +2575,10 @@ def stem_volume_formula_103(D, H):
 def stem_volume_formula_104(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) from Norway.
+    This formula is implemented from Zianis et al (2005).
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2485,8 +2601,11 @@ def stem_volume_formula_104(D, H):
 def stem_volume_formula_105(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Picea abies (Norway spruce), from Norway.
+    This formula is implemented from Zianis et al., (2005).
     The range of valid values for D is 10cm and below, and for H is 39.49m and below.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommended range: 10cm and below
@@ -2508,8 +2627,8 @@ def stem_volume_formula_105(D, H):
 def stem_volume_formula_106(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2531,8 +2650,8 @@ def stem_volume_formula_106(D, H):
 def stem_volume_formula_107(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Picea abies
-    Location: Norway
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Reference: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran. Meddelelser fra det Norske Skogforsøksvesen 84: 539-574.
 
@@ -2567,8 +2686,8 @@ def stem_volume_formula_107(D, H):
 def stem_volume_formula_108(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2589,8 +2708,8 @@ def stem_volume_formula_108(D, H):
 def stem_volume_formula_109(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2611,8 +2730,8 @@ def stem_volume_formula_109(D, H):
 def stem_volume_formula_110(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2632,8 +2751,8 @@ def stem_volume_formula_110(D, H):
 def stem_volume_formula_111(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -2654,8 +2773,11 @@ def stem_volume_formula_111(D, H):
 def stem_volume_formula_112(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies from Norway. The range of valid values for D is 0-15 cm and above.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 0-15 cm and above.
     Original source is Vestjordet (1967) - https://hdl.handle.net/11250/2988611
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 0-15 cm and above.
@@ -2675,10 +2797,13 @@ def stem_volume_formula_112(D, H):
 
 
 def stem_volume_formula_113(D, H):
-    """Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Norway.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Vestjordet, E. 1967. Funksjoner og tabeller for kubering av stående gran.
     Meddelelser fra det Norske Skogforskningsvesen 84: 539–574.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Norway
 
     Args:
         D (float): Diameter of the tree in cm. The diameter should be between 10 cm and 59.4 cm.
@@ -2700,10 +2825,12 @@ def stem_volume_formula_113(D, H):
 
 
 def stem_volume_formula_114(D, H):
-    """Calculate the stem volume for a standing tree of Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) in Poland.
+    """Calculate the stem volume for a standing tree.
 
     This formula is implemented from ZianisÄ(2005).
 
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Poland
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -2723,8 +2850,8 @@ def stem_volume_formula_114(D, H):
 def stem_volume_formula_115(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Poland
 
     Args:
         D: Diameter at breast height in cm.
@@ -2742,8 +2869,8 @@ def stem_volume_formula_115(D, H):
 def stem_volume_formula_116(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Picea abies
-    Location:   Sweden
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country:   Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5-55.9cm.
@@ -2764,8 +2891,11 @@ def stem_volume_formula_116(D, H):
 def stem_volume_formula_117(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce) from Sweden.
+    This formula is implemented from Zianis et al (2005).
     It was originally published in Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 2 cm and above.
@@ -2818,8 +2948,8 @@ def stem_volume_formula_118(D: float, H: float) -> float:
 def stem_volume_formula_119(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -2840,7 +2970,10 @@ def stem_volume_formula_119(D, H):
 def stem_volume_formula_120(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) from Sweden. The range of valid values for D is 4.5 cm and above.
+    This formula is implemented from Zianis et al (2005).
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 4.5 cm and above.
@@ -2863,8 +2996,11 @@ def stem_volume_formula_120(D, H):
 def stem_volume_formula_121(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Picea abies (Norway spruce), from Sweden.
+    This formula is implemented from Zianis et al., (2005).
     The range of valid values for D is 4.5cm and above, and for H is 4m and above.
+
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommended range:  4.5cm and above
@@ -2886,8 +3022,8 @@ def stem_volume_formula_121(D, H):
 def stem_volume_formula_122(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -2907,8 +3043,8 @@ def stem_volume_formula_122(D, H):
 def stem_volume_formula_123(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Picea abies
-    Location: Sweden
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Sweden
 
     Reference: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178-191.
 
@@ -2968,8 +3104,8 @@ def stem_volume_formula_124(D, H):
 def stem_volume_formula_125(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea sitchensis (Sitka spruce)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -2988,8 +3124,8 @@ def stem_volume_formula_125(D, H):
 def stem_volume_formula_126(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea sitchensis (Sitka spruce)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -3010,8 +3146,9 @@ def stem_volume_formula_126(D, H):
 def stem_volume_formula_127(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Picea sitchensis (Sitka spruce)
+    Country: Norway
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -3032,7 +3169,10 @@ def stem_volume_formula_127(D, H):
 def stem_volume_formula_128(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Picea sitchensis from Norway.
+    This formula is implemented from Zianis et al (2005).
+
+    Species: Picea sitchensis (Sitka spruce)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -3051,11 +3191,14 @@ def stem_volume_formula_128(D, H):
 
 
 def stem_volume_formula_129(D, H):
-    """Calculate the stem volume for a standing tree of Picea spp. (Molid) in Romania.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum,
     pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor
     89(4): 173–178.
+
+    Species: Picea spp. (Molid)
+    Country: Romania
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -3077,13 +3220,16 @@ def stem_volume_formula_129(D, H):
 
 
 def stem_volume_formula_130(D, H):
-    """Calculate the stem volume for a standing tree of Picea spp. (Molid) in Iceland.
+    """Calculate the stem volume for a standing tree.
 
     In original resource they used dm3 to calculate the volume.
     originaal resouce:https://www.researchgate.net/publication/228771958
     This formula is implemented from Zianis et al. (2005).
     The recommended range for diameter is between 4.9 and 28.6.
     The recommended range for height is between 4.8 and 15.4.
+
+    Species: Picea spp. (Molid)
+    Country: Iceland
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -3133,8 +3279,8 @@ def stem_volume_formula_131(D, H):
 def stem_volume_formula_132(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Pinus contorta
-    Location:   Netherlands
+    Species:    Pinus contorta (Contorta tall)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -3154,8 +3300,11 @@ def stem_volume_formula_132(D, H):
 def stem_volume_formula_133(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus contorta from Sweden.
+    This formula is implemented from Zianis et al., (2005).
     It was originally published in Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
+
+    Species:    Pinus contorta (Contorta tall)
+    Country:   Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -3206,8 +3355,8 @@ def stem_volume_formula_134(D: float, H: float) -> float:
 def stem_volume_formula_135(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus contorta (Contorta tall)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -3229,7 +3378,10 @@ def stem_volume_formula_135(D, H):
 def stem_volume_formula_136(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus nigra var maritima (Black pine) from Netherlands.
+    This formula is implemented from Zianis et al., (2005).
+
+    Species: Pinus nigra var maritima (Black pine)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -3250,8 +3402,11 @@ def stem_volume_formula_136(D, H):
 def stem_volume_formula_137(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Pinus nigra var nigra (Black pine), from Netherlands.
+    This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
+
+    Species: PPinus nigra var nigra (Black pine, Pin negru)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -3271,8 +3426,8 @@ def stem_volume_formula_137(D, H):
 def stem_volume_formula_138(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus nigra var nigra (Black pine, Pin negru)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -3294,7 +3449,7 @@ def stem_volume_formula_139(H):
     """Calculates the volume of the stem of a standing tree.
 
     Species: Pinus spp.
-    Location: Germany
+    Country: Germany
 
     Reference: Hempel, G. 1968. Allometrische studie an Pinus cembra spp. sibirica (Rupr.) Kryl. und Abies sibirica (Ledeb.). Archiv für Forstwesen 17(11):1099-1115.
 
@@ -3318,8 +3473,8 @@ def stem_volume_formula_139(H):
 def stem_volume_formula_140(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus spp
+    Country: Germany
 
     Args:
         D: Diameter at breast height in cm.
@@ -3336,8 +3491,8 @@ def stem_volume_formula_140(D):
 def stem_volume_formula_141(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus spp
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -3358,8 +3513,8 @@ def stem_volume_formula_141(D, H):
 def stem_volume_formula_142(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus spp
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -3379,8 +3534,8 @@ def stem_volume_formula_142(D, H):
 def stem_volume_formula_143(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus spp
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -3400,7 +3555,10 @@ def stem_volume_formula_143(D, H):
 def stem_volume_formula_144(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris from Austria. The range of valid values for D is 0.5 cm and above.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 0.5 cm and above.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm. Recommendend range: 0.5 cm and above.
@@ -3419,11 +3577,14 @@ def stem_volume_formula_144(D, H):
 
 
 def stem_volume_formula_145(D):
-    """Calculate the stem volume for a standing tree of Pinus sylvestris (Scots pine) in Belgium.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Xiao, c.W., curiel Yuste, J., Janssens, I.A., Roskams, P., Nachtergale, l.,
     carrara, A., Sanchez, B.Y. & ceulemans, R. 003. Above-and belowground biomass and net primary
     production in a 73-year-old Scots pine forest. Tree Physiology 3: 505–516.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Belgium
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -3445,6 +3606,9 @@ def stem_volume_formula_146(D, H):
 
     This formula is implemented from Zianis et al. (2005).
 
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Belgium
+    
     Args:
         D (float): Diameter of the tree in cm.
         H (float): Height of the tree in m.
@@ -3467,6 +3631,9 @@ def stem_volume_formula_146(D, H):
 def stem_volume_formula_147(D):
     """Calculates the volume of the stem of a standing tree.
 
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
+
     Args:
         D: Diameter at breast height in cm.
 
@@ -3483,8 +3650,8 @@ def stem_volume_formula_147(D):
 def stem_volume_formula_148(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Pinus sylvestris
-    Location:   Finland
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country:   Finland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 0.9-50.6cm.
@@ -3505,8 +3672,11 @@ def stem_volume_formula_148(D):
 def stem_volume_formula_149(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris (Scots pine) from Finland.
+    This formula is implemented from Zianis et al., (2005).
     It was originally published in Laasasenaho, J. 198 . Taper curve and volume functions for pine, spruce and birch. communicationes Instituti Forestalis Fenniae 108: 1–74.
+   
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 0.9 to 50.6 cm.
@@ -3559,8 +3729,8 @@ def stem_volume_formula_150(D: float, H: float) -> float:
 def stem_volume_formula_151(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -3579,7 +3749,10 @@ def stem_volume_formula_151(D, H):
 def stem_volume_formula_152(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) from Finland. The range of valid values for D is 2 cm and above.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 2 cm and above.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 2 cm and above.
@@ -3600,8 +3773,11 @@ def stem_volume_formula_152(D, H):
 def stem_volume_formula_153(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Pinus sylvestris (Scots pine), from Finland.
+    This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
+    
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -3622,8 +3798,8 @@ def stem_volume_formula_153(D, H):
 def stem_volume_formula_154(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm.
@@ -3649,8 +3825,8 @@ def stem_volume_formula_154(D, H):
 def stem_volume_formula_155(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Pinus sylvestris
-    Location: Germany
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Germany
 
     Reference: Lockow, K.-W. 1993. Modellbildung und Quantifizierung der Durchmesser- und Volumenstruktur des ausscheidenden Kieferjungbestandes - Holzmeßkundliche Entscheideungshilfen für die Erstdurchforstung. Beiträge für Forstwirtschaft und Landschaftsökologie 27(2): 77-82.
 
@@ -3683,8 +3859,8 @@ def stem_volume_formula_155(D, H):
 def stem_volume_formula_156(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Italy
 
     Args:
         D: Diameter at breast height in dm.
@@ -3703,8 +3879,8 @@ def stem_volume_formula_156(D, H):
 def stem_volume_formula_157(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -3724,8 +3900,9 @@ def stem_volume_formula_157(D, H):
 def stem_volume_formula_158(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Neatherlands
+
 
     Args:
         D: Diameter at breast height in mm.
@@ -3745,8 +3922,9 @@ def stem_volume_formula_158(D, H):
 def stem_volume_formula_159(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Neatherlands
+
 
     Args:
         D: Diameter at breast height in mm.
@@ -3766,7 +3944,10 @@ def stem_volume_formula_159(D, H):
 def stem_volume_formula_160(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris from Netherlands.
+    This formula is implemented from Zianis et al., (2005).
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -3784,12 +3965,13 @@ def stem_volume_formula_160(D, H):
 
 
 def stem_volume_formula_161(D, H):
-    """Calculate the stem volume for a standing tree of Pinus sylvestris.
-
-    (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Bauger, E. 1995. Funksjoner og tabeller for kubering av stående trær.
     Rapport fra Skogforsk(16): 1–26.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -3811,10 +3993,12 @@ def stem_volume_formula_161(D, H):
 
 
 def stem_volume_formula_162(D, H):
-    """Calculate the stem volume for a standing tree of Pinus sylvestris.
+    """Calculate the stem volume for a standing tree.
 
-    (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Norway. This
-    formula is implemented from Zianis et al. (2005).
+    This formula is implemented from Zianis et al. (2005).
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -3836,8 +4020,9 @@ def stem_volume_formula_162(D, H):
 def stem_volume_formula_163(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -3858,8 +4043,9 @@ def stem_volume_formula_163(D, H):
 def stem_volume_formula_164(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Pinus sylvestris
-    Location:   Norway
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
+
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 10cm or above.
@@ -3879,8 +4065,11 @@ def stem_volume_formula_164(D, H):
 def stem_volume_formula_165(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris (Scots pine) from Norway.
+    This formula is implemented from Zianis et al. (2005).
     It was originally published in Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. Meddelelser fra det Norske Skogforsøksvesen 84: 689–739.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: up to 12 cm.
@@ -3930,8 +4119,9 @@ def stem_volume_formula_166(D: float, H: float) -> float:
 def stem_volume_formula_167(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -3950,7 +4140,10 @@ def stem_volume_formula_167(D, H):
 def stem_volume_formula_168(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) from Norway. The range of valid values for D is 0 cm and above.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 0 cm and above.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 0 cm and above.
@@ -3974,8 +4167,11 @@ def stem_volume_formula_169(D, H):
     # output: volume in m3
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Pinus sylvestris (Scots pine), from Romania.
+    This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -3997,8 +4193,9 @@ def stem_volume_formula_169(D, H):
 def stem_volume_formula_170(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -4017,8 +4214,8 @@ def stem_volume_formula_170(D, H):
 def stem_volume_formula_171(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Pinus sylvestris
-    Location: Sweden
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
 
     Reference: Brandel, G. 1974. Volymfunktioner för tall och gran.Skoghögskolan, Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178-191.
 
@@ -4053,8 +4250,8 @@ def stem_volume_formula_171(D, H):
 def stem_volume_formula_172(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -4075,8 +4272,8 @@ def stem_volume_formula_172(D, H):
 def stem_volume_formula_173(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -4097,8 +4294,9 @@ def stem_volume_formula_173(D, H):
 def stem_volume_formula_174(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -4119,8 +4317,9 @@ def stem_volume_formula_174(D, H):
 def stem_volume_formula_175(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
+
 
     Args:
         D: Diameter at breast height in cm.
@@ -4141,8 +4340,11 @@ def stem_volume_formula_175(D, H):
 def stem_volume_formula_176(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pinus sylvestris from Sweden. The range of valid values for D is 5-49.9 cm.
+    This formula is implemented from Ziannis et al., (2005). The range of valid values for D is 5-49.9 cm.
     Original source is Näslund (1947) - https://pub.epsilon.slu.se/10185/1/medd_statens_skogsforskningsanst_032_04.pdf
+
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5-49.9 cm.
@@ -4160,12 +4362,16 @@ def stem_volume_formula_176(D, H):
 
 
 def stem_volume_formula_177(D, H):
-    """Calculate the stem volume for a standing tree of Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri) in Sweden.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Brandel, G. 1974. Volymfunktioner för tall och gran. Skoghögskolan,
     Institutionen för skogsproduktion, Rapporter och Uppsatser 33: 178–191.
 
-    Args:
+    
+    Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
+    Country: Sweden
+
+Args:
         D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
         H (float): Height of the tree in m. Recommended range: 2 m and above.
 
@@ -4189,6 +4395,7 @@ def stem_volume_formula_178(D, H):
 
     This formula is implemented from Zianis et al. (2005).
     The recommended range for diameter is between 5 and 10.4 dm.
+
     Species: Abies grandis (Grand fir)
     Country: Netherlands
 
@@ -4212,8 +4419,8 @@ def stem_volume_formula_178(D, H):
 def stem_volume_formula_179(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Populus spp. (Poplar, Plop)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -4233,8 +4440,8 @@ def stem_volume_formula_179(D, H):
 def stem_volume_formula_180(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Populus spp.
-    Location:   Netherlands
+    Species:    Populus spp. (Poplar, Plop)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -4255,8 +4462,11 @@ def stem_volume_formula_180(D, H):
 def stem_volume_formula_181(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Populus spp. (Poplar) from the Netherlands.
+    This formula is implemented from Zianis et al. (2005).
     It was originally published in Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44.
+    
+    Species:    Populus spp. (Poplar, Plop)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -4307,8 +4517,8 @@ def stem_volume_formula_182(D: float, H: float) -> float:
 def stem_volume_formula_183(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Populus spp. (Poplar, Plop)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -4331,7 +4541,11 @@ def stem_volume_formula_183(D, H):
 def stem_volume_formula_184(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Populus spp. (Poplar, Plop) from UK.
+    This formula is implemented from Zianis et al. (2005).
+    It was originally published in Brantseg, A. 1967. Furu sønnafjells: kubering av stående skog, funksjoner og tabeller. Meddelelser fra det Norske Skogforsøksvesen 84: 689–739.
+
+    Species: Populus spp. (Poplar, Plop)
+    Country: Uk
 
     Args:
         D: Diameter at breast height in cm.
@@ -4352,8 +4566,11 @@ def stem_volume_formula_184(D, H):
 def stem_volume_formula_185(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Populus tremula (Aspen), from Norway.
+    This formula is implemented from Zianis et al., (2005).
     The range of valid values for D is 13cm and above.
+    
+    Species: Populus tremula (Aspen, Plop tremulator)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommended range:  13cm and above
@@ -4372,8 +4589,8 @@ def stem_volume_formula_185(D, H):
 def stem_volume_formula_186(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Populus tremula (Aspen, Plop tremulator)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -4391,8 +4608,8 @@ def stem_volume_formula_186(D, H):
 def stem_volume_formula_187(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Populus tremulus
-    Location: Romania
+    Species: Populus tremula (Aspen, Plop tremulator)
+    Country: Romania
 
     Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
@@ -4420,8 +4637,8 @@ def stem_volume_formula_187(D, H):
 def stem_volume_formula_188(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species : Populus tremula (Aspen, Plop tremulator)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -4442,8 +4659,8 @@ def stem_volume_formula_188(D, H):
 def stem_volume_formula_189(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species : Populus tremula (Aspen, Plop tremulator)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -4462,8 +4679,8 @@ def stem_volume_formula_189(D, H):
 def stem_volume_formula_190(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+   Species : Populus tremula (Aspen, Plop tremulator)
+   Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -4513,8 +4730,11 @@ def stem_volume_formula_191(D, H):
 def stem_volume_formula_192(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Prunus avium from Belgium.
+    This formula is implemented from Zianis.
     Original source is Dagnelie et al (1999) - https://orbi.uliege.be/bitstream/2268/100984/1/tables%20de%20cubage%201999.pdf
+
+    Species: Prunus avium (Wild cherry, Merisier, Zoete kers)
+    Country: Iceland
 
     Args:
         D: Diameter at breast height in cm.
@@ -4535,10 +4755,13 @@ def stem_volume_formula_192(D, H):
 
 
 def stem_volume_formula_193(D, H):
-    """Calculate the stem volume for a standing tree of Pseudotsuga menziesii (Douglas fir, Duglas) in Belgium.
+    """Calculate the stem volume for a standing tree.
 
     Original source: Dagnelie, P., Palm, R., Rondeux, J. & Thill, A. 1999. Tables de cubage des
     arbres et des peuplements forestiers. les Presses Agronomiques de Gembloux, Gembloux. 1 6 p.
+
+    Species: Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country: Belgium
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -4563,8 +4786,10 @@ def stem_volume_formula_193(D, H):
 def stem_volume_formula_194(D, H):
     """Calculate the stem volume for a standing tree.
 
-    This formula is implemented from Zianis et al. (2005) and is recommended for #Pseudotsuga menziesii (Douglas fir, Duglasfrom Neatherlands.
+    This formula is implemented from Zianis et al. (2005).
 
+    Species: Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country: Netherlands
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -4585,8 +4810,8 @@ def stem_volume_formula_194(D, H):
 def stem_volume_formula_195(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -4607,8 +4832,8 @@ def stem_volume_formula_195(D, H):
 def stem_volume_formula_196(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Pseudotsuga menziesii
-    Location:   Romania
+    Species:    Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country:   Romania
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -4630,8 +4855,11 @@ def stem_volume_formula_196(D, H):
 def stem_volume_formula_197(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Pseudotsuga spp. from the Netherlands.
+    This formula is implemented from Zianis et al. (2005).
     It was originally published in Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44.
+
+    Species:    Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country:   Romania
 
     Args:
         D: Diameter at breast height in mm.
@@ -4682,8 +4910,8 @@ def stem_volume_formula_198(D: float, H: float) -> float:
 def stem_volume_formula_199(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Pseudotsuga spp.
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -4704,7 +4932,10 @@ def stem_volume_formula_199(D, H):
 def stem_volume_formula_200(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Quercus grisea (Gray oak, Stejar brumariu) from Romania.
+    This formula is implemented from Zianis et al . (2005).
+
+    Species: Quercus grisea (Gray oak, Stejar brumariu)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -4727,8 +4958,11 @@ def stem_volume_formula_200(D, H):
 def stem_volume_formula_201(D, H):
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Quercus ilex (Holm oak), from Italy.
+    This formula is implemented from Zianis et al., (2005).
      The range of valid values for D is 4.5-26.1cm, and for H is 6-16m.
+
+    Species: Quercus ilex (Holm oak)
+    Country: Italy
 
     Args:
         D: Diameter at breast height in cm. Recommended range: 4.5-26.1cm
@@ -4747,8 +4981,8 @@ def stem_volume_formula_201(D, H):
 def stem_volume_formula_202(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species:  Quercus ilex (Holm oak)
+    Country:  Croatia
 
     Args:
         D: Diameter at breast height in cm.
@@ -4767,8 +5001,8 @@ def stem_volume_formula_202(D, H):
 def stem_volume_formula_203(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Quercus laevis
-    Location: Romania
+    Species: Quercus laevis (Turkey oak, Cer)
+    country: Romania
 
     Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
@@ -4796,8 +5030,8 @@ def stem_volume_formula_203(D, H):
 def stem_volume_formula_204(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Quercus laevis (Turkey oak, Cer)
+    Country: Croatia
 
     Args:
         D: Diameter at breast height in cm.
@@ -4818,8 +5052,8 @@ def stem_volume_formula_204(D, H):
 def stem_volume_formula_205(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Quercus laevis (Turkey oak, Cer)
+    Country: Croatia
 
     Args:
         D: Diameter at breast height in cm.
@@ -4840,8 +5074,8 @@ def stem_volume_formula_205(D, H):
 def stem_volume_formula_206(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Quercus laevis (Turkey oak, Cer)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -4862,8 +5096,9 @@ def stem_volume_formula_206(D, H):
 def stem_volume_formula_207(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Species: Quercus robur (Pedunculate oak)
+    Country: Neatherlands
+   
 
     Args:
         D: Diameter at breast height in cm.
@@ -4884,6 +5119,9 @@ def stem_volume_formula_208(D, H):
 
     This formula is implemented from Zianis and is recommended for Quercus rubra from Belgium.
     Original source is Dagnelie et al (1999) - https://orbi.uliege.be/bitstream/2268/100984/1/tables%20de%20cubage%201999.pdf
+
+    Species: Quercus rubra (Red oak, Chêne rouge)
+    Country: Belgium
 
     Args:
         D: Diameter at breast height in cm.
@@ -4910,6 +5148,9 @@ def stem_volume_formula_209(D, H):
     Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen.
     Uitvoerige verslagen 19(1): 1–114.
 
+    Species: Quercus rubra (Red oak, Chêne rouge)
+    Country: Neatherlands
+
     Args:
         D (float): Diameter of the tree in cm.
         H (float): Height of the tree in m.
@@ -4926,25 +5167,14 @@ def stem_volume_formula_209(D, H):
     V = D**a * H**b * exp(c)
     return V
 
-
-def stem_volume_formula_210(D, H):
-    """Calculate the stem volume for a standing tree."""
-    a = 0.115631
-    b = 65.9961
-    c = 1.20321
-    d = -0.930406
-    e = -215.758
-    f = 168.477
-    v = (math.pi / 4) * (
-        a * D**2 * H + b * D**2 + c * D * H + d * H + e * D + f
-    )  # Quercus spp. (Oak, Chênes, Stejar)(Austria)
-
-
 def stem_volume_formula_210(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Quercus spp.
+    This formula is implemented from Zianis.
     (Oak, Chênes, Stejar) from Austria. The diameter should be biger than 1.
+    
+    Species: Quercus spp. (Oak, Chênes, Stejar)
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm.
@@ -4967,8 +5197,8 @@ def stem_volume_formula_210(D, H):
 def stem_volume_formula_211(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Quercus spp. (Oak, Chênes, Stejar)
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm.
@@ -4987,8 +5217,8 @@ def stem_volume_formula_211(D, H):
 def stem_volume_formula_212(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Quercus spp.
-    Location:   Belgium
+    Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Country:   Belgium
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -5011,8 +5241,11 @@ def stem_volume_formula_212(D, H):
 def stem_volume_formula_213(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Quercus spp. (Oak) from the Netherlands.
+    This formula is implemented from Zianis et al. (2005).
     It was originally published in Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44.
+
+    Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Country:   Netherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -5063,8 +5296,8 @@ def stem_volume_formula_214(D: float, H: float) -> float:
 def stem_volume_formula_215(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -5084,7 +5317,10 @@ def stem_volume_formula_215(D, H):
 def stem_volume_formula_216(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for  Quercus spp. (Oak, chênes, Stejar) from Romania.
+    This formula is implemented from Zianis et al (2005).
+
+    Species: Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -5111,8 +5347,10 @@ def stem_volume_formula_217(D, H):
     # output: volume in m3
     """Calculate the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis et al., (2005) and is recommended for Quercus spp. (Oak), UK
-    No valid range for D and H is given.
+    This formula is implemented from Zianis et al., (2005). No valid range for D and H is given.
+
+    Species: Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Country: UK
 
     Args:
         D: Diameter at breast height in cm.
@@ -5135,8 +5373,8 @@ def stem_volume_formula_217(D, H):
 def stem_volume_formula_218(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Salix caprea (Goat willow, Salcie capreasca)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -5157,8 +5395,8 @@ def stem_volume_formula_218(D, H):
 def stem_volume_formula_219(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Salix caprea
-    Location: Romania
+    Species: Salix caprea (Goat willow, Salcie capreasca)
+    Country: Romania
 
     Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru - înaltime - volum, pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173-178.
 
@@ -5186,8 +5424,8 @@ def stem_volume_formula_219(D, H):
 def stem_volume_formula_220(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Salix spp. (Salcie)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -5208,8 +5446,8 @@ def stem_volume_formula_220(D, H):
 def stem_volume_formula_221(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Salix spp. (Salcie)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm.
@@ -5234,8 +5472,8 @@ def stem_volume_formula_221(D, H):
 def stem_volume_formula_222(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Sorbus aucuparia (Rowan)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -5256,8 +5494,8 @@ def stem_volume_formula_222(D, H):
 def stem_volume_formula_223(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Thuja pilicata (Western redcedar)
+    Country: Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -5276,7 +5514,10 @@ def stem_volume_formula_223(D, H):
 def stem_volume_formula_224(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Thuja pilicata from Norway. The range of valid values for D is 5 cm and above.
+    This formula is implemented from Zianis et al., (2005). The range of valid values for D is 5 cm and above.
+
+    Species: Thuja pilicata (Western redcedar)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5 cm and above.
@@ -5298,8 +5539,10 @@ def stem_volume_formula_224(D, H):
 def stem_volume_formula_225(D, H):
     """Calculate the stem volume for a standing tree of Tilia cordata (Tei) in Romania.
 
-    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum,
-    pentru majoritatea speciilor forestiere din Romania. Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+    Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volume Silviculturasi Exploatarea Padurilor 89(4): 173–178.
+
+     Species: Tilia cordata (Tei)
+     Country: Romania
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -5321,9 +5564,12 @@ def stem_volume_formula_225(D, H):
 
 
 def stem_volume_formula_226(D, H):
-    """Calculate the stem volume for a standing tree of Tsuga heterophylla (Hemlock) in the Netherlands.
+    """Calculate the stem volume for a standing tree.
 
     This formula is implemented from Zianis et el(2005).
+
+    Species: Tsuga heterophylla (Hemlock)
+    Country: Neatherlands
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -5344,8 +5590,8 @@ def stem_volume_formula_226(D, H):
 def stem_volume_formula_227(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Unknown
-    Country: Unknown
+    Species: Tsuga heterophylla (Hemlock)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -5366,8 +5612,8 @@ def stem_volume_formula_227(D, H):
 def stem_volume_formula_228(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Ulmus spp.
-    Location:   Belgium
+    Species:    Ulmus spp. (Elm, Orme, Ulm)
+    Country:   Belgium
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -5390,8 +5636,11 @@ def stem_volume_formula_228(D, H):
 def stem_volume_formula_229(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    This formula is implemented from Zianis and is recommended for Ulmus spp. (Elm) from the Netherlands.
+    This formula is implemented from Zianis et el(2005).
     It was originally published in Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
+
+    Species:   Ulmus spp. (Elm, Orme, Ulm)
+    Country:   Neatherlands
 
     Args:
         D: Diameter at breast height in cm.
