@@ -160,9 +160,14 @@ def calculate_stem_volumes(df):
         vol_unit = extract_volume_unit(f)
         all_formulas[func_name] = (f, params, param_units, vol_unit)
 
-    # Step 2: Get genus → list of function names
-    raw_genus_formulas = match_genus_to_functions(result_df['genus'].tolist(), stem_volumes.formulas.__file__)
+    # Step 2: Flatten the genus column into a list of unique genus names
+    flat_genus_set = set(
+        g for sublist in result_df['genus'] if isinstance(sublist, list) for g in sublist
+    )
+    # Call the function with cleaned list
+    raw_genus_formulas = match_genus_to_functions(list(flat_genus_set), stem_volumes.formulas.__file__)
     genus_formula_names = {g: set(funcs) for g, funcs in raw_genus_formulas.items()}
+    
 
     # Step 3: Pre-fill all 230 columns with pd.NA
     formula_columns = [f'{name} [m3]' for name in all_formulas]

@@ -196,7 +196,7 @@ def match_genus_to_functions(genus_list: list, script_path: str) -> dict:
             if genus not in function_dict:
                 function_dict[genus] = []
             function_dict[genus].append(name)
-    
+                
     return function_dict
 
 
