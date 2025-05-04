@@ -108,7 +108,7 @@ def match_species_names(df: pd.DataFrame) -> list:
                 "Abies spp.", "Fir, Brad", "Other firs"],
         "Picea": ["Picea abies", "Norway spruce", "Picea sitchensis", "Sitka spruce", "Picea spp.", "Other spruces"],
         "Pinus": ["Pinus sylvestris", "Scots pine", "Pinus mugo", "Mountain pine", "Pinus nigra", "European black pine",
-                "Pinus cembra", "Swiss stone pine", "Pinus strobus", "Eastern white pine", "Pinus spp.", "Other pines"],,
+                "Pinus cembra", "Swiss stone pine", "Pinus strobus", "Eastern white pine", "Pinus spp.", "Other pines"],
         "Pseudotsuga": ["Pseudotsuga menziesii", "Douglas fir", "Other firs"],
         "Larix": ["Larix decidua", "European larch", "Larix kaempferi", "Japanese larch"],
         "Taxus": ["Taxus baccata", "European yew"],
