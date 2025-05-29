@@ -5,11 +5,8 @@ import os
 import pstats
 import sys
 import time
-from concurrent.futures import ProcessPoolExecutor, as_completed
-from functools import lru_cache, partial
 from inspect import signature
 
-import numpy as np
 import pandas as pd
 from functools import partial
 
@@ -96,19 +93,17 @@ def parse_arguments():
     return parser.parse_args()
 
 
-@lru_cache(maxsize=1000)
-def _apply_formula_cached(formula_func, params, parameter_units, volume_unit, diameter_mm, height_dm):
-    """Cached version of formula application to avoid redundant calculations."""
-    if pd.isna(diameter_mm) or (len(params) > 1 and pd.isna(height_dm)):
-        return pd.NA
+def calculate_stem_volumes(df):
+    """Applies the stem volume formulas to the given data frame.
 
-    UNITS = {
-        'D': ['mm', 'cm', 'dm', 'm'],
-        'H': ['dm', 'm'],
-    }
+    Args:
+        df: Data frame to perform the calculations on.
 
-    args = {'D': diameter_mm, 'H': height_dm}
+    Returns:
+        the modified data frame
+    """
     try:
+ debugging_script
         converted_args = [
             args[par_name] / 10 ** UNITS[par_name].index(parameter_units[i])
             for i, par_name in enumerate(params)
@@ -197,7 +192,61 @@ def calculate_stem_volumes(df):
 
 
     return result_df
+        # Add columns for formulas to fill
+        df_empty_volumes = pd.DataFrame(
+            {f'volume formula {i} [m3]': pd.NA for i in range(1, 231)},
+            index=df.index,
+        )
+        df = pd.concat([df, df_empty_volumes], axis=1)
 
+        # Iterate over rows to calculate each volume per formula and add the value
+        num_formulas = 230
+        formulas_cache = {}
+
+        # Prepare formulas metadata upfront
+        for i in range(1, num_formulas + 1):
+            fn_name = f'stem_volume_formula_{i}'
+            f = getattr(formulas, fn_name)
+            formulas_cache[i] = {
+                'fn': f,
+                'params': list(signature(f).parameters),
+                'param_units': extract_parameter_units(f),
+                'volume_unit': extract_volume_unit(f),
+            }
+
+        def compute_row_volumes(row):
+            result = {}
+            D_mm = row['diameter at breast height [mm]']
+            H_dm = row['height [dm]']
+
+            for i in range(1, num_formulas + 1):
+                meta = formulas_cache[i]
+                args = []
+                for j, param in enumerate(meta['params']):
+                    unit_index = {
+                        'D': ['mm', 'cm', 'dm', 'm'],
+                        'H': ['dm', 'm']
+                    }[param].index(meta['param_units'][j])
+                    raw_value = D_mm if param == 'D' else H_dm
+                    converted = raw_value / 10 ** unit_index
+                    args.append(converted)
+
+                try:
+                    volume = meta['fn'](*args)
+                    volume_m3 = convert_volume_to_m3(volume, meta['volume_unit'])
+                except Exception as e:
+                    volume_m3 = pd.NA  # Or log error if needed
+                result[f'volume formula {i} [m3]'] = volume_m3
+
+            return pd.Series(result)
+
+        df = df.apply(compute_row_volumes, axis=1)
+        return df
+
+    except Exception as e:
+        print(f"Error in calculate_stem_volumes: {e}", file=sys.stderr)
+        return pd.DataFrame() # Return empty DataFrame on error
+main
 
 
 if __name__ == '__main__':
