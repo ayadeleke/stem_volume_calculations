@@ -102,8 +102,8 @@ def _apply_formula_cached(formula_func, params, parameter_units, volume_unit, di
         return pd.NA
 
     UNITS = {
-    'D': ['mm', 'cm', 'dm', 'm'],
-    'H': ['dm', 'm'],
+        'D': ['mm', 'cm', 'dm', 'm'],
+        'H': ['dm', 'm'],
     }
 
     args = {'D': diameter_mm, 'H': height_dm}
@@ -161,7 +161,7 @@ def calculate_stem_volumes(df):
 
     # Step 2: Flatten the genus column into a list of unique genus names
     flat_genus_set = set(
-    g for sublist in result_df['genus'] if isinstance(sublist, list) for g in sublist
+        g for sublist in result_df['genus'] if isinstance(sublist, list) for g in sublist
     )
     # Call the function with cleaned list
     raw_genus_formulas = match_genus_to_functions(list(flat_genus_set), stem_volumes.formulas.__file__)
@@ -179,23 +179,22 @@ def calculate_stem_volumes(df):
     for genus, relevant_funcs in genus_formula_names.items():
         idxs = genus_to_indices.get(genus, [])
         if len(idxs) == 0:
-            # No indices for this genus, skip to next
-            pass
+            continue
 
-    diameters = result_df.loc[idxs, 'diameter at breast height [mm]'].values
-    heights = result_df.loc[idxs, 'height [dm]'].values
+        diameters = result_df.loc[idxs, 'diameter at breast height [mm]'].values
+        heights = result_df.loc[idxs, 'height [dm]'].values
 
-    for func_name in relevant_funcs:
-        f, params, param_units, vol_unit = all_formulas[func_name]
-        col_name = f'{func_name} [m3]'
-        apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
+        for func_name in relevant_funcs:
+            f, params, param_units, vol_unit = all_formulas[func_name]
+            col_name = f'{func_name} [m3]'
+            apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
 
-        # Vectorized (no row-looping)
-        vectorized_func = np.vectorize(apply_func, otypes=[object])
-        result_df.loc[idxs, col_name] = vectorized_func(diameters, heights)
+            # Vectorized (no row-looping)
+            vectorized_func = np.vectorize(apply_func, otypes=[object])
+            result_df.loc[idxs, col_name] = vectorized_func(diameters, heights)
 
 
-        return result_df
+    return result_df
 
 
 
