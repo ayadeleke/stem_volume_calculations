@@ -4371,7 +4371,7 @@ def stem_volume_formula_177(D, H):
     Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
     Country: Sweden
 
-Args:
+    Args:
         D (float): Diameter of the tree in cm. Recommended range: 2 cm and above.
         H (float): Height of the tree in m. Recommended range: 2 m and above.
 
@@ -4404,7 +4404,7 @@ def stem_volume_formula_178(D, H):
         H (float): Tree height in dm.
 
     Returns:
-        float: Stem volume in dm3.
+        V (float): Stem volume in dm3.
     """
     # Define parameters
 
@@ -4679,8 +4679,8 @@ def stem_volume_formula_189(D, H):
 def stem_volume_formula_190(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-   Species : Populus tremula (Aspen, Plop tremulator)
-   Country: Sweden
+    Species : Populus tremula (Aspen, Plop tremulator)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
