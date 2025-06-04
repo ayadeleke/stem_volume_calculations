@@ -3,6 +3,7 @@ import argparse
 import cProfile
 import os
 import pstats
+import re
 import sys
 import time
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -17,6 +18,7 @@ from functools import partial
 from line_profiler import LineProfiler
 
 import stem_volumes.formulas
+from stem_volumes.genus_dict import genus_species_common_dict
 from stem_volumes.utils import (
     convert_volume_to_m3,
     extract_parameter_units,
@@ -61,6 +63,9 @@ def __orig_main():
     print(f'Calculating the volumes took {toc - tic:.6f} seconds')
     tic = toc
 
+    # Drop 'genus_species' before saving
+    if 'genus_species' in df_calculated.columns:
+        df_calculated = df_calculated.drop(columns=['genus_species'])
     df_calculated.to_csv(args.output_file, index=False)
     toc = time.perf_counter()
     print(f'Writing the CSV file took {toc - tic:.6f} seconds')
@@ -144,11 +149,12 @@ def _process_formula_batch(formula_data, diameters, heights):
     return results
 
 def calculate_stem_volumes(df):
-    """Applies genus-specific stem volume formulas to the data, keeping all 230 columns."""
+    """Applies only matching stem volume formulas to each row."""
     result_df = df.copy()
-    result_df['genus'] = match_species_names(result_df) # Add genus column
+    # This now returns a list of (genus, species) tuples
+    result_df['genus_species'] = match_species_names(result_df)
 
-    # Step 1: Get all formulas (1–230) into a lookup dict
+    # Prepare all formulas
     all_formulas = {}
     for formula_no in range(1, 231):
         func_name = f'stem_volume_formula_{formula_no}'
@@ -156,43 +162,31 @@ def calculate_stem_volumes(df):
         params = tuple(signature(f).parameters)
         param_units = tuple(extract_parameter_units(f))
         vol_unit = extract_volume_unit(f)
+        docstring = f.__doc__ or ""
+        # Extract scientific species name from docstring
+        match = re.search(r"Species:\s*([^\n\(]+)", docstring)
+        sci_name = match.group(1).strip() if match else ""
+        all_formulas[func_name] = (f, params, param_units, vol_unit, sci_name)
 
-        all_formulas[func_name] = (f, params, param_units, vol_unit)
-
-    # Step 2: Flatten the genus column into a list of unique genus names
-    flat_genus_set = set(
-        g for sublist in result_df['genus'] if isinstance(sublist, list) for g in sublist
-    )
-    # Call the function with cleaned list
-    raw_genus_formulas = match_genus_to_functions(list(flat_genus_set), stem_volumes.formulas.__file__)
-    genus_formula_names = {g: set(funcs) for g, funcs in raw_genus_formulas.items()}
-
-    # Step 3: Pre-fill all 230 columns with pd.NA
+    # Pre-fill all 230 columns with pd.NA
     formula_columns = [f'{name} [m3]' for name in all_formulas]
     empty_formulas_df = pd.DataFrame(pd.NA, index=result_df.index, columns=formula_columns)
     result_df = pd.concat([result_df, empty_formulas_df], axis=1)
 
-
-    # Step 4: Group by genus and apply only relevant formulas
-    genus_to_indices = get_genus_row_map(result_df['genus'])
-
-    for genus, relevant_funcs in genus_formula_names.items():
-        idxs = genus_to_indices.get(genus, [])
-        if len(idxs) == 0:
+    # Apply only matching formulas row-wise
+    for idx, row in result_df.iterrows():
+        genus, _ = row['genus_species']
+        if genus is None:
             continue
-
-        diameters = result_df.loc[idxs, 'diameter at breast height [mm]'].values
-        heights = result_df.loc[idxs, 'height [dm]'].values
-
-        for func_name in relevant_funcs:
-            f, params, param_units, vol_unit = all_formulas[func_name]
-            col_name = f'{func_name} [m3]'
-            apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
-
-            # Vectorized (no row-looping)
-            vectorized_func = np.vectorize(apply_func, otypes=[object])
-            result_df.loc[idxs, col_name] = vectorized_func(diameters, heights)
-
+        allowed_formulas = set(genus_species_common_dict[genus]["formulas"])
+        diameter = row['diameter at breast height [mm]']
+        height = row['height [dm]']
+        for func_name, (f, params, param_units, vol_unit, sci_name) in all_formulas.items():
+            # Only apply if the formula's species matches allowed scientific names
+            if sci_name in allowed_formulas:
+                apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
+                value = apply_func(diameter, height)
+                result_df.at[idx, f"{func_name} [m3]"] = value
 
     return result_df
 
