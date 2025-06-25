@@ -4,48 +4,30 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
-
-env:
-  UV_VERSION: 0.5
-  PYTHON_VERSION: "3.11"
-  BASE_LAYER: bookworm-slim
-  UV_LINK_MODE: copy
 
 jobs:
-  format:
-    name: Format Check
+  ci:
     runs-on: ubuntu-latest
-    container: ghcr.io/astral-sh/uv:${{ env.UV_VERSION }}-python${{ env.PYTHON_VERSION }}-${{ env.BASE_LAYER }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: uv run ruff format --check
+    container:
+      image: ghcr.io/astral-sh/uv:0.5-python3.11-bookworm-slim
 
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    container: ghcr.io/astral-sh/uv:${{ env.UV_VERSION }}-python${{ env.PYTHON_VERSION }}-${{ env.BASE_LAYER }}
     steps:
-      - uses: actions/checkout@v3
-      - run: uv run ruff check
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  test:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    container: ghcr.io/astral-sh/uv:${{ env.UV_VERSION }}-python${{ env.PYTHON_VERSION }}-${{ env.BASE_LAYER }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: uv run pytest
+      - name: Install dependencies
+        run: uv pip install --system --group default
 
-  doc:
-    name: Build Docs
-    runs-on: ubuntu-latest
-    container: ghcr.io/astral-sh/uv:${{ env.UV_VERSION }}-python${{ env.PYTHON_VERSION }}-${{ env.BASE_LAYER }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: uv run pdoc --html -o docs/ src/stem_volumes
-      - name: Upload Docs
-        uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs/
+      - name: Run formatter check
+        run: uv run ruff format --check
+
+      - name: Run linter
+        run: uv run ruff check
+
+      - name: Run tests
+        run: uv run pytest
+
+      - name: Build documentation
+        run: uv run pdoc --html -o docs/ src/stem_volumes
+
+
