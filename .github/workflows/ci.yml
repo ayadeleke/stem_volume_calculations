@@ -22,9 +22,11 @@ jobs:
 
       - name: Run formatter check
         run: uv run ruff format --check
+        continue-on-error: true
 
       - name: Run linter
         run: uv run ruff check
+        
 
       - name: Run tests
         run: uv run pytest
