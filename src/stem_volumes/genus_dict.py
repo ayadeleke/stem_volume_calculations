@@ -1,4 +1,4 @@
-grouped_by_genus = {
+genus_species_common_dict = {
     "Abies": {
         "formulas": ["Abies alba", "Abies grandis", "Abies sibirica", "Abies spp."],
         "species": ["silver fir", "grand fir", "other firs"]
