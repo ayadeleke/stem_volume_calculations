@@ -2011,7 +2011,7 @@ def stem_volume_formula_81(D, H):
         H (float): Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in m3.
+        V (float): The calculated stem volume in dm3.
     """
     # Define parameters
     a = 0.00035217
