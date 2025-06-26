@@ -20,20 +20,16 @@ jobs:
           uv pip install --system .
           uv pip install --system --editable .[dev]
 
-
       - name: Run formatter check
         run: uv run ruff format --check
         continue-on-error: true
 
-      - name: Format code with Ruff
-        run: uv run ruff format
-
       - name: Run linter
         run: uv run ruff check
+        
 
       - name: Run tests
         run: uv run pytest
 
       - name: Build documentation
         run: uv run pdoc --html -o docs/ src/stem_volumes
-
