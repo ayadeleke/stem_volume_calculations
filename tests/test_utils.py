@@ -3,7 +3,10 @@ from math import log as ln
 
 from pytest import approx
 
-from stem_volumes.utils import convert_volume_to_m3, extract_species_from_docstring
+from stem_volumes.utils import (
+    convert_volume_to_m3,
+    extract_species_from_docstring,
+)
 
 
 def test_convert_volume_to_m3():
@@ -54,6 +57,9 @@ def test_extract_species_from_docstring():
     docstring3 = """
     No species line here.
     """
-    assert extract_species_from_docstring(docstring1) == "Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)"
-    assert extract_species_from_docstring(docstring2) == "Abies alba"
-    assert extract_species_from_docstring(docstring3) == ""
+    assert (
+        extract_species_from_docstring(docstring1)
+        == 'Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)'
+    )
+    assert extract_species_from_docstring(docstring2) == 'Abies alba'
+    assert extract_species_from_docstring(docstring3) == ''

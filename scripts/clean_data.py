@@ -1,5 +1,9 @@
-import pandas as pd
+"""Script for cleaning and preprocessing stem volume data."""
+
 import sys
+
+import pandas as pd
+
 
 def clean_data(file_path: str) -> pd.DataFrame:
     """Load and clean the dataset.
@@ -11,7 +15,7 @@ def clean_data(file_path: str) -> pd.DataFrame:
         pd.DataFrame: Cleaned DataFrame.
     """
     # Load the dataset
-    df = pd.read_csv(file_path,  index_col=0)
+    df = pd.read_csv(file_path, index_col=0)
 
     # Drop duplicates
     df.drop_duplicates(inplace=True)
@@ -25,10 +29,9 @@ def clean_data(file_path: str) -> pd.DataFrame:
     return df
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("Usage: python clean_data.py <file_path>")
+        print('Usage: python clean_data.py <file_path>')
     else:
         file_path = sys.argv[1]
         cleaned_df = clean_data(file_path)

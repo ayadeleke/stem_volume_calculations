@@ -1,4 +1,5 @@
 """This module implements a command to apply the stem volume to a CSV file."""
+
 import argparse
 import cProfile
 import os
@@ -10,17 +11,16 @@ from inspect import signature
 
 import numpy as np
 import pandas as pd
-
 from line_profiler import LineProfiler
 
 import stem_volumes.formulas
 from stem_volumes.genus_dict import genus_species_common_dict
 from stem_volumes.utils import (
+    clean_data,
     convert_volume_to_m3,
     extract_parameter_units,
     extract_volume_unit,
-    clean_data,
-    match_species_names
+    match_species_names,
 )
 
 
@@ -95,6 +95,7 @@ def parse_arguments():
 
 
 def calculate_stem_volumes(df):
+    """Calculates the stem volumes for the given DataFrame."""
     df = df.copy()
     df['genus_species'] = match_species_names(df)
 
@@ -105,14 +106,16 @@ def calculate_stem_volumes(df):
         params = tuple(signature(f).parameters)
         param_units = tuple(extract_parameter_units(f))
         vol_unit = extract_volume_unit(f)
-        docstring = f.__doc__ or ""
-        match = re.search(r"Species:\s*([^\n\(]+)", docstring)
-        sci_name = match.group(1).strip() if match else ""
+        docstring = f.__doc__ or ''
+        match = re.search(r'Species:\s*([^\n\(]+)', docstring)
+        sci_name = match.group(1).strip() if match else ''
         all_formulas[func_name] = (f, params, param_units, vol_unit, sci_name)
 
     formula_columns = [f'{name} [m3]' for name in all_formulas]
     # Create a DataFrame with all new columns initialized to pd.NA
-    new_cols_df = pd.DataFrame({col: pd.NA for col in formula_columns}, index=df.index)
+    new_cols_df = pd.DataFrame(
+        {col: pd.NA for col in formula_columns}, index=df.index
+    )
 
     # Concatenate the new columns with the original DataFrame
     df = pd.concat([df, new_cols_df], axis=1)
@@ -120,31 +123,51 @@ def calculate_stem_volumes(df):
     # de-fragment DataFrame to improve performance
     # df = df.copy()
 
-
     unit_conversion_factors = {'mm': 0.001, 'cm': 0.01, 'dm': 0.1, 'm': 1}
     input_units = {'D': 'mm', 'H': 'dm'}
     diameter_raw = df['diameter at breast height [mm]'].to_numpy()
     height_raw = df['height [dm]'].to_numpy()
 
     allowed_formula_map = df['genus_species'].apply(
-        lambda gs: set(genus_species_common_dict.get(gs[0], {}).get("formulas", [])) if gs else set()
+        lambda gs: set(
+            genus_species_common_dict.get(gs[0], {}).get('formulas', [])
+        )
+        if gs
+        else set()
     )
 
-    for func_name, (f, params, param_units, vol_unit, sci_name) in all_formulas.items():
-        mask = allowed_formula_map.apply(lambda formulas: sci_name in formulas).to_numpy()
+    for func_name, (
+        f,
+        params,
+        param_units,
+        vol_unit,
+        sci_name,
+    ) in all_formulas.items():
+        mask = allowed_formula_map.apply(
+            lambda formulas: sci_name in formulas
+        ).to_numpy()
         if not np.any(mask):
             continue
 
         values = np.full(df.shape[0], pd.NA, dtype='object')
         try:
             if len(params) == 2:
-                d_conv = unit_conversion_factors[input_units[params[0]]] / unit_conversion_factors[param_units[0]]
-                h_conv = unit_conversion_factors[input_units[params[1]]] / unit_conversion_factors[param_units[1]]
+                d_conv = (
+                    unit_conversion_factors[input_units[params[0]]]
+                    / unit_conversion_factors[param_units[0]]
+                )
+                h_conv = (
+                    unit_conversion_factors[input_units[params[1]]]
+                    / unit_conversion_factors[param_units[1]]
+                )
                 d_converted = diameter_raw * d_conv
                 h_converted = height_raw * h_conv
                 values[mask] = f(d_converted[mask], h_converted[mask])
             elif len(params) == 1:
-                d_conv = unit_conversion_factors[input_units[params[0]]] / unit_conversion_factors[param_units[0]]
+                d_conv = (
+                    unit_conversion_factors[input_units[params[0]]]
+                    / unit_conversion_factors[param_units[0]]
+                )
                 d_converted = diameter_raw * d_conv
                 values[mask] = f(d_converted[mask])
         except Exception:
@@ -157,8 +180,11 @@ def calculate_stem_volumes(df):
                 except Exception:
                     values[i] = pd.NA
 
-        values = [convert_volume_to_m3(v, vol_unit) if pd.notna(v) else pd.NA for v in values]
-        df[f"{func_name} [m3]"] = values
+        values = [
+            convert_volume_to_m3(v, vol_unit) if pd.notna(v) else pd.NA
+            for v in values
+        ]
+        df[f'{func_name} [m3]'] = values
 
     return df.drop(columns=['genus_species'])
 

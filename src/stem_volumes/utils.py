@@ -1,15 +1,16 @@
 """Utility functions."""
 
-from math import exp
-import re
-import os
 import importlib.util
-import pandas as pd
-from collections import defaultdict
-import numpy as np
 import inspect
+import os
+import re
+from collections import defaultdict
+from math import exp
 
 import docstring_parser
+import numpy as np
+import pandas as pd
+
 from stem_volumes.genus_dict import genus_species_common_dict
 
 
@@ -81,34 +82,38 @@ def clean_data(raw_df: pd.DataFrame):
 
 
 def extract_species_from_docstring(docstring: str) -> str:
-    """
-    Extracts the species name from a docstring by searching for the 'Species:' line.
+    """Extracts the species name from a docstring by searching for the 'Species:' line.
+
     Returns the species string or an empty string if not found.
     """
     if not docstring:
-        return ""
-    match = re.search(r"Species\s*:? ?([^\n]+)", docstring)
-    return match.group(1).strip() if match else ""
-
+        return ''
+    match = re.search(r'Species\s*:? ?([^\n]+)', docstring)
+    return match.group(1).strip() if match else ''
 
 
 def match_species_names(df: pd.DataFrame) -> list:
-    """
-    Matches species names in the DataFrame column to genus_species_common_dict values.
+    """Matches species names in the DataFrame column to genus_species_common_dict values.
 
     Returns:
     - list: A list of tuples (genus, species) for each row. If no match, (None, None).
     """
     matched = []
     lowercase_species_dict = {
-        genus: {s.lower() for s in data['species']} for genus, data in genus_species_common_dict.items()
+        genus: {s.lower() for s in data['species']}
+        for genus, data in genus_species_common_dict.items()
     }
 
     for name in df['species']:
         lname = name.lower()
-        match = next(((genus, name) for genus, species_set in lowercase_species_dict.items() if lname in species_set), None)
+        match = next(
+            (
+                (genus, name)
+                for genus, species_set in lowercase_species_dict.items()
+                if lname in species_set
+            ),
+            None,
+        )
         matched.append(match if match else (None, None))
 
     return matched
-
-
