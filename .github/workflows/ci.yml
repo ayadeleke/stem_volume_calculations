@@ -1,4 +1,4 @@
-name: Run_tests
+name: Run CI Workflows
 
 on:
   push:
@@ -33,5 +33,3 @@ jobs:
 
       - name: Build documentation
         run: uv run pdoc --html -o docs/ src/stem_volumes
-
-
