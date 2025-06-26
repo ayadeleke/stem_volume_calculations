@@ -65,7 +65,7 @@ def test_calling_formula_function(formula_no):
 @pytest.mark.parametrize('formula_no', range(1, NUM_FORMULAS + 1))
 def test_parameter_units_from_docstring(formula_no):
     """Testing that the stem volume function's docstring provides extractable
-    units for its paramters
+    units for its parameters
     """
     function_name = f'stem_volume_formula_{formula_no}'
     f = getattr(formulas, function_name)
