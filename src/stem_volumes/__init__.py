@@ -1,12 +1,12 @@
 """This module implements a command to apply the stem volume to a CSV file."""
-
 import argparse
 import cProfile
 import os
 import pstats
-import re
 import sys
 import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from functools import lru_cache, partial
 from inspect import signature
 
 import numpy as np
@@ -20,6 +20,7 @@ from stem_volumes.utils import (
     convert_volume_to_m3,
     extract_parameter_units,
     extract_volume_unit,
+    get_genus_row_map,
     match_species_names,
 )
 
@@ -57,9 +58,6 @@ def __orig_main():
     print(f'Calculating the volumes took {toc - tic:.6f} seconds')
     tic = toc
 
-    # Drop 'genus_species' before saving
-    if 'genus_species' in df_calculated.columns:
-        df_calculated = df_calculated.drop(columns=['genus_species'])
     df_calculated.to_csv(args.output_file, index=False)
     toc = time.perf_counter()
     print(f'Writing the CSV file took {toc - tic:.6f} seconds')
@@ -94,11 +92,38 @@ def parse_arguments():
     return parser.parse_args()
 
 
-def calculate_stem_volumes(df):
-    """Calculates the stem volumes for the given DataFrame."""
-    df = df.copy()
-    df['genus_species'] = match_species_names(df)
+@lru_cache(maxsize=1000)
+def _apply_formula_cached(formula_func, params, parameter_units, volume_unit, diameter_mm, height_dm):
+    """Cached version of formula application to avoid redundant calculations."""
+    if pd.isna(diameter_mm) or (len(params) > 1 and pd.isna(height_dm)):
+        return pd.NA
 
+    UNITS = {
+        'D': ['mm', 'cm', 'dm', 'm'],
+        'H': ['dm', 'm'],
+    }
+
+    args = {'D': diameter_mm, 'H': height_dm}
+    try:
+        converted_args = [
+            args[par_name] / 10 ** UNITS[par_name].index(parameter_units[i])
+            for i, par_name in enumerate(params)
+        ]
+        volume = formula_func(*converted_args)
+        return convert_volume_to_m3(volume, volume_unit)
+    except (ValueError, ZeroDivisionError, TypeError, IndexError):
+        return pd.NA
+
+def calculate_stem_volumes(df):
+    """Applies genus-specific stem volume formulas to the data, keeping all 230 columns."""
+    result_df = df.copy()
+    result_df['genus'] = match_species_names(result_df)  # Add genus column
+    result_df[['genus', 'species']] = pd.DataFrame(
+        result_df['genus'].tolist(), index=result_df.index
+    )
+    result_df['genus'] = result_df['genus'].astype(str).str.strip().str.capitalize()
+
+    # Step 1: Get all formulas (1–230) into a lookup dict
     all_formulas = {}
     for formula_no in range(1, 231):
         func_name = f'stem_volume_formula_{formula_no}'
@@ -106,87 +131,76 @@ def calculate_stem_volumes(df):
         params = tuple(signature(f).parameters)
         param_units = tuple(extract_parameter_units(f))
         vol_unit = extract_volume_unit(f)
-        docstring = f.__doc__ or ''
-        match = re.search(r'Species:\s*([^\n\(]+)', docstring)
-        sci_name = match.group(1).strip() if match else ''
-        all_formulas[func_name] = (f, params, param_units, vol_unit, sci_name)
 
+        all_formulas[func_name] = (f, params, param_units, vol_unit)
+
+    # Step 2: Build genus-to-formula mapping using genus_species_common_dict
+    genus_formula_names = {}
+    for genus, info in genus_species_common_dict.items():
+        formula_names = []
+        for formula in info.get('formulas', []):
+            if not formula:
+                continue
+            for formula_no in range(1, 231):
+                func_name = f'stem_volume_formula_{formula_no}'
+                if func_name in all_formulas:
+                    f = all_formulas[func_name][0]
+                    doc = getattr(f, '__doc__', '')
+                    # DEBUG: print matching attempts
+                    # print(f"Checking {func_name}: doc='{doc}' formula='{formula}'")
+                    if formula.lower() in func_name.lower() or \
+                       (doc and formula.lower() in doc.lower()):
+                        formula_names.append(func_name)
+        genus_formula_names[genus] = set(formula_names)
+
+    # Step 3: Pre-fill all 230 columns with pd.NA
     formula_columns = [f'{name} [m3]' for name in all_formulas]
-    # Create a DataFrame with all new columns initialized to pd.NA
-    new_cols_df = pd.DataFrame(
-        {col: pd.NA for col in formula_columns}, index=df.index
-    )
+    empty_formulas_df = pd.DataFrame(pd.NA, index=result_df.index, columns=formula_columns)
+    result_df = pd.concat([result_df, empty_formulas_df], axis=1)
 
-    # Concatenate the new columns with the original DataFrame
-    df = pd.concat([df, new_cols_df], axis=1)
+    # Step 4: Group by genus and apply only relevant formulas
+    genus_to_indices = get_genus_row_map(result_df['genus'])
 
-    # de-fragment DataFrame to improve performance
-    # df = df.copy()
-
-    unit_conversion_factors = {'mm': 0.001, 'cm': 0.01, 'dm': 0.1, 'm': 1}
-    input_units = {'D': 'mm', 'H': 'dm'}
-    diameter_raw = df['diameter at breast height [mm]'].to_numpy()
-    height_raw = df['height [dm]'].to_numpy()
-
-    allowed_formula_map = df['genus_species'].apply(
-        lambda gs: set(
-            genus_species_common_dict.get(gs[0], {}).get('formulas', [])
-        )
-        if gs
-        else set()
-    )
-
-    for func_name, (
-        f,
-        params,
-        param_units,
-        vol_unit,
-        sci_name,
-    ) in all_formulas.items():
-        mask = allowed_formula_map.apply(
-            lambda formulas: sci_name in formulas
-        ).to_numpy()
-        if not np.any(mask):
+    for genus, relevant_funcs in genus_formula_names.items():
+        idxs = genus_to_indices.get(genus, [])
+        if len(idxs) == 0:
             continue
 
-        values = np.full(df.shape[0], pd.NA, dtype='object')
-        try:
-            if len(params) == 2:
-                d_conv = (
-                    unit_conversion_factors[input_units[params[0]]]
-                    / unit_conversion_factors[param_units[0]]
-                )
-                h_conv = (
-                    unit_conversion_factors[input_units[params[1]]]
-                    / unit_conversion_factors[param_units[1]]
-                )
-                d_converted = diameter_raw * d_conv
-                h_converted = height_raw * h_conv
-                values[mask] = f(d_converted[mask], h_converted[mask])
-            elif len(params) == 1:
-                d_conv = (
-                    unit_conversion_factors[input_units[params[0]]]
-                    / unit_conversion_factors[param_units[0]]
-                )
-                d_converted = diameter_raw * d_conv
-                values[mask] = f(d_converted[mask])
-        except Exception:
-            for i in np.where(mask)[0]:
-                try:
-                    if len(params) == 2:
-                        values[i] = f(d_converted[i], h_converted[i])
-                    elif len(params) == 1:
-                        values[i] = f(d_converted[i])
-                except Exception:
-                    values[i] = pd.NA
+        diameters = result_df.loc[idxs, 'diameter at breast height [mm]'].values
+        heights = result_df.loc[idxs, 'height [dm]'].values
 
-        values = [
-            convert_volume_to_m3(v, vol_unit) if pd.notna(v) else pd.NA
-            for v in values
-        ]
-        df[f'{func_name} [m3]'] = values
+        for func_name in relevant_funcs:
+            if func_name not in all_formulas:
+                continue
+            f, params, param_units, vol_unit = all_formulas[func_name]
+            col_name = f'{func_name} [m3]'
+            apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
 
-    return df.drop(columns=['genus_species'])
+            # Handle formulas with one or two parameters
+            if len(params) == 1:
+                # Only one parameter required (assume diameter)
+                valid_mask = ~pd.isna(diameters)
+                if not np.any(valid_mask):
+                    continue
+                valid_idxs = np.array(idxs)[valid_mask]
+                valid_diameters = diameters[valid_mask]
+                vectorized_func = np.vectorize(apply_func, otypes=[object])
+                result = vectorized_func(valid_diameters, [pd.NA]*len(valid_diameters))
+                result_df.loc[valid_idxs, col_name] = result
+            else:
+                # Two parameters required
+                valid_mask = (~pd.isna(diameters)) & (~pd.isna(heights))
+                if not np.any(valid_mask):
+                    continue
+                valid_idxs = np.array(idxs)[valid_mask]
+                valid_diameters = diameters[valid_mask]
+                valid_heights = heights[valid_mask]
+                vectorized_func = np.vectorize(apply_func, otypes=[object])
+                result = vectorized_func(valid_diameters, valid_heights)
+                result_df.loc[valid_idxs, col_name] = result
+
+    return result_df
+
 
 
 if __name__ == '__main__':
