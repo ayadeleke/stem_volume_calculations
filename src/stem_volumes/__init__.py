@@ -11,21 +11,18 @@ from inspect import signature
 
 import numpy as np
 import pandas as pd
-from functools import partial
-
-
 from line_profiler import LineProfiler
 
 import stem_volumes.formulas
+from stem_volumes.genus_dict import genus_species_common_dict
 from stem_volumes.utils import (
+    clean_data,
     convert_volume_to_m3,
     extract_parameter_units,
     extract_volume_unit,
-    clean_data,
+    get_genus_row_map,
     match_species_names,
-    get_genus_row_map
 )
-from stem_volumes.genus_dict import genus_species_common_dict
 
 
 def __orig_main():
