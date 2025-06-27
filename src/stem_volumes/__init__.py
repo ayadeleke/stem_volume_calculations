@@ -1,4 +1,5 @@
 """This module implements a command to apply the stem volume to a CSV file."""
+
 import argparse
 import cProfile
 import os
@@ -93,7 +94,9 @@ def parse_arguments():
 
 
 @lru_cache(maxsize=1000)
-def _apply_formula_cached(formula_func, params, parameter_units, volume_unit, diameter_mm, height_dm):
+def _apply_formula_cached(
+    formula_func, params, parameter_units, volume_unit, diameter_mm, height_dm
+):
     """Cached version of formula application to avoid redundant calculations."""
     if pd.isna(diameter_mm) or (len(params) > 1 and pd.isna(height_dm)):
         return pd.NA
@@ -114,6 +117,7 @@ def _apply_formula_cached(formula_func, params, parameter_units, volume_unit, di
     except (ValueError, ZeroDivisionError, TypeError, IndexError):
         return pd.NA
 
+
 def calculate_stem_volumes(df):
     """Applies genus-specific stem volume formulas to the data, keeping all 230 columns."""
     result_df = df.copy()
@@ -121,7 +125,9 @@ def calculate_stem_volumes(df):
     result_df[['genus', 'species']] = pd.DataFrame(
         result_df['genus'].tolist(), index=result_df.index
     )
-    result_df['genus'] = result_df['genus'].astype(str).str.strip().str.capitalize()
+    result_df['genus'] = (
+        result_df['genus'].astype(str).str.strip().str.capitalize()
+    )
 
     # Step 1: Get all formulas (1–230) into a lookup dict
     all_formulas = {}
@@ -148,14 +154,17 @@ def calculate_stem_volumes(df):
                     doc = getattr(f, '__doc__', '')
                     # DEBUG: print matching attempts
                     # print(f"Checking {func_name}: doc='{doc}' formula='{formula}'")
-                    if formula.lower() in func_name.lower() or \
-                       (doc and formula.lower() in doc.lower()):
+                    if formula.lower() in func_name.lower() or (
+                        doc and formula.lower() in doc.lower()
+                    ):
                         formula_names.append(func_name)
         genus_formula_names[genus] = set(formula_names)
 
     # Step 3: Pre-fill all 230 columns with pd.NA
     formula_columns = [f'{name} [m3]' for name in all_formulas]
-    empty_formulas_df = pd.DataFrame(pd.NA, index=result_df.index, columns=formula_columns)
+    empty_formulas_df = pd.DataFrame(
+        pd.NA, index=result_df.index, columns=formula_columns
+    )
     result_df = pd.concat([result_df, empty_formulas_df], axis=1)
 
     # Step 4: Group by genus and apply only relevant formulas
@@ -174,7 +183,9 @@ def calculate_stem_volumes(df):
                 continue
             f, params, param_units, vol_unit = all_formulas[func_name]
             col_name = f'{func_name} [m3]'
-            apply_func = partial(_apply_formula_cached, f, params, param_units, vol_unit)
+            apply_func = partial(
+                _apply_formula_cached, f, params, param_units, vol_unit
+            )
 
             # Handle formulas with one or two parameters
             if len(params) == 1:
@@ -185,7 +196,9 @@ def calculate_stem_volumes(df):
                 valid_idxs = np.array(idxs)[valid_mask]
                 valid_diameters = diameters[valid_mask]
                 vectorized_func = np.vectorize(apply_func, otypes=[object])
-                result = vectorized_func(valid_diameters, [pd.NA]*len(valid_diameters))
+                result = vectorized_func(
+                    valid_diameters, [pd.NA] * len(valid_diameters)
+                )
                 result_df.loc[valid_idxs, col_name] = result
             else:
                 # Two parameters required
@@ -200,7 +213,6 @@ def calculate_stem_volumes(df):
                 result_df.loc[valid_idxs, col_name] = result
 
     return result_df
-
 
 
 if __name__ == '__main__':

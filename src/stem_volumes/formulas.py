@@ -95,8 +95,8 @@ def stem_volume_formula_3(D, H):
 def stem_volume_formula_4(D):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Abies sibirica (Fir)
-    Country:   Germany
+    Species: Abies sibirica (Fir)
+    Country: Germany
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 10-48cm.
@@ -117,8 +117,8 @@ def stem_volume_formula_5(D, H):
     This formula is implemented from Zianis et al. The range of valid values for D is 0.1 dm and above.
     It was originally published in Pollanschütz, J. 1974. Formzahlfunktionen der Hauptbaumarten Österreichs. Allgemeine Forstzeitung 85: 341–343.
 
-    Species:   Abies spp. (Fir, Brad)
-    Country:   Austria
+    Species: Abies spp. (Fir, Brad)
+    Country: Austria
 
     Args:
         D: Diameter at breast height in dm. Recommendend range: 0.1 dm and above.
@@ -261,7 +261,7 @@ def stem_volume_formula_10(D, H):
     """Calculates the volume of the stem of a standing tree.
 
     Species: Acer pseudoplatanus (Maple, Erable sycomore, Paltin, Sycamore)
-    Country: Neatherlands
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -491,8 +491,8 @@ def stem_volume_formula_19(D, H):
 def stem_volume_formula_20(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Alnus incana (Grey alder)
-    Country:   Norway
+    Species: Alnus incana (Grey alder)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5cm or above.
@@ -517,8 +517,8 @@ def stem_volume_formula_21(D, H):
     This formula is implemented from Zianis (2005) et al.
     It was originally published in Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volum, pentru majoritatea speciilor forestiere din Romania. Silvicultura si Exploatarea Padurilor 89(4): 173–178.
 
-    Species:    Alnus nigra (Anin negru)
-    Country:   Norway
+    Species: Alnus nigra (Anin negru)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm.
@@ -890,8 +890,8 @@ def stem_volume_formula_35(D, H):
 def stem_volume_formula_36(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
-    Location:   Sweden
+    Species: Betula spp. (Birch, Björk, Bjørk, Bouleaux, Mesteacan)
+    Location: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 4.5cm or above.
@@ -1087,7 +1087,7 @@ def stem_volume_formula_43(D, H):
 def stem_volume_formula_44(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: UnknownCorylus avellana (Hazel)
+    Species: Corylus avellana (Hazel)
     country: Norway
 
     Args:
@@ -1111,7 +1111,7 @@ def stem_volume_formula_45(D, H):
 
     This formula is implemented from Zianis and is recommended for Fagus spp. (Beech, Fag) from Austria
 
-    Species: UnknownCorylus avellana (Hazel)
+    Species: Corylus avellana (Hazel)
     country: Norway
 
     Args:
@@ -1288,8 +1288,8 @@ def stem_volume_formula_51(D, H):
 def stem_volume_formula_52(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Fagus sylvatica (Beech, Rotbuche, Beuk)
-    Country:   Netherlands
+    Species: Fagus sylvatica (Beech, Rotbuche, Beuk)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA
@@ -1312,8 +1312,8 @@ def stem_volume_formula_53(D, H):
     This formula is implemented from Zianis (2005) et al.
     It was originally published in De Vries, P.G. 1961. The principle of nomograms applied to the stem volume functions of the volume tables for forest trees grown in the Netherlands. Nederlands Bosbouw Tijdschrift 33(5): 114–1 1.
 
-    Species:    FFagus sylvatica (Beech)
-    Country:   Netherlands
+    Species: Fagus sylvatica (Beech)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm.
@@ -1417,7 +1417,7 @@ def stem_volume_formula_57(D, H):
     This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
 
-    Species: nd is recommended for Fraxinus exselsior (Ash)
+    Species: Fraxinus exselsior (recommended)
     Country: Sweden
 
     Args:
@@ -1676,8 +1676,8 @@ def stem_volume_formula_67(D, H):
 def stem_volume_formula_68(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Larix decidua (Larch, Mélèzes)
-    Country:   Norway
+    Species: Larix decidua (Larch, Mélèzes)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5cm or above.
@@ -1702,8 +1702,8 @@ def stem_volume_formula_69(D, H):
     This formula is implemented from Zianis et al (2205). The range of valid values for D is 5 cm and above.
     It was originally published in Øen, S., Bauger, E. & Øyen, B.-H. 001. Functionar for volumberekning av framande treslag i Vest-Norge. Aktuelt fra Skogforsk 3/01: 18–19.
 
-    Species:    Larix hybrid (Hyprid larix)
-    Country:   Norway
+    Species: Larix hybrid (Hybrid larix)
+    Country: Norway
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5 cm and above.
@@ -2011,16 +2011,17 @@ def stem_volume_formula_81(D, H):
         H (float): Height of the tree in m.
 
     Returns:
-        V (float): The calculated stem volume in dm3.
+        V (float): The calculated stem volume in m3.
     """
     # Define parameters
-    a = 0.00035217
-    b = 2.12841828
-    c = -0.0026067
-    d = 0.76283925
+    a = 2.822 * 10 ** (-5)
+    b = 2.2060
+    c = -0.1136
+    d = 1.115
+    e = 0.0129
 
     # Implement formula
-    V = a * D ** (b + c) * H**d
+    V = a * 10 ** (b * log(D) + c * log(D) ** 2 + d * log(H) + e * log(H) ** 2)
     return V
 
 
@@ -2030,7 +2031,7 @@ def stem_volume_formula_82(D, H):
     This formula is implemented from Zianis et al. (2005). The Diameter should be biger than 1.
 
 
-    Species: picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) from Austria.
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar) from Austria.
     Country: Netherlands
 
     Args:
@@ -2085,8 +2086,8 @@ def stem_volume_formula_83(D, H):
 def stem_volume_formula_84(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
-    Country:   Belgium
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Belgium
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -2112,7 +2113,7 @@ def stem_volume_formula_85(D):
     This formula is implemented from Zianis (2005) et al.
     It was originally published in Cerný, M. 1990. Biomass of Picea abies (l.) Karst. in midwestern Bohemia. Scandinavian Journal of Forest Research 5: 83–95.
 
-    Specoes : Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
     Country: Czech Republic
 
     Args:
@@ -2180,7 +2181,7 @@ def stem_volume_formula_88(D):
 
     This formula is implemented from Zianis (2005) et al.
 
-    Species : Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
     Country: Finland
 
     Args:
@@ -2206,7 +2207,7 @@ def stem_volume_formula_89(D, H):
     This formula is implemented from Zianis et al., (2005).
     The range of valid values for D is 1.5-61.9cm, and for H is 1.8-32.7m.
 
-    Species :Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
     Country: Finland
 
     Args:
@@ -2447,18 +2448,15 @@ def stem_volume_formula_98(D, H):
     b = 2.164126647
     c = -0.04670018
     d = 0.54879808
-    # Implement formula
-    V = (
-        a * D ** (b + c) * H**d
-    )  # Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)(Neatherlands)
+    V = a * D ** (b + c) * H**d
     return V
 
 
 def stem_volume_formula_99(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
-    Country: Neatherlands
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -2478,8 +2476,8 @@ def stem_volume_formula_99(D, H):
 def stem_volume_formula_100(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
-    Country:   Netherlands
+    Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -2871,7 +2869,7 @@ def stem_volume_formula_116(D, H):
     """Calculates the volume of the stem of a standing tree.
 
     Species: Picea abies (Norway spruce, Kuusi, Gran, Epicéa, Fijnspar)
-    Country:   Sweden
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 5-55.9cm.
@@ -3280,8 +3278,8 @@ def stem_volume_formula_131(D, H):
 def stem_volume_formula_132(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Pinus contorta (Contorta tall)
-    Country:   Netherlands
+    Species: Pinus contorta (Contorta tall)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -3304,8 +3302,8 @@ def stem_volume_formula_133(D, H):
     This formula is implemented from Zianis et al., (2005).
     It was originally published in Eriksson, H. 1973. Volymfunktioner för stående träd av ask, asp, klibbal och contorta-tall. Institutionen för Skogsproduktion, Royal college of Forestry, Stockholm. Research Notes 6: 1– 6.
 
-    Species:    Pinus contorta (Contorta tall)
-    Country:   Sweden
+    Species: Pinus contorta (Contorta tall)
+    Country: Sweden
 
     Args:
         D: Diameter at breast height in cm.
@@ -3406,7 +3404,7 @@ def stem_volume_formula_137(D, H):
     This formula is implemented from Zianis et al., (2005).
     No valid range for D and H is given.
 
-    Species: PPinus nigra var nigra (Black pine, Pin negru)
+    Species: Pinus nigra (Black pine, Pin negru)
     Country: Neatherlands
 
     Args:
@@ -3427,7 +3425,7 @@ def stem_volume_formula_137(D, H):
 def stem_volume_formula_138(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Pinus nigra var nigra (Black pine, Pin negru)
+    Species: Pinus nigra (Black pine, Pin negru)
     Country: Romania
 
     Args:
@@ -3652,7 +3650,7 @@ def stem_volume_formula_148(D):
     """Calculates the volume of the stem of a standing tree.
 
     Species: Pinus sylvestris (Scots pine, Mänty, Tall, Furu, Grove den, Pin silvestri)
-    Country:   Finland
+    Country: Finland
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: 0.9-50.6cm.
@@ -4441,8 +4439,8 @@ def stem_volume_formula_179(D, H):
 def stem_volume_formula_180(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Populus spp. (Poplar, Plop)
-    Country:   Netherlands
+    Species: Populus spp. (Poplar, Plop)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -4466,8 +4464,8 @@ def stem_volume_formula_181(D, H):
     This formula is implemented from Zianis et al. (2005).
     It was originally published in Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44.
 
-    Species:    Populus spp. (Poplar, Plop)
-    Country:   Netherlands
+    Species: Populus spp. (Poplar, Plop)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -4638,7 +4636,7 @@ def stem_volume_formula_187(D, H):
 def stem_volume_formula_188(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species : Populus tremula (Aspen, Plop tremulator)
+    Species: Populus tremula (Aspen, Plop tremulator)
     Country: Sweden
 
     Args:
@@ -4660,7 +4658,7 @@ def stem_volume_formula_188(D, H):
 def stem_volume_formula_189(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species : Populus tremula (Aspen, Plop tremulator)
+    Species: Populus tremula (Aspen, Plop tremulator)
     Country: Sweden
 
     Args:
@@ -4680,7 +4678,7 @@ def stem_volume_formula_189(D, H):
 def stem_volume_formula_190(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species : Populus tremula (Aspen, Plop tremulator)
+    Species: Populus tremula (Aspen, Plop tremulator)
     Country: Sweden
 
     Args:
@@ -4833,8 +4831,8 @@ def stem_volume_formula_195(D, H):
 def stem_volume_formula_196(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Pseudotsuga menziesii (Douglas fir, Duglas)
-    Country:   Romania
+    Species: Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -4859,8 +4857,8 @@ def stem_volume_formula_197(D, H):
     This formula is implemented from Zianis et al. (2005).
     It was originally published in Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44.
 
-    Species:    Pseudotsuga menziesii (Douglas fir, Duglas)
-    Country:   Romania
+    Species: Pseudotsuga menziesii (Douglas fir, Duglas)
+    Country: Romania
 
     Args:
         D: Diameter at breast height in mm.
@@ -4960,7 +4958,7 @@ def stem_volume_formula_201(D, H):
     """Calculate the volume of the stem of a standing tree.
 
     This formula is implemented from Zianis et al., (2005).
-     The range of valid values for D is 4.5-26.1cm, and for H is 6-16m.
+    The range of valid values for D is 4.5-26.1cm, and for H is 6-16m.
 
     Species: Quercus ilex (Holm oak)
     Country: Italy
@@ -4982,8 +4980,8 @@ def stem_volume_formula_201(D, H):
 def stem_volume_formula_202(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:  Quercus ilex (Holm oak)
-    Country:  Croatia
+    Species: Quercus ilex (Holm oak)
+    Country: Croatia
 
     Args:
         D: Diameter at breast height in cm.
@@ -5097,7 +5095,7 @@ def stem_volume_formula_206(D, H):
 def stem_volume_formula_207(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Species: Quercus robur (Pedunculate oak)
+    Species: Quercus robur (Pedunculate oak)
     Country: Neatherlands
 
 
@@ -5219,8 +5217,8 @@ def stem_volume_formula_211(D, H):
 def stem_volume_formula_212(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Quercus spp. (Oak, Chênes, Stejar)
-    Country:   Belgium
+    Species: Quercus spp. (Oak, Chênes, Stejar)
+    Country: Belgium
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -5246,8 +5244,8 @@ def stem_volume_formula_213(D, H):
     This formula is implemented from Zianis et al. (2005).
     It was originally published in Schelhaas, M.J., Nabuurs, G.J., Jans, W.W.P., Moors, E.J., Sabaté, S. & Daamen, W.P. 00 . Converging estimates of the forest carbon sink. Alterra-rapport 631: 1–44.
 
-    Species:    Quercus spp. (Oak, Chênes, Stejar)
-    Country:   Netherlands
+    Species: Quercus spp. (Oak, Chênes, Stejar)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -5298,8 +5296,8 @@ def stem_volume_formula_214(D: float, H: float) -> float:
 def stem_volume_formula_215(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species: Species:    Quercus spp. (Oak, Chênes, Stejar)
-    Country: Neatherlands
+    Species: Quercus spp. (Oak, Chênes, Stejar)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in mm.
@@ -5321,7 +5319,7 @@ def stem_volume_formula_216(D, H):
 
     This formula is implemented from Zianis et al (2005).
 
-    Species: Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Species: Quercus spp. (Oak, Chênes, Stejar)
     Country: Romania
 
     Args:
@@ -5343,15 +5341,11 @@ def stem_volume_formula_216(D, H):
 
 
 def stem_volume_formula_217(D, H):
-    # reference: Broadmeadow, M. & Matthews, R. 2004. Survey methods for Kyoto Protocol monitoring and verification of UK forest carbon stocks. UK Emissions by Sources and Removals by Sinks due to Land Use, Land Use Change and Forestry Activities, Report (June 2004). CEH, Edinburgh.
-    # Quercus spp. (Oak, Chênes, Stejar), UK
-    # input: diameter D in cm, height H in m
-    # output: volume in m3
     """Calculate the volume of the stem of a standing tree.
 
     This formula is implemented from Zianis et al., (2005). No valid range for D and H is given.
 
-    Species: Species:    Quercus spp. (Oak, Chênes, Stejar)
+    Species: Quercus spp. (Oak, Chênes, Stejar)
     Country: UK
 
     Args:
@@ -5543,8 +5537,8 @@ def stem_volume_formula_225(D, H):
 
     Original source: Giurgiu, V. 1974. O expresie matematica unica a relatiei diametru – înaltime – volume Silviculturasi Exploatarea Padurilor 89(4): 173–178.
 
-     Species: Tilia cordata (Tei)
-     Country: Romania
+    Species: Tilia cordata (Tei)
+    Country: Romania
 
     Args:
         D (float): Diameter of the tree in cm.
@@ -5614,8 +5608,8 @@ def stem_volume_formula_227(D, H):
 def stem_volume_formula_228(D, H):
     """Calculates the volume of the stem of a standing tree.
 
-    Species:    Ulmus spp. (Elm, Orme, Ulm)
-    Country:   Belgium
+    Species: Ulmus spp. (Elm, Orme, Ulm)
+    Country: Belgium
 
     Args:
         D: Diameter at breast height in cm. Recommendend range: NA.
@@ -5641,8 +5635,8 @@ def stem_volume_formula_229(D, H):
     This formula is implemented from Zianis et el(2005).
     It was originally published in Dik, E.J. 1984. Estimating the wood volume of standing trees in forestry practice. Rijksinstituut voor onderzoek in de bos en landschapsbouw de Dorschkamp, Wageningen. Uitvoerige verslagen 19(1): 1–114.
 
-    Species:   Ulmus spp. (Elm, Orme, Ulm)
-    Country:   Neatherlands
+    Species: Ulmus spp. (Elm, Orme, Ulm)
+    Country: Netherlands
 
     Args:
         D: Diameter at breast height in cm.
