@@ -1,9 +1,9 @@
 def test_all_species_and_formulas_mapped():
     from collections import defaultdict
 
-    from stem_volumes.species_to_formula_map import species_to_formulas
     from stem_volumes.genus_dict import genus_species_common_dict
     from stem_volumes.genus_formula_map import genus_to_formulas
+    from stem_volumes.species_to_formula_map import species_to_formulas
 
     # Common names to fully exclude (mapping + formula checks)
     full_exclusions = {

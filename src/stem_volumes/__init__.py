@@ -6,8 +6,8 @@ import os
 import pstats
 import sys
 import time
-from inspect import signature
 from functools import lru_cache
+from inspect import signature
 
 import numpy as np
 import pandas as pd
@@ -31,7 +31,10 @@ def __orig_main():
 
     if os.path.exists(args.output_file):
         print(f'Error: {args.output_file} already exists.', file=sys.stderr)
-        print(f"This script won't overwrite it to avoid accidental data loss.", file=sys.stderr)
+        print(
+            f"This script won't overwrite it to avoid accidental data loss.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     toc = time.perf_counter()
@@ -75,14 +78,40 @@ def main():
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='Calculate stem volumes for given CSV file')
-    parser.add_argument('csv_file', help='Path to CSV file, e.g., path/to/test.csv.')
-    parser.add_argument('output_file', help='Path to CSV file to save the added results in.')
+    """Parses command-line arguments for the script.
+
+    Returns:
+        Namespace: An argparse.Namespace object containing the parsed arguments:
+            - csv_file (str): Path to the input CSV file.
+            - output_file (str): Path to the output CSV file where results will be saved.
+    """
+    parser = argparse.ArgumentParser(
+        description='Calculate stem volumes for given CSV file'
+    )
+    parser.add_argument(
+        'csv_file', help='Path to CSV file, e.g., path/to/test.csv.'
+    )
+    parser.add_argument(
+        'output_file', help='Path to CSV file to save the added results in.'
+    )
     return parser.parse_args()
 
 
 @lru_cache(maxsize=None)
 def get_formula_metadata(formula_no: int):
+    """Returns metadata about a stem volume formula by its number.
+
+    Args:
+        formula_no: The number of the stem volume formula.
+
+    Returns:
+        A tuple containing:
+            - The name of the stem volume formula function.
+            - The stem volume formula function itself.
+            - A tuple of the parameter names.
+            - A tuple of the parameter units.
+            - The unit of the stem volume returned by the formula.
+    """
     func_name = f'stem_volume_formula_{formula_no}'
     func = getattr(stem_volumes.formulas, func_name)
     params = tuple(signature(func).parameters)
@@ -93,12 +122,23 @@ def get_formula_metadata(formula_no: int):
 
 @lru_cache(maxsize=None)
 def get_conversion_factor(from_unit: str, to_unit: str) -> float:
+    """Returns the conversion factor to convert a measurement from one unit to another.
+
+    Args:
+        from_unit: The unit of the original measurement ('mm', 'cm', 'dm', 'm').
+        to_unit: The unit to convert the measurement to ('mm', 'cm', 'dm', 'm').
+
+    Returns:
+        The conversion factor to apply to the original measurement.
+    """
     unit_conversion_factors = {'mm': 0.001, 'cm': 0.01, 'dm': 0.1, 'm': 1}
     return unit_conversion_factors[from_unit] / unit_conversion_factors[to_unit]
 
 
 @lru_cache(maxsize=None)
-def _apply_formula_cached(func_name, d, h, param1_unit, param2_unit, vol_unit, param_names):
+def _apply_formula_cached(
+    func_name, d, h, param1_unit, param2_unit, vol_unit, param_names
+):
     """Apply formula with cached unit conversions and safe fallback."""
     try:
         func = getattr(stem_volumes.formulas, func_name)
@@ -123,7 +163,20 @@ ALL_FORMULAS = {
     for formula_no in range(1, 231)
 }
 
+
 def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate stem volumes for given trees in a CSV file.
+
+    Parameters:
+        df: A DataFrame containing the following columns
+            - species: The species of the tree (string)
+            - diameter at breast height [mm]: The diameter of the tree at breast height (float)
+            - height [dm]: The height of the tree (float)
+
+    Returns:
+        A DataFrame with the same columns as the input, plus the calculated stem volumes
+        for each tree, with column names ending in "[m3]"
+    """
     df = df.copy()
 
     # Use precomputed metadata
@@ -132,16 +185,20 @@ def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
 
     # Precompute allowed formulas as a DataFrame (rows: trees, cols: formulas)
     allowed_sets = df['species'].apply(
-        lambda sp: set(species_to_formulas.get(sp.lower(), [])) if isinstance(sp, str) else set()
+        lambda sp: set(species_to_formulas.get(sp.lower(), []))
+        if isinstance(sp, str)
+        else set()
     )
     allowed_mask = pd.DataFrame(
         [[fn in allowed for fn in formula_names] for allowed in allowed_sets],
         columns=formula_names,
-        index=df.index
+        index=df.index,
     )
 
     # Prepare results DataFrame
-    results = pd.DataFrame(pd.NA, index=df.index, columns=[f"{fn} [m3]" for fn in formula_names])
+    results = pd.DataFrame(
+        pd.NA, index=df.index, columns=[f'{fn} [m3]' for fn in formula_names]
+    )
 
     diameter_raw = df['diameter at breast height [mm]'].to_numpy()
     height_raw = df['height [dm]'].to_numpy()
@@ -159,10 +216,13 @@ def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
             d = diameter_raw[i]
             h = height_raw[i] if len(params) > 1 else None
             val = _apply_formula_cached(
-                func_name, d, h,
+                func_name,
+                d,
+                h,
                 param_units[0],
                 param_units[1] if len(params) > 1 else None,
-                vol_unit, params
+                vol_unit,
+                params,
             )
             vals.append(val)
         results.iloc[idx, j] = vals
