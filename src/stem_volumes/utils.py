@@ -91,6 +91,7 @@ def extract_species_from_docstring(docstring: str) -> str:
     match = re.search(r'Species\s*:? ?([^\n]+)', docstring)
     return match.group(1).strip() if match else ''
 
+
 def get_genus_row_map(genus_series):
     """Returns a dict mapping genus to list of row indices in the DataFrame."""
     genus_to_indices = {}
