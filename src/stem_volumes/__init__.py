@@ -136,20 +136,30 @@ def get_conversion_factor(from_unit: str, to_unit: str) -> float:
 
 @lru_cache(maxsize=None)
 def _apply_formula_cached(
-    func_name, d, h, param1_unit, param2_unit, vol_unit, param_names
+    func_name,
+    *,
+    d=None,
+    h=None,
+    param_unit_D=None,
+    param_unit_H=None,
+    vol_unit=None,
+    params=(),
 ):
     """Apply formula with cached unit conversions and safe fallback."""
     try:
         func = getattr(stem_volumes.formulas, func_name)
         args = []
+
         # Convert diameter if used
-        if 'D' in param_names:
-            d_conv = get_conversion_factor('mm', param1_unit)
+        if 'D' in params and d is not None:
+            d_conv = get_conversion_factor('mm', param_unit_D)
             args.append(d * d_conv)
+
         # Convert height if used
-        if 'H' in param_names and h is not None:
-            h_conv = get_conversion_factor('dm', param2_unit)
+        if 'H' in params and h is not None:
+            h_conv = get_conversion_factor('dm', param_unit_H)
             args.append(h * h_conv)
+
         volume = func(*args)
         return convert_volume_to_m3(volume, vol_unit)
     except Exception:
@@ -228,7 +238,10 @@ ALL_FORMULAS = {
     for formula_no in range(1, 231)
 }
 
-ROW_THRESHOLD = 1000 # Threshold for switching between row-wise and vectorized processing
+ROW_THRESHOLD = (
+    1000  # Threshold for switching between row-wise and vectorized processing
+)
+
 
 def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate stem volumes using row-wise or vectorized logic depending on dataset size."""
@@ -236,6 +249,7 @@ def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
         return _calculate_stem_volumes_rowwise(df)
     else:
         return _calculate_stem_volumes_vectorized(df)
+
 
 def _calculate_stem_volumes_rowwise(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate stem volumes for given trees in a CSV file.
@@ -286,17 +300,28 @@ def _calculate_stem_volumes_rowwise(df: pd.DataFrame) -> pd.DataFrame:
         idx = np.where(mask)[0]
         vals = []
         for i in idx:
-            d = diameter_raw[i]
-            h = height_raw[i] if len(params) > 1 else None
+            args = []
+            if 'D' in params:
+                args.append(diameter_raw[i])
+            if 'H' in params:
+                args.append(height_raw[i])
+            param_unit_D = (
+                param_units[params.index('D')] if 'D' in params else None
+            )
+            param_unit_H = (
+                param_units[params.index('H')] if 'H' in params else None
+            )
+
             val = _apply_formula_cached(
                 func_name,
-                d,
-                h,
-                param_units[0],
-                param_units[1] if len(params) > 1 else None,
-                vol_unit,
-                params,
+                d=diameter_raw[i] if 'D' in params else None,
+                h=height_raw[i] if 'H' in params else None,
+                param_unit_D=param_unit_D,
+                param_unit_H=param_unit_H,
+                vol_unit=vol_unit,
+                params=params,
             )
+
             vals.append(val)
         results.iloc[idx, j] = vals
 
