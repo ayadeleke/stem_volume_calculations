@@ -59,7 +59,7 @@ def __orig_main():
 
     df_calculated.to_feather(args.output_file.replace('.csv', '.feather'))
     toc = time.perf_counter()
-    print(f'Writing the Feather file took {toc - tic:.6f} seconds')
+    print(f'Writing the CSV file took {toc - tic:.6f} seconds')
 
     pr.disable()
     stats = pstats.Stats(pr)
@@ -228,8 +228,82 @@ ALL_FORMULAS = {
     for formula_no in range(1, 231)
 }
 
+ROW_THRESHOLD = 1000 # Threshold for switching between row-wise and vectorized processing
 
 def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate stem volumes using row-wise or vectorized logic depending on dataset size."""
+    if len(df) < ROW_THRESHOLD:
+        return _calculate_stem_volumes_rowwise(df)
+    else:
+        return _calculate_stem_volumes_vectorized(df)
+
+def _calculate_stem_volumes_rowwise(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate stem volumes for given trees in a CSV file.
+
+    Parameters:
+        df: A DataFrame containing the following columns
+            - species: The species of the tree (string)
+            - diameter at breast height [mm]: The diameter of the tree at breast height (float)
+            - height [dm]: The height of the tree (float)
+
+    Returns:
+        A DataFrame with the same columns as the input, plus the calculated stem volumes
+        for each tree, with column names ending in "[m3]"
+    """
+    df = df.copy()
+
+    # Use precomputed metadata
+    all_formulas = ALL_FORMULAS
+    formula_names = list(all_formulas.keys())
+
+    # Precompute allowed formulas as a DataFrame (rows: trees, cols: formulas)
+    allowed_sets = df['species'].apply(
+        lambda sp: set(species_to_formulas.get(sp.lower(), []))
+        if isinstance(sp, str)
+        else set()
+    )
+    allowed_mask = pd.DataFrame(
+        [[fn in allowed for fn in formula_names] for allowed in allowed_sets],
+        columns=formula_names,
+        index=df.index,
+    )
+
+    # Prepare results DataFrame
+    results = pd.DataFrame(
+        pd.NA, index=df.index, columns=[f'{fn} [m3]' for fn in formula_names]
+    )
+
+    diameter_raw = df['diameter at breast height [mm]'].to_numpy()
+    height_raw = df['height [dm]'].to_numpy()
+
+    for j, func_name in enumerate(formula_names):
+        params, param_units, vol_unit = all_formulas[func_name]
+        mask = allowed_mask[func_name].to_numpy()
+        if not np.any(mask):
+            continue
+
+        # Only compute for rows where mask is True
+        idx = np.where(mask)[0]
+        vals = []
+        for i in idx:
+            d = diameter_raw[i]
+            h = height_raw[i] if len(params) > 1 else None
+            val = _apply_formula_cached(
+                func_name,
+                d,
+                h,
+                param_units[0],
+                param_units[1] if len(params) > 1 else None,
+                vol_unit,
+                params,
+            )
+            vals.append(val)
+        results.iloc[idx, j] = vals
+
+    return pd.concat([df, results], axis=1)
+
+
+def _calculate_stem_volumes_vectorized(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate stem volumes for a given DataFrame using formulas from a publication.
 
     Args:
