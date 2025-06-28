@@ -8,6 +8,7 @@ import sys
 import time
 from functools import lru_cache
 from inspect import signature
+from concurrent.futures import ProcessPoolExecutor
 
 import numpy as np
 import pandas as pd
@@ -156,6 +157,54 @@ def _apply_formula_cached(
     except Exception:
         return pd.NA
 
+def compute_volume_for_row(args):
+    """Apply a stem volume formula to a single row of input data.
+
+    The arguments given must be a tuple of the following:
+        - The index of the row in the original DataFrame.
+        - The name of the stem volume formula function to use.
+        - The diameter of the tree in mm.
+        - The height of the tree in dm.
+        - The unit of the diameter in the formula.
+        - The unit of the height in the formula.
+        - The unit of the stem volume returned by the formula.
+        - A tuple of the parameter names used by the formula.
+
+    Returns a tuple of the index and the computed stem volume in m3.
+    """
+    i, func_name, d, h, param1_unit, param2_unit, vol_unit, param_names = args
+    val = _apply_formula_cached(
+        func_name, d, h, param1_unit, param2_unit, vol_unit, param_names
+    )
+    return i, val
+
+def process_chunk(start, end, diameter, height, allowed_formula_lists, all_formulas):
+    chunk_results = []
+    for i in range(end - start):
+        row_result = {}
+        d = diameter[i]
+        h = height[i]
+        allowed = allowed_formula_lists[i]
+        for func_name in allowed:
+            if func_name not in all_formulas:
+                continue
+            params, param_units, vol_unit = all_formulas[func_name]
+            val = _apply_formula_cached(
+                func_name,
+                d,
+                h if len(params) > 1 else None,
+                param_units[0],
+                param_units[1] if len(params) > 1 else None,
+                vol_unit,
+                params,
+            )
+            row_result[f"{func_name} [m3]"] = val
+        chunk_results.append(row_result)
+    return pd.DataFrame(chunk_results, index=range(start, end))
+
+def _process_chunk_wrapper(args):
+    return process_chunk(*args)
+
 
 # Precompute all formula metadata at import time
 ALL_FORMULAS = {
@@ -164,7 +213,7 @@ ALL_FORMULAS = {
 }
 
 
-def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
+def calculate_stem_volumes(df: pd.DataFrame, num_workers: int = None) -> pd.DataFrame:
     """Calculate stem volumes for given trees in a CSV file.
 
     Parameters:
@@ -183,51 +232,41 @@ def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
     all_formulas = ALL_FORMULAS
     formula_names = list(all_formulas.keys())
 
-    # Precompute allowed formulas as a DataFrame (rows: trees, cols: formulas)
-    allowed_sets = df['species'].apply(
-        lambda sp: set(species_to_formulas.get(sp.lower(), []))
-        if isinstance(sp, str)
-        else set()
+    diameter = df['diameter at breast height [mm]'].to_numpy()
+    height = df['height [dm]'].to_numpy()
+    species = df['species'].str.lower().fillna("").tolist()
+
+    # Prepare allowed formulas per row
+    allowed_formula_lists = [
+        [f if f.startswith("stem_volume_formula_") else f"stem_volume_formula_{f}" for f in species_to_formulas.get(sp, [])]
+        for sp in species
+    ]
+
+    # Split data into chunks
+    chunk_size = 10_000
+    indices = list(range(0, len(df), chunk_size))
+    tasks = [
+    (
+        0,                          # start index in the sliced chunk
+        end - start,               # end index in the sliced chunk
+        diameter[start:end],       # sliced diameter
+        height[start:end],         # sliced height
+        allowed_formula_lists[start:end],  # sliced allowed formulas
+        all_formulas
     )
-    allowed_mask = pd.DataFrame(
-        [[fn in allowed for fn in formula_names] for allowed in allowed_sets],
-        columns=formula_names,
-        index=df.index,
-    )
+    for start in indices
+    for end in [min(start + chunk_size, len(df))]
+]
 
-    # Prepare results DataFrame
-    results = pd.DataFrame(
-        pd.NA, index=df.index, columns=[f'{fn} [m3]' for fn in formula_names]
-    )
 
-    diameter_raw = df['diameter at breast height [mm]'].to_numpy()
-    height_raw = df['height [dm]'].to_numpy()
 
-    for j, func_name in enumerate(formula_names):
-        params, param_units, vol_unit = all_formulas[func_name]
-        mask = allowed_mask[func_name].to_numpy()
-        if not np.any(mask):
-            continue
+    with ProcessPoolExecutor(max_workers=num_workers) as executor:
+        result_dfs = list(executor.map(_process_chunk_wrapper, tasks))
 
-        # Only compute for rows where mask is True
-        idx = np.where(mask)[0]
-        vals = []
-        for i in idx:
-            d = diameter_raw[i]
-            h = height_raw[i] if len(params) > 1 else None
-            val = _apply_formula_cached(
-                func_name,
-                d,
-                h,
-                param_units[0],
-                param_units[1] if len(params) > 1 else None,
-                vol_unit,
-                params,
-            )
-            vals.append(val)
-        results.iloc[idx, j] = vals
 
-    return pd.concat([df, results], axis=1)
+    results_df = pd.concat(result_dfs)
+    results_df.index = df.index
+    return pd.concat([df, results_df], axis=1)
 
 
 if __name__ == '__main__':
