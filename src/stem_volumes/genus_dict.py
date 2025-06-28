@@ -38,14 +38,14 @@ genus_species_common_dict = {
         'species': [
             'silver birch',
             'Betula pubescens',
-            'Betula pubescens var. glabrata',
+            'Betula pubescens + Betula pubescens var. glabrata',
             'misc. deciduous trees with short life expectancy',
         ],
     },
     'Carpinus': {'formulas': ['Carpinus spp.'], 'species': ['hornbeam']},
     'Chamaecyparis': {
         'formulas': ['Chamaecyparis lawsoniana'],
-        'species': ['Other Conifers'],
+        'species': ['other coniferous trees'],
     },
     'Corylus': {
         'formulas': ['Corylus avellana'],
@@ -67,7 +67,11 @@ genus_species_common_dict = {
             'Larix sibirica',
             'Larix spp.',
         ],
-        'species': ['European larch', 'Japanese larch', 'Other Conifers'],
+        'species': [
+            'European larch',
+            'Japanese larch',
+            'other coniferous trees',
+        ],
     },
     'Picea': {
         'formulas': [
@@ -80,7 +84,7 @@ genus_species_common_dict = {
             'Sitka spruce',
             'Norway spruce',
             'other spruces',
-            'Other Conifers',
+            'other coniferous trees',
         ],
     },
     'Pinus': {
@@ -97,7 +101,7 @@ genus_species_common_dict = {
             'European black pine',
             'Pinus cembra',
             'other pines',
-            'Other Conifers',
+            'other coniferous trees',
         ],
     },
     'Populus': {
@@ -117,7 +121,7 @@ genus_species_common_dict = {
     },
     'Pseudotsuga': {
         'formulas': ['Pseudotsuga menziesii', 'Pseudotsuga spp.'],
-        'species': ['Douglas fir', 'Other Conifers'],
+        'species': ['Douglas fir', 'other coniferous trees'],
     },
     'Quercus': {
         'formulas': [
@@ -152,11 +156,14 @@ genus_species_common_dict = {
             'wild service tree',
         ],
     },
-    'Thuja': {'formulas': ['Thuja plicata'], 'species': ['Other Conifers']},
+    'Thuja': {
+        'formulas': ['Thuja plicata'],
+        'species': ['other coniferous trees'],
+    },
     'Tilia': {'formulas': ['Tilia cordata'], 'species': ['linden tree']},
     'Tsuga': {
         'formulas': ['Tsuga heterophylla'],
-        'species': ['Other Conifers'],
+        'species': ['other coniferous trees'],
     },
     'Ulmus': {'formulas': ['Ulmus spp.'], 'species': ['elm, native species']},
     'Malus': {'formulas': [''], 'species': ['European crab apple']},
