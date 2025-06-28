@@ -6,30 +6,51 @@ on:
   pull_request:
 
 jobs:
-  ci:
+  formatter:
+    name: Check code formatting
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/astral-sh/uv:0.5-python3.11-bookworm-slim
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install dependencies
-        run: |
-          uv pip install --system .
-          uv pip install --system --editable .[dev]
-
+      - uses: actions/checkout@v3
+      - run: uv pip install --system .
+      - run: uv pip install --system --editable .[dev]
       - name: Run formatter check
         run: uv run ruff format --check
-        continue-on-error: true
+        continue-on-error: true  # Optional: ignore formatting errors
 
+  linter:
+    name: Run linter
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:0.5-python3.11-bookworm-slim
+    steps:
+      - uses: actions/checkout@v3
+      - run: uv pip install --system .
+      - run: uv pip install --system --editable .[dev]
       - name: Run linter
         run: uv run ruff check
-        
 
+  tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:0.5-python3.11-bookworm-slim
+    steps:
+      - uses: actions/checkout@v3
+      - run: uv pip install --system .
+      - run: uv pip install --system --editable .[dev]
       - name: Run tests
         run: uv run pytest
 
+  docs:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:0.5-python3.11-bookworm-slim
+    steps:
+      - uses: actions/checkout@v3
+      - run: uv pip install --system .
+      - run: uv pip install --system --editable .[dev]
       - name: Build documentation
         run: uv run pdoc --html -o docs/ src/stem_volumes
