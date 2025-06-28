@@ -6,9 +6,9 @@ import os
 import pstats
 import sys
 import time
+from concurrent.futures import ProcessPoolExecutor
 from functools import lru_cache
 from inspect import signature
-from concurrent.futures import ProcessPoolExecutor
 
 import numpy as np
 import pandas as pd
@@ -157,6 +157,7 @@ def _apply_formula_cached(
     except Exception:
         return pd.NA
 
+
 def compute_volume_for_row(args):
     """Apply a stem volume formula to a single row of input data.
 
@@ -178,7 +179,23 @@ def compute_volume_for_row(args):
     )
     return i, val
 
-def process_chunk(start, end, diameter, height, allowed_formula_lists, all_formulas):
+
+def process_chunk(
+    start, end, diameter, height, allowed_formula_lists, all_formulas
+):
+    """Process a chunk of input data in parallel.
+
+    Args:
+        start: The start index of the chunk in the original DataFrame.
+        end: The end index of the chunk in the original DataFrame.
+        diameter: The diameters of the trees in the chunk as a numpy array.
+        height: The heights of the trees in the chunk as a numpy array.
+        allowed_formula_lists: A list of allowed formula lists for each row in the chunk.
+        all_formulas: A dictionary of all formula metadata.
+
+    Returns:
+        A pandas DataFrame containing the computed stem volumes for the given chunk.
+    """
     chunk_results = []
     for i in range(end - start):
         row_result = {}
@@ -198,9 +215,10 @@ def process_chunk(start, end, diameter, height, allowed_formula_lists, all_formu
                 vol_unit,
                 params,
             )
-            row_result[f"{func_name} [m3]"] = val
+            row_result[f'{func_name} [m3]'] = val
         chunk_results.append(row_result)
     return pd.DataFrame(chunk_results, index=range(start, end))
+
 
 def _process_chunk_wrapper(args):
     return process_chunk(*args)
@@ -213,60 +231,80 @@ ALL_FORMULAS = {
 }
 
 
-def calculate_stem_volumes(df: pd.DataFrame, num_workers: int = None) -> pd.DataFrame:
-    """Calculate stem volumes for given trees in a CSV file.
+def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate stem volumes for a given DataFrame using formulas from a publication.
 
-    Parameters:
-        df: A DataFrame containing the following columns
-            - species: The species of the tree (string)
-            - diameter at breast height [mm]: The diameter of the tree at breast height (float)
-            - height [dm]: The height of the tree (float)
+    Args:
+        df (pd.DataFrame): Input DataFrame containing the following columns:
+            - diameter at breast height [mm]
+            - height [dm]
+            - species
 
     Returns:
-        A DataFrame with the same columns as the input, plus the calculated stem volumes
-        for each tree, with column names ending in "[m3]"
+        pd.DataFrame: Input DataFrame with additional columns for each
+            species-specific formula, containing the computed stem volumes in m3.
     """
     df = df.copy()
+    diameter_col = 'diameter at breast height [mm]'
+    height_col = 'height [dm]'
+    species_col = 'species'
 
-    # Use precomputed metadata
-    all_formulas = ALL_FORMULAS
-    formula_names = list(all_formulas.keys())
+    df[species_col] = df[species_col].str.lower().fillna('')
 
-    diameter = df['diameter at breast height [mm]'].to_numpy()
-    height = df['height [dm]'].to_numpy()
-    species = df['species'].str.lower().fillna("").tolist()
+    volume_results = {}
 
-    # Prepare allowed formulas per row
-    allowed_formula_lists = [
-        [f if f.startswith("stem_volume_formula_") else f"stem_volume_formula_{f}" for f in species_to_formulas.get(sp, [])]
-        for sp in species
-    ]
+    for species_name, group_df in df.groupby(species_col):
+        allowed_formulas = species_to_formulas.get(species_name, [])
+        if not allowed_formulas:
+            continue
 
-    # Split data into chunks
-    chunk_size = 10_000
-    indices = list(range(0, len(df), chunk_size))
-    tasks = [
-    (
-        0,                          # start index in the sliced chunk
-        end - start,               # end index in the sliced chunk
-        diameter[start:end],       # sliced diameter
-        height[start:end],         # sliced height
-        allowed_formula_lists[start:end],  # sliced allowed formulas
-        all_formulas
-    )
-    for start in indices
-    for end in [min(start + chunk_size, len(df))]
-]
+        d = group_df[diameter_col].to_numpy()
+        h = group_df[height_col].to_numpy()
 
+        for func_name in allowed_formulas:
+            if func_name not in ALL_FORMULAS:
+                continue
+            params, param_units, vol_unit = ALL_FORMULAS[func_name]
 
+            # Unit conversion (robust to parameter order)
+            d_conv = (
+                get_conversion_factor('mm', param_units[params.index('D')])
+                if 'D' in params
+                else None
+            )
+            h_conv = (
+                get_conversion_factor('dm', param_units[params.index('H')])
+                if 'H' in params
+                else None
+            )
 
-    with ProcessPoolExecutor(max_workers=num_workers) as executor:
-        result_dfs = list(executor.map(_process_chunk_wrapper, tasks))
+            # Prepare arguments
+            args = []
+            if 'D' in params:
+                args.append(d * d_conv)
+            if 'H' in params:
+                args.append(h * h_conv)
 
+            func = getattr(stem_volumes.formulas, func_name)
 
-    results_df = pd.concat(result_dfs)
-    results_df.index = df.index
-    return pd.concat([df, results_df], axis=1)
+            try:
+                volumes = func(*args)  # NumPy-aware formula
+                volumes_m3 = convert_volume_to_m3(volumes, vol_unit)
+            except Exception:
+                volumes_m3 = np.full(len(group_df), pd.NA)
+
+            colname = f'{func_name} [m3]'
+            if colname not in volume_results:
+                volume_results[colname] = pd.Series(
+                    index=df.index, dtype='object'
+                )
+            volume_results[colname].loc[group_df.index] = volumes_m3
+
+    # Combine all new columns into a DataFrame and concatenate at once
+    results_df = pd.DataFrame(volume_results)
+    df = pd.concat([df, results_df], axis=1)
+
+    return df
 
 
 if __name__ == '__main__':

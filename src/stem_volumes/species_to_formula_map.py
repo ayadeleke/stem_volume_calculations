@@ -1,7 +1,4 @@
-"""This module contains a mapping of species names to their corresponding stem volume formula function names.
-
-This mapping is auto-generated from the genus to formula mapping and the genus species common names dictionary.
-"""
+"""This module contains a mapping of species names to their corresponding stem volume formula function names."""
 
 # Auto-generated mapping of species names to formula function names
 species_to_formulas = {
@@ -49,7 +46,7 @@ species_to_formulas = {
         'stem_volume_formula_39',
         'stem_volume_formula_54',
     ],
-    'betula pubescens var. glabrata': [
+    'betula pubescens + betula pubescens var. glabrata': [
         'stem_volume_formula_24',
         'stem_volume_formula_25',
         'stem_volume_formula_26',
@@ -542,7 +539,7 @@ species_to_formulas = {
         'stem_volume_formula_98',
         'stem_volume_formula_99',
     ],
-    'other conifers': [
+    'other coniferous trees': [
         'stem_volume_formula_100',
         'stem_volume_formula_101',
         'stem_volume_formula_102',
