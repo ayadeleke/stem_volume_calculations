@@ -57,11 +57,9 @@ def __orig_main():
     print(f'Calculating the volumes took {toc - tic:.6f} seconds')
     tic = toc
 
-    if 'genus_species' in df_calculated.columns:
-        df_calculated = df_calculated.drop(columns=['genus_species'])
-    df_calculated.to_csv(args.output_file, index=False)
+    df_calculated.to_feather(args.output_file.replace('.csv', '.feather'))
     toc = time.perf_counter()
-    print(f'Writing the CSV file took {toc - tic:.6f} seconds')
+    print(f'Writing the Feather file took {toc - tic:.6f} seconds')
 
     pr.disable()
     stats = pstats.Stats(pr)
@@ -302,6 +300,13 @@ def calculate_stem_volumes(df: pd.DataFrame) -> pd.DataFrame:
 
     # Combine all new columns into a DataFrame and concatenate at once
     results_df = pd.DataFrame(volume_results)
+    ordered_cols = [
+        f'stem_volume_formula_{i} [m3]'
+        for i in range(1, 231)
+        if f'stem_volume_formula_{i} [m3]' in results_df.columns
+    ]
+    results_df = results_df[ordered_cols]
+
     df = pd.concat([df, results_df], axis=1)
 
     return df

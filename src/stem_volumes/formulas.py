@@ -8,9 +8,11 @@ avaiable at https://jukuri.luke.fi/handle/10024/512732.
 
 # use ln and log as in the Zianis paper (see table caption in Appendix C on
 # page 52)
-from math import exp, pi
-from math import log as ln
-from math import log10 as log
+import numpy as np
+from numpy import exp, pi
+
+ln = np.log
+log = np.log10
 
 
 def stem_volume_formula_1(D, H):
