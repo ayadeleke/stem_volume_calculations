@@ -5,7 +5,6 @@ import inspect
 import os
 import re
 from collections import defaultdict
-from math import exp
 
 import docstring_parser
 import numpy as np
@@ -56,7 +55,7 @@ def convert_volume_to_m3(value, value_unit):
     assert value_unit in {'dm3', 'm3', 'ln(dm3)', 'ln(m3)'}
 
     if value_unit.startswith('ln('):
-        value = exp(value)
+        value = np.exp(value)
         value_unit = value_unit[3:-1]
 
     if value_unit == 'dm3':

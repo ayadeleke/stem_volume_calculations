@@ -1,7 +1,10 @@
-"""This file is auto-generated. Do not edit manually. It is generated from the genus to formula mapping and the genus species common name dictionary."""
+"""This module contains a mapping of species names to their corresponding stem volume formula function names.
 
-# Auto-generated mapping of common names to formula function names
-common_name_to_formulas = {
+This mapping is auto-generated from the genus to formula mapping and the genus species common names dictionary.
+"""
+
+# Auto-generated mapping of species names to formula function names
+species_to_formulas = {
     'balsam poplar': [
         'stem_volume_formula_179',
         'stem_volume_formula_180',
