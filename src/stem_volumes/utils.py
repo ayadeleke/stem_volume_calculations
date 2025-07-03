@@ -6,12 +6,13 @@ import importlib.util
 import inspect
 import os
 import re
-from collections import defaultdict
 from math import exp
 
 import docstring_parser
 import numpy as np
 import pandas as pd
+
+from stem_volumes.genus_dict import genus_species_common_dict
 
 
 # --- Changed: cache parsed docstrings to avoid repeated parsing for the same function ---
@@ -60,255 +61,49 @@ def clean_data(raw_df: pd.DataFrame):
     return df_filtered
 
 
-def get_genus_from_docstring(docstring: str) -> str:
-    """Extract genus from the docstring's species information."""
-    match = re.search(r'Species:\s*(\w+)', docstring)
-    if match:
-        return match.group(1)
-    return None
+def extract_species_from_docstring(docstring: str) -> str:
+    """Extracts the species name from a docstring by searching for the 'Species:' line.
+
+    Returns the species string or an empty string if not found.
+    """
+    if not docstring:
+        return ''
+    match = re.search(r'Species\s*:? ?([^\n]+)', docstring)
+    return match.group(1).strip() if match else ''
 
 
-# --- Changed: invert the genus_species_common_dict once for O(1) lookups ---
-def build_species_to_genus_map():
-    """Builds a mapping of species names to their corresponding genus names."""
-    genus_species_common_dict = {
-        'Abies': [
-            'Abies alba',
-            'Silver fir',
-            'Abies grandis',
-            'Grand fir',
-            'Abies sibirica',
-            'Fir',
-            'Abies spp.',
-            'Fir, Brad',
-        ],
-        'Picea': [
-            'Picea abies',
-            'Norway spruce',
-            'Picea sitchensis',
-            'Sitka spruce',
-            'Picea spp.',
-            'Other spruces',
-        ],
-        'Pinus': [
-            'Pinus sylvestris',
-            'Scots pine',
-            'Pinus mugo',
-            'Mountain pine',
-            'Pinus nigra',
-            'European black pine',
-            'Pinus cembra',
-            'Swiss stone pine',
-            'Pinus strobus',
-            'Eastern white pine',
-            'Pinus spp.',
-            'Other pines',
-        ],
-        'Pseudotsuga': ['Pseudotsuga menziesii', 'Douglas fir'],
-        'Larix': [
-            'Larix decidua',
-            'European larch',
-            'Larix kaempferi',
-            'Japanese larch',
-        ],
-        'Taxus': ['Taxus baccata', 'European yew'],
-        'Chamaecyparis': ['Chamaecyparis lawsoniana', 'Other coniferous trees'],
-        'Thuja': ['Thuja plicata', 'Other coniferous trees'],
-        'Tsuga': ['Tsuga heterophylla', 'Other coniferous trees'],
-        'Fagus': [
-            'Fagus sylvatica',
-            'Beech',
-            'Fagus spp.',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Quercus': [
-            'Quercus robur',
-            'English oak',
-            'Quercus petraea',
-            'Sessile oak',
-            'Quercus rubra',
-            'Northern red oak',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Fraxinus': [
-            'Fraxinus excelsior',
-            'Common ash',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Carpinus': [
-            'Carpinus betulus',
-            'Hornbeam',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Acer': [
-            'Acer pseudoplatanus',
-            'Sycamore maple',
-            'Acer platanoides',
-            'Norway maple',
-            'Acer campestre',
-            'Field maple',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Tilia': [
-            'Tilia cordata',
-            'Linden tree',
-            'Tilia spp.',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Robinia': [
-            'Robinia pseudoacacia',
-            'Black locust',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Ulmus': [
-            'Ulmus spp.',
-            'Elm, native species',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Castanea': [
-            'Castanea sativa',
-            'Chestnut',
-            'Castanea spp.',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Sorbus': [
-            'Sorbus domestica',
-            'Service tree',
-            'Sorbus spp.',
-            'Sorbus aria',
-            'Common whitebeam',
-            'Sorbus aucuparia',
-            'European rowan',
-            'Sorbus torminalis',
-            'Wild service tree',
-            'Misc. deciduous trees with long life expectancy',
-        ],
-        'Betula': [
-            'Betula pendula',
-            'Silver birch',
-            'Betula pubescens',
-            'Downy birch',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Alnus': [
-            'Alnus glutinosa',
-            'Black alder',
-            'Alnus incana',
-            'Grey alder',
-        ],
-        'Populus': [
-            'Populus tremula',
-            'Common aspen',
-            'Populus nigra',
-            'European black poplar',
-            'Populus × canescens',
-            'Grey poplar',
-            'Populus alba',
-            'Silver poplar',
-            'Populus balsamifera',
-            'Balsam poplar',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Salix': [
-            'Salix spp.',
-            'Willow',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Prunus': [
-            'Prunus padus',
-            'Bird cherry',
-            'Prunus avium',
-            'Wild cherry',
-            'Prunus serotina',
-            'Black cherry',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Malus': [
-            'Malus sylvestris',
-            'European crab apple',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Pyrus': [
-            'Pyrus pyraster',
-            'European wild pear',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-        'Corylus': [
-            'Corylus avellana',
-            'Hazel',
-            'Misc. deciduous trees with short life expectancy',
-        ],
-    }
-    species_to_genus = {}
-    for genus, species_list in genus_species_common_dict.items():
-        for species_name in species_list:
-            species_to_genus[species_name] = genus
-    return species_to_genus
-
-
-# Store the inverted dict once, for speed
-_species_to_genus_map = build_species_to_genus_map()
+def get_genus_row_map(genus_series):
+    """Returns a dict mapping genus to list of row indices in the DataFrame."""
+    genus_to_indices = {}
+    for idx, genus in genus_series.items():
+        if pd.isna(genus):
+            continue
+        genus_to_indices.setdefault(genus, []).append(idx)
+    return genus_to_indices
 
 
 def match_species_names(df: pd.DataFrame) -> list:
-    """Matches species names in the DataFrame to genus using an O(1) lookup."""
-    matched_keys = []
-    for name in df['species']:
-        genus = _species_to_genus_map.get(name)
-        matched_keys.append([genus] if genus else None)
-    return matched_keys
+    """Matches species names in the DataFrame column to genus_species_common_dict values.
 
-
-def match_genus_to_functions(genus_list: list, script_path: str) -> dict:
-    """Match genus names from a list to functions with corresponding docstrings in the given Python script."""
-    function_names = []
-    genus_values = []
-
-    # Ensure the absolute path to the script is used
-    script_path = os.path.abspath(script_path)
-
-    # Load the script as a module using importlib
-    module_name = os.path.splitext(os.path.basename(script_path))[0]
-
-    try:
-        # Import the script dynamically as a module
-        spec = importlib.util.spec_from_file_location(module_name, script_path)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-
-        # Extract functions from the dynamically loaded module
-        for name, obj in inspect.getmembers(module, inspect.isfunction):
-            # Get the docstring
-            docstring = inspect.getdoc(obj)
-            if docstring:
-                genus = get_genus_from_docstring(docstring)
-                if genus:
-                    function_names.append(name)
-                    genus_values.append(genus)
-
-    except Exception as e:
-        print(f'Error loading script: {e}')
-        return {}
-
-    # Apply boolean indexing to filter functions by genus in genus_list
-    function_dict = {}
-    for genus, name in zip(genus_values, function_names):
-        if genus in genus_list:
-            if genus not in function_dict:
-                function_dict[genus] = []
-            function_dict[genus].append(name)
-
-    return function_dict
-
-
-def get_genus_row_map(genus_column: pd.Series) -> dict[str, np.ndarray]:
-    """Builds a mapping of genus to the row indices where it occurs (even if in a list).
-
-    Useful for applying formulas by genus without using groupby.
+    Returns:
+    - list: A list of tuples (genus, species) for each row. If no match, (None, None).
     """
-    genus_map = defaultdict(list)
-    for i, genus_list in enumerate(genus_column):
-        if isinstance(genus_list, list):
-            for genus in genus_list:
-                genus_map[genus].append(i)
-    return {g: np.array(idxs) for g, idxs in genus_map.items()}
+    matched = []
+    lowercase_species_dict = {
+        genus: {s.lower() for s in data['species']}
+        for genus, data in genus_species_common_dict.items()
+    }
+
+    for name in df['species']:
+        lname = name.lower()
+        match = next(
+            (
+                (genus, name)
+                for genus, species_set in lowercase_species_dict.items()
+                if lname in species_set
+            ),
+            None,
+        )
+        matched.append(match if match else (None, None))
+
+    return matched
