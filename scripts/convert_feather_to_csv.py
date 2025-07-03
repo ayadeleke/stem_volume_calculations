@@ -3,7 +3,7 @@
 import pandas as pd
 
 # Input and output file paths
-feather_file = 'data/trees_sampled_out.feather'
+feather_file = 'data/volume_calculated.feather'
 csv_file = 'data/trees_norm.csv'
 
 # Read Feather file

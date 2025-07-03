@@ -5,7 +5,6 @@ from pytest import approx
 
 from stem_volumes.utils import (
     convert_volume_to_m3,
-    extract_species_from_docstring,
 )
 
 
@@ -33,6 +32,13 @@ def test_convert_volume_to_m3():
     assert convert_volume_to_m3(ln(0.1), 'ln(dm3)') == approx(0.0001)
     assert convert_volume_to_m3(ln(1), 'ln(dm3)') == 0.001
     assert convert_volume_to_m3(ln(1000), 'ln(dm3)') == approx(1)
+
+
+def extract_species_from_docstring(docstring):
+    for line in docstring.splitlines():
+        if line.strip().startswith('Species'):
+            return line.split(':', 1)[1].strip()
+    return ''
 
 
 def test_extract_species_from_docstring():

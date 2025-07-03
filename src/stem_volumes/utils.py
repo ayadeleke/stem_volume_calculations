@@ -1,22 +1,23 @@
 """Utility functions."""
 
-from math import exp
 import argparse
-import inspect
-import re
-import os
-import importlib.util
-import pandas as pd
-from collections import defaultdict
-import numpy as np
 import functools  # Added for caching
+import importlib.util
+import inspect
+import os
+import re
+from collections import defaultdict
+from math import exp
 
 import docstring_parser
+import numpy as np
+import pandas as pd
 
 
 # --- Changed: cache parsed docstrings to avoid repeated parsing for the same function ---
 @functools.lru_cache(maxsize=None)
 def parse_docstring_cached(f):
+    """Parses the docstring of the given function and caches the result."""
     return docstring_parser.parse(f.__doc__)
 
 
@@ -54,15 +55,14 @@ def clean_data(raw_df: pd.DataFrame):
     """Load and clean the dataset."""
     df_filtered = raw_df.copy()
     df_filtered.drop_duplicates(inplace=True)
-    df_filtered.ffill(inplace=True)
     df_filtered['species'] = df_filtered['species'].str.capitalize()
 
-    return df_filtered 
+    return df_filtered
 
 
 def get_genus_from_docstring(docstring: str) -> str:
     """Extract genus from the docstring's species information."""
-    match = re.search(r"Species:\s*(\w+)", docstring)
+    match = re.search(r'Species:\s*(\w+)', docstring)
     if match:
         return match.group(1)
     return None
@@ -70,39 +70,174 @@ def get_genus_from_docstring(docstring: str) -> str:
 
 # --- Changed: invert the genus_species_common_dict once for O(1) lookups ---
 def build_species_to_genus_map():
+    """Builds a mapping of species names to their corresponding genus names."""
     genus_species_common_dict = {
-
-        "Abies": ["Abies alba", "Silver fir", "Abies grandis", "Grand fir", "Abies sibirica", "Fir", "Abies spp.", "Fir, Brad"],
-        "Picea": ["Picea abies", "Norway spruce", "Picea sitchensis", "Sitka spruce", "Picea spp.", "Other spruces"],
-        "Pinus": ["Pinus sylvestris", "Scots pine", "Pinus mugo", "Mountain pine", "Pinus nigra", "European black pine",
-                  "Pinus cembra", "Swiss stone pine", "Pinus strobus", "Eastern white pine", "Pinus spp.", "Other pines"],
-        "Pseudotsuga": ["Pseudotsuga menziesii", "Douglas fir"],
-        "Larix": ["Larix decidua", "European larch", "Larix kaempferi", "Japanese larch"],
-        "Taxus": ["Taxus baccata", "European yew"],
-        "Chamaecyparis": ["Chamaecyparis lawsoniana", "Other coniferous trees"],
-        "Thuja": ["Thuja plicata", "Other coniferous trees"],
-        "Tsuga": ["Tsuga heterophylla", "Other coniferous trees"],
-        "Fagus": ["Fagus sylvatica", "Beech", "Fagus spp.", "Misc. deciduous trees with long life expectancy"],
-        "Quercus": ["Quercus robur", "English oak", "Quercus petraea", "Sessile oak", "Quercus rubra", "Northern red oak", "Misc. deciduous trees with long life expectancy"],
-        "Fraxinus": ["Fraxinus excelsior", "Common ash", "Misc. deciduous trees with long life expectancy"],
-        "Carpinus": ["Carpinus betulus", "Hornbeam", "Misc. deciduous trees with long life expectancy"],
-        "Acer": ["Acer pseudoplatanus", "Sycamore maple", "Acer platanoides", "Norway maple", "Acer campestre", "Field maple", "Misc. deciduous trees with long life expectancy"],
-        "Tilia": ["Tilia cordata", "Linden tree", "Tilia spp.", "Misc. deciduous trees with long life expectancy"],
-        "Robinia": ["Robinia pseudoacacia", "Black locust", "Misc. deciduous trees with short life expectancy"],
-        "Ulmus": ["Ulmus spp.", "Elm, native species", "Misc. deciduous trees with long life expectancy"],
-        "Castanea": ["Castanea sativa", "Chestnut", "Castanea spp.", "Misc. deciduous trees with long life expectancy"],
-        "Sorbus": ["Sorbus domestica", "Service tree", "Sorbus spp.", "Sorbus aria", "Common whitebeam",
-                "Sorbus aucuparia", "European rowan", "Sorbus torminalis", "Wild service tree", "Misc. deciduous trees with long life expectancy"],
-        "Betula": ["Betula pendula", "Silver birch", "Betula pubescens", "Downy birch", "Misc. deciduous trees with short life expectancy"],
-        "Alnus": ["Alnus glutinosa", "Black alder", "Alnus incana", "Grey alder"],
-        "Populus": ["Populus tremula", "Common aspen", "Populus nigra", "European black poplar",
-                    "Populus × canescens", "Grey poplar", "Populus alba", "Silver poplar",
-                    "Populus balsamifera", "Balsam poplar", "Misc. deciduous trees with short life expectancy"],
-        "Salix": ["Salix spp.", "Willow", "Misc. deciduous trees with short life expectancy"],
-        "Prunus": ["Prunus padus", "Bird cherry", "Prunus avium", "Wild cherry", "Prunus serotina", "Black cherry", "Misc. deciduous trees with short life expectancy"],
-        "Malus": ["Malus sylvestris", "European crab apple", "Misc. deciduous trees with short life expectancy"],
-        "Pyrus": ["Pyrus pyraster", "European wild pear", "Misc. deciduous trees with short life expectancy"],
-        "Corylus": ["Corylus avellana", "Hazel", "Misc. deciduous trees with short life expectancy"]
+        'Abies': [
+            'Abies alba',
+            'Silver fir',
+            'Abies grandis',
+            'Grand fir',
+            'Abies sibirica',
+            'Fir',
+            'Abies spp.',
+            'Fir, Brad',
+        ],
+        'Picea': [
+            'Picea abies',
+            'Norway spruce',
+            'Picea sitchensis',
+            'Sitka spruce',
+            'Picea spp.',
+            'Other spruces',
+        ],
+        'Pinus': [
+            'Pinus sylvestris',
+            'Scots pine',
+            'Pinus mugo',
+            'Mountain pine',
+            'Pinus nigra',
+            'European black pine',
+            'Pinus cembra',
+            'Swiss stone pine',
+            'Pinus strobus',
+            'Eastern white pine',
+            'Pinus spp.',
+            'Other pines',
+        ],
+        'Pseudotsuga': ['Pseudotsuga menziesii', 'Douglas fir'],
+        'Larix': [
+            'Larix decidua',
+            'European larch',
+            'Larix kaempferi',
+            'Japanese larch',
+        ],
+        'Taxus': ['Taxus baccata', 'European yew'],
+        'Chamaecyparis': ['Chamaecyparis lawsoniana', 'Other coniferous trees'],
+        'Thuja': ['Thuja plicata', 'Other coniferous trees'],
+        'Tsuga': ['Tsuga heterophylla', 'Other coniferous trees'],
+        'Fagus': [
+            'Fagus sylvatica',
+            'Beech',
+            'Fagus spp.',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Quercus': [
+            'Quercus robur',
+            'English oak',
+            'Quercus petraea',
+            'Sessile oak',
+            'Quercus rubra',
+            'Northern red oak',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Fraxinus': [
+            'Fraxinus excelsior',
+            'Common ash',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Carpinus': [
+            'Carpinus betulus',
+            'Hornbeam',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Acer': [
+            'Acer pseudoplatanus',
+            'Sycamore maple',
+            'Acer platanoides',
+            'Norway maple',
+            'Acer campestre',
+            'Field maple',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Tilia': [
+            'Tilia cordata',
+            'Linden tree',
+            'Tilia spp.',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Robinia': [
+            'Robinia pseudoacacia',
+            'Black locust',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Ulmus': [
+            'Ulmus spp.',
+            'Elm, native species',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Castanea': [
+            'Castanea sativa',
+            'Chestnut',
+            'Castanea spp.',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Sorbus': [
+            'Sorbus domestica',
+            'Service tree',
+            'Sorbus spp.',
+            'Sorbus aria',
+            'Common whitebeam',
+            'Sorbus aucuparia',
+            'European rowan',
+            'Sorbus torminalis',
+            'Wild service tree',
+            'Misc. deciduous trees with long life expectancy',
+        ],
+        'Betula': [
+            'Betula pendula',
+            'Silver birch',
+            'Betula pubescens',
+            'Downy birch',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Alnus': [
+            'Alnus glutinosa',
+            'Black alder',
+            'Alnus incana',
+            'Grey alder',
+        ],
+        'Populus': [
+            'Populus tremula',
+            'Common aspen',
+            'Populus nigra',
+            'European black poplar',
+            'Populus × canescens',
+            'Grey poplar',
+            'Populus alba',
+            'Silver poplar',
+            'Populus balsamifera',
+            'Balsam poplar',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Salix': [
+            'Salix spp.',
+            'Willow',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Prunus': [
+            'Prunus padus',
+            'Bird cherry',
+            'Prunus avium',
+            'Wild cherry',
+            'Prunus serotina',
+            'Black cherry',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Malus': [
+            'Malus sylvestris',
+            'European crab apple',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Pyrus': [
+            'Pyrus pyraster',
+            'European wild pear',
+            'Misc. deciduous trees with short life expectancy',
+        ],
+        'Corylus': [
+            'Corylus avellana',
+            'Hazel',
+            'Misc. deciduous trees with short life expectancy',
+        ],
     }
     species_to_genus = {}
     for genus, species_list in genus_species_common_dict.items():
@@ -110,8 +245,10 @@ def build_species_to_genus_map():
             species_to_genus[species_name] = genus
     return species_to_genus
 
+
 # Store the inverted dict once, for speed
 _species_to_genus_map = build_species_to_genus_map()
+
 
 def match_species_names(df: pd.DataFrame) -> list:
     """Matches species names in the DataFrame to genus using an O(1) lookup."""
@@ -150,7 +287,7 @@ def match_genus_to_functions(genus_list: list, script_path: str) -> dict:
                     genus_values.append(genus)
 
     except Exception as e:
-        print(f"Error loading script: {e}")
+        print(f'Error loading script: {e}')
         return {}
 
     # Apply boolean indexing to filter functions by genus in genus_list
@@ -165,8 +302,8 @@ def match_genus_to_functions(genus_list: list, script_path: str) -> dict:
 
 
 def get_genus_row_map(genus_column: pd.Series) -> dict[str, np.ndarray]:
-    """
-    Builds a mapping of genus to the row indices where it occurs (even if in a list).
+    """Builds a mapping of genus to the row indices where it occurs (even if in a list).
+
     Useful for applying formulas by genus without using groupby.
     """
     genus_map = defaultdict(list)
