@@ -59,7 +59,7 @@ def __orig_main():
 
     df_calculated.to_feather(args.output_file.replace('.csv', '.feather'))
     toc = time.perf_counter()
-    print(f'Writing the CSV file took {toc - tic:.6f} seconds')
+    print(f'Writing the file took {toc - tic:.6f} seconds')
 
     pr.disable()
     stats = pstats.Stats(pr)
