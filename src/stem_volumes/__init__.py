@@ -96,7 +96,7 @@ def parse_arguments():
     return parser.parse_args()
 
 
-@lru_cache(maxsize=None)
+# @lru_cache(maxsize=None)
 def get_formula_metadata(formula_no: int):
     """Returns metadata about a stem volume formula by its number.
 
@@ -119,7 +119,7 @@ def get_formula_metadata(formula_no: int):
     return func_name, func, params, param_units, vol_unit
 
 
-@lru_cache(maxsize=None)
+# @lru_cache(maxsize=None)
 def get_conversion_factor(from_unit: str, to_unit: str) -> float:
     """Returns the conversion factor to convert a measurement from one unit to another.
 
@@ -134,7 +134,7 @@ def get_conversion_factor(from_unit: str, to_unit: str) -> float:
     return unit_conversion_factors[from_unit] / unit_conversion_factors[to_unit]
 
 
-@lru_cache(maxsize=None)
+# @lru_cache(maxsize=None)
 def _apply_formula_cached(
     func_name,
     *,

@@ -12,3 +12,6 @@ df = pd.read_feather(feather_file)
 # Write to CSV
 df.to_csv(csv_file, index=False)
 print(f"Converted '{feather_file}' to '{csv_file}'")
+
+# To run this script, use:
+# python scripts/convert_feather_to_csv.py
