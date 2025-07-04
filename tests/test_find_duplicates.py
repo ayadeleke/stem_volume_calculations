@@ -1,6 +1,7 @@
-import pandas as pd
-import tempfile
 import os
+import tempfile
+
+import pandas as pd
 
 
 def test_find_duplicates_removes_only_duplicates(tmp_path):
@@ -14,7 +15,7 @@ def test_find_duplicates_removes_only_duplicates(tmp_path):
         {'species': 'D', 'diameter': 40, 'height': 20},
     ]
     df = pd.DataFrame(data)
-    csv_path = tmp_path / "test.csv"
+    csv_path = tmp_path / 'test.csv'
     df.to_csv(csv_path, index=False)
 
     # Simulate running find_duplicates.py logic
@@ -33,12 +34,15 @@ def test_find_duplicates_removes_only_duplicates(tmp_path):
     # Assert no unique rows are in dropped_rows
     assert not any(unique_rows.index.isin(dropped_rows.index))
     # Assert only duplicates are dropped (index match)
-    expected_dropped_indices = set(df_loaded.index[df_loaded.duplicated(keep='first')])
+    expected_dropped_indices = set(
+        df_loaded.index[df_loaded.duplicated(keep='first')]
+    )
     actual_dropped_indices = set(dropped_rows.index)
     assert expected_dropped_indices == actual_dropped_indices
 
     # Clean up (optional, handled by tmp_path)
     os.remove(csv_path)
+
 
 def test_find_duplicates_matches_clean_data(tmp_path):
     # Create a sample DataFrame with duplicates
@@ -50,7 +54,7 @@ def test_find_duplicates_matches_clean_data(tmp_path):
         {'species': 'C', 'diameter': 30, 'height': 15},
     ]
     df = pd.DataFrame(data)
-    csv_path = tmp_path / "test2.csv"
+    csv_path = tmp_path / 'test2.csv'
     df.to_csv(csv_path, index=False)
 
     # This simulates the logic from clean_data.py

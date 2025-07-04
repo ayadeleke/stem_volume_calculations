@@ -80,49 +80,49 @@ def clean_data(raw_df: pd.DataFrame):
     return df_filtered
 
 
-# def extract_species_from_docstring(docstring: str) -> str:
-#     """Extracts the species name from a docstring by searching for the 'Species:' line.
+def extract_species_from_docstring(docstring: str) -> str:
+    """Extracts the species name from a docstring by searching for the 'Species:' line.
 
-#     Returns the species string or an empty string if not found.
-#     """
-#     if not docstring:
-#         return ''
-#     match = re.search(r'Species\s*:? ?([^\n]+)', docstring)
-#     return match.group(1).strip() if match else ''
-
-
-# def get_genus_row_map(genus_series):
-#     """Returns a dict mapping genus to list of row indices in the DataFrame."""
-#     genus_to_indices = {}
-#     for idx, genus in genus_series.items():
-#         if pd.isna(genus):
-#             continue
-#         genus_to_indices.setdefault(genus, []).append(idx)
-#     return genus_to_indices
+    Returns the species string or an empty string if not found.
+    """
+    if not docstring:
+        return ''
+    match = re.search(r'Species\s*:? ?([^\n]+)', docstring)
+    return match.group(1).strip() if match else ''
 
 
-# def match_species_names(df: pd.DataFrame) -> list:
-#     """Matches species names in the DataFrame column to genus_species_common_dict values.
+def get_genus_row_map(genus_series):
+    """Returns a dict mapping genus to list of row indices in the DataFrame."""
+    genus_to_indices = {}
+    for idx, genus in genus_series.items():
+        if pd.isna(genus):
+            continue
+        genus_to_indices.setdefault(genus, []).append(idx)
+    return genus_to_indices
 
-#     Returns:
-#     - list: A list of tuples (genus, species) for each row. If no match, (None, None).
-#     """
-#     matched = []
-#     lowercase_species_dict = {
-#         genus: {s.lower() for s in data['species']}
-#         for genus, data in genus_species_common_dict.items()
-#     }
 
-#     for name in df['species']:
-#         lname = name.lower()
-#         match = next(
-#             (
-#                 (genus, name)
-#                 for genus, species_set in lowercase_species_dict.items()
-#                 if lname in species_set
-#             ),
-#             None,
-#         )
-#         matched.append(match if match else (None, None))
+def match_species_names(df: pd.DataFrame) -> list:
+    """Matches species names in the DataFrame column to genus_species_common_dict values.
 
-#     return matched
+    Returns:
+    - list: A list of tuples (genus, species) for each row. If no match, (None, None).
+    """
+    matched = []
+    lowercase_species_dict = {
+        genus: {s.lower() for s in data['species']}
+        for genus, data in genus_species_common_dict.items()
+    }
+
+    for name in df['species']:
+        lname = name.lower()
+        match = next(
+            (
+                (genus, name)
+                for genus, species_set in lowercase_species_dict.items()
+                if lname in species_set
+            ),
+            None,
+        )
+        matched.append(match if match else (None, None))
+
+    return matched
