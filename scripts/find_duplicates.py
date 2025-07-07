@@ -33,6 +33,9 @@ dup_indices = (
 # Count occurrences
 dup_indices['count'] = dup_indices['indices'].apply(len)
 
+# Adjust indices to match the actual row numbers in the CSV file (accounting for the header row)
+dup_indices['indices'] = dup_indices['indices'].apply(lambda idxs: [i + 2 for i in idxs])
+
 # Only keep rows that are true duplicates (appear more than once)
 dup_indices = dup_indices[dup_indices['count'] > 1]
 dup_indices = dup_indices.sort_values('count', ascending=False)
