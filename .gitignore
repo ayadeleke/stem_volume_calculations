@@ -16,3 +16,4 @@ uv.lock
 
 # init comparison files
 .zak
+.DS_Store

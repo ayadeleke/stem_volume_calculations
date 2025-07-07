@@ -228,10 +228,6 @@ def process_chunk(
     return pd.DataFrame(chunk_results, index=range(start, end))
 
 
-def _process_chunk_wrapper(args):
-    return process_chunk(*args)
-
-
 # Precompute all formula metadata at import time
 ALL_FORMULAS = {
     f'stem_volume_formula_{formula_no}': get_formula_metadata(formula_no)[2:]
