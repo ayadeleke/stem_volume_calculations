@@ -1,10 +1,12 @@
 """Utility functions."""
 
+import argparse
+import functools  # Added for caching
 import importlib.util
 import inspect
 import os
 import re
-from collections import defaultdict
+from math import exp
 
 import docstring_parser
 import numpy as np
@@ -13,46 +15,32 @@ import pandas as pd
 from stem_volumes.genus_dict import genus_species_common_dict
 
 
+# --- Changed: cache parsed docstrings to avoid repeated parsing for the same function ---
+@functools.lru_cache(maxsize=None)
+def parse_docstring_cached(f):
+    """Parses the docstring of the given function and caches the result."""
+    return docstring_parser.parse(f.__doc__)
+
+
 def extract_parameter_units(f):
-    """Extracts the parameter units from the docstring of the given stem volume formula.
-
-    Parameters:
-        f: function to extract units from
-
-    Returns:
-        a list of the extracted units as strings, i.e., the last word in the
-        description for each parameter
-    """
-    parsed_docstring = docstring_parser.parse(f.__doc__)
+    """Extracts the parameter units from the docstring of the given stem volume formula."""
+    # Use cached docstring parse
+    parsed_docstring = parse_docstring_cached(f)
     return [
         p.description.split('.')[0].split()[-1] for p in parsed_docstring.params
     ]
 
 
 def extract_volume_unit(f):
-    """Extracts the volume unit from the docstring of the given stem volume formula.
-
-    Parameters:
-        f: function to extract units from
-
-    Returns:
-        the last word in the description of Returns
-    """
-    parsed_docstring = docstring_parser.parse(f.__doc__)
+    """Extracts the volume unit from the docstring of the given stem volume formula."""
+    # Use cached docstring parse
+    parsed_docstring = parse_docstring_cached(f)
     return parsed_docstring.returns.description.split('.')[0].split()[-1]
 
 
 def convert_volume_to_m3(value, value_unit):
-    """Converts the given value with given value unit to m3.
-
-    Parameters:
-        value: representing the volume in the given unit
-        value_unit: unit of the value
-
-    Returns:
-        the converted volume in m3
-    """
-    assert value_unit in {'dm3', 'm3', 'ln(dm3)', 'ln(m3)'}
+    """Converts the given value with given value unit to m3."""
+    assert value_unit in set(['dm3', 'm3', 'ln(dm3)', 'ln(m3)'])
 
     if value_unit.startswith('ln('):
         value = np.exp(value)
@@ -65,18 +53,11 @@ def convert_volume_to_m3(value, value_unit):
 
 
 def clean_data(raw_df: pd.DataFrame):
-    """Load and clean the dataset.
-
-    Args:
-        raw_df (pd.DataFrame): Raw DataFrame to be cleaned.
-
-    Returns:
-        pd.DataFrame: Cleaned DataFrame.
-    """
+    """Load and clean the dataset."""
     df_filtered = raw_df.copy()
     df_filtered.drop_duplicates(inplace=True)
-    # df_filtered.ffill(inplace=True)
     df_filtered['species'] = df_filtered['species'].str.capitalize()
+
     return df_filtered
 
 
