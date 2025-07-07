@@ -4,7 +4,7 @@ import pandas as pd
 
 # Input and output file paths
 feather_file = 'data/volume_calculated.feather'
-csv_file = 'data/trees_norm.csv'
+csv_file = 'data/volume_calculated.csv'
 
 # Read Feather file
 df = pd.read_feather(feather_file)
