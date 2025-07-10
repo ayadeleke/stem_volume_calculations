@@ -39,5 +39,5 @@ To generate the documentation in the `docs/` folder, run
 
 # Project Presentation
 
-To access the project presentation on google slide [click here](https://docs.google.com/presentation/d/12G8acHsEpTn4so_iBB3TqyGmGT1Nl8vF-ltJ3kmRPAg/edit?usp=sharing).
-On the slide, you will see the different optimization levels and their corresponding commit ID.
+To access the project presentation on Google Slides [click here](https://docs.google.com/presentation/d/12G8acHsEpTn4so_iBB3TqyGmGT1Nl8vF-ltJ3kmRPAg/edit?usp=sharing).
+On the slide, you will see the different optimization levels and their corresponding commit IDs.
